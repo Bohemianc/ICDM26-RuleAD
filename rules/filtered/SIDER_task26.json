@@ -1,0 +1,830 @@
+{
+  "task_key": "SIDER_task26",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 433,
+  "n_input_rules": 56,
+  "n_kept": 41,
+  "n_rejected": 15,
+  "rejects": [
+    {
+      "index": 9,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 11,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 13,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 27,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0485"
+    },
+    {
+      "index": 28,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0162"
+    },
+    {
+      "index": 29,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0254"
+    },
+    {
+      "index": 34,
+      "name": "ring_count_desirability_window",
+      "reason": "fire_rate:0.0416"
+    },
+    {
+      "index": 35,
+      "name": "aromatic_rings_desirability_window",
+      "reason": "fire_rate:0.0115"
+    },
+    {
+      "index": 37,
+      "name": "heavy_atoms_desirability_window",
+      "reason": "fire_rate:0.0346"
+    },
+    {
+      "index": 38,
+      "name": "hetero_atoms_desirability_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 39,
+      "name": "num_heterocycles_desirability_window",
+      "reason": "fire_rate:0.0115"
+    },
+    {
+      "index": 40,
+      "name": "num_stereo_centers_desirability_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 42,
+      "name": "labute_asa_desirability_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 54,
+      "name": "num_bridgehead_atoms_desirability_window",
+      "reason": "fire_rate:0.0162"
+    },
+    {
+      "index": 55,
+      "name": "num_spiro_atoms_desirability_window",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with injury, poisoning, and procedural complications",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49884526558891457,
+        "fired": 216,
+        "n_train_normal": 433,
+        "threshold": 2.0782,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA range where adverse events peak, indicating higher risk of injury or poisoning",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18244803695150116,
+        "fired": 79,
+        "n_train_normal": 433,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased hydrogen bond donors correlate with higher toxicity and procedural complications",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30484988452655887,
+        "fired": 132,
+        "n_train_normal": 433,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "High hydrogen bond acceptor count linked to adverse effects via molecular interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.418013856812933,
+        "fired": 181,
+        "n_train_normal": 433,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Increased molecular weight associated with poor pharmacokinetics and higher toxicity risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49884526558891457,
+        "fired": 216,
+        "n_train_normal": 433,
+        "threshold": 328.481,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Greater ring count correlates with structural complexity and potential for off-target binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49884526558891457,
+        "fired": 216,
+        "n_train_normal": 433,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "High aromatic ring content increases reactivity and potential for metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38799076212471134,
+        "fired": 168,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Low sp3 character indicates higher planarity and reactivity, linked to toxicity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49884526558891457,
+        "fired": 216,
+        "n_train_normal": 433,
+        "threshold": 0.4375,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "High heavy atom count increases molecular complexity and potential for reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46882217090069284,
+        "fired": 203,
+        "n_train_normal": 433,
+        "threshold": 23.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Presence of multiple heterocyclic rings increases risk of metabolic activation and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27713625866050806,
+        "fired": 120,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Increased rotatable bonds correlate with poor bioavailability and off-target interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42494226327944573,
+        "fired": 184,
+        "n_train_normal": 433,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Primary amines are prone to metabolic oxidation and reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20323325635103925,
+        "fired": 88,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Secondary amines can form reactive nitroso species under metabolic conditions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2979214780600462,
+        "fired": 129,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Tertiary amines may undergo dealkylation and generate toxic metabolites",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2840646651270208,
+        "fired": 123,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Phenolic groups are metabolized to quinones, which are redox-active and cytotoxic",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11316397228637413,
+        "fired": 49,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Hydroxyl groups can be oxidized to reactive quinones or epoxides",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5127020785219399,
+        "fired": 222,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Carboxylic acids may undergo metabolic decarboxylation or form reactive intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16397228637413394,
+        "fired": 71,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Amide groups can undergo hydrolysis or metabolic cleavage to release toxic fragments",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.25635103926096997,
+        "fired": 111,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Ethers, especially aryl alkyl ethers, can be metabolized to reactive oxonium ions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.418013856812933,
+        "fired": 181,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Aryl halogen density indicates potential for metabolic activation to reactive intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16859122401847576,
+        "fired": 73,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High halogen content increases risk of reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2979214780600462,
+        "fired": 129,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Pyrimidine rings are metabolically labile and can form reactive species",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.053117782909930716,
+        "fired": 23,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Aromatic nitrogen-containing rings are prone to metabolic oxidation and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06697459584295612,
+        "fired": 29,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High aromatic ring density increases planarity and potential for off-target binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4896073903002309,
+        "fired": 212,
+        "n_train_normal": 433,
+        "threshold": 0.034482758620689655,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 100,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "TPSA in this range correlates with poor membrane permeability and off-target effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14087759815242495,
+        "fired": 61,
+        "n_train_normal": 433,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High HBD count in this range increases solubility but also metabolic vulnerability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08083140877598152,
+        "fired": 35,
+        "n_train_normal": 433,
+        "threshold": 7.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 8,
+      "b": 12,
+      "c": 16,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High HBA count in this range increases polarity and potential for reactive binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06466512702078522,
+        "fired": 28,
+        "n_train_normal": 433,
+        "threshold": 16.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 400,
+      "b": 500,
+      "c": 600,
+      "d": 700,
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Molecular weight above 500 is associated with poor pharmacokinetics and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11547344110854503,
+        "fired": 50,
+        "n_train_normal": 433,
+        "threshold": 600.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.3,
+      "c": 0.4,
+      "d": 0.5,
+      "direction": "lower",
+      "confidence": 0.62,
+      "description": "Low sp3 fraction indicates high planarity and reactivity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5681293302540416,
+        "fired": 246,
+        "n_train_normal": 433,
+        "threshold": 0.4,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 5,
+      "b": 7,
+      "c": 9,
+      "d": 11,
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "High rotatable bond count correlates with poor bioavailability and off-target effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16397228637413394,
+        "fired": 71,
+        "n_train_normal": 433,
+        "threshold": 9.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High primary amine density increases risk of metabolic oxidation and reactive species formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20323325635103925,
+        "fired": 88,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High secondary amine density increases risk of nitroso metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2979214780600462,
+        "fired": 129,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High tertiary amine density increases risk of dealkylation and toxic metabolite release",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2840646651270208,
+        "fired": 123,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High phenol density increases risk of quinone formation and redox cycling",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11316397228637413,
+        "fired": 49,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High hydroxyl density increases oxidation potential and reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49884526558891457,
+        "fired": 216,
+        "n_train_normal": 433,
+        "threshold": 0.014705882352941176,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High carboxylic acid density increases risk of metabolic decarboxylation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16397228637413394,
+        "fired": 71,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "High amide density increases risk of hydrolysis and release of toxic fragments",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.25635103926096997,
+        "fired": 111,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High ether density increases risk of metabolic cleavage to reactive oxonium ions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.418013856812933,
+        "fired": 181,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High pyrimidine density increases metabolic lability and toxicity risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.053117782909930716,
+        "fired": 23,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High aromatic nitrogen ring density increases metabolic oxidation risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06697459584295612,
+        "fired": 29,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "High aromatic ring density increases potential for off-target binding and metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4896073903002309,
+        "fired": 212,
+        "n_train_normal": 433,
+        "threshold": 0.034482758620689655,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task26__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:13.138474"
+}

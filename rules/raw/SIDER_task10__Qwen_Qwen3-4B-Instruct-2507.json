@@ -1,0 +1,500 @@
+{
+  "rules": [
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "High aromatic ring count associated with neoplasm-related adverse effects"
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.89,
+      "description": "Low sp3 character indicates increased planarity and potential for DNA intercalation"
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "High lipophilicity correlates with poor metabolic clearance and increased genotoxic potential"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 100,
+      "c": 150,
+      "d": 200,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "TPSA range associated with increased membrane permeability and DNA interaction"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "High molecular weight linked to complex interactions with DNA and chromatin"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Increased hydrogen bond donors may support DNA binding and genotoxicity"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High hydrogen bond acceptors support DNA intercalation and genotoxicity"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Multiple fused rings increase planarity and DNA intercalation potential"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Heterocyclic rings enhance DNA binding and genotoxicity"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High heavy atom count correlates with increased molecular complexity and DNA interaction"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Aromatic nitrogen-containing rings prone to N-hydroxylation and genotoxicity"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Pyrimidine motifs linked to mutagenic and carcinogenic activity"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Primary amines susceptible to N-hydroxylation and DNA adduct formation"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Secondary amines form reactive intermediates via oxidation"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Tertiary amines may undergo metabolic activation to form nitrenium ions"
+    },
+    {
+      "name": "nitroaromatic_count",
+      "type": "smarts_count",
+      "smarts": "[c][N+](=O)[O-]",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Nitroaromatics on planar cores are strong genotoxic and carcinogenic alerts"
+    },
+    {
+      "name": "nitrosamine_count",
+      "type": "smarts_count",
+      "smarts": "N(N=O)",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Nitrosamines are direct-acting carcinogens via alkylating metabolites"
+    },
+    {
+      "name": "alkyl_sulfonate_count",
+      "type": "smarts_count",
+      "smarts": "OS(=O)(=O)O",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Alkyl sulfonates act as alkylating agents with DNA-binding potential"
+    },
+    {
+      "name": "nitrogen_mustard_count",
+      "type": "smarts_count",
+      "smarts": "N(CCCl)(CCCl)",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Classic alkylating agent motif with high carcinogenic risk"
+    },
+    {
+      "name": "aziridine_count",
+      "type": "smarts_count",
+      "smarts": "C1CN1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Aziridines are strained rings that undergo ring-opening to form DNA adducts"
+    },
+    {
+      "name": "epoxide_count",
+      "type": "smarts_count",
+      "smarts": "C1OC1",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Epoxides are electrophilic and react with DNA nucleophiles"
+    },
+    {
+      "name": "aromatic_amine_count",
+      "type": "smarts_count",
+      "smarts": "Nc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Aromatic amines undergo N-hydroxylation to form DNA-reactive species"
+    },
+    {
+      "name": "acridine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccc(cc1)N",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Acridine-like planar polycyclic systems with high DNA intercalation potential"
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "High aromatic ring density increases planarity and DNA interaction"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Halogenated aromatics may form reactive metabolites or intercalate"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenols can be oxidized to quinones, which are redox-active and genotoxic"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Carboxylic acids may form reactive metabolites or influence solubility and distribution"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Amides may undergo hydrolysis or metabolic activation"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Ethers may be metabolized to oxo- or hydroxy-derivatives with genotoxic potential"
+    },
+    {
+      "name": "logp_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 7.0,
+      "d": 9.0,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "LogP in 3–9 range associated with poor clearance and DNA interaction"
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 60,
+      "b": 100,
+      "c": 140,
+      "d": 180,
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "TPSA in 60–180 range supports membrane permeability and DNA access"
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 8,
+      "b": 12,
+      "c": 16,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High HBA count supports DNA binding via hydrogen bonding"
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Moderate to high HBD count supports solubility and metabolic activation"
+    },
+    {
+      "name": "ring_count_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Polycyclic ring systems with ≥3 rings show strong intercalation potential"
+    },
+    {
+      "name": "num_heterocycles_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "num_heterocycles",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Heterocyclic rings enhance DNA binding and genotoxicity"
+    },
+    {
+      "name": "fraction_csp3_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.3,
+      "c": 0.4,
+      "d": 0.5,
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Low sp3 fraction indicates planar, rigid structures prone to DNA intercalation"
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 700,
+      "d": 900,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Molecular weight >300 linked to complex interactions with DNA"
+    },
+    {
+      "name": "aromatic_rings_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "High aromatic ring density increases DNA intercalation potential"
+    },
+    {
+      "name": "nitroaromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[c][N+](=O)[O-]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Nitroaromatics on planar cores are strong genotoxic alerts"
+    },
+    {
+      "name": "alkyl_sulfonate_ratio",
+      "type": "smarts_ratio",
+      "smarts": "OS(=O)(=O)O",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Alkyl sulfonates act as alkylating agents with DNA-binding potential"
+    },
+    {
+      "name": "nitrogen_mustard_ratio",
+      "type": "smarts_ratio",
+      "smarts": "N(CCCl)(CCCl)",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Classic alkylating agent with high carcinogenic risk"
+    },
+    {
+      "name": "aziridine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "C1CN1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Aziridines are strained and reactive toward DNA nucleophiles"
+    },
+    {
+      "name": "epoxide_ratio",
+      "type": "smarts_ratio",
+      "smarts": "C1OC1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Epoxides are electrophilic and react with DNA"
+    },
+    {
+      "name": "aromatic_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "Nc1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Aromatic amines form DNA-reactive metabolites via N-hydroxylation"
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Phenols can be oxidized to redox-active quinones"
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Carboxylic acids may form reactive metabolites"
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Amides may undergo hydrolysis or metabolic activation"
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Ethers may be metabolized to reactive species"
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Primary amines are metabolically activated to nitrenium ions"
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Secondary amines form reactive intermediates via oxidation"
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Tertiary amines may form reactive metabolites"
+    },
+    {
+      "name": "nitrosamine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "N(N=O)",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Nitrosamines are direct-acting carcinogens"
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Pyrimidine rings are mutagenic and carcinogenic"
+    },
+    {
+      "name": "acridine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccc(cc1)N",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Acridine derivatives are strong DNA intercalators"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 10,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\": \"aromatic_rings_high\", \"type\": \"descriptor\", \"descriptor\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.92, \"description\": \"High aromatic ring count associated with neoplasm-related adverse effects\"},\n    {\"name\": \"fraction_csp3_low\", \"type\": \"descriptor\", \"descriptor\": \"fraction_csp3\", \"direction\": \"lower\", \"confidence\": 0.89, \"description\": \"Low sp3 character indicates increased planarity and potential for DNA intercalation\"},\n    {\"name\": \"logp_high\", \"type\": \"descriptor\", \"descriptor\": \"logp\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"High lipophilicity correlates with poor metabolic clearance and increased genotoxic potential\"},\n    {\"name\": \"tpsa_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 50, \"b\": 100, \"c\": 150, \"d\": 200, \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"TPSA range associated with increased membrane permeability and DNA interaction\"},\n    {\"name\": \"mol_wt_high\", \"type\": \"descriptor\", \"descriptor\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"High molecular weight linked to complex interactions with DNA and chromatin\"},\n    {\"name\": \"hbd_high\", \"type\": \"descriptor\", \"descriptor\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"Increased hydrogen bond donors may support DNA binding and genotoxicity\"},\n    {\"name\": \"hba_high\", \"type\": \"descriptor\", \"descriptor\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"High hydrogen bond acceptors support DNA intercalation and genotoxicity\"},\n    {\"name\": \"ring_count_high\", \"type\": \"descriptor\", \"descriptor\": \"ring_count\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"Multiple fused rings increase planarity and DNA intercalation potential\"},\n    {\"name\": \"num_heterocycles_high\", \"type\": \"descriptor\", \"descriptor\": \"num_heterocycles\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Heterocyclic rings enhance DNA binding and genotoxicity\"},\n    {\"name\": \"heavy_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"High heavy atom count correlates with increased molecular complexity and DNA interaction\"},\n    {\"name\": \"aromatic_n_ring_count\", \"type\": \"smarts_count\", \"smarts\": \"c1ccncc1\", \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"Aromatic nitrogen-containing rings prone to N-hydroxylation and genotoxicity\"},\n    {\"name\": \"pyrimidine_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cncnc1\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Pyrimidine motifs linked to mutagenic and carcinogenic activity\"},\n    {\"name\": \"primary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Primary amines susceptible to N-hydroxylation and DNA adduct formation\"},\n    {\"name\": \"secondary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"Secondary amines form reactive intermediates via oxidation\"},\n    {\"name\": \"tertiary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Tertiary amines may undergo metabolic activation to form nitrenium ions\"},\n    {\"name\": \"nitroaromatic_count\", \"type\": \"smarts_count\", \"smarts\": \"[c][N+](=O)[O-]\", \"direction\": \"higher\", \"confidence\": 0.91, \"description\": \"Nitroaromatics on planar cores are strong genotoxic and carcinogenic alerts\"},\n    {\"name\": \"nitrosamine_count\", \"type\": \"smarts_count\", \"smarts\": \"N(N=O)\", \"direction\": \"higher\", \"confidence\": 0.89, \"description\": \"Nitrosamines are direct-acting carcinogens via alkylating metabolites\"},\n    {\"name\": \"alkyl_sulfonate_count\", \"type\": \"smarts_count\", \"smarts\": \"OS(=O)(=O)O\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Alkyl sulfonates act as alkylating agents with DNA-binding potential\"},\n    {\"name\": \"nitrogen_mustard_count\", \"type\": \"smarts_count\", \"smarts\": \"N(CCCl)(CCCl)\", \"direction\": \"higher\", \"confidence\": 0.90, \"description\": \"Classic alkylating agent motif with high carcinogenic risk\"},\n    {\"name\": \"aziridine_count\", \"type\": \"smarts_count\", \"smarts\": \"C1CN1\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Aziridines are strained rings that undergo ring-opening to form DNA adducts\"},\n    {\"name\": \"epoxide_count\", \"type\": \"smarts_count\", \"smarts\": \"C1OC1\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Epoxides are electrophilic and react with DNA nucleophiles\"},\n    {\"name\": \"aromatic_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"Nc1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"Aromatic amines undergo N-hydroxylation to form DNA-reactive species\"},\n    {\"name\": \"acridine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccc(cc1)N\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"Acridine-like planar polycyclic systems with high DNA intercalation potential\"},\n    {\"name\": \"anthracene_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccc(cc1)cc1ccc(c1)cc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Anthracene-based planar intercalators with strong DNA binding\"},\n    {\"name\": \"phenanthrene_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccc(cc1)cc1ccc(c1)cc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Phenanthrene derivatives act as DNA intercalators\"},\n    {\"name\": \"aromatic_ring_any_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"High aromatic ring density increases planarity and DNA interaction\"},\n    {\"name\": \"halogen_any_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[F,Cl,Br,I]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Halogenated aromatics may form reactive metabolites or intercalate\"},\n    {\"name\": \"phenol_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2H1]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"Phenols can be oxidized to quinones, which are redox-active and genotoxic\"},\n    {\"name\": \"carboxylic_acid_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Carboxylic acids may form reactive metabolites or influence solubility and distribution\"},\n    {\"name\": \"amide_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[NX3]\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Amides may undergo hydrolysis or metabolic activation\"},\n    {\"name\": \"ether_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[OD2]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Ethers may be metabolized to oxo- or hydroxy-derivatives with genotoxic potential\"},\n    {\"name\": \"logp_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"logp\", \"a\": 3.0, \"b\": 5.0, \"c\": 7.0, \"d\": 9.0, \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"LogP in 3–9 range associated with poor clearance and DNA interaction\"},\n    {\"name\": \"tpsa_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 60, \"b\": 100, \"c\": 140, \"d\": 180, \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"TPSA in 60–180 range supports membrane permeability and DNA access\"},\n    {\"name\": \"hba_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"hba\", \"a\": 8, \"b\": 12, \"c\": 16, \"d\": 20, \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"High HBA count supports DNA binding via hydrogen bonding\"},\n    {\"name\": \"hbd_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"hbd\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Moderate to high HBD count supports solubility and metabolic activation\"},\n    {\"name\": \"ring_count_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"ring_count\", \"a\": 3, \"b\": 5, \"c\": 7, \"d\": 9, \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Polycyclic ring systems with ≥3 rings show strong intercalation potential\"},\n    {\"name\": \"num_heterocycles_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"num_heterocycles\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Heterocyclic rings enhance DNA binding and genotoxicity\"},\n    {\"name\": \"fraction_csp3_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"fraction_csp3\", \"a\": 0.2, \"b\": 0.3, \"c\": 0.4, \"d\": 0.5, \"direction\": \"lower\", \"confidence\": 0.85, \"description\": \"Low sp3 fraction indicates planar, rigid structures prone to DNA intercalation\"},\n    {\"name\": \"mol_wt_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"mol_wt\", \"a\": 300, \"b\": 500, \"c\": 700, \"d\": 900, \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Molecular weight >300 linked to complex interactions with DNA\"},\n    {\"name\": \"aromatic_rings_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"High aromatic ring density increases DNA intercalation potential\"},\n    {\"name\": \"nitroaromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[c][N+](=O)[O-]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.90, \"description\": \"Nitroaromatics on planar cores are strong genotoxic alerts\"},\n    {\"name\": \"alkyl_sulfonate_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"OS(=O)(=O)O\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Alkyl sulfonates act as alkylating agents with DNA-binding potential\"},\n    {\"name\": \"nitrogen_mustard_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"N(CCCl)(CCCl)\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.89, \"description\": \"Classic alkylating agent with high carcinogenic risk\"},\n    {\"name\": \"aziridine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"C1CN1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Aziridines are strained and reactive toward DNA nucleophiles\"},\n    {\"name\": \"epoxide_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"C1OC1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Epoxides are electrophilic and react with DNA\"},\n    {\"name\": \"aromatic_amine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"Nc1ccccc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"Aromatic amines form DNA-reactive metabolites via N-hydroxylation\"},\n    {\"name\": \"phenol_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OX2H1]c1ccccc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"Phenols can be oxidized to redox-active quinones\"},\n    {\"name\": \"carboxylic_acid_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Carboxylic acids may form reactive metabolites\"},\n    {\"name\": \"amide_group_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[CX3](=O)[NX3]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Amides may undergo hydrolysis or metabolic activation\"},\n    {\"name\": \"ether_group_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OD2]([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Ethers may be metabolized to reactive species\"},\n    {\"name\": \"primary_amine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3;H2][#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Primary amines are metabolically activated to nitrenium ions\"},\n    {\"name\": \"secondary_amine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Secondary amines form reactive intermediates via oxidation\"},\n    {\"name\": \"tertiary_amine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"Tertiary amines may form reactive metabolites\"},\n    {\"name\": \"nitrosamine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"N(N=O)\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"Nitrosamines are direct-acting carcinogens\"},\n    {\"name\": \"pyrimidine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1cncnc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Pyrimidine rings are mutagenic and carcinogenic\"},\n    {\"name\": \"acridine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccc(cc1)N\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Acridine derivatives are strong DNA intercalators\"},\n    {\"name\": \"anthracene_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccc(cc1)cc1ccc(c1)cc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Anthracene-based intercalators bind DNA tightly\"},\n    {\"name\": \"phenanthrene_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccc(cc1)cc1ccc(c1)cc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Phenanthrene derivatives intercalate into DNA\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

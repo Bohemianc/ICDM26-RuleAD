@@ -1,0 +1,432 @@
+{
+  "rules": [
+    {
+      "name": "michael_acceptor_count",
+      "type": "smarts_count",
+      "smarts": "C=CC(=O)",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Presence of α,β-unsaturated carbonyl (Michael acceptor) substructure"
+    },
+    {
+      "name": "maleimide_count",
+      "type": "smarts_count",
+      "smarts": "C1C(=O)N(*)C(=O)C1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of maleimide ring structure, a known cysteine-reactive electrophile"
+    },
+    {
+      "name": "isothiocyanate_count",
+      "type": "smarts_count",
+      "smarts": "N=C=S",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Presence of isothiocyanate group, reactive toward cysteine thiols"
+    },
+    {
+      "name": "dithiocarbamate_count",
+      "type": "smarts_count",
+      "smarts": "N(*)C(=S)S*",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Presence of dithiocarbamate motif, a soft thiol-chelating electrophile"
+    },
+    {
+      "name": "quinone_count",
+      "type": "smarts_count",
+      "smarts": "O=C1C=CC(=O)C=C1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Presence of para-quinone structure, capable of redox cycling and cysteine alkylation"
+    },
+    {
+      "name": "halo_heteroaromatic_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of halogenated aromatic ring, capable of SNAr reaction with cysteine"
+    },
+    {
+      "name": "sulfur_electrophile_ratio",
+      "type": "smarts_ratio",
+      "smarts": "N(*)C(=S)S*",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Ratio of dithiocarbamate to total heavy atoms, indicating thiol-reactive potential"
+    },
+    {
+      "name": "michael_acceptor_ratio",
+      "type": "smarts_ratio",
+      "smarts": "C=CC(=O)",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Density of Michael acceptors relative to aromatic rings, indicating electrophilic stress potential"
+    },
+    {
+      "name": "heavy_metal_presence",
+      "type": "element_fraction",
+      "element": "As",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Fraction of molecule mass from arsenic, a known soft metal coordinator"
+    },
+    {
+      "name": "heavy_metal_presence_hg",
+      "type": "element_fraction",
+      "element": "Hg",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "Fraction of molecule mass from mercury, a strong thiol-chelating agent"
+    },
+    {
+      "name": "cysteine_reactive_sulfur_ratio",
+      "type": "smarts_ratio",
+      "smarts": "N(*)C(=S)S*",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Proportion of sulfur in thiol-reactive motifs relative to total atoms"
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Higher lipophilicity correlates with better cell membrane penetration and access to intracellular cysteines"
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.79,
+      "description": "Low TPSA suggests better membrane permeability, enabling access to intracellular targets like cysteine residues"
+    },
+    {
+      "name": "molecular_weight_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Higher molecular weight may correlate with increased complexity and potential for covalent binding"
+    },
+    {
+      "name": "sp3_fraction_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Low fraction of sp3 carbons suggests more planar, electrophilic, and reactive structures"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "High aromatic ring count supports conjugation and stability of electrophilic moieties"
+    },
+    {
+      "name": "hbd_low",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Low hydrogen bond donor count reduces solubility and may favor passive diffusion to target sites"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High hydrogen bond acceptor count may support interaction with cysteine thiolate"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Increased rotatable bonds may allow conformational flexibility to reach cysteine residues"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Higher ring count may stabilize reactive intermediates or enhance electrophilicity"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Stereochemistry may influence reactivity and binding orientation to cysteine"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Heterocycles often contain sulfur or nitrogen, key for thiol coordination"
+    },
+    {
+      "name": "formal_charge_abs_high",
+      "type": "descriptor",
+      "descriptor": "formal_charge_abs",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Presence of formal charges may stabilize electrophilic intermediates"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High heavy atom count supports coordination to soft metals or sulfur"
+    },
+    {
+      "name": "amine_count_high",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Primary amine count may influence reactivity or solubility in cysteine environments"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Secondary amine presence may contribute to basicity and interaction with thiols"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Tertiary amines may act as proton shuttles or influence local pH near cysteine"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Phenol groups may participate in redox cycling or hydrogen bonding with cysteine"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Carboxylic acids may influence solubility or act as competing nucleophiles"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Amide groups may stabilize conformations or act as hydrogen bond donors"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Ether groups may influence polarity and solubility"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogen presence may enable SNAr reactions with cysteine thiols"
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Aromatic ring density relative to total atoms, indicating conjugated electrophilic systems"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Pyrimidine ring presence, known for sulfur or nitrogen coordination"
+    },
+    {
+      "name": "logp_desirability",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2.0,
+      "b": 4.0,
+      "c": 6.0,
+      "d": 8.0,
+      "direction": "higher",
+      "confidence": 0.52,
+      "description": "LogP in a window associated with good membrane permeability and intracellular access"
+    },
+    {
+      "name": "tpsa_desirability",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 20,
+      "b": 50,
+      "c": 80,
+      "d": 120,
+      "direction": "lower",
+      "confidence": 0.51,
+      "description": "TPSA in a range favoring permeability and access to intracellular cysteines"
+    },
+    {
+      "name": "sp3_fraction_desirability",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "lower",
+      "confidence": 0.5,
+      "description": "sp3 fraction in a range associated with planar, electrophilic structures"
+    },
+    {
+      "name": "hbd_desirability",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 0,
+      "b": 1,
+      "c": 2,
+      "d": 3,
+      "direction": "lower",
+      "confidence": 0.49,
+      "description": "Low hydrogen bond donor count favors passive diffusion"
+    },
+    {
+      "name": "hba_desirability",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 3,
+      "b": 6,
+      "c": 9,
+      "d": 12,
+      "direction": "higher",
+      "confidence": 0.48,
+      "description": "HBA count in a range supporting interaction with cysteine thiolate"
+    },
+    {
+      "name": "rot_bonds_desirability",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 3,
+      "b": 6,
+      "c": 9,
+      "d": 12,
+      "direction": "higher",
+      "confidence": 0.47,
+      "description": "Rotatable bonds in a range supporting conformational flexibility"
+    },
+    {
+      "name": "ring_count_desirability",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.46,
+      "description": "Ring count in a range associated with conjugated electrophilic systems"
+    },
+    {
+      "name": "num_stereo_centers_desirability",
+      "type": "desirability_window",
+      "descriptor": "num_stereo_centers",
+      "a": 1,
+      "b": 3,
+      "c": 5,
+      "d": 7,
+      "direction": "higher",
+      "confidence": 0.45,
+      "description": "Stereo centers in a range that may influence binding orientation"
+    },
+    {
+      "name": "num_heterocycles_desirability",
+      "type": "desirability_window",
+      "descriptor": "num_heterocycles",
+      "a": 1,
+      "b": 3,
+      "c": 5,
+      "d": 7,
+      "direction": "higher",
+      "confidence": 0.44,
+      "description": "Heterocycle count in a range linked to sulfur or nitrogen coordination"
+    },
+    {
+      "name": "formal_charge_abs_desirability",
+      "type": "desirability_window",
+      "descriptor": "formal_charge_abs",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.43,
+      "description": "Formal charge in a range stabilizing electrophilic intermediates"
+    },
+    {
+      "name": "heavy_atoms_desirability",
+      "type": "desirability_window",
+      "descriptor": "heavy_atoms",
+      "a": 5,
+      "b": 10,
+      "c": 15,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.42,
+      "description": "Heavy atom count in a range supporting metal or sulfur coordination"
+    },
+    {
+      "name": "aromatic_ratio_desirability",
+      "type": "desirability_window",
+      "descriptor": "aromatic_rings",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.39,
+      "description": "Aromatic ring count in a range supporting conjugated electrophilic systems"
+    }
+  ],
+  "metadata": {
+    "dataset": "Tox21",
+    "task_idx": 9,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\": \"michael_acceptor_count\", \"type\": \"smarts_count\", \"smarts\": \"C=CC(=O)\", \"direction\": \"higher\", \"confidence\": 0.95, \"description\": \"Presence of α,β-unsaturated carbonyl (Michael acceptor) substructure\"},\n    {\"name\": \"maleimide_count\", \"type\": \"smarts_count\", \"smarts\": \"C1C(=O)N(*)C(=O)C1\", \"direction\": \"higher\", \"confidence\": 0.92, \"description\": \"Presence of maleimide ring structure, a known cysteine-reactive electrophile\"},\n    {\"name\": \"isothiocyanate_count\", \"type\": \"smarts_count\", \"smarts\": \"N=C=S\", \"direction\": \"higher\", \"confidence\": 0.90, \"description\": \"Presence of isothiocyanate group, reactive toward cysteine thiols\"},\n    {\"name\": \"dithiocarbamate_count\", \"type\": \"smarts_count\", \"smarts\": \"N(*)C(=S)S*\", \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"Presence of dithiocarbamate motif, a soft thiol-chelating electrophile\"},\n    {\"name\": \"quinone_count\", \"type\": \"smarts_count\", \"smarts\": \"O=C1C=CC(=O)C=C1\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"Presence of para-quinone structure, capable of redox cycling and cysteine alkylation\"},\n    {\"name\": \"halo_heteroaromatic_count\", \"type\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Presence of halogenated aromatic ring, capable of SNAr reaction with cysteine\"},\n    {\"name\": \"sulfur_electrophile_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"N(*)C(=S)S*\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.89, \"description\": \"Ratio of dithiocarbamate to total heavy atoms, indicating thiol-reactive potential\"},\n    {\"name\": \"michael_acceptor_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"C=CC(=O)\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"Density of Michael acceptors relative to aromatic rings, indicating electrophilic stress potential\"},\n    {\"name\": \"heavy_metal_presence\", \"type\": \"element_fraction\", \"element\": \"As\", \"direction\": \"higher\", \"confidence\": 0.91, \"description\": \"Fraction of molecule mass from arsenic, a known soft metal coordinator\"},\n    {\"name\": \"heavy_metal_presence_hg\", \"type\": \"element_fraction\", \"element\": \"Hg\", \"direction\": \"higher\", \"confidence\": 0.93, \"description\": \"Fraction of molecule mass from mercury, a strong thiol-chelating agent\"},\n    {\"name\": \"sulfur_atom_count\", \"type\": \"atom_count\", \"element\": \"S\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Total number of sulfur atoms, key for electrophilic and chelating motifs\"},\n    {\"name\": \"cysteine_reactive_sulfur_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"N(*)C(=S)S*\", \"normalizer\": \"atom_count\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Proportion of sulfur in thiol-reactive motifs relative to total atoms\"},\n    {\"name\": \"hetero_atoms_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hetero_atoms\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Ratio of heteroatoms to heavy atoms, indicating potential for thiol coordination\"},\n    {\"name\": \"logp_high\", \"type\": \"descriptor\", \"descriptor\": \"logp\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Higher lipophilicity correlates with better cell membrane penetration and access to intracellular cysteines\"},\n    {\"name\": \"tpsa_low\", \"type\": \"descriptor\", \"descriptor\": \"tpsa\", \"direction\": \"lower\", \"confidence\": 0.79, \"description\": \"Low TPSA suggests better membrane permeability, enabling access to intracellular targets like cysteine residues\"},\n    {\"name\": \"molecular_weight_high\", \"type\": \"descriptor\", \"descriptor\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Higher molecular weight may correlate with increased complexity and potential for covalent binding\"},\n    {\"name\": \"sp3_fraction_low\", \"type\": \"descriptor\", \"descriptor\": \"fraction_csp3\", \"direction\": \"lower\", \"confidence\": 0.77, \"description\": \"Low fraction of sp3 carbons suggests more planar, electrophilic, and reactive structures\"},\n    {\"name\": \"aromatic_rings_high\", \"type\": \"descriptor\", \"descriptor\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"High aromatic ring count supports conjugation and stability of electrophilic moieties\"},\n    {\"name\": \"hbd_low\", \"type\": \"descriptor\", \"descriptor\": \"hbd\", \"direction\": \"lower\", \"confidence\": 0.75, \"description\": \"Low hydrogen bond donor count reduces solubility and may favor passive diffusion to target sites\"},\n    {\"name\": \"hba_high\", \"type\": \"descriptor\", \"descriptor\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"High hydrogen bond acceptor count may support interaction with cysteine thiolate\"},\n    {\"name\": \"rot_bonds_high\", \"type\": \"descriptor\", \"descriptor\": \"rot_bonds\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Increased rotatable bonds may allow conformational flexibility to reach cysteine residues\"},\n    {\"name\": \"ring_count_high\", \"type\": \"descriptor\", \"descriptor\": \"ring_count\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Higher ring count may stabilize reactive intermediates or enhance electrophilicity\"},\n    {\"name\": \"num_stereo_centers_high\", \"type\": \"descriptor\", \"descriptor\": \"num_stereo_centers\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Stereochemistry may influence reactivity and binding orientation to cysteine\"},\n    {\"name\": \"num_heterocycles_high\", \"type\": \"descriptor\", \"descriptor\": \"num_heterocycles\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Heterocycles often contain sulfur or nitrogen, key for thiol coordination\"},\n    {\"name\": \"formal_charge_abs_high\", \"type\": \"descriptor\", \"descriptor\": \"formal_charge_abs\", \"direction\": \"higher\", \"confidence\": 0.69, \"description\": \"Presence of formal charges may stabilize electrophilic intermediates\"},\n    {\"name\": \"heavy_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"High heavy atom count supports coordination to soft metals or sulfur\"},\n    {\"name\": \"amine_count_high\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"direction\": \"higher\", \"confidence\": 0.67, \"description\": \"Primary amine count may influence reactivity or solubility in cysteine environments\"},\n    {\"name\": \"secondary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.66, \"description\": \"Secondary amine presence may contribute to basicity and interaction with thiols\"},\n    {\"name\": \"tertiary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"Tertiary amines may act as proton shuttles or influence local pH near cysteine\"},\n    {\"name\": \"phenol_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2H1]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.64, \"description\": \"Phenol groups may participate in redox cycling or hydrogen bonding with cysteine\"},\n    {\"name\": \"carboxylic_acid_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"direction\": \"higher\", \"confidence\": 0.63, \"description\": \"Carboxylic acids may influence solubility or act as competing nucleophiles\"},\n    {\"name\": \"amide_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[NX3]\", \"direction\": \"higher\", \"confidence\": 0.62, \"description\": \"Amide groups may stabilize conformations or act as hydrogen bond donors\"},\n    {\"name\": \"ether_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[OD2]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.61, \"description\": \"Ether groups may influence polarity and solubility\"},\n    {\"name\": \"halogen_any_count\", \"type\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]\", \"direction\": \"higher\", \"confidence\": 0.60, \"description\": \"Halogen presence may enable SNAr reactions with cysteine thiols\"},\n    {\"name\": \"aromatic_ring_any_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1\", \"normalizer\": \"atom_count\", \"direction\": \"higher\", \"confidence\": 0.59, \"description\": \"Aromatic ring density relative to total atoms, indicating conjugated electrophilic systems\"},\n    {\"name\": \"pyrimidine_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cncnc1\", \"direction\": \"higher\", \"confidence\": 0.58, \"description\": \"Pyrimidine ring presence, known for sulfur or nitrogen coordination\"},\n    {\"name\": \"sulfur_electrophile_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"sulfur_atom_count\", \"a\": 1, \"b\": 3, \"c\": 5, \"d\": 10, \"direction\": \"higher\", \"confidence\": 0.57, \"description\": \"Sulfur atom count in a range associated with cysteine-reactive electrophiles\"},\n    {\"name\": \"michael_acceptor_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"smarts_count\", \"smarts\": \"C=CC(=O)\", \"a\": 1, \"b\": 2, \"c\": 5, \"d\": 10, \"direction\": \"higher\", \"confidence\": 0.56, \"description\": \"Michael acceptor count in a window associated with proteotoxic stress\"},\n    {\"name\": \"quinone_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"smarts_count\", \"smarts\": \"O=C1C=CC(=O)C=C1\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 5, \"direction\": \"higher\", \"confidence\": 0.55, \"description\": \"Quinone count in a range linked to redox cycling and protein unfolding\"},\n    {\"name\": \"dithiocarbamate_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"smarts_count\", \"smarts\": \"N(*)C(=S)S*\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 5, \"direction\": \"higher\", \"confidence\": 0.54, \"description\": \"Dithiocarbamate count in a range associated with thiol chelation\"},\n    {\"name\": \"heavy_metal_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"element_fraction\", \"element\": \"Hg\", \"a\": 0.01, \"b\": 0.05, \"c\": 0.1, \"d\": 0.2, \"direction\": \"higher\", \"confidence\": 0.53, \"description\": \"Mercury fraction in a range indicating strong thiol reactivity\"},\n    {\"name\": \"logp_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"logp\", \"a\": 2.0, \"b\": 4.0, \"c\": 6.0, \"d\": 8.0, \"direction\": \"higher\", \"confidence\": 0.52, \"description\": \"LogP in a window associated with good membrane permeability and intracellular access\"},\n    {\"name\": \"tpsa_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 20, \"b\": 50, \"c\": 80, \"d\": 120, \"direction\": \"lower\", \"confidence\": 0.51, \"description\": \"TPSA in a range favoring permeability and access to intracellular cysteines\"},\n    {\"name\": \"sp3_fraction_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"fraction_csp3\", \"a\": 0.2, \"b\": 0.4, \"c\": 0.6, \"d\": 0.8, \"direction\": \"lower\", \"confidence\": 0.50, \"description\": \"sp3 fraction in a range associated with planar, electrophilic structures\"},\n    {\"name\": \"hbd_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"hbd\", \"a\": 0, \"b\": 1, \"c\": 2, \"d\": 3, \"direction\": \"lower\", \"confidence\": 0.49, \"description\": \"Low hydrogen bond donor count favors passive diffusion\"},\n    {\"name\": \"hba_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"hba\", \"a\": 3, \"b\": 6, \"c\": 9, \"d\": 12, \"direction\": \"higher\", \"confidence\": 0.48, \"description\": \"HBA count in a range supporting interaction with cysteine thiolate\"},\n    {\"name\": \"rot_bonds_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"rot_bonds\", \"a\": 3, \"b\": 6, \"c\": 9, \"d\": 12, \"direction\": \"higher\", \"confidence\": 0.47, \"description\": \"Rotatable bonds in a range supporting conformational flexibility\"},\n    {\"name\": \"ring_count_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"ring_count\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.46, \"description\": \"Ring count in a range associated with conjugated electrophilic systems\"},\n    {\"name\": \"num_stereo_centers_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"num_stereo_centers\", \"a\": 1, \"b\": 3, \"c\": 5, \"d\": 7, \"direction\": \"higher\", \"confidence\": 0.45, \"description\": \"Stereo centers in a range that may influence binding orientation\"},\n    {\"name\": \"num_heterocycles_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"num_heterocycles\", \"a\": 1, \"b\": 3, \"c\": 5, \"d\": 7, \"direction\": \"higher\", \"confidence\": 0.44, \"description\": \"Heterocycle count in a range linked to sulfur or nitrogen coordination\"},\n    {\"name\": \"formal_charge_abs_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"formal_charge_abs\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 4, \"direction\": \"higher\", \"confidence\": 0.43, \"description\": \"Formal charge in a range stabilizing electrophilic intermediates\"},\n    {\"name\": \"heavy_atoms_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"heavy_atoms\", \"a\": 5, \"b\": 10, \"c\": 15, \"d\": 20, \"direction\": \"higher\", \"confidence\": 0.42, \"description\": \"Heavy atom count in a range supporting metal or sulfur coordination\"},\n    {\"name\": \"amine_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 5, \"direction\": \"higher\", \"confidence\": 0.41, \"description\": \"Primary amine count in a range associated with reactivity or solubility\"},\n    {\"name\": \"halogen_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 5, \"direction\": \"higher\", \"confidence\": 0.40, \"description\": \"Halogen count in a range enabling SNAr with cysteine\"},\n    {\"name\": \"aromatic_ratio_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"aromatic_rings\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.39, \"description\": \"Aromatic ring count in a range supporting conjugated electrophilic systems\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

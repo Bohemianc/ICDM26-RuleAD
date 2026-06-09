@@ -1,0 +1,570 @@
+{
+  "task_key": "HIV_task0",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 35716,
+  "n_input_rules": 44,
+  "n_kept": 27,
+  "n_rejected": 17,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "benzimidazole_count",
+      "reason": "fire_rate:0.0100"
+    },
+    {
+      "index": 2,
+      "name": "diaryl_ether_count",
+      "reason": "fire_rate:0.0009"
+    },
+    {
+      "index": 3,
+      "name": "diamino_pyrimidine_count",
+      "reason": "fire_rate:0.0014"
+    },
+    {
+      "index": 4,
+      "name": "phosphonate_tail",
+      "reason": "fire_rate:0.0177"
+    },
+    {
+      "index": 5,
+      "name": "hydroxyethylamide_core",
+      "reason": "fire_rate:0.0006"
+    },
+    {
+      "index": 6,
+      "name": "sulfonamide_linker",
+      "reason": "fire_rate:0.0372"
+    },
+    {
+      "index": 7,
+      "name": "ketoacid_motif",
+      "reason": "fire_rate:0.0058"
+    },
+    {
+      "index": 8,
+      "name": "dihydropyridinone",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 9,
+      "name": "fluoro_benzyl_amide",
+      "reason": "fire_rate:0.0070"
+    },
+    {
+      "index": 10,
+      "name": "ortho_halogenated_aryl",
+      "reason": "fire_rate:0.0192"
+    },
+    {
+      "index": 29,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 32,
+      "name": "benzoxazole_count",
+      "reason": "fire_rate:0.0100"
+    },
+    {
+      "index": 35,
+      "name": "sulfonamide_to_aryl",
+      "reason": "fire_rate:0.0372"
+    },
+    {
+      "index": 36,
+      "name": "hydroxyethylene_core",
+      "reason": "fire_rate:0.0006"
+    },
+    {
+      "index": 37,
+      "name": "fluoro_benzyl_ratio",
+      "reason": "fire_rate:0.0070"
+    },
+    {
+      "index": 39,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0100"
+    },
+    {
+      "index": 41,
+      "name": "num_spiro_atoms",
+      "reason": "fire_rate:0.0473"
+    }
+  ],
+  "rules": [
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of pyrimidine core, common in NRTIs and NNRTIs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08872774106842872,
+        "fired": 3169,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Halogen density on heavy atoms, common in active chemotypes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2527158696382574,
+        "fired": 9026,
+        "n_train_normal": 35716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Moderate-to-high aromatic ring count (2\u20134) typical of active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31078508231604884,
+        "fired": 11100,
+        "n_train_normal": 35716,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_bond_count",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Amide linkers in peptidomimetic protease inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30412140217269573,
+        "fired": 10862,
+        "n_train_normal": 35716,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_count",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Higher hydrogen bond acceptor count in active inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49857206854071007,
+        "fired": 17807,
+        "n_train_normal": 35716,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_count",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Higher hydrogen bond donor count in polar inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38657744428267443,
+        "fired": 13807,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Higher lipophilicity typical of NNRTIs and PIs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 17858,
+        "n_train_normal": 35716,
+        "threshold": 2.9151500000000006,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Higher molecular weight typical of peptidomimetics and PIs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 17858,
+        "n_train_normal": 35716,
+        "threshold": 332.16700000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Increased ring count in fused heterocycles and scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.33699182439242914,
+        "fired": 12036,
+        "n_train_normal": 35716,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Tertiary amines in basic scaffolds like NNRTIs and PIs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2185575092395565,
+        "fired": 7806,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Secondary amines in heterocyclic inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.289338111770635,
+        "fired": 10334,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Primary amines in nucleoside analogs and entry inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09572740508455595,
+        "fired": 3419,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenol group in some NRTIs and entry inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07472841303617427,
+        "fired": 2669,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Carboxylic acid in some NRTIs and peptidomimetics",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06901668719901445,
+        "fired": 2465,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Ether linkages in sugar mimics and scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42902340687646995,
+        "fired": 15323,
+        "n_train_normal": 35716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Aromatic nitrogen-containing rings in heterocycles",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10759883525590772,
+        "fired": 3843,
+        "n_train_normal": 35716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "TPSA window associated with active inhibitors (moderate polarity)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15903236644641058,
+        "fired": 5680,
+        "n_train_normal": 35716,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Increased rotatable bonds in flexible peptidomimetics",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3828816216821593,
+        "fired": 13675,
+        "n_train_normal": 35716,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Multiple heterocyclic rings in active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3676783514391309,
+        "fired": 13132,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Presence of halogens on aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2527158696382574,
+        "fired": 9026,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Pyrimidine ring density in active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08872774106842872,
+        "fired": 3169,
+        "n_train_normal": 35716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "didehydro_dideoxy_motif",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "2',3'-didehydro/dideoxy motif in NRTIs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08872774106842872,
+        "fired": 3169,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "triazole_head",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Triazole head in CCR5 inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10759883525590772,
+        "fired": 3843,
+        "n_train_normal": 35716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Halogenation on aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15556053309441148,
+        "fired": 5556,
+        "n_train_normal": 35716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Bridgehead atoms in complex ring systems (e.g., tropanes)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0607010863478553,
+        "fired": 2168,
+        "n_train_normal": 35716,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amino_acid_like_hba",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "High HBA count in amide- and heterocycle-rich inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49857206854071007,
+        "fired": 17807,
+        "n_train_normal": 35716,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Aromatic ring density in active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48846455370142233,
+        "fired": 17446,
+        "n_train_normal": 35716,
+        "threshold": 0.05555555555555555,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/HIV__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:09.399130"
+}

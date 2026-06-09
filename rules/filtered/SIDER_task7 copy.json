@@ -1,0 +1,89 @@
+{
+  "task_key": "SIDER_task7",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1059,
+  "n_input_rules": 5,
+  "n_kept": 4,
+  "n_rejected": 1,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "michael_acceptor_count",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aromatic_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of primary aromatic amines, known to act as haptens in immune-mediated social behavioral toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2360717658168083,
+        "fired": 250,
+        "n_train_normal": 1059,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Phenols can undergo auto-oxidation to quinones, generating reactive species affecting dopaminergic pathways and social behavior",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11048158640226628,
+        "fired": 117,
+        "n_train_normal": 1059,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "High lipophilicity enables blood-brain barrier penetration, increasing risk of central nervous system-mediated social behavior changes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4995278564683664,
+        "fired": 529,
+        "n_train_normal": 1059,
+        "threshold": 2.1596199999999994,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Multiple aromatic rings increase planarity and membrane interaction, promoting accumulation in neural tissue and behavioral disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.45325779036827196,
+        "fired": 480,
+        "n_train_normal": 1059,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task7__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:10.745634"
+}

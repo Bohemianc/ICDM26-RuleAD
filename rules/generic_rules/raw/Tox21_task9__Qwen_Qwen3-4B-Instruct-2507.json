@@ -1,0 +1,463 @@
+{
+  "rules": [
+    {
+      "name": "logp_low",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "lower",
+      "confidence": 0.82,
+      "description": "Low lipophilicity to improve solubility"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Higher molecular weight for target binding affinity"
+    },
+    {
+      "name": "hbd_low",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Reduced hydrogen bond donors to enhance membrane permeability"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Increased hydrogen bond acceptors for target interaction"
+    },
+    {
+      "name": "aromatic_rings_low",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "lower",
+      "confidence": 0.78,
+      "description": "Fewer aromatic rings to reduce planarity and improve bioavailability"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased ring count for conformational rigidity and target fit"
+    },
+    {
+      "name": "rot_bonds_low",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.83,
+      "description": "Fewer rotatable bonds to improve oral bioavailability"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Presence of stereocenters for enantioselective binding"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Increased heterocyclic content for target interaction"
+    },
+    {
+      "name": "num_spiro_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Spiro centers for 3D structural diversity"
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Bridgehead atoms for structural complexity"
+    },
+    {
+      "name": "formal_charge_abs_low",
+      "type": "descriptor",
+      "descriptor": "formal_charge_abs",
+      "direction": "lower",
+      "confidence": 0.81,
+      "description": "Minimal formal charge to reduce electrostatic disruption"
+    },
+    {
+      "name": "labute_asa_high",
+      "type": "descriptor",
+      "descriptor": "labute_asa",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Higher surface area for solubility and interaction"
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.84,
+      "description": "Low TPSA for better membrane permeability"
+    },
+    {
+      "name": "tpsa_high",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "High TPSA for polar interactions with targets"
+    },
+    {
+      "name": "tpsa_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 100,
+      "c": 150,
+      "d": 200,
+      "direction": "two_sided",
+      "confidence": 0.7,
+      "description": "TPSA within a balanced range for optimal permeability and solubility"
+    },
+    {
+      "name": "logp_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 0,
+      "b": 3,
+      "c": 5,
+      "d": 7,
+      "direction": "two_sided",
+      "confidence": 0.8,
+      "description": "LogP within a favorable range for drug-likeness"
+    },
+    {
+      "name": "hbd_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 0,
+      "b": 2,
+      "c": 4,
+      "d": 6,
+      "direction": "two_sided",
+      "confidence": 0.77,
+      "description": "Hydrogen bond donor count within a biologically relevant range"
+    },
+    {
+      "name": "hba_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 15,
+      "c": 25,
+      "d": 35,
+      "direction": "two_sided",
+      "confidence": 0.73,
+      "description": "Hydrogen bond acceptor count within a typical range"
+    },
+    {
+      "name": "atom_count_high",
+      "type": "descriptor",
+      "descriptor": "atom_count",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Larger molecular size for target engagement"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Increased heavy atom count for molecular complexity"
+    },
+    {
+      "name": "hetero_atoms_high",
+      "type": "descriptor",
+      "descriptor": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Higher heteroatom content for polarity and interaction"
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of at least one benzene ring for aromatic stacking"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Presence of an aromatic nitrogen-containing ring"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Presence of a pyrimidine ring for hydrogen bonding"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Presence of a primary amine for protonation and solubility"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of a secondary amine for basicity and interaction"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of a tertiary amine for pKa modulation"
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Presence of hydroxyl groups for hydrogen bonding"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of phenolic OH for antioxidant or binding activity"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Presence of carboxylic acid for ionic interactions"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Presence of amide bond for stability and H-bonding"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Presence of ether linkage for polarity and stability"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Presence of halogen for lipophilic interactions"
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Aromatic ring density relative to molecular size"
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Primary amine density for basicity and solubility"
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Secondary amine density for interaction potential"
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Tertiary amine density for pKa and membrane permeability"
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Hydroxyl group density for hydrogen bonding"
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenol density for aromatic and polar interactions"
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Carboxylic acid density for ionic binding"
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Amide group density for stability and H-bonding"
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Ether group density for polarity and lipophilicity balance"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Halogen density for lipophilic and steric effects"
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Aromatic nitrogen ring density for H-bonding and polarity"
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Pyrimidine ring density for target interaction"
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased amide bonds for structural stability"
+    },
+    {
+      "name": "num_stereo_centers_low",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Fewer stereocenters to reduce synthetic complexity"
+    },
+    {
+      "name": "hbd_ratio_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 0,
+      "b": 2,
+      "c": 4,
+      "d": 6,
+      "direction": "two_sided",
+      "confidence": 0.75,
+      "description": "Hydrogen bond donor count within a biologically relevant range"
+    },
+    {
+      "name": "hba_ratio_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 15,
+      "c": 25,
+      "d": 35,
+      "direction": "two_sided",
+      "confidence": 0.7,
+      "description": "Hydrogen bond acceptor count within a typical range"
+    },
+    {
+      "name": "logp_ratio_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 0,
+      "b": 3,
+      "c": 5,
+      "d": 7,
+      "direction": "two_sided",
+      "confidence": 0.8,
+      "description": "LogP within a favorable range for drug-likeness"
+    }
+  ],
+  "metadata": {
+    "dataset": "Tox21",
+    "task_idx": 9,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\"rules\": [\n  {\"name\":\"logp_low\", \"type\":\"descriptor\", \"descriptor\":\"logp\", \"direction\":\"lower\", \"confidence\":0.82, \"description\":\"Low lipophilicity to improve solubility\"},\n  {\"name\":\"mol_wt_high\", \"type\":\"descriptor\", \"descriptor\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.75, \"description\":\"Higher molecular weight for target binding affinity\"},\n  {\"name\":\"hbd_low\", \"type\":\"descriptor\", \"descriptor\":\"hbd\", \"direction\":\"lower\", \"confidence\":0.85, \"description\":\"Reduced hydrogen bond donors to enhance membrane permeability\"},\n  {\"name\":\"hba_high\", \"type\":\"descriptor\", \"descriptor\":\"hba\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Increased hydrogen bond acceptors for target interaction\"},\n  {\"name\":\"fraction_csp3_high\", \"type\":\"descriptor_ratio\", \"descriptor\":\"fraction_csp3\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.80, \"description\":\"Higher fraction of sp3-hybridized carbons for improved metabolic stability\"},\n  {\"name\":\"aromatic_rings_low\", \"type\":\"descriptor\", \"descriptor\":\"aromatic_rings\", \"direction\":\"lower\", \"confidence\":0.78, \"description\":\"Fewer aromatic rings to reduce planarity and improve bioavailability\"},\n  {\"name\":\"ring_count_high\", \"type\":\"descriptor\", \"descriptor\":\"ring_count\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Increased ring count for conformational rigidity and target fit\"},\n  {\"name\":\"rot_bonds_low\", \"type\":\"descriptor\", \"descriptor\":\"rot_bonds\", \"direction\":\"lower\", \"confidence\":0.83, \"description\":\"Fewer rotatable bonds to improve oral bioavailability\"},\n  {\"name\":\"num_stereo_centers_high\", \"type\":\"descriptor\", \"descriptor\":\"num_stereo_centers\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Presence of stereocenters for enantioselective binding\"},\n  {\"name\":\"num_heterocycles_high\", \"type\":\"descriptor\", \"descriptor\":\"num_heterocycles\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Increased heterocyclic content for target interaction\"},\n  {\"name\":\"num_spiro_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"num_spiro_atoms\", \"direction\":\"higher\", \"confidence\":0.60, \"description\":\"Spiro centers for 3D structural diversity\"},\n  {\"name\":\"num_bridgehead_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"num_bridgehead_atoms\", \"direction\":\"higher\", \"confidence\":0.55, \"description\":\"Bridgehead atoms for structural complexity\"},\n  {\"name\":\"formal_charge_abs_low\", \"type\":\"descriptor\", \"descriptor\":\"formal_charge_abs\", \"direction\":\"lower\", \"confidence\":0.81, \"description\":\"Minimal formal charge to reduce electrostatic disruption\"},\n  {\"name\":\"labute_asa_high\", \"type\":\"descriptor\", \"descriptor\":\"labute_asa\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Higher surface area for solubility and interaction\"},\n  {\"name\":\"tpsa_low\", \"type\":\"descriptor\", \"descriptor\":\"tpsa\", \"direction\":\"lower\", \"confidence\":0.84, \"description\":\"Low TPSA for better membrane permeability\"},\n  {\"name\":\"tpsa_high\", \"type\":\"descriptor\", \"descriptor\":\"tpsa\", \"direction\":\"higher\", \"confidence\":0.76, \"description\":\"High TPSA for polar interactions with targets\"},\n  {\"name\":\"tpsa_window\", \"type\":\"desirability_window\", \"descriptor\":\"tpsa\", \"a\":50, \"b\":100, \"c\":150, \"d\":200, \"direction\":\"two_sided\", \"confidence\":0.70, \"description\":\"TPSA within a balanced range for optimal permeability and solubility\"},\n  {\"name\":\"logp_window\", \"type\":\"desirability_window\", \"descriptor\":\"logp\", \"a\":0, \"b\":3, \"c\":5, \"d\":7, \"direction\":\"two_sided\", \"confidence\":0.80, \"description\":\"LogP within a favorable range for drug-likeness\"},\n  {\"name\":\"hbd_window\", \"type\":\"desirability_window\", \"descriptor\":\"hbd\", \"a\":0, \"b\":2, \"c\":4, \"d\":6, \"direction\":\"two_sided\", \"confidence\":0.77, \"description\":\"Hydrogen bond donor count within a biologically relevant range\"},\n  {\"name\":\"hba_window\", \"type\":\"desirability_window\", \"descriptor\":\"hba\", \"a\":5, \"b\":15, \"c\":25, \"d\":35, \"direction\":\"two_sided\", \"confidence\":0.73, \"description\":\"Hydrogen bond acceptor count within a typical range\"},\n  {\"name\":\"atom_count_high\", \"type\":\"descriptor\", \"descriptor\":\"atom_count\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"Larger molecular size for target engagement\"},\n  {\"name\":\"heavy_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Increased heavy atom count for molecular complexity\"},\n  {\"name\":\"hetero_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"hetero_atoms\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Higher heteroatom content for polarity and interaction\"},\n  {\"name\":\"aromatic_ring_any_count\", \"type\":\"smarts_count\", \"smarts\":\"c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.85, \"description\":\"Presence of at least one benzene ring for aromatic stacking\"},\n  {\"name\":\"aromatic_n_ring_count\", \"type\":\"smarts_count\", \"smarts\":\"c1ccncc1\", \"direction\":\"higher\", \"confidence\":0.79, \"description\":\"Presence of an aromatic nitrogen-containing ring\"},\n  {\"name\":\"pyrimidine_count\", \"type\":\"smarts_count\", \"smarts\":\"c1cncnc1\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Presence of a pyrimidine ring for hydrogen bonding\"},\n  {\"name\":\"primary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3;H2][#6]\", \"direction\":\"higher\", \"confidence\":0.76, \"description\":\"Presence of a primary amine for protonation and solubility\"},\n  {\"name\":\"secondary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3;H1]([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Presence of a secondary amine for basicity and interaction\"},\n  {\"name\":\"tertiary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Presence of a tertiary amine for pKa modulation\"},\n  {\"name\":\"hydroxyl_count\", \"type\":\"smarts_count\", \"smarts\":\"[OX2;H1][#6]\", \"direction\":\"higher\", \"confidence\":0.80, \"description\":\"Presence of hydroxyl groups for hydrogen bonding\"},\n  {\"name\":\"phenol_count\", \"type\":\"smarts_count\", \"smarts\":\"[OX2H1]c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.78, \"description\":\"Presence of phenolic OH for antioxidant or binding activity\"},\n  {\"name\":\"carboxylic_acid_count\", \"type\":\"smarts_count\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"direction\":\"higher\", \"confidence\":0.75, \"description\":\"Presence of carboxylic acid for ionic interactions\"},\n  {\"name\":\"amide_group_count\", \"type\":\"smarts_count\", \"smarts\":\"[CX3](=O)[NX3]\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"Presence of amide bond for stability and H-bonding\"},\n  {\"name\":\"ether_group_count\", \"type\":\"smarts_count\", \"smarts\":\"[OD2]([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.77, \"description\":\"Presence of ether linkage for polarity and stability\"},\n  {\"name\":\"halogen_any_count\", \"type\":\"smarts_count\", \"smarts\":\"[F,Cl,Br,I]\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Presence of halogen for lipophilic interactions\"},\n  {\"name\":\"aromatic_ring_any_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c1ccccc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.81, \"description\":\"Aromatic ring density relative to molecular size\"},\n  {\"name\":\"primary_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H2][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Primary amine density for basicity and solubility\"},\n  {\"name\":\"secondary_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H1]([#6])[#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Secondary amine density for interaction potential\"},\n  {\"name\":\"tertiary_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"Tertiary amine density for pKa and membrane permeability\"},\n  {\"name\":\"hydroxyl_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2;H1][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.76, \"description\":\"Hydroxyl group density for hydrogen bonding\"},\n  {\"name\":\"phenol_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccccc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.75, \"description\":\"Phenol density for aromatic and polar interactions\"},\n  {\"name\":\"carboxylic_acid_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Carboxylic acid density for ionic binding\"},\n  {\"name\":\"amide_group_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[NX3]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Amide group density for stability and H-bonding\"},\n  {\"name\":\"ether_group_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OD2]([#6])[#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"Ether group density for polarity and lipophilicity balance\"},\n  {\"name\":\"halogen_any_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[F,Cl,Br,I]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Halogen density for lipophilic and steric effects\"},\n  {\"name\":\"aromatic_n_ring_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c1ccncc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.77, \"description\":\"Aromatic nitrogen ring density for H-bonding and polarity\"},\n  {\"name\":\"pyrimidine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c1cncnc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Pyrimidine ring density for target interaction\"},\n  {\"name\":\"num_amide_bonds_high\", \"type\":\"descriptor\", \"descriptor\":\"num_amide_bonds\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Increased amide bonds for structural stability\"},\n  {\"name\":\"num_stereo_centers_low\", \"type\":\"descriptor\", \"descriptor\":\"num_stereo_centers\", \"direction\":\"lower\", \"confidence\":0.60, \"description\":\"Fewer stereocenters to reduce synthetic complexity\"},\n  {\"name\":\"fraction_csp3_low\", \"type\":\"descriptor_ratio\", \"descriptor\":\"fraction_csp3\", \"normalizer\":\"heavy_atoms\", \"direction\":\"lower\", \"confidence\":0.63, \"description\":\"Lower sp3 fraction to increase lipophilicity\"},\n  {\"name\":\"hbd_ratio_window\", \"type\":\"desirability_window\", \"descriptor\":\"hbd\", \"a\":0, \"b\":2, \"c\":4, \"d\":6, \"direction\":\"two_sided\", \"confidence\":0.75, \"description\":\"Hydrogen bond donor count within a biologically relevant range\"},\n  {\"name\":\"hba_ratio_window\", \"type\":\"desirability_window\", \"descriptor\":\"hba\", \"a\":5, \"b\":15, \"c\":25, \"d\":35, \"direction\":\"two_sided\", \"confidence\":0.70, \"description\":\"Hydrogen bond acceptor count within a typical range\"},\n  {\"name\":\"logp_ratio_window\", \"type\":\"desirability_window\", \"descriptor\":\"logp\", \"a\":0, \"b\":3, \"c\":5, \"d\":7, \"direction\":\"two_sided\", \"confidence\":0.80, \"description\":\"LogP within a favorable range for drug-likeness\"},\n  {\"name\":\"aromatic_ring_any_ratio_window\", \"type\":\"desirability_window\", \"smarts\":\"c1ccccc1\", \"a\":0.1, \"b\":0.3, \"c\":0.5, \"d\":0.7, \"normalizer\":\"heavy_atoms\", \"direction\":\"two_sided\", \"confidence\":0.78, \"description\":\"Aromatic ring density within a balanced range for activity and permeability\"},\n  {\"name\":\"primary_amine_ratio_window\", \"type\":\"desirability_window\", \"smarts\":\"[NX3;H2][#6]\", \"a\":0.05, \"b\":0.15, \"c\":0.25, \"d\":0.35, \"normalizer\":\"heavy_atoms\", \"direction\":\"two_sided\", \"confidence\":0.72, \"description\":\"Primary amine density within a functional range\"},\n  {\"name\":\"halogen_any_ratio_window\", \"type\":\"desirability_window\", \"smarts\":\"[F,Cl,Br,I]\", \"a\":0.02, \"b\":0.1, \"c\":0.2, \"d\":0.3, \"normalizer\":\"heavy_atoms\", \"direction\":\"two_sided\", \"confidence\":0.68, \"description\":\"Halogen density within a safe and effective range\"},\n  {\"name\":\"ether_group_ratio_window\", \"type\":\"desirability_window\", \"smarts\":\"[OD2]([#6])[#6]\", \"a\":0.05, \"b\":0.15, \"c\":0.25, \"d\":0.35, \"normalizer\":\"heavy_atoms\", \"direction\":\"two_sided\", \"confidence\":0.74, \"description\":\"Ether group density within a balanced polarity range\"},\n  {\"name\":\"carboxylic_acid_ratio_window\", \"type\":\"desirability_window\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"a\":0.01, \"b\":0.05, \"c\":0.1, \"d\":0.15, \"normalizer\":\"heavy_atoms\", \"direction\":\"two_sided\", \"confidence\":0.71, \"description\":\"Carboxylic acid density within a functional and solubility-optimized range\"}\n]}",
+    "num_attempts": 1,
+    "label": "Tox21_task9",
+    "ablation": "v2p2_generic",
+    "shared_rules_source": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2_generic/BBBP__Qwen_Qwen3-4B-Instruct-2507.json"
+  }
+}

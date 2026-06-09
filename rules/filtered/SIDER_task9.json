@@ -1,0 +1,712 @@
+{
+  "task_key": "SIDER_task9",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 630,
+  "n_input_rules": 47,
+  "n_kept": 37,
+  "n_rejected": 10,
+  "rejects": [
+    {
+      "index": 2,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 9,
+      "name": "steroid_17beta_oh",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 10,
+      "name": "triaryl_ethylene",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 21,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 25,
+      "name": "para_hydroxy_bisphenol",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 34,
+      "name": "steroid_like_scaffold",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 37,
+      "name": "methyl_aryl",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 41,
+      "name": "logp_mw_desirability",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 43,
+      "name": "aromatic_ring_count_desirability",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 44,
+      "name": "phenol_count_desirability",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of phenolic hydroxyl groups, common in estrogen-mimicking compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09365079365079365,
+        "fired": 59,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased aromatic ring count correlates with endocrine-active motifs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40634920634920635,
+        "fired": 256,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Higher hydrogen bond donor count linked to phenolic and hydroxyl-rich endocrine-active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35714285714285715,
+        "fired": 225,
+        "n_train_normal": 630,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Increased hydrogen bond acceptor count in polyhydroxylated aromatics",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4650793650793651,
+        "fired": 293,
+        "n_train_normal": 630,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mw_anom_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 200,
+      "b": 500,
+      "c": 1000,
+      "d": 1500,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Molecular weight range typical of estrogenic and breast-related adverse agents",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07777777777777778,
+        "fired": 49,
+        "n_train_normal": 630,
+        "threshold": 1000.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Ratio of phenolic OH to aromatic rings indicates estrogenic motif density",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09365079365079365,
+        "fired": 59,
+        "n_train_normal": 630,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "para_hydroxy_phenyl",
+      "type": "smarts_count",
+      "smarts": "c1ccc(O)cc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Para-hydroxyphenyl group, a key motif in phytoestrogens and bisphenols",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21904761904761905,
+        "fired": 138,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_polyhydroxyl",
+      "type": "smarts_count",
+      "smarts": "c1ccc(O)cc1",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Multiple hydroxylated aromatic rings indicating estrogenic activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21904761904761905,
+        "fired": 138,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_amine",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Aromatic amines associated with reproductive toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37142857142857144,
+        "fired": 234,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_aromatic",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Secondary amines attached to aromatic rings, linked to endocrine disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.346031746031746,
+        "fired": 218,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_aromatic",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Tertiary amines on aromatic systems, common in estrogenic compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28888888888888886,
+        "fired": 182,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Total hydroxyl group count, especially on aromatic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5428571428571428,
+        "fired": 342,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Presence of any aromatic ring, foundational to endocrine-active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5634920634920635,
+        "fired": 355,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Pyrimidine ring in heterocyclic estrogenic mimics",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07301587301587302,
+        "fired": 46,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Low TPSA suggests planar, aromatic structures common in estrogen mimics",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 315,
+        "n_train_normal": 630,
+        "threshold": 79.81,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Increased ring count in fused or bridged systems associated with endocrine activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46190476190476193,
+        "fired": 291,
+        "n_train_normal": 630,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Low sp3 character indicates more planar, aromatic, endocrine-active structures",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49682539682539684,
+        "fired": 313,
+        "n_train_normal": 630,
+        "threshold": 0.47058823529411764,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Presence of heterocyclic rings in estrogenic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.33015873015873015,
+        "fired": 208,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Increased rotatable bonds may enhance bioavailability and endocrine interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48412698412698413,
+        "fired": 305,
+        "n_train_normal": 630,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High heavy atom count correlates with complex endocrine-disrupting molecules",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49523809523809526,
+        "fired": 312,
+        "n_train_normal": 630,
+        "threshold": 22.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Ratio of phenolic OH to aromatic rings as a proxy for estrogenic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09365079365079365,
+        "fired": 59,
+        "n_train_normal": 630,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Density of hydroxyl groups on aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49523809523809526,
+        "fired": 312,
+        "n_train_normal": 630,
+        "threshold": 0.027777777777777776,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Primary aromatic amines linked to reproductive toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24126984126984127,
+        "fired": 152,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Carboxylic acids may contribute to endocrine disruption via ionization",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20476190476190476,
+        "fired": 129,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Amide groups in aromatic systems may influence binding to estrogen receptors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29523809523809524,
+        "fired": 186,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Ether linkages in aromatic systems may enhance endocrine activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4380952380952381,
+        "fired": 276,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Halogen substitution on aromatic rings increases lipophilicity and endocrine activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.273015873015873,
+        "fired": 172,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Aromatic nitrogen-containing rings, common in endocrine-disrupting agents",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07301587301587302,
+        "fired": 46,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_density",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Density of phenolic groups per atom in aromatic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09365079365079365,
+        "fired": 59,
+        "n_train_normal": 630,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "polyhydroxyl_aromatic",
+      "type": "smarts_count",
+      "smarts": "c1ccc(O)cc1",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Multiple hydroxyl groups on aromatic rings, common in phytoestrogens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21904761904761905,
+        "fired": 138,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ethoxy_aromatic",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Ethoxy group on aromatic ring, linked to estrogenic activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1523809523809524,
+        "fired": 96,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "dihydroxy_benzene",
+      "type": "smarts_count",
+      "smarts": "c1ccc(O)cc1",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Dihydroxybenzene motifs in estrogenic compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21904761904761905,
+        "fired": 138,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "trihydroxy_aromatic",
+      "type": "smarts_count",
+      "smarts": "c1ccc(O)cc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Trihydroxylated aromatic rings, strong estrogenic activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21904761904761905,
+        "fired": 138,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Halogen substitution density on aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.273015873015873,
+        "fired": 172,
+        "n_train_normal": 630,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 30,
+      "b": 80,
+      "c": 100,
+      "d": 120,
+      "direction": "lower",
+      "confidence": 0.8,
+      "description": "Low TPSA range typical of planar, estrogenic molecules",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3619047619047619,
+        "fired": 228,
+        "n_train_normal": 630,
+        "threshold": 100.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "molecular_weight_desirability",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 250,
+      "b": 450,
+      "c": 1000,
+      "d": 1500,
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Molecular weight in 250\u2013450 range typical of estrogenic agents",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07777777777777778,
+        "fired": 49,
+        "n_train_normal": 630,
+        "threshold": 1000.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "sp3_fraction_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Low sp3 character indicates planar, aromatic, endocrine-active structures",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49682539682539684,
+        "fired": 313,
+        "n_train_normal": 630,
+        "threshold": 0.47058823529411764,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task9__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:07.095696"
+}

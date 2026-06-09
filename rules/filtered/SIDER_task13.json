@@ -1,0 +1,662 @@
+{
+  "task_key": "SIDER_task13",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1093,
+  "n_input_rules": 40,
+  "n_kept": 36,
+  "n_rejected": 4,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 13,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 26,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0192"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49954254345837146,
+        "fired": 546,
+        "n_train_normal": 1093,
+        "threshold": 2.1058000000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA range linked to surgical procedure side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21591948764867339,
+        "fired": 236,
+        "n_train_normal": 1093,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors correlate with procedural adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34858188472095153,
+        "fired": 381,
+        "n_train_normal": 1093,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High hydrogen bond acceptor count linked to procedural risks",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40347666971637697,
+        "fired": 441,
+        "n_train_normal": 1093,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High molecular weight compounds more likely to cause procedural side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49954254345837146,
+        "fired": 546,
+        "n_train_normal": 1093,
+        "threshold": 360.45000000000016,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Increased ring count associated with procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35407136322049404,
+        "fired": 387,
+        "n_train_normal": 1093,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High aromatic ring content correlates with surgical procedure risks",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.47666971637694416,
+        "fired": 521,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Greater heavy atom count linked to procedural adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48124428179322964,
+        "fired": 526,
+        "n_train_normal": 1093,
+        "threshold": 25.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Low sp3 character indicates higher procedural risk",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4986276303751144,
+        "fired": 545,
+        "n_train_normal": 1093,
+        "threshold": 0.45,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Presence of multiple heterocyclic systems increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3778591033851784,
+        "fired": 413,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Greater rotatable bonds linked to procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.41537053979871913,
+        "fired": 454,
+        "n_train_normal": 1093,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of primary amines increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24794144556267156,
+        "fired": 271,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Secondary amines linked to procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3586459286367795,
+        "fired": 392,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Tertiary amines associated with procedural side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34400731930466605,
+        "fired": 376,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Phenolic groups increase procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1070448307410796,
+        "fired": 117,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Hydroxyl groups correlate with procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5196706312900274,
+        "fired": 568,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Carboxylic acids linked to procedural side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.19945105215004574,
+        "fired": 218,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Amide groups associated with procedural risks",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31655992680695333,
+        "fired": 346,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Ether linkages increase procedural adverse event likelihood",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4263494967978042,
+        "fired": 466,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of halogens increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2982616651418115,
+        "fired": 326,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aryl halogen density indicates procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1756633119853614,
+        "fired": 192,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "sp3_fraction_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Low sp3 character increases procedural risk",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4986276303751144,
+        "fired": 545,
+        "n_train_normal": 1093,
+        "threshold": 0.45,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.56,
+      "description": "Bridgehead atoms linked to procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06404391582799634,
+        "fired": 70,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Pyrimidine rings increase procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0878316559926807,
+        "fired": 96,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Aromatic nitrogen-containing rings linked to procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07868252516010979,
+        "fired": 86,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Presence of aromatic rings increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6148215919487648,
+        "fired": 672,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Increased amide bonds linked to procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3202195791399817,
+        "fired": 350,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.44,
+      "description": "High primary amine density increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24794144556267156,
+        "fired": 271,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.43,
+      "description": "High secondary amine density correlates with procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3586459286367795,
+        "fired": 392,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.42,
+      "description": "High tertiary amine density increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34400731930466605,
+        "fired": 376,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.41,
+      "description": "High phenol density linked to procedural adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1070448307410796,
+        "fired": 117,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.4,
+      "description": "High hydroxyl density increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49954254345837146,
+        "fired": 546,
+        "n_train_normal": 1093,
+        "threshold": 0.020833333333333332,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.39,
+      "description": "High carboxylic acid density increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.19945105215004574,
+        "fired": 218,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.38,
+      "description": "High amide group density linked to procedural side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31655992680695333,
+        "fired": 346,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.37,
+      "description": "High ether group density increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4263494967978042,
+        "fired": 466,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_to_heavy_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.36,
+      "description": "High halogen density increases procedural risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2982616651418115,
+        "fired": 326,
+        "n_train_normal": 1093,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task13__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:09.162517"
+}

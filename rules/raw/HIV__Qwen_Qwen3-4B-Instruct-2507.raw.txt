@@ -1,0 +1,426 @@
+===== ATTEMPT 1 =====
+{
+  "rules": [
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of pyrimidine core, common in NRTIs and NNRTIs"
+    },
+    {
+      "name": "benzimidazole_count",
+      "type": "smarts_count",
+      "smarts": "c1ccc2[nH]cnc2c1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Benzimidazole motif associated with NNRTI and entry inhibitor activity"
+    },
+    {
+      "name": "diaryl_ether_count",
+      "type": "smarts_count",
+      "smarts": "Oc1ccc(Oc2ccccc2)cc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Diaryl ether scaffold characteristic of NNRTIs"
+    },
+    {
+      "name": "diamino_pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "Nc1ncnc(N)c1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Diamino-pyrimidine motif in NNRTIs like etravirine"
+    },
+    {
+      "name": "acyclic_sugar_mimic",
+      "type": "smarts_count",
+      "smarts": "OC[C@@H]1CC(=O)",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Acyclic sugar surrogate in NRTIs"
+    },
+    {
+      "name": "phosphonate_tail",
+      "type": "smarts_count",
+      "smarts": "P(=O)(O)O",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Phosphonate tail in nucleotide analogs (NRTIs)"
+    },
+    {
+      "name": "hydroxyethylamide_core",
+      "type": "smarts_count",
+      "smarts": "NC(=O)C(O)Cc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Hydroxyethylamide motif in protease inhibitors"
+    },
+    {
+      "name": "sulfonamide_linker",
+      "type": "smarts_count",
+      "smarts": "S(=O)(=O)N",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Sulfonamide linker in protease inhibitors"
+    },
+    {
+      "name": "ketoacid_motif",
+      "type": "smarts_count",
+      "smarts": "O=C(O)C(=O)",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "α-ketoacid motif in integrase inhibitors"
+    },
+    {
+      "name": "dihydropyridinone",
+      "type": "smarts_count",
+      "smarts": "O=C1N(*)C=CC(=O)C1",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "2-oxo-1,2-dihydro-pyridine core in INSTIs"
+    },
+    {
+      "name": "fluoro_benzyl_amide",
+      "type": "smarts_count",
+      "smarts": "Cc1ccc(F)cc1",
+      "direction": "higher",
+      "confidence": 0.80,
+      "description": "Fluoro-substituted benzyl amide in INSTIs"
+    },
+    {
+      "name": "ortho_halogenated_aryl",
+      "type": "smarts_count",
+      "smarts": "c1ccc(F)cc1",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Ortho-halogenated aryl groups in INSTIs and PIs"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Halogen density on heavy atoms, common in active chemotypes"
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Moderate-to-high aromatic ring count (2–4) typical of active compounds"
+    },
+    {
+      "name": "hetero_atoms_ratio",
+      "type": "descriptor_ratio",
+      "descriptor": "hetero_atoms",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Higher nitrogen and heteroatom content in heterocyclic inhibitors"
+    },
+    {
+      "name": "nitrogen_content",
+      "type": "descriptor_ratio",
+      "descriptor": "hetero_atoms",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Increased nitrogen content in NRTIs, NNRTIs, and PIs"
+    },
+    {
+      "name": "amide_bond_count",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Amide linkers in peptidomimetic protease inhibitors"
+    },
+    {
+      "name": "hba_count",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.80,
+      "description": "Higher hydrogen bond acceptor count in active inhibitors"
+    },
+    {
+      "name": "hbd_count",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Higher hydrogen bond donor count in polar inhibitors"
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Higher lipophilicity typical of NNRTIs and PIs"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Higher molecular weight typical of peptidomimetics and PIs"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Increased ring count in fused heterocycles and scaffolds"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Tertiary amines in basic scaffolds like NNRTIs and PIs"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Secondary amines in heterocyclic inhibitors"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Primary amines in nucleoside analogs and entry inhibitors"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenol group in some NRTIs and entry inhibitors"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Carboxylic acid in some NRTIs and peptidomimetics"
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Ether linkages in sugar mimics and scaffolds"
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Aromatic nitrogen-containing rings in heterocycles"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.80,
+      "description": "TPSA window associated with active inhibitors (moderate polarity)"
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor_ratio",
+      "descriptor": "fraction_csp3",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.72,
+      "description": "Lower sp3 fraction in more planar, aromatic inhibitors"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.70,
+      "description": "Increased rotatable bonds in flexible peptidomimetics"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Multiple heterocyclic rings in active scaffolds"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Stereochemistry in NRTIs and some PIs"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Presence of halogens on aromatic rings"
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Pyrimidine ring density in active compounds"
+    },
+    {
+      "name": "benzoxazole_count",
+      "type": "smarts_count",
+      "smarts": "c1ccc2[nH]cnc2c1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Benzoxazole binders in NNRTIs"
+    },
+    {
+      "name": "didehydro_dideoxy_motif",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "2',3'-didehydro/dideoxy motif in NRTIs"
+    },
+    {
+      "name": "triazole_head",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Triazole head in CCR5 inhibitors"
+    },
+    {
+      "name": "sulfonamide_to_aryl",
+      "type": "smarts_count",
+      "smarts": "S(=O)(=O)N",
+      "direction": "higher",
+      "confidence": 0.80,
+      "description": "Sulfonamide to aryl linkage in protease inhibitors"
+    },
+    {
+      "name": "hydroxyethylene_core",
+      "type": "smarts_count",
+      "smarts": "NC(=O)C(O)Cc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Hydroxyethylene core in protease inhibitors"
+    },
+    {
+      "name": "fluoro_benzyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "Cc1ccc(F)cc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Fluoro-benzyl group ratio in INSTIs"
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Halogenation on aromatic rings"
+    },
+    {
+      "name": "heteroatom_density",
+      "type": "descriptor_ratio",
+      "descriptor": "hetero_atoms",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "High heteroatom density in heterocyclic inhibitors"
+    },
+    {
+      "name": "logp_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2.0,
+      "b": 5.0,
+      "c": 10.0,
+      "d": 10.0,
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "LogP window associated with active inhibitors (lipophilic but not excessive)"
+    },
+    {
+      "name": "num_bridgehead_atoms",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Bridgehead atoms in complex ring systems (e.g., tropanes)"
+    },
+    {
+      "name": "sp3_fraction_low",
+      "type": "descriptor_ratio",
+      "descriptor": "fraction_csp3",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Lower sp3 fraction in planar, aromatic inhibitors"
+    },
+    {
+      "name": "num_spiro_atoms",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Spiro centers in complex scaffolds"
+    },
+    {
+      "name": "amino_acid_like_hba",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "High HBA count in amide- and heterocycle-rich inhibitors"
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.80,
+      "description": "Aromatic ring density in active compounds"
+    }
+  ]
+}
+

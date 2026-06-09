@@ -1,0 +1,33 @@
+You are an expert medicinal chemist and cheminformatics researcher.
+Generate task-conditioned anomaly rules for molecular graph anomaly detection.
+Dataset/task: HIV.
+Label 0 semantics: do not inhibit HIV replication.
+Label 1 semantics: inhibit HIV replication.
+For this one-class split, the anomaly class is label 1 (inhibit HIV replication).
+The normal class is label 0 (do not inhibit HIV replication).
+These rules will be applied in a normal-only anomaly detector, so they must describe anomaly-oriented evidence for the anomaly class relative to the normal class.
+This is the MoleculeNet HIV screen (DTP AIDS antiviral replication assay) — a whole-molecule anti-HIV replication readout, not a single-target binding assay. Known active chemotypes span several mechanism classes and a rule set should cover them broadly: (i) nucleoside/nucleotide reverse-transcriptase inhibitors (NRTIs) — modified nucleoside sugars with 2',3'-didehydro/dideoxy motifs, acyclovir-like acyclic sugar surrogates, and phosphonate tails (useful cues: purine/pyrimidine heterocycles fused or N-linked to a ribose/sugar-mimic, c1ncnc2 or c1cnc(=O) cores, OC[C@@H]1CC(=O) acyclic sugars, P(=O)(O)O phosphonate); (ii) non-nucleoside RT inhibitors (NNRTIs) — diarylpyrimidines (etravirine/rilpivirine-like), diaryl ethers, 6-alkyl-uracil HEPT analogues, benzimidazole and benzoxazole binders (cues: Nc1ncnc(N)c1 diamino-pyrimidine, Oc1ccc(Oc2ccccc2)cc1 diaryl ether, c1ccc2[nH]cnc2c1 benzimidazole, and high aromatic content with 2-3 aromatic rings joined by short linkers); (iii) protease inhibitors (PIs) — peptidomimetics with hydroxyethylene/hydroxyethylamine cores, sulfonamide linkers, and benzyl or phenyl P1/P1' substituents (saquinavir, ritonavir, darunavir patterns — cues: NC(=O)C(O)Cc1ccccc1 hydroxyethylamide, S(=O)(=O)N sulfonamide-to-aryl, and higher MW/HBA/HBD burden typical of peptidomimetics); (iv) integrase strand-transfer inhibitors (INSTIs) — diketoacid/2-oxo-1,2-dihydro-pyridine metal-chelating motifs linked to halogenated benzyl amides (raltegravir, dolutegravir, elvitegravir patterns — cues: O=C(O)C(=O) α-ketoacid or O=C1N(*)C=CC(=O)C1 dihydropyridinone, plus fluoro/chloro benzyl amide Cc1ccc(F)cc1 and ortho-halogenated aryl groups); (v) CCR5/entry inhibitors and miscellaneous actives — maraviroc-like tropane-piperidine scaffolds with triazole heads (less common in this screen). General medicinal-chemistry cues for this dataset: (a) moderate-to-high aromatic ring count (2-4), (b) halogenation patterns on phenyl rings (F, Cl preferred, CF3/CHF2 common), (c) heterocyclic nitrogen content (pyrimidine, triazole, imidazole, benzimidazole, purine), (d) amide, sulfonamide, and carboxamide linkers, (e) tertiary amines and basic nitrogens, (f) LogP typically 1-5 with a tail of highly lipophilic NNRTIs/PIs. Prefer SMARTS patterns and descriptor ranges that plausibly distinguish these pharmacophores from inactive drug-like chemical matter while staying conservative (avoid exact mechanistic overreach). Encourage coverage across all five mechanism classes rather than concentrating on just one.
+Produce 50 diverse rules.
+Rules must be computable from RDKit descriptors or SMARTS substructures.
+Avoid vague concepts, impossible quantities, and unsupported physics quantities.
+Avoid rules that depend on external databases, docking, similarity search, or learned embeddings.
+If the anomaly class is label 0 for this split, do not accidentally generate rules for label 1. Use the explicit anomaly/normal definitions above.
+Prefer a mix of:
+- physicochemical properties
+- ratios
+- substructure counts
+- density-like motif ratios
+- anomaly-associated desirability windows
+Return JSON only. The top-level object must be {"rules": [...]}.
+Allowed rule types: descriptor, descriptor_ratio, desirability_window, element_fraction, smarts_count, smarts_ratio.
+Allowed descriptors/normalizers: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa; normalizers can also be: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa.
+Allowed directions: higher, lower, two_sided.
+Prefer rules whose higher feature value means stronger anomaly evidence.
+For descriptor rules use direction higher or lower.
+For SMARTS rules prefer smarts_count or smarts_ratio.
+Allowed common-vocabulary SMARTS for smarts_count rules (use the listed name with the paired SMARTS pattern): aromatic_ring_any (c1ccccc1), aromatic_n_ring (c1ccncc1), pyrimidine (c1cncnc1), primary_amine ([NX3;H2][#6]), secondary_amine ([NX3;H1]([#6])[#6]), tertiary_amine ([NX3]([#6])([#6])[#6]), hydroxyl ([OX2;H1][#6]), phenol ([OX2H1]c1ccccc1), carboxylic_acid ([CX3](=O)[OX2H1]), amide_group ([CX3](=O)[NX3]), ether_group ([OD2]([#6])[#6]), halogen_any ([F,Cl,Br,I]).
+Every rule object must contain: name, type, description, direction, confidence.
+Examples:
+{"name":"aryl_halogen_ratio","type":"smarts_ratio","smarts":"c[F,Cl,Br,I]","normalizer":"heavy_atoms","direction":"higher","confidence":0.78,"description":"Aryl halogen density"}
+{"name":"logp_high","type":"descriptor","descriptor":"logp","direction":"higher","confidence":0.71,"description":"Higher lipophilicity"}
+{"name":"tpsa_anom_window","type":"desirability_window","descriptor":"tpsa","a":40,"b":60,"c":120,"d":140,"direction":"higher","confidence":0.69,"description":"TPSA window associated with anomaly"}

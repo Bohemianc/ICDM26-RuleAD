@@ -1,0 +1,119 @@
+{
+  "task_key": "SIDER_task18",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 379,
+  "n_input_rules": 6,
+  "n_kept": 6,
+  "n_rejected": 0,
+  "rejects": [],
+  "rules": [
+    {
+      "name": "pyrimidine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Pyrimidine ring as a scaffold linked to immunosuppressive activity and opportunistic infection risk via inhibition of DNA synthesis in host cells",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.052770448548812667,
+        "fired": 20,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Primary amines promote haptens formation and immune activation, leading to hypersensitivity and opportunistic infections",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22691292875989447,
+        "fired": 86,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "High ratio of secondary amines to heavy atoms indicates accumulation in mucosal membranes via passive diffusion, disrupting barrier function",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3113456464379947,
+        "fired": 118,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Phenolic groups are metabolized to quinones, which generate oxidative stress and impair immune cell function, increasing infection risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10554089709762533,
+        "fired": 40,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "High halogen density correlates with poor metabolic clearance and accumulation in epithelial tissues, promoting microbial overgrowth",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2717678100263852,
+        "fired": 103,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "High lipophilicity enables accumulation in lipid-rich mucosal and epithelial barriers, disrupting immune surveillance and promoting infection",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49868073878627966,
+        "fired": 189,
+        "n_train_normal": 379,
+        "threshold": 1.9351,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task18__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.110873"
+}

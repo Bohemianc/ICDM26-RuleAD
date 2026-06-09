@@ -1,0 +1,445 @@
+{
+  "task_key": "Tox21_task8",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 6128,
+  "n_input_rules": 37,
+  "n_kept": 20,
+  "n_rejected": 17,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "alkyl_halogen_count",
+      "reason": "fire_rate:0.0101"
+    },
+    {
+      "index": 1,
+      "name": "sulfonate_count",
+      "reason": "fire_rate:0.0054"
+    },
+    {
+      "index": 2,
+      "name": "nitrosamine_count",
+      "reason": "fire_rate:0.0054"
+    },
+    {
+      "index": 3,
+      "name": "nitro_aromatic_count",
+      "reason": "fire_rate:0.0382"
+    },
+    {
+      "index": 4,
+      "name": "aziridine_count",
+      "reason": "fire_rate:0.0015"
+    },
+    {
+      "index": 5,
+      "name": "epoxide_count",
+      "reason": "fire_rate:0.0090"
+    },
+    {
+      "index": 6,
+      "name": "nitrogen_mustard_count",
+      "reason": "fire_rate:0.0005"
+    },
+    {
+      "index": 8,
+      "name": "nitro_group_count",
+      "reason": "fire_rate:0.0382"
+    },
+    {
+      "index": 10,
+      "name": "num_aromatic_rings_anom_window",
+      "reason": "fire_rate:0.0003"
+    },
+    {
+      "index": 11,
+      "name": "num_hetero_atoms",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "formal_charge_abs",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 14,
+      "name": "num_stereo_centers",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 23,
+      "name": "num_bridgehead_atoms",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 24,
+      "name": "num_spiro_atoms",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 25,
+      "name": "atom_richness",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 26,
+      "name": "labute_asa",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 35,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0041"
+    }
+  ],
+  "rules": [
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Total halogen count indicating potential for electrophilic reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23253916449086162,
+        "fired": 1425,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Increased aromatic ring count, especially in nitro-PAHs, enhances DNA intercalation and reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29797650130548303,
+        "fired": 1826,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Lower fraction of sp3 carbons suggests more planar, electrophilic structures (e.g., epoxides, nitroaromatics)",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4988577023498694,
+        "fired": 3057,
+        "n_train_normal": 6128,
+        "threshold": 0.4375,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased ring count, especially fused systems, supports DNA intercalation and adduct formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4490861618798956,
+        "fired": 2752,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Fewer rotatable bonds suggest more rigid, planar electrophilic structures",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.43048302872062666,
+        "fired": 2638,
+        "n_train_normal": 6128,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Higher lipophilicity enhances membrane permeability and access to DNA",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 3064,
+        "n_train_normal": 6128,
+        "threshold": 2.2765,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Higher molecular weight often correlates with larger DNA-interacting scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 3064,
+        "n_train_normal": 6128,
+        "threshold": 228.35749999999996,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.8,
+      "description": "Lower TPSA suggests more lipophilic, planar molecules that can intercalate into DNA",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4983681462140992,
+        "fired": 3054,
+        "n_train_normal": 6128,
+        "threshold": 46.17,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Fewer hydrogen bond donors reduce polarity, favoring DNA alkylation over H-bonding",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4262402088772846,
+        "fired": 2612,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Higher hydrogen bond acceptors (e.g., nitro, carbonyl) support DNA interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38022193211488253,
+        "fired": 2330,
+        "n_train_normal": 6128,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Presence of heterocyclic rings (e.g., pyrimidine, aziridine) enhances electrophilic character",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3779373368146214,
+        "fired": 2316,
+        "n_train_normal": 6128,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Primary amines are less common in DNA-reactive electrophiles; their presence may reduce activity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.12108355091383811,
+        "fired": 742,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.73,
+      "description": "Secondary amines are less reactive than electrophilic motifs",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1830939947780679,
+        "fired": 1122,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.72,
+      "description": "Tertiary amines are generally less electrophilic and less active in DNA alkylation",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.18031984334203655,
+        "fired": 1105,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "lower",
+      "confidence": 0.71,
+      "description": "Phenol groups are less reactive than electrophilic halogens or nitro groups",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.08697780678851175,
+        "fired": 533,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.7,
+      "description": "Carboxylic acids are polar and less likely to form DNA adducts",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.10753916449086162,
+        "fired": 659,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.69,
+      "description": "Amide groups are stable and not electrophilic",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.17607702349869453,
+        "fired": 1079,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.68,
+      "description": "Ether groups are generally inert in DNA alkylation",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.35786553524804177,
+        "fired": 2193,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "lower",
+      "confidence": 0.67,
+      "description": "Hydroxyl groups are less reactive than electrophilic centers",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3394255874673629,
+        "fired": 2080,
+        "n_train_normal": 6128,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 20,
+      "b": 50,
+      "c": 100,
+      "d": 150,
+      "direction": "lower",
+      "confidence": 0.83,
+      "description": "Low TPSA (20\u2013150) indicates planar, lipophilic molecules that intercalate DNA",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.13430156657963446,
+        "fired": 823,
+        "n_train_normal": 6128,
+        "threshold": 100.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task8__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:33.424567"
+}

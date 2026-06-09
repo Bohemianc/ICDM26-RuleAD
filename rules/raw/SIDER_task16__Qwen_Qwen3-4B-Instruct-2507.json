@@ -1,0 +1,406 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with skin adverse effects"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA range linked to dermatologic hypersensitivity"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors correlate with skin irritation"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High hydrogen bond acceptor count linked to photoallergic reactions"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Increased aromatic ring count associated with photo-sensitivity"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Greater ring count correlates with skin toxicity via planar stacking"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of halogens, especially on aromatic systems, increases risk of skin reactions"
+    },
+    {
+      "name": "halogen_aryl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Aryl halogen density indicates photoactive or electrophilic risk"
+    },
+    {
+      "name": "sulfonamide_present",
+      "type": "smarts_count",
+      "smarts": "c1ccc(S(=O)(=O)N)cc1",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Sulfonamide motif strongly linked to hypersensitivity reactions"
+    },
+    {
+      "name": "furocoumarin_like",
+      "type": "smarts_count",
+      "smarts": "c1cc2cc3occc3cc2oc1=O",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Psoralen-like furocoumarins are photoactive and cause phototoxicity"
+    },
+    {
+      "name": "tetracycline_core",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3c4ccccc4",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Tetracycline-like fused ring systems associated with skin rashes"
+    },
+    {
+      "name": "quinolone_core",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3c4ccccc4",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Quinolone scaffold linked to phototoxic and dermal adverse effects"
+    },
+    {
+      "name": "extended_halogen_conjugation",
+      "type": "smarts_count",
+      "smarts": "Clc1ccccc1c2ccccc2",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogenated extended conjugated systems increase photo-reactivity"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Phenolic groups are common in photoallergic and irritant compounds"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Primary amines may form reactive metabolites causing skin reactions"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Secondary amines linked to skin irritation and hypersensitivity"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Tertiary amines may act as photosensitizers or form reactive intermediates"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Carboxylic acids may contribute to skin irritation via pH or solubility effects"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "Amide groups can be metabolized to reactive species in skin"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.53,
+      "description": "Ether linkages in aromatic systems may increase skin permeability"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Aromatic nitrogen rings (e.g., pyridine) increase skin exposure and reactivity"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Pyrimidine rings are common in skin-reactive heterocycles"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Higher molecular weight correlates with poor skin clearance and accumulation"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Increased heavy atom count increases potential for metabolic activation"
+    },
+    {
+      "name": "hetero_atoms_high",
+      "type": "descriptor",
+      "descriptor": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "More heteroatoms increase polarity and potential for protein binding in skin"
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.56,
+      "description": "Lower sp3 character indicates more planar, conjugated systems prone to photoactivation"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Increased rotatable bonds may enhance skin penetration and bioavailability"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "More heterocycles increase potential for metabolic activation and skin reactivity"
+    },
+    {
+      "name": "num_spiro_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "higher",
+      "confidence": 0.53,
+      "description": "Spiro systems may introduce structural rigidity and skin penetration"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.52,
+      "description": "Stereochemistry may influence skin binding and metabolic pathways"
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Aromatic ring density increases photo-reactivity and skin exposure"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Halogen-to-heavy-atom ratio indicates potential for electrophilic or photochemical reactions"
+    },
+    {
+      "name": "sulfonamide_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccc(S(=O)(=O)N)cc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Sulfonamide density is a strong dermatologic risk indicator"
+    },
+    {
+      "name": "furocoumarin_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cc2cc3occc3cc2oc1=O",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Furocoumarin density strongly predicts phototoxicity"
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Phenol density correlates with photoallergic potential"
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Primary amine density increases risk of metabolic activation in skin"
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Secondary amine density linked to skin irritation"
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Tertiary amine density may promote skin penetration and reactivity"
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Carboxylic acid density may contribute to skin irritation"
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "Amide density may lead to reactive metabolite formation"
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.53,
+      "description": "Ether density may enhance skin permeability"
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Pyrimidine density increases risk of skin hypersensitivity"
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Aromatic nitrogen ring density increases photo-reactivity"
+    },
+    {
+      "name": "conjugated_fused_aromatics",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Fused polycyclic aromatic systems are photoactive and cause skin damage"
+    },
+    {
+      "name": "extended_conjugation_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Extended conjugation increases absorption in UV range and phototoxicity"
+    },
+    {
+      "name": "halogenated_aryl_conjugation",
+      "type": "smarts_count",
+      "smarts": "Clc1ccccc1c2ccccc2",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Halogenated conjugated systems are photoactive and cause skin reactions"
+    },
+    {
+      "name": "photoactive_fused_systems",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Fused polyaromatic systems with extended conjugation are photoactive"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 16,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\":\"logp_high\",\"type\":\"descriptor\",\"descriptor\":\"logp\",\"direction\":\"higher\",\"confidence\":0.71,\"description\":\"Higher lipophilicity associated with skin adverse effects\"},\n    {\"name\":\"tpsa_anom_window\",\"type\":\"desirability_window\",\"descriptor\":\"tpsa\",\"a\":80,\"b\":120,\"c\":140,\"d\":160,\"direction\":\"higher\",\"confidence\":0.69,\"description\":\"TPSA range linked to dermatologic hypersensitivity\"},\n    {\"name\":\"hbd_high\",\"type\":\"descriptor\",\"descriptor\":\"hbd\",\"direction\":\"higher\",\"confidence\":0.65,\"description\":\"Increased hydrogen bond donors correlate with skin irritation\"},\n    {\"name\":\"hba_high\",\"type\":\"descriptor\",\"descriptor\":\"hba\",\"direction\":\"higher\",\"confidence\":0.63,\"description\":\"High hydrogen bond acceptor count linked to photoallergic reactions\"},\n    {\"name\":\"aromatic_rings_high\",\"type\":\"descriptor\",\"descriptor\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.70,\"description\":\"Increased aromatic ring count associated with photo-sensitivity\"},\n    {\"name\":\"ring_count_high\",\"type\":\"descriptor\",\"descriptor\":\"ring_count\",\"direction\":\"higher\",\"confidence\":0.68,\"description\":\"Greater ring count correlates with skin toxicity via planar stacking\"},\n    {\"name\":\"halogen_any_count\",\"type\":\"smarts_count\",\"smarts\":\"[F,Cl,Br,I]\",\"direction\":\"higher\",\"confidence\":0.72,\"description\":\"Presence of halogens, especially on aromatic systems, increases risk of skin reactions\"},\n    {\"name\":\"halogen_aryl_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[F,Cl,Br,I]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.67,\"description\":\"Aryl halogen density indicates photoactive or electrophilic risk\"},\n    {\"name\":\"sulfonamide_present\",\"type\":\"smarts_count\",\"smarts\":\"c1ccc(S(=O)(=O)N)cc1\",\"direction\":\"higher\",\"confidence\":0.80,\"description\":\"Sulfonamide motif strongly linked to hypersensitivity reactions\"},\n    {\"name\":\"furocoumarin_like\",\"type\":\"smarts_count\",\"smarts\":\"c1cc2cc3occc3cc2oc1=O\",\"direction\":\"higher\",\"confidence\":0.85,\"description\":\"Psoralen-like furocoumarins are photoactive and cause phototoxicity\"},\n    {\"name\":\"tetracycline_core\",\"type\":\"smarts_count\",\"smarts\":\"c1ccccc1c2ccccc2c3ccccc3c4ccccc4\",\"direction\":\"higher\",\"confidence\":0.66,\"description\":\"Tetracycline-like fused ring systems associated with skin rashes\"},\n    {\"name\":\"quinolone_core\",\"type\":\"smarts_count\",\"smarts\":\"c1ccccc1c2ccccc2c3ccccc3c4ccccc4\",\"direction\":\"higher\",\"confidence\":0.64,\"description\":\"Quinolone scaffold linked to phototoxic and dermal adverse effects\"},\n    {\"name\":\"strong_electrophile\",\"type\":\"smarts_count\",\"smarts\":\"[C;H0;L1;+1]([#6])\",\"direction\":\"higher\",\"confidence\":0.62,\"description\":\"Electrophilic centers (e.g., epoxides, aziridines) react with skin proteins\"},\n    {\"name\":\"extended_halogen_conjugation\",\"type\":\"smarts_count\",\"smarts\":\"Clc1ccccc1c2ccccc2\",\"direction\":\"higher\",\"confidence\":0.60,\"description\":\"Halogenated extended conjugated systems increase photo-reactivity\"},\n    {\"name\":\"phenol_count\",\"type\":\"smarts_count\",\"smarts\":\"[OX2H1]c1ccccc1\",\"direction\":\"higher\",\"confidence\":0.68,\"description\":\"Phenolic groups are common in photoallergic and irritant compounds\"},\n    {\"name\":\"primary_amine_count\",\"type\":\"smarts_count\",\"smarts\":\"[NX3;H2][#6]\",\"direction\":\"higher\",\"confidence\":0.59,\"description\":\"Primary amines may form reactive metabolites causing skin reactions\"},\n    {\"name\":\"secondary_amine_count\",\"type\":\"smarts_count\",\"smarts\":\"[NX3;H1]([#6])[#6]\",\"direction\":\"higher\",\"confidence\":0.58,\"description\":\"Secondary amines linked to skin irritation and hypersensitivity\"},\n    {\"name\":\"tertiary_amine_count\",\"type\":\"smarts_count\",\"smarts\":\"[NX3]([#6])([#6])[#6]\",\"direction\":\"higher\",\"confidence\":0.57,\"description\":\"Tertiary amines may act as photosensitizers or form reactive intermediates\"},\n    {\"name\":\"carboxylic_acid_count\",\"type\":\"smarts_count\",\"smarts\":\"[CX3](=O)[OX2H1]\",\"direction\":\"higher\",\"confidence\":0.55,\"description\":\"Carboxylic acids may contribute to skin irritation via pH or solubility effects\"},\n    {\"name\":\"amide_group_count\",\"type\":\"smarts_count\",\"smarts\":\"[CX3](=O)[NX3]\",\"direction\":\"higher\",\"confidence\":0.54,\"description\":\"Amide groups can be metabolized to reactive species in skin\"},\n    {\"name\":\"ether_group_count\",\"type\":\"smarts_count\",\"smarts\":\"[OD2]([#6])[#6]\",\"direction\":\"higher\",\"confidence\":0.53,\"description\":\"Ether linkages in aromatic systems may increase skin permeability\"},\n    {\"name\":\"aromatic_n_ring_count\",\"type\":\"smarts_count\",\"smarts\":\"c1ccncc1\",\"direction\":\"higher\",\"confidence\":0.61,\"description\":\"Aromatic nitrogen rings (e.g., pyridine) increase skin exposure and reactivity\"},\n    {\"name\":\"pyrimidine_count\",\"type\":\"smarts_count\",\"smarts\":\"c1cncnc1\",\"direction\":\"higher\",\"confidence\":0.59,\"description\":\"Pyrimidine rings are common in skin-reactive heterocycles\"},\n    {\"name\":\"mol_wt_high\",\"type\":\"descriptor\",\"descriptor\":\"mol_wt\",\"direction\":\"higher\",\"confidence\":0.60,\"description\":\"Higher molecular weight correlates with poor skin clearance and accumulation\"},\n    {\"name\":\"heavy_atoms_high\",\"type\":\"descriptor\",\"descriptor\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.58,\"description\":\"Increased heavy atom count increases potential for metabolic activation\"},\n    {\"name\":\"hetero_atoms_high\",\"type\":\"descriptor\",\"descriptor\":\"hetero_atoms\",\"direction\":\"higher\",\"confidence\":0.57,\"description\":\"More heteroatoms increase polarity and potential for protein binding in skin\"},\n    {\"name\":\"fraction_csp3_high\",\"type\":\"descriptor\",\"descriptor\":\"fraction_csp3\",\"direction\":\"lower\",\"confidence\":0.56,\"description\":\"Lower sp3 character indicates more planar, conjugated systems prone to photoactivation\"},\n    {\"name\":\"rot_bonds_high\",\"type\":\"descriptor\",\"descriptor\":\"rot_bonds\",\"direction\":\"higher\",\"confidence\":0.55,\"description\":\"Increased rotatable bonds may enhance skin penetration and bioavailability\"},\n    {\"name\":\"num_heterocycles_high\",\"type\":\"descriptor\",\"descriptor\":\"num_heterocycles\",\"direction\":\"higher\",\"confidence\":0.54,\"description\":\"More heterocycles increase potential for metabolic activation and skin reactivity\"},\n    {\"name\":\"num_spiro_atoms_high\",\"type\":\"descriptor\",\"descriptor\":\"num_spiro_atoms\",\"direction\":\"higher\",\"confidence\":0.53,\"description\":\"Spiro systems may introduce structural rigidity and skin penetration\"},\n    {\"name\":\"num_stereo_centers_high\",\"type\":\"descriptor\",\"descriptor\":\"num_stereo_centers\",\"direction\":\"higher\",\"confidence\":0.52,\"description\":\"Stereochemistry may influence skin binding and metabolic pathways\"},\n    {\"name\":\"aromatic_ring_any_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"c1ccccc1\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.66,\"description\":\"Aromatic ring density increases photo-reactivity and skin exposure\"},\n    {\"name\":\"halogen_any_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[F,Cl,Br,I]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.65,\"description\":\"Halogen-to-heavy-atom ratio indicates potential for electrophilic or photochemical reactions\"},\n    {\"name\":\"sulfonamide_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"c1ccc(S(=O)(=O)N)cc1\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.75,\"description\":\"Sulfonamide density is a strong dermatologic risk indicator\"},\n    {\"name\":\"furocoumarin_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"c1cc2cc3occc3cc2oc1=O\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.78,\"description\":\"Furocoumarin density strongly predicts phototoxicity\"},\n    {\"name\":\"phenol_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[OX2H1]c1ccccc1\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.64,\"description\":\"Phenol density correlates with photoallergic potential\"},\n    {\"name\":\"primary_amine_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[NX3;H2][#6]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.59,\"description\":\"Primary amine density increases risk of metabolic activation in skin\"},\n    {\"name\":\"secondary_amine_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[NX3;H1]([#6])[#6]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.58,\"description\":\"Secondary amine density linked to skin irritation\"},\n    {\"name\":\"tertiary_amine_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[NX3]([#6])([#6])[#6]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.57,\"description\":\"Tertiary amine density may promote skin penetration and reactivity\"},\n    {\"name\":\"carboxylic_acid_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[CX3](=O)[OX2H1]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.55,\"description\":\"Carboxylic acid density may contribute to skin irritation\"},\n    {\"name\":\"amide_group_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[CX3](=O)[NX3]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.54,\"description\":\"Amide density may lead to reactive metabolite formation\"},\n    {\"name\":\"ether_group_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[OD2]([#6])[#6]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.53,\"description\":\"Ether density may enhance skin permeability\"},\n    {\"name\":\"pyrimidine_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"c1cncnc1\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.59,\"description\":\"Pyrimidine density increases risk of skin hypersensitivity\"},\n    {\"name\":\"aromatic_n_ring_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"c1ccncc1\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.61,\"description\":\"Aromatic nitrogen ring density increases photo-reactivity\"},\n    {\"name\":\"conjugated_fused_aromatics\",\"type\":\"smarts_count\",\"smarts\":\"c1ccccc1c2ccccc2c3ccccc3\",\"direction\":\"higher\",\"confidence\":0.70,\"description\":\"Fused polycyclic aromatic systems are photoactive and cause skin damage\"},\n    {\"name\":\"extended_conjugation_count\",\"type\":\"smarts_count\",\"smarts\":\"c1ccccc1c2ccccc2c3ccccc3\",\"direction\":\"higher\",\"confidence\":0.67,\"description\":\"Extended conjugation increases absorption in UV range and phototoxicity\"},\n    {\"name\":\"halogenated_aryl_conjugation\",\"type\":\"smarts_count\",\"smarts\":\"Clc1ccccc1c2ccccc2\",\"direction\":\"higher\",\"confidence\":0.63,\"description\":\"Halogenated conjugated systems are photoactive and cause skin reactions\"},\n    {\"name\":\"photoactive_fused_systems\",\"type\":\"smarts_count\",\"smarts\":\"c1ccccc1c2ccccc2c3ccccc3\",\"direction\":\"higher\",\"confidence\":0.72,\"description\":\"Fused polyaromatic systems with extended conjugation are photoactive\"},\n    {\"name\":\"high_logp_hbd_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"logp\",\"normalizer\":\"hbd\",\"direction\":\"higher\",\"confidence\":0.60,\"description\":\"High logP relative to HBD indicates lipophilic accumulation in skin\"},\n    {\"name\":\"high_hba_hbd_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hba\",\"normalizer\":\"hbd\",\"direction\":\"higher\",\"confidence\":0.59,\"description\":\"High HBA/HBD ratio suggests strong protein binding in skin\"},\n    {\"name\":\"high_logp_tpsa_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"logp\",\"normalizer\":\"tpsa\",\"direction\":\"higher\",\"confidence\":0.58,\"description\":\"High logP relative to TPSA indicates poor solubility and skin penetration\"},\n    {\"name\":\"high_mol_wt_hba_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"mol_wt\",\"normalizer\":\"hba\",\"direction\":\"higher\",\"confidence\":0.57,\"description\":\"High molecular weight relative to HBA suggests accumulation in skin\"},\n    {\"name\":\"high_aromatic_rings_hbd_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"aromatic_rings\",\"normalizer\":\"hbd\",\"direction\":\"higher\",\"confidence\":0.56,\"description\":\"High aromatic ring count relative to HBD indicates photo-reactivity\"},\n    {\"name\":\"high_halogen_ratio_hba\",\"type\":\"descriptor_ratio\",\"descriptor\":\"halogen_any_count\",\"normalizer\":\"hba\",\"direction\":\"higher\",\"confidence\":0.55,\"description\":\"High halogen count relative to HBA suggests electrophilic reactivity in skin\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

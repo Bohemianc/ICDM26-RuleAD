@@ -1,0 +1,48 @@
+{
+  "task_key": "SIDER_task14",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 288,
+  "n_input_rules": 4,
+  "n_kept": 1,
+  "n_rejected": 3,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "phenethylamine_core",
+      "reason": "fire_rate:0.0069"
+    },
+    {
+      "index": 1,
+      "name": "catechol_phenol_pair",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 2,
+      "name": "ace_inhibitor_dicarboxylate",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "phenolic_oh_count",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Increased phenolic hydroxyl groups promote redox cycling and endothelial oxidative damage",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4618055555555556,
+        "fired": 133,
+        "n_train_normal": 288,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task14__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:11.630825"
+}

@@ -1,0 +1,395 @@
+{
+  "task_key": "Tox21_task7",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 4401,
+  "n_input_rules": 35,
+  "n_kept": 16,
+  "n_rejected": 19,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "alpha_beta_unsaturated_carbonyl_count",
+      "reason": "fire_rate:0.0220"
+    },
+    {
+      "index": 1,
+      "name": "para_quinone_count",
+      "reason": "fire_rate:0.0005"
+    },
+    {
+      "index": 2,
+      "name": "ortho_quinone_count",
+      "reason": "fire_rate:0.0005"
+    },
+    {
+      "index": 3,
+      "name": "isothiocyanate_count",
+      "reason": "fire_rate:0.0005"
+    },
+    {
+      "index": 4,
+      "name": "catechol_count",
+      "reason": "fire_rate:0.0311"
+    },
+    {
+      "index": 5,
+      "name": "naphthoquinone_count",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 6,
+      "name": "vinyl_sulfone_count",
+      "reason": "fire_rate:0.0025"
+    },
+    {
+      "index": 7,
+      "name": "acrylate_count",
+      "reason": "fire_rate:0.0089"
+    },
+    {
+      "index": 8,
+      "name": "acrylamide_count",
+      "reason": "fire_rate:0.0086"
+    },
+    {
+      "index": 12,
+      "name": "num_hetero_atoms",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 22,
+      "name": "num_stereo_centers",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 24,
+      "name": "num_bridgehead_atoms",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 25,
+      "name": "num_spiro_atoms",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 26,
+      "name": "formal_charge_abs",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 28,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0020"
+    },
+    {
+      "index": 29,
+      "name": "aromatic_rings_anom_window",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 30,
+      "name": "num_heterocycles_anom_window",
+      "reason": "fire_rate:0.0020"
+    },
+    {
+      "index": 33,
+      "name": "num_stereo_centers_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 34,
+      "name": "num_bridgehead_atoms_anom_window",
+      "reason": "fire_rate:0.0204"
+    }
+  ],
+  "rules": [
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Phenol groups can auto-oxidize to quinones, leading to electrophilic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06362190411270166,
+        "fired": 280,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Hydroxyl groups on aromatic rings may contribute to oxidation and quinone formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30856623494660307,
+        "fired": 1358,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Increased aromaticity supports conjugation and electrophilic reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2444898886616678,
+        "fired": 1076,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_count",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Higher hydrogen bond acceptor count may correlate with polar electrophilic groups",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.332651670074983,
+        "fired": 1464,
+        "n_train_normal": 4401,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_count",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Hydrogen bond donors may support redox cycling or solubility of electrophiles",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.25744149057032495,
+        "fired": 1133,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Higher lipophilicity enhances membrane permeability and access to Keap1 cysteines",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4998863894569416,
+        "fired": 2200,
+        "n_train_normal": 4401,
+        "threshold": 2.0687999999999995,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Larger molecules may have greater conformational flexibility or extended conjugation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4996591683708248,
+        "fired": 2199,
+        "n_train_normal": 4401,
+        "threshold": 204.26599999999996,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Increased heavy atom count supports complex electrophilic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4583049306975687,
+        "fired": 2017,
+        "n_train_normal": 4401,
+        "threshold": 14.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Lower sp3 fraction indicates more conjugated, planar, electrophilic systems",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4948875255623722,
+        "fired": 2178,
+        "n_train_normal": 4401,
+        "threshold": 0.45454545454545453,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "More rings increase conjugation and stability of electrophilic intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3712792547148375,
+        "fired": 1634,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Fewer rotatable bonds suggest rigid, planar electrophilic motifs",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4608043626448534,
+        "fired": 2028,
+        "n_train_normal": 4401,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.79,
+      "description": "Lower TPSA suggests more lipophilic, planar electrophiles with better membrane access",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49693251533742333,
+        "fired": 2187,
+        "n_train_normal": 4401,
+        "threshold": 43.370000000000005,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Heterocycles (e.g., pyridine, thiophene) can act as electron-withdrawing or conjugating units",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34446716655305615,
+        "fired": 1516,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA window associated with electrophilic, planar, and membrane-permeable actives",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05862304021813224,
+        "fired": 258,
+        "n_train_normal": 4401,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_anom_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "lower",
+      "confidence": 0.71,
+      "description": "Low sp3 fraction indicates planar, conjugated electrophilic systems",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.36946148602590323,
+        "fired": 1626,
+        "n_train_normal": 4401,
+        "threshold": 0.6,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_anom_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 0,
+      "b": 2,
+      "c": 4,
+      "d": 6,
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Few rotatable bonds suggest rigid, planar electrophilic motifs",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4196773460577142,
+        "fired": 1847,
+        "n_train_normal": 4401,
+        "threshold": 4.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task7__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:31.380680"
+}

@@ -1,0 +1,488 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with vascular adverse effects"
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.68,
+      "description": "Low polarity may facilitate vascular permeability and adverse effects"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased hydrogen bond donors linked to vascular side effects"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High hydrogen bond acceptor count correlates with vascular toxicity"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Multiple aromatic rings increase planarity and membrane penetration, linked to vascular effects"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Higher ring count associated with structural rigidity and vascular toxicity"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased molecular weight correlates with poor clearance and vascular accumulation"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Presence of phenolic hydroxyl groups in aromatic rings"
+    },
+    {
+      "name": "catecholamine_like",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccc(O)c1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Catecholamine-like dihydroxyphenethylamine motifs linked to vasoactive effects"
+    },
+    {
+      "name": "phenethylamine_pattern",
+      "type": "smarts_count",
+      "smarts": "c1ccc(CCN)c(O)c1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenethylamine scaffold with hydroxyl and amine groups"
+    },
+    {
+      "name": "sympathomimetic_amine",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1C(N)c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Sympathomimetic phenethylamine pattern with aromatic amine"
+    },
+    {
+      "name": "primary_amine_density",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High density of primary amines in molecular framework"
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Elevated secondary amine content in aromatic systems"
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Tertiary amines promote membrane penetration and vasoactivity"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of carboxylic acid groups, common in ACE inhibitors linked to vascular effects"
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Amide group density may contribute to protein binding and vascular effects"
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Ether linkages in aromatic systems may enhance vascular permeability"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Halogen substitution increases lipophilicity and metabolic instability"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Pyrimidine ring presence in vasoactive scaffolds"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Aromatic nitrogen-containing rings with vasoactive potential"
+    },
+    {
+      "name": "logp_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 7.0,
+      "d": 9.0,
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "LogP in 3–9 range peaks in vascular adverse events"
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA in 40–140 range associated with vascular toxicity"
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "HBD count between 2–8 linked to vascular side effects"
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 10,
+      "c": 15,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "HBA count in 5–20 range correlates with vascular toxicity"
+    },
+    {
+      "name": "aromatic_rings_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "aromatic_rings",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "2–8 aromatic rings associated with vascular adverse effects"
+    },
+    {
+      "name": "ring_count_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Ring count in 3–9 range linked to vascular toxicity"
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 700,
+      "d": 900,
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Molecular weight above 300 linked to vascular side effects"
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High phenol density in aromatic systems"
+    },
+    {
+      "name": "dihydroxyphenethylamine",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccc(O)c1C(N)c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Presence of dihydroxyphenethylamine motif"
+    },
+    {
+      "name": "ace_inhibitor_like",
+      "type": "smarts_count",
+      "smarts": "OC(=O)C(N)CCC(=O)N",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Dicarboxylic acid pattern in ACE inhibitors"
+    },
+    {
+      "name": "primary_amine_aromatic",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Primary amine on aromatic ring increases vasoactivity"
+    },
+    {
+      "name": "tertiary_amine_aromatic",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Tertiary amine on aromatic ring enhances membrane penetration"
+    },
+    {
+      "name": "hydroxyl_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Hydroxyl group per aromatic ring increases vascular risk"
+    },
+    {
+      "name": "carboxylic_acid_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Carboxylic acid per aromatic ring increases vascular toxicity"
+    },
+    {
+      "name": "amide_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Amide group per aromatic ring linked to protein binding"
+    },
+    {
+      "name": "halogen_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Halogen substitution per aromatic ring increases lipophilicity"
+    },
+    {
+      "name": "nitrogen_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Nitrogen per aromatic ring enhances vasoactivity"
+    },
+    {
+      "name": "phenyl_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1C(N)c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Phenylamine motif per ring increases vascular risk"
+    },
+    {
+      "name": "dihydroxyphenyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccc(O)c1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Dihydroxyphenyl group per ring increases vasoactive potential"
+    },
+    {
+      "name": "logp_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 7.0,
+      "d": 9.0,
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Moderate to high logP range associated with vascular effects"
+    },
+    {
+      "name": "tpsa_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 80,
+      "c": 110,
+      "d": 130,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Moderate to high TPSA range linked to vascular toxicity"
+    },
+    {
+      "name": "hbd_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Moderate to high HBD count increases vascular risk"
+    },
+    {
+      "name": "hba_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 6,
+      "b": 10,
+      "c": 14,
+      "d": 18,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Moderate to high HBA count correlates with vascular side effects"
+    },
+    {
+      "name": "aromatic_rings_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "aromatic_rings",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Moderate to high aromatic ring count linked to vascular toxicity"
+    },
+    {
+      "name": "ring_count_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Moderate to high ring count associated with vascular adverse effects"
+    },
+    {
+      "name": "mol_wt_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 350,
+      "b": 550,
+      "c": 750,
+      "d": 950,
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Moderate to high molecular weight increases vascular risk"
+    },
+    {
+      "name": "phenol_moderate_high",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Moderate to high phenol per ring ratio increases vascular risk"
+    },
+    {
+      "name": "dihydroxyphenethylamine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccc(O)c1C(N)c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Dihydroxyphenethylamine per ring increases vasoactivity"
+    },
+    {
+      "name": "ace_inhibitor_ratio",
+      "type": "smarts_ratio",
+      "smarts": "OC(=O)C(N)CCC(=O)N",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "ACE inhibitor motif per heavy atom increases vascular risk"
+    },
+    {
+      "name": "primary_amine_moderate_high",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Primary amine per heavy atom in moderate-high range increases vascular risk"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 14,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\":\"logp_high\", \"type\":\"descriptor\", \"descriptor\":\"logp\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Higher lipophilicity associated with vascular adverse effects\"},\n    {\"name\":\"tpsa_low\", \"type\":\"descriptor\", \"descriptor\":\"tpsa\", \"direction\":\"lower\", \"confidence\":0.68, \"description\":\"Low polarity may facilitate vascular permeability and adverse effects\"},\n    {\"name\":\"hbd_high\", \"type\":\"descriptor\", \"descriptor\":\"hbd\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Increased hydrogen bond donors linked to vascular side effects\"},\n    {\"name\":\"hba_high\", \"type\":\"descriptor\", \"descriptor\":\"hba\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"High hydrogen bond acceptor count correlates with vascular toxicity\"},\n    {\"name\":\"basic_n_count_high\", \"type\":\"descriptor\", \"descriptor\":\"num_nitrogens\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Increased basic nitrogen atoms promote vasoactive effects via receptor interaction\"},\n    {\"name\":\"aromatic_rings_high\", \"type\":\"descriptor\", \"descriptor\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Multiple aromatic rings increase planarity and membrane penetration, linked to vascular effects\"},\n    {\"name\":\"ring_count_high\", \"type\":\"descriptor\", \"descriptor\":\"ring_count\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"Higher ring count associated with structural rigidity and vascular toxicity\"},\n    {\"name\":\"mol_wt_high\", \"type\":\"descriptor\", \"descriptor\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Increased molecular weight correlates with poor clearance and vascular accumulation\"},\n    {\"name\":\"phenol_count\", \"type\":\"smarts_count\", \"smarts\":\"[OX2H1]c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"Presence of phenolic hydroxyl groups in aromatic rings\"},\n    {\"name\":\"catecholamine_like\", \"type\":\"smarts_count\", \"smarts\":\"[OX2H1]c1ccc(O)c1\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Catecholamine-like dihydroxyphenethylamine motifs linked to vasoactive effects\"},\n    {\"name\":\"phenethylamine_pattern\", \"type\":\"smarts_count\", \"smarts\":\"c1ccc(CCN)c(O)c1\", \"direction\":\"higher\", \"confidence\":0.75, \"description\":\"Phenethylamine scaffold with hydroxyl and amine groups\"},\n    {\"name\":\"sympathomimetic_amine\", \"type\":\"smarts_count\", \"smarts\":\"c1ccccc1C(N)c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Sympathomimetic phenethylamine pattern with aromatic amine\"},\n    {\"name\":\"primary_amine_density\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H2][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"High density of primary amines in molecular framework\"},\n    {\"name\":\"secondary_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H1]([#6])[#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Elevated secondary amine content in aromatic systems\"},\n    {\"name\":\"tertiary_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Tertiary amines promote membrane penetration and vasoactivity\"},\n    {\"name\":\"carboxylic_acid_count\", \"type\":\"smarts_count\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Presence of carboxylic acid groups, common in ACE inhibitors linked to vascular effects\"},\n    {\"name\":\"amide_group_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[NX3]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"Amide group density may contribute to protein binding and vascular effects\"},\n    {\"name\":\"ether_group_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OD2]([#6])[#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Ether linkages in aromatic systems may enhance vascular permeability\"},\n    {\"name\":\"halogen_any_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[F,Cl,Br,I]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"Halogen substitution increases lipophilicity and metabolic instability\"},\n    {\"name\":\"pyrimidine_count\", \"type\":\"smarts_count\", \"smarts\":\"c1cncnc1\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"Pyrimidine ring presence in vasoactive scaffolds\"},\n    {\"name\":\"aromatic_n_ring_count\", \"type\":\"smarts_count\", \"smarts\":\"c1ccncc1\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"Aromatic nitrogen-containing rings with vasoactive potential\"},\n    {\"name\":\"logp_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"logp\", \"a\":3.0, \"b\":5.0, \"c\":7.0, \"d\":9.0, \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"LogP in 3–9 range peaks in vascular adverse events\"},\n    {\"name\":\"tpsa_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"tpsa\", \"a\":40, \"b\":60, \"c\":120, \"d\":140, \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"TPSA in 40–140 range associated with vascular toxicity\"},\n    {\"name\":\"hbd_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"hbd\", \"a\":2, \"b\":4, \"c\":6, \"d\":8, \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"HBD count between 2–8 linked to vascular side effects\"},\n    {\"name\":\"hba_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"hba\", \"a\":5, \"b\":10, \"c\":15, \"d\":20, \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"HBA count in 5–20 range correlates with vascular toxicity\"},\n    {\"name\":\"basic_n_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"num_nitrogens\", \"a\":2, \"b\":4, \"c\":6, \"d\":8, \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Nitrogen count between 2–8 increases vasoactive potential\"},\n    {\"name\":\"aromatic_rings_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"aromatic_rings\", \"a\":2, \"b\":4, \"c\":6, \"d\":8, \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"2–8 aromatic rings associated with vascular adverse effects\"},\n    {\"name\":\"ring_count_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"ring_count\", \"a\":3, \"b\":5, \"c\":7, \"d\":9, \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Ring count in 3–9 range linked to vascular toxicity\"},\n    {\"name\":\"mol_wt_desirability_window\", \"type\":\"desirability_window\", \"descriptor\":\"mol_wt\", \"a\":300, \"b\":500, \"c\":700, \"d\":900, \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Molecular weight above 300 linked to vascular side effects\"},\n    {\"name\":\"phenol_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccccc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"High phenol density in aromatic systems\"},\n    {\"name\":\"dihydroxyphenethylamine\", \"type\":\"smarts_count\", \"smarts\":\"[OX2H1]c1ccc(O)c1C(N)c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Presence of dihydroxyphenethylamine motif\"},\n    {\"name\":\"ace_inhibitor_like\", \"type\":\"smarts_count\", \"smarts\":\"OC(=O)C(N)CCC(=O)N\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Dicarboxylic acid pattern in ACE inhibitors\"},\n    {\"name\":\"primary_amine_aromatic\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H2][#6]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"Primary amine on aromatic ring increases vasoactivity\"},\n    {\"name\":\"tertiary_amine_aromatic\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Tertiary amine on aromatic ring enhances membrane penetration\"},\n    {\"name\":\"hydroxyl_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccccc1\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Hydroxyl group per aromatic ring increases vascular risk\"},\n    {\"name\":\"carboxylic_acid_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Carboxylic acid per aromatic ring increases vascular toxicity\"},\n    {\"name\":\"amide_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[NX3]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"Amide group per aromatic ring linked to protein binding\"},\n    {\"name\":\"halogen_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[F,Cl,Br,I]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Halogen substitution per aromatic ring increases lipophilicity\"},\n    {\"name\":\"nitrogen_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H2][#6]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"Nitrogen per aromatic ring enhances vasoactivity\"},\n    {\"name\":\"phenyl_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c1ccccc1C(N)c1ccccc1\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Phenylamine motif per ring increases vascular risk\"},\n    {\"name\":\"dihydroxyphenyl_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccc(O)c1\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"Dihydroxyphenyl group per ring increases vasoactive potential\"},\n    {\"name\":\"logp_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"logp\", \"a\":3.0, \"b\":5.0, \"c\":7.0, \"d\":9.0, \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Moderate to high logP range associated with vascular effects\"},\n    {\"name\":\"tpsa_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"tpsa\", \"a\":50, \"b\":80, \"c\":110, \"d\":130, \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"Moderate to high TPSA range linked to vascular toxicity\"},\n    {\"name\":\"hbd_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"hbd\", \"a\":3, \"b\":5, \"c\":7, \"d\":9, \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Moderate to high HBD count increases vascular risk\"},\n    {\"name\":\"hba_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"hba\", \"a\":6, \"b\":10, \"c\":14, \"d\":18, \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Moderate to high HBA count correlates with vascular side effects\"},\n    {\"name\":\"basic_n_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"num_nitrogens\", \"a\":2, \"b\":4, \"c\":6, \"d\":8, \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Moderate to high nitrogen count increases vasoactivity\"},\n    {\"name\":\"aromatic_rings_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"aromatic_rings\", \"a\":2, \"b\":4, \"c\":6, \"d\":8, \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Moderate to high aromatic ring count linked to vascular toxicity\"},\n    {\"name\":\"ring_count_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"ring_count\", \"a\":3, \"b\":5, \"c\":7, \"d\":9, \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Moderate to high ring count associated with vascular adverse effects\"},\n    {\"name\":\"mol_wt_moderate_high\", \"type\":\"desirability_window\", \"descriptor\":\"mol_wt\", \"a\":350, \"b\":550, \"c\":750, \"d\":950, \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Moderate to high molecular weight increases vascular risk\"},\n    {\"name\":\"phenol_moderate_high\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccccc1\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"Moderate to high phenol per ring ratio increases vascular risk\"},\n    {\"name\":\"dihydroxyphenethylamine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccc(O)c1C(N)c1ccccc1\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Dihydroxyphenethylamine per ring increases vasoactivity\"},\n    {\"name\":\"ace_inhibitor_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"OC(=O)C(N)CCC(=O)N\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"ACE inhibitor motif per heavy atom increases vascular risk\"},\n    {\"name\":\"primary_amine_moderate_high\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H2][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"Primary amine per heavy atom in moderate-high range increases vascular risk\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

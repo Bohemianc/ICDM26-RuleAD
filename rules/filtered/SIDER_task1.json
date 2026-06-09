@@ -1,0 +1,526 @@
+{
+  "task_key": "SIDER_task1",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 388,
+  "n_input_rules": 36,
+  "n_kept": 27,
+  "n_rejected": 9,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 10,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 15,
+      "name": "triazole_count",
+      "reason": "fire_rate:0.0387"
+    },
+    {
+      "index": 17,
+      "name": "polyhydroxyl_phenol_ratio",
+      "reason": "fire_rate:0.0077"
+    },
+    {
+      "index": 24,
+      "name": "steroid_like_scaffold",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 25,
+      "name": "fused_benzene_ring_count",
+      "reason": "fire_rate:0.0077"
+    },
+    {
+      "index": 26,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0387"
+    },
+    {
+      "index": 29,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0206"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with metabolic disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 194,
+        "n_train_normal": 388,
+        "threshold": 1.986850000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased aromatic ring count correlates with CYP induction and metabolic stress",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38917525773195877,
+        "fired": 151,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors linked to endocrine disruption and metabolic effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 194,
+        "n_train_normal": 388,
+        "threshold": 1.5,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High hydrogen bond acceptor count associated with phenolic and metabolic disruption motifs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46134020618556704,
+        "fired": 179,
+        "n_train_normal": 388,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA in 40\u201360 range shows peak metabolic side effect activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22938144329896906,
+        "fired": 89,
+        "n_train_normal": 388,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Higher molecular weight correlates with poor metabolic clearance and accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 194,
+        "n_train_normal": 388,
+        "threshold": 344.21700000000004,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Multiple fused rings increase metabolic burden and CYP induction risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49742268041237114,
+        "fired": 193,
+        "n_train_normal": 388,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of multiple heterocycles increases metabolic instability and enzyme inhibition",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3118556701030928,
+        "fired": 121,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.62,
+      "description": "Low sp3 character indicates high planarity and metabolic instability",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49742268041237114,
+        "fired": 193,
+        "n_train_normal": 388,
+        "threshold": 0.46153846153846156,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High heavy atom count increases metabolic load and potential for CYP inhibition",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49742268041237114,
+        "fired": 193,
+        "n_train_normal": 388,
+        "threshold": 23.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Increased rotatable bonds suggest flexibility and metabolic vulnerability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46649484536082475,
+        "fired": 181,
+        "n_train_normal": 388,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "imidazole_count",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Imidazole rings are known CYP inhibitors and metabolic disruptors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09020618556701031,
+        "fired": 35,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenolic motifs show endocrine-like activity and metabolic disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10824742268041238,
+        "fired": 42,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aromatic nitrogen-containing rings linked to metabolic enzyme interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.059278350515463915,
+        "fired": 23,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amines may participate in metabolic conjugation and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23711340206185566,
+        "fired": 92,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Secondary amines associated with metabolic instability and CYP interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3118556701030928,
+        "fired": 121,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Tertiary amines can act as CYP inhibitors or metabolic substrates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3427835051546392,
+        "fired": 133,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogenated aromatics increase metabolic burden and CYP inhibition risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29381443298969073,
+        "fired": 114,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Aryl halogen density indicates metabolic disruption potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16237113402061856,
+        "fired": 63,
+        "n_train_normal": 388,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High phenol-to-aromatic ratio indicates endocrine-disrupting potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10824742268041238,
+        "fired": 42,
+        "n_train_normal": 388,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Bridgehead atoms in complex ring systems may lead to metabolic instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05412371134020619,
+        "fired": 21,
+        "n_train_normal": 388,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Amide groups can be metabolized to reactive intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2912371134020619,
+        "fired": 113,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Carboxylic acids are prone to metabolic conjugation and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20103092783505155,
+        "fired": 78,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Ether linkages may be metabolized to reactive alcohols",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4252577319587629,
+        "fired": 165,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Hydroxyl groups are sites of phase I metabolism and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5309278350515464,
+        "fired": 206,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Presence of simple aromatic rings increases metabolic exposure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5824742268041238,
+        "fired": 226,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hetero_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of heterocyclic rings increases metabolic enzyme interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09020618556701031,
+        "fired": 35,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task1__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:04.032458"
+}

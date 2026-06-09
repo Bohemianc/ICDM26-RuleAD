@@ -1,0 +1,603 @@
+{
+  "task_key": "Tox21_task0",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 6261,
+  "n_input_rules": 52,
+  "n_kept": 26,
+  "n_rejected": 26,
+  "rejects": [
+    {
+      "index": 7,
+      "name": "cfcf3_smarts_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 8,
+      "name": "nitro_aryl_smarts_ratio",
+      "reason": "fire_rate:0.0414"
+    },
+    {
+      "index": 9,
+      "name": "biphenyl_chloro_smarts_ratio",
+      "reason": "fire_rate:0.0003"
+    },
+    {
+      "index": 10,
+      "name": "trichloro_smarts_count",
+      "reason": "fire_rate:0.0064"
+    },
+    {
+      "index": 11,
+      "name": "keto_4ene_ring_smarts_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 13,
+      "name": "3keto_4ene_smarts_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 15,
+      "name": "alpha_hydroxyamide_smarts_ratio",
+      "reason": "fire_rate:0.0019"
+    },
+    {
+      "index": 16,
+      "name": "sulfonamide_smarts_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 25,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0302"
+    },
+    {
+      "index": 26,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 31,
+      "name": "atom_richness_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 32,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 34,
+      "name": "keto_4ene_smarts_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 36,
+      "name": "trifluoromethyl_aryl_smarts_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 37,
+      "name": "nitro_aryl_smarts_count",
+      "reason": "fire_rate:0.0414"
+    },
+    {
+      "index": 38,
+      "name": "biphenyl_chloro_smarts_count",
+      "reason": "fire_rate:0.0003"
+    },
+    {
+      "index": 39,
+      "name": "trichloro_smarts_ratio",
+      "reason": "fire_rate:0.0064"
+    },
+    {
+      "index": 41,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0110"
+    },
+    {
+      "index": 42,
+      "name": "aromatic_rings_anom_window",
+      "reason": "fire_rate:0.0034"
+    },
+    {
+      "index": 43,
+      "name": "halogen_count_anom_window",
+      "reason": "fire_rate:0.9110"
+    },
+    {
+      "index": 45,
+      "name": "num_heterocycles_anom_window",
+      "reason": "fire_rate:0.0081"
+    },
+    {
+      "index": 46,
+      "name": "num_amide_bonds_anom_window",
+      "reason": "fire_rate:0.0204"
+    },
+    {
+      "index": 47,
+      "name": "num_stereo_centers_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 48,
+      "name": "mol_wt_anom_window",
+      "reason": "fire_rate:0.0222"
+    },
+    {
+      "index": 50,
+      "name": "hba_anom_window",
+      "reason": "fire_rate:0.0248"
+    },
+    {
+      "index": 51,
+      "name": "hbd_anom_window",
+      "reason": "fire_rate:0.0339"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "High lipophilicity indicative of environmental anti-androgens like DDT-like compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4999201405526274,
+        "fired": 3130,
+        "n_train_normal": 6261,
+        "threshold": 2.33774,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_count_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "High halogen content associated with chlorinated biphenyls and DDT-like environmental anti-androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4639833892349465,
+        "fired": 2905,
+        "n_train_normal": 6261,
+        "threshold": 16.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Increased aromatic ring count typical of steroidal and anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32151413512218496,
+        "fired": 2013,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Ring fusion and complexity common in androgenic and anti-androgenic steroidal scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4518447532343076,
+        "fired": 2829,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.82,
+      "description": "Low TPSA correlates with lipophilic, planar scaffolds like DHT-like androgens",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49976042165788215,
+        "fired": 3129,
+        "n_train_normal": 6261,
+        "threshold": 46.150000000000006,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Presence of heterocyclic rings in anti-androgen anilide scaffolds such as flutamide-like structures",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.39083213544162276,
+        "fired": 2447,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Amide linkages in anilide anti-androgens (e.g., flutamide) are key to activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18112122664111163,
+        "fired": 1134,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "17beta_oh_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "17\u03b2-hydroxy group in steroidal androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08960229995208434,
+        "fired": 561,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "anilide_amide_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Amide linkage in anti-androgen anilides like flutamide",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17872544321993292,
+        "fired": 1119,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of pyrimidine or other N-heterocycles in anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06053346110844913,
+        "fired": 379,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Primary amine in some anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12410158121705797,
+        "fired": 777,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Secondary amine in amide-linked anti-androgen head groups",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18639195016770485,
+        "fired": 1167,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Tertiary amine in some anti-androgen head groups",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18559335569397858,
+        "fired": 1162,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Phenol group in some anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08960229995208434,
+        "fired": 561,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Carboxylic acid in some environmental anti-androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10078262258425172,
+        "fired": 631,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Ether linkage in some anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3545759463344514,
+        "fired": 2220,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High halogen density in environmental anti-androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2384603098546558,
+        "fired": 1493,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Higher molecular weight typical of environmental anti-androgens like PCBs and DDTs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4999201405526274,
+        "fired": 3130,
+        "n_train_normal": 6261,
+        "threshold": 232.32700000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased rotatable bonds in flexible anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4652611403929085,
+        "fired": 2913,
+        "n_train_normal": 6261,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Higher hydrogen bond acceptor count in polar anti-androgen head groups",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3833253473885961,
+        "fired": 2400,
+        "n_train_normal": 6261,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Higher hydrogen bond donor count in hydroxyl or amide-containing anti-androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2814246925411276,
+        "fired": 1762,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Aromatic ring density in steroidal and anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48826066123622425,
+        "fired": 3057,
+        "n_train_normal": 6261,
+        "threshold": 0.043478260869565216,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "17beta_oh_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "17\u03b2-hydroxy group in steroidal androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08960229995208434,
+        "fired": 561,
+        "n_train_normal": 6261,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "TPSA window associated with lipophilic, planar anti-androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08225523079380291,
+        "fired": 515,
+        "n_train_normal": 6261,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_fusion_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.5,
+      "description": "Ring fusion in steroidal and anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4518447532343076,
+        "fired": 2829,
+        "n_train_normal": 6261,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_anom_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 3,
+      "b": 6,
+      "c": 9,
+      "d": 12,
+      "direction": "higher",
+      "confidence": 0.45,
+      "description": "Rotatable bonds in flexible anti-androgen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12921258584890594,
+        "fired": 809,
+        "n_train_normal": 6261,
+        "threshold": 9.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task0__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:16.047649"
+}

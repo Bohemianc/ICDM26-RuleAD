@@ -1,0 +1,542 @@
+{
+  "task_key": "SIDER_task6",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 117,
+  "n_input_rules": 37,
+  "n_kept": 27,
+  "n_rejected": 10,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 16,
+      "name": "aldehyde_on_aromatic",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 17,
+      "name": "aryl_acetic_acid",
+      "reason": "fire_rate:0.0085"
+    },
+    {
+      "index": 18,
+      "name": "aryl_propionic_acid",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 19,
+      "name": "fused_aromatic_acid",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 20,
+      "name": "bisphosphonate",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 25,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 26,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0085"
+    },
+    {
+      "index": 29,
+      "name": "hba_anom_window",
+      "reason": "fire_rate:0.0342"
+    },
+    {
+      "index": 31,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0342"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Higher lipophilicity associated with GI adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49572649572649574,
+        "fired": 58,
+        "n_train_normal": 117,
+        "threshold": 2.658400000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Increased molecular weight correlates with GI toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49572649572649574,
+        "fired": 58,
+        "n_train_normal": 117,
+        "threshold": 326.60900000000004,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Higher hydrogen bond donor count linked to GI irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42735042735042733,
+        "fired": 50,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Increased hydrogen bond acceptor count associated with GI adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.39316239316239315,
+        "fired": 46,
+        "n_train_normal": 117,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 100,
+      "c": 150,
+      "d": 200,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "TPSA in mid-to-high range peaks in GI adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09401709401709402,
+        "fired": 11,
+        "n_train_normal": 117,
+        "threshold": 150.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Multiple aromatic rings increase GI irritation risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46153846153846156,
+        "fired": 54,
+        "n_train_normal": 117,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Increased ring count correlates with GI toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46153846153846156,
+        "fired": 54,
+        "n_train_normal": 117,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Higher heavy atom count linked to GI adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49572649572649574,
+        "fired": 58,
+        "n_train_normal": 117,
+        "threshold": 22.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Low sp3 character suggests increased GI irritancy",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49572649572649574,
+        "fired": 58,
+        "n_train_normal": 117,
+        "threshold": 0.56,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Heterocyclic systems increase GI toxicity risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3418803418803419,
+        "fired": 40,
+        "n_train_normal": 117,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Greater rotatable bonds correlate with GI adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4444444444444444,
+        "fired": 52,
+        "n_train_normal": 117,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Phenolic groups contribute to GI irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05982905982905983,
+        "fired": 7,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Primary amines may promote GI adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15384615384615385,
+        "fired": 18,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Secondary amines linked to GI toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11965811965811966,
+        "fired": 14,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Tertiary amines associated with GI side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1282051282051282,
+        "fired": 15,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Ether linkages may contribute to GI adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38461538461538464,
+        "fired": 45,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Halogen presence increases GI irritation potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36752136752136755,
+        "fired": 43,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Aryl halogen density indicates GI toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1111111111111111,
+        "fired": 13,
+        "n_train_normal": 117,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High phenol density correlates with GI irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05982905982905983,
+        "fired": 7,
+        "n_train_normal": 117,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_anom_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 700,
+      "d": 1000,
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Molecular weight above 300\u2013500 linked to GI toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06837606837606838,
+        "fired": 8,
+        "n_train_normal": 117,
+        "threshold": 700.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_anom_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "HBD count in 2\u20138 range increases GI side effect risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05982905982905983,
+        "fired": 7,
+        "n_train_normal": 117,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Aromatic nitrogen-containing rings increase GI irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05128205128205128,
+        "fired": 6,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aldehyde_count",
+      "type": "smarts_count",
+      "smarts": "C=O",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Aldehyde groups are reactive and irritant to GI tract",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5726495726495726,
+        "fired": 67,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Amide groups may contribute to GI adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09401709401709402,
+        "fired": 11,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High ether density in aromatic systems increases GI risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38461538461538464,
+        "fired": 45,
+        "n_train_normal": 117,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High tertiary amine density in aromatic systems raises GI risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1282051282051282,
+        "fired": 15,
+        "n_train_normal": 117,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "High phenol per HBD increases GI irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05982905982905983,
+        "fired": 7,
+        "n_train_normal": 117,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task6__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:05.686072"
+}

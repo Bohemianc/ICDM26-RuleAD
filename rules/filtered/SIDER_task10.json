@@ -1,0 +1,792 @@
+{
+  "task_key": "SIDER_task10",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 946,
+  "n_input_rules": 54,
+  "n_kept": 39,
+  "n_rejected": 15,
+  "rejects": [
+    {
+      "index": 15,
+      "name": "nitroaromatic_count",
+      "reason": "fire_rate:0.0137"
+    },
+    {
+      "index": 16,
+      "name": "nitrosamine_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 17,
+      "name": "alkyl_sulfonate_count",
+      "reason": "fire_rate:0.0063"
+    },
+    {
+      "index": 18,
+      "name": "nitrogen_mustard_count",
+      "reason": "fire_rate:0.0021"
+    },
+    {
+      "index": 19,
+      "name": "aziridine_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 20,
+      "name": "epoxide_count",
+      "reason": "fire_rate:0.0180"
+    },
+    {
+      "index": 29,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0254"
+    },
+    {
+      "index": 33,
+      "name": "ring_count_desirability_window",
+      "reason": "fire_rate:0.0455"
+    },
+    {
+      "index": 34,
+      "name": "num_heterocycles_desirability_window",
+      "reason": "fire_rate:0.0127"
+    },
+    {
+      "index": 38,
+      "name": "nitroaromatic_ratio",
+      "reason": "fire_rate:0.0137"
+    },
+    {
+      "index": 39,
+      "name": "alkyl_sulfonate_ratio",
+      "reason": "fire_rate:0.0063"
+    },
+    {
+      "index": 40,
+      "name": "nitrogen_mustard_ratio",
+      "reason": "fire_rate:0.0021"
+    },
+    {
+      "index": 41,
+      "name": "aziridine_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 42,
+      "name": "epoxide_ratio",
+      "reason": "fire_rate:0.0180"
+    },
+    {
+      "index": 51,
+      "name": "nitrosamine_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "High aromatic ring count associated with neoplasm-related adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4397463002114165,
+        "fired": 416,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.89,
+      "description": "Low sp3 character indicates increased planarity and potential for DNA intercalation",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 473,
+        "n_train_normal": 946,
+        "threshold": 0.44913793103448274,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "High lipophilicity correlates with poor metabolic clearance and increased genotoxic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 473,
+        "n_train_normal": 946,
+        "threshold": 2.0781599999999996,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 100,
+      "c": 150,
+      "d": 200,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "TPSA range associated with increased membrane permeability and DNA interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18921775898520085,
+        "fired": 179,
+        "n_train_normal": 946,
+        "threshold": 150.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "High molecular weight linked to complex interactions with DNA and chromatin",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4989429175475687,
+        "fired": 472,
+        "n_train_normal": 946,
+        "threshold": 352.4710000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Increased hydrogen bond donors may support DNA binding and genotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32452431289640593,
+        "fired": 307,
+        "n_train_normal": 946,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High hydrogen bond acceptors support DNA intercalation and genotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4978858350951374,
+        "fired": 471,
+        "n_train_normal": 946,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Multiple fused rings increase planarity and DNA intercalation potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3181818181818182,
+        "fired": 301,
+        "n_train_normal": 946,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Heterocyclic rings enhance DNA binding and genotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35095137420718814,
+        "fired": 332,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High heavy atom count correlates with increased molecular complexity and DNA interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.492600422832981,
+        "fired": 466,
+        "n_train_normal": 946,
+        "threshold": 24.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Aromatic nitrogen-containing rings prone to N-hydroxylation and genotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07610993657505286,
+        "fired": 72,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Pyrimidine motifs linked to mutagenic and carcinogenic activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06976744186046512,
+        "fired": 66,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Primary amines susceptible to N-hydroxylation and DNA adduct formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23361522198731502,
+        "fired": 221,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Secondary amines form reactive intermediates via oxidation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37420718816067655,
+        "fired": 354,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Tertiary amines may undergo metabolic activation to form nitrenium ions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3657505285412262,
+        "fired": 346,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_amine_count",
+      "type": "smarts_count",
+      "smarts": "Nc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Aromatic amines undergo N-hydroxylation to form DNA-reactive species",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18710359408033828,
+        "fired": 177,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "acridine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccc(cc1)N",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Acridine-like planar polycyclic systems with high DNA intercalation potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18710359408033828,
+        "fired": 177,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "High aromatic ring density increases planarity and DNA interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48520084566596194,
+        "fired": 459,
+        "n_train_normal": 946,
+        "threshold": 0.037037037037037035,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Halogenated aromatics may form reactive metabolites or intercalate",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2769556025369979,
+        "fired": 262,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenols can be oxidized to quinones, which are redox-active and genotoxic",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10782241014799154,
+        "fired": 102,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Carboxylic acids may form reactive metabolites or influence solubility and distribution",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20930232558139536,
+        "fired": 198,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Amides may undergo hydrolysis or metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3181818181818182,
+        "fired": 301,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Ethers may be metabolized to oxo- or hydroxy-derivatives with genotoxic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.43446088794926,
+        "fired": 411,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 60,
+      "b": 100,
+      "c": 140,
+      "d": 180,
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "TPSA in 60\u2013180 range supports membrane permeability and DNA access",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20613107822410148,
+        "fired": 195,
+        "n_train_normal": 946,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 8,
+      "b": 12,
+      "c": 16,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High HBA count supports DNA binding via hydrogen bonding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06871035940803383,
+        "fired": 65,
+        "n_train_normal": 946,
+        "threshold": 16.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Moderate to high HBD count supports solubility and metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10359408033826638,
+        "fired": 98,
+        "n_train_normal": 946,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.3,
+      "c": 0.4,
+      "d": 0.5,
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Low sp3 fraction indicates planar, rigid structures prone to DNA intercalation",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5792811839323467,
+        "fired": 548,
+        "n_train_normal": 946,
+        "threshold": 0.4,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 700,
+      "d": 900,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Molecular weight >300 linked to complex interactions with DNA",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10359408033826638,
+        "fired": 98,
+        "n_train_normal": 946,
+        "threshold": 700.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "High aromatic ring density increases DNA intercalation potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48520084566596194,
+        "fired": 459,
+        "n_train_normal": 946,
+        "threshold": 0.037037037037037035,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "Nc1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Aromatic amines form DNA-reactive metabolites via N-hydroxylation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18710359408033828,
+        "fired": 177,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Phenols can be oxidized to redox-active quinones",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10782241014799154,
+        "fired": 102,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Carboxylic acids may form reactive metabolites",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20930232558139536,
+        "fired": 198,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Amides may undergo hydrolysis or metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3181818181818182,
+        "fired": 301,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Ethers may be metabolized to reactive species",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.43446088794926,
+        "fired": 411,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Primary amines are metabolically activated to nitrenium ions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23361522198731502,
+        "fired": 221,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Secondary amines form reactive intermediates via oxidation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37420718816067655,
+        "fired": 354,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Tertiary amines may form reactive metabolites",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3657505285412262,
+        "fired": 346,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Pyrimidine rings are mutagenic and carcinogenic",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06976744186046512,
+        "fired": 66,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "acridine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccc(cc1)N",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Acridine derivatives are strong DNA intercalators",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18710359408033828,
+        "fired": 177,
+        "n_train_normal": 946,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task10__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:07.728713"
+}

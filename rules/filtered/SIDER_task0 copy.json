@@ -1,0 +1,70 @@
+{
+  "task_key": "SIDER_task0",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 616,
+  "n_input_rules": 6,
+  "n_kept": 2,
+  "n_rejected": 4,
+  "rejects": [
+    {
+      "index": 2,
+      "name": "nitroaromatic",
+      "reason": "fire_rate:0.0097"
+    },
+    {
+      "index": 3,
+      "name": "cyclopropyl_amine",
+      "reason": "fire_rate:0.0016"
+    },
+    {
+      "index": 4,
+      "name": "furan_ring",
+      "reason": "fire_rate:0.0081"
+    },
+    {
+      "index": 5,
+      "name": "para_aminophenol",
+      "reason": "fire_rate:0.0049"
+    }
+  ],
+  "rules": [
+    {
+      "name": "michael_acceptor",
+      "type": "smarts_count",
+      "smarts": "C=CC(=O)",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of \u03b1,\u03b2-unsaturated carbonyl motif forming reactive metabolites in hepatocytes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1185064935064935,
+        "fired": 73,
+        "n_train_normal": 616,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_amine",
+      "type": "smarts_count",
+      "smarts": "Nc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.94,
+      "description": "Aromatic amine prone to CYP450-mediated bioactivation to nitroso/hydroxylamine intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13636363636363635,
+        "fired": 84,
+        "n_train_normal": 616,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task0__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:09.983882"
+}

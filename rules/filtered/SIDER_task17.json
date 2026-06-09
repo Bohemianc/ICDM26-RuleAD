@@ -1,0 +1,517 @@
+{
+  "task_key": "SIDER_task17",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1057,
+  "n_input_rules": 38,
+  "n_kept": 25,
+  "n_rejected": 13,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "retinoid_core_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 1,
+      "name": "thalidomide_phthalimide_ratio",
+      "reason": "fire_rate:0.0009"
+    },
+    {
+      "index": 3,
+      "name": "ace_inhibitor_like_count",
+      "reason": "fire_rate:0.0038"
+    },
+    {
+      "index": 4,
+      "name": "antiepileptic_aromatic_count",
+      "reason": "fire_rate:0.0416"
+    },
+    {
+      "index": 5,
+      "name": "polyene_chain_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 6,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0047"
+    },
+    {
+      "index": 15,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 17,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0255"
+    },
+    {
+      "index": 31,
+      "name": "polyene_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 32,
+      "name": "retinoid_core_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 33,
+      "name": "thalidomide_phthalimide_count",
+      "reason": "fire_rate:0.0009"
+    },
+    {
+      "index": 35,
+      "name": "ace_inhibitor_like_ratio",
+      "reason": "fire_rate:0.0038"
+    },
+    {
+      "index": 36,
+      "name": "antiepileptic_aromatic_ratio",
+      "reason": "fire_rate:0.0416"
+    }
+  ],
+  "rules": [
+    {
+      "name": "valproic_acid_like_count",
+      "type": "smarts_count",
+      "smarts": "C(=O)O[C@H](C)C",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Count of branched short-chain carboxylic acid motifs similar to valproic acid",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06244087038789026,
+        "fired": 66,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 160,
+      "d": 200,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "TPSA range linked to poor membrane permeability and developmental toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1608325449385052,
+        "fired": 170,
+        "n_train_normal": 1057,
+        "threshold": 160.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High hydrogen bond donor count increases solubility and potential for developmental disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3273415326395459,
+        "fired": 346,
+        "n_train_normal": 1057,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High hydrogen bond acceptor count correlates with increased molecular polarity and teratogenic risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49195837275307475,
+        "fired": 520,
+        "n_train_normal": 1057,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Increased aromatic ring count associated with structural rigidity and developmental toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4824976348155156,
+        "fired": 510,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Higher ring count indicates complex scaffolds with potential for off-target effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35288552507095555,
+        "fired": 373,
+        "n_train_normal": 1057,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High molecular weight correlates with poor bioavailability and increased risk of developmental effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49952696310312206,
+        "fired": 528,
+        "n_train_normal": 1057,
+        "threshold": 354.28700000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.65,
+      "description": "Low sp3 character indicates high planarity and potential for teratogenicity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49763481551561023,
+        "fired": 526,
+        "n_train_normal": 1057,
+        "threshold": 0.43478260869565216,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Increased heterocyclic rings may enhance binding to developmental targets",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36991485335856195,
+        "fired": 391,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Bridgehead atoms in strained systems are linked to structural instability and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06906338694418164,
+        "fired": 73,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High rotatable bond count increases conformational flexibility and off-target binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49290444654683063,
+        "fired": 521,
+        "n_train_normal": 1057,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Primary amines may form reactive metabolites in fetal tissues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22705771050141912,
+        "fired": 240,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Secondary amines can undergo metabolic activation leading to toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3576158940397351,
+        "fired": 378,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Tertiary amines may act as weak bases and disrupt pH-sensitive developmental processes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36140018921475875,
+        "fired": 382,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Ether group density may contribute to metabolic instability and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.41911069063386946,
+        "fired": 443,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Halogen density increases lipophilicity and potential for organ-specific toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28855250709555347,
+        "fired": 305,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "N-heterocyclic aromatic rings with nitrogen in ring are linked to metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0804162724692526,
+        "fired": 85,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Pyrimidine rings are common in mutagenic and teratogenic compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07473982970671712,
+        "fired": 79,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Amide groups may be metabolized to reactive intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3122043519394513,
+        "fired": 330,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_to_aromatic_rings_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High primary amine density per aromatic ring increases metabolic activation risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22705771050141912,
+        "fired": 240,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_to_aromatic_rings_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High secondary amine density per aromatic ring may lead to reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3576158940397351,
+        "fired": 378,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_rings_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High tertiary amine density per aromatic ring may disrupt pH-sensitive developmental processes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36140018921475875,
+        "fired": 382,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_to_aromatic_rings_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High halogen density per aromatic ring increases lipophilicity and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28855250709555347,
+        "fired": 305,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "valproic_acid_like_ratio",
+      "type": "smarts_ratio",
+      "smarts": "C(=O)O[C@H](C)C",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Ratio of valproic acid-like branched carboxylic acid to total heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06244087038789026,
+        "fired": 66,
+        "n_train_normal": 1057,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Count of any aromatic ring, indicating structural planarity and potential for toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6348155156102177,
+        "fired": 671,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task17__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:10.497756"
+}

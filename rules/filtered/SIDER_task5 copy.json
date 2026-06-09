@@ -1,0 +1,40 @@
+{
+  "task_key": "SIDER_task5",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 387,
+  "n_input_rules": 5,
+  "n_kept": 0,
+  "n_rejected": 5,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "phosphonate_group",
+      "reason": "fire_rate:0.0026"
+    },
+    {
+      "index": 1,
+      "name": "hexahydronaphthalene_lactone",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 2,
+      "name": "fluoroquinolone_core",
+      "reason": "fire_rate:0.0026"
+    },
+    {
+      "index": 3,
+      "name": "aromatic_steroid_core",
+      "reason": "fire_rate:0.0078"
+    },
+    {
+      "index": 4,
+      "name": "lactone_fused_ring",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task5__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:10.367557"
+}

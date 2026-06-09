@@ -1,0 +1,458 @@
+{
+  "task_key": "Tox21_task10",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 4403,
+  "n_input_rules": 35,
+  "n_kept": 22,
+  "n_rejected": 13,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "halogen_count_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 4,
+      "name": "salicylanilide_like_smarts_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 5,
+      "name": "nitrophenol_smarts_count",
+      "reason": "fire_rate:0.0020"
+    },
+    {
+      "index": 6,
+      "name": "triphenylphosphonium_smarts_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 8,
+      "name": "cationic_center_count",
+      "reason": "fire_rate:0.0359"
+    },
+    {
+      "index": 9,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0043"
+    },
+    {
+      "index": 22,
+      "name": "nitro_smarts_ratio",
+      "reason": "fire_rate:0.0359"
+    },
+    {
+      "index": 23,
+      "name": "rotenoid_like_smarts_ratio",
+      "reason": "fire_rate:0.0011"
+    },
+    {
+      "index": 26,
+      "name": "num_stereo_centers_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 27,
+      "name": "num_bridgehead_atoms_low",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 30,
+      "name": "halogenated_aromatic_smarts_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 33,
+      "name": "pyrimidine_smarts_count",
+      "reason": "fire_rate:0.0379"
+    },
+    {
+      "index": 34,
+      "name": "fused_oxygen_ring_smarts_ratio",
+      "reason": "fire_rate:0.0075"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "High lipophilicity indicative of weak-acid protonophore or delocalized cation activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49988644106291164,
+        "fired": 2201,
+        "n_train_normal": 4403,
+        "threshold": 1.9058,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "acidic_oxygen_count_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Presence of multiple hydrogen-bond acceptor sites (e.g., -OH, -COOH) in lipophilic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35930047694753575,
+        "fired": 1582,
+        "n_train_normal": 4403,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Presence of phenolic -OH group on aromatic ring, common in protonophores",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05337270043152396,
+        "fired": 235,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Tertiary amine with three aryl groups, indicative of triaryl ammonium-like cations",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17124687712923006,
+        "fired": 754,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_count_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of multiple hydrogen bond donors (e.g., -OH, -COOH) in protonophores",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28389734272087214,
+        "fired": 1250,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Increased heterocyclic ring count in rotenoid or fused polycyclic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37247331364978425,
+        "fired": 1640,
+        "n_train_normal": 4403,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "High ring count in fused polycyclic systems like rotenoids and flavonoids",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38337497161026574,
+        "fired": 1688,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "sp3_fraction_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Low sp3 carbon fraction indicates high aromaticity and delocalization, typical of uncouplers",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4917101975925505,
+        "fired": 2165,
+        "n_train_normal": 4403,
+        "threshold": 0.5,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High molecular weight and heavy atom count in lipophilic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.47058823529411764,
+        "fired": 2072,
+        "n_train_normal": 4403,
+        "threshold": 14.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "molecular_weight_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High molecular weight correlates with lipophilic polyaromatic or fused natural-product scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49988644106291164,
+        "fired": 2201,
+        "n_train_normal": 4403,
+        "threshold": 209.28699999999998,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of carboxylic acid group, common in weak-acid protonophores",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11537588008176243,
+        "fired": 508,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Ether linkage in lipophilic scaffolds, often in polyaromatic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.358392005450829,
+        "fired": 1578,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Primary amine on aromatic ring, less common but present in some protonophores",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1276402452873041,
+        "fired": 562,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Secondary amine in aromatic systems, possible in some uncouplers",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17965023847376788,
+        "fired": 791,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High halogen density relative to molecular size",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20281626163979105,
+        "fired": 893,
+        "n_train_normal": 4403,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High phenol density per aromatic ring, indicative of protonophore activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05337270043152396,
+        "fired": 235,
+        "n_train_normal": 4403,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fused_ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Fused ring systems in rotenoids and flavonoid-like scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38337497161026574,
+        "fired": 1688,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.55,
+      "description": "Low TPSA indicates low polarity, consistent with lipophilic uncouplers",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49988644106291164,
+        "fired": 2201,
+        "n_train_normal": 4403,
+        "threshold": 46.010000000000005,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.52,
+      "description": "High rotatable bond count in flexible lipophilic chains",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.43311378605496254,
+        "fired": 1907,
+        "n_train_normal": 4403,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amino_acid_like_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.51,
+      "description": "Amide group in lipophilic scaffolds, rare but present in some analogs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18214853508971157,
+        "fired": 802,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "acidic_oxygen_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.49,
+      "description": "High acidic oxygen density relative to molecular size",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3474903474903475,
+        "fired": 1530,
+        "n_train_normal": 4403,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_smarts_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.48,
+      "description": "Aromatic nitrogen-containing ring, common in heterocyclic uncouplers",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05200999318646377,
+        "fired": 229,
+        "n_train_normal": 4403,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task10__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:37.475217"
+}

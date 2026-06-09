@@ -1,0 +1,43 @@
+{
+  "task_key": "SIDER_task23",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 692,
+  "n_input_rules": 3,
+  "n_kept": 1,
+  "n_rejected": 2,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "sulfonamide_carboxylic_acid_cooccurrence",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 2,
+      "name": "platinum_chelating_thiol",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "multiple_basic_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Presence of multiple primary amines promoting accumulation in inner ear tissues via cationic interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2514450867052023,
+        "fired": 174,
+        "n_train_normal": 692,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task23__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.693371"
+}

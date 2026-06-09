@@ -1,0 +1,33 @@
+You are an expert medicinal chemist and cheminformatics researcher.
+Generate task-conditioned anomaly rules for molecular graph anomaly detection.
+Dataset/task: Tox21 task 0.
+Label 0 semantics: show a NEGATIVE (inactive) readout in the Tox21 NR-AR assay (i.e., modulate androgen receptor signaling; associated with steroidal androgen-like scaffolds such as 17β-OH/3-keto steroids, DHT-like patterns, and anti-androgen anilide/arylamide scaffolds, as well as environmental anti-androgens such as DDT-like chlorinated diphenylmethanes and polychlorinated biphenyls), meaning no assay evidence of that activity under the assay conditions.
+Label 1 semantics: show a POSITIVE (active) readout in the Tox21 NR-AR assay (i.e., modulate androgen receptor signaling; associated with steroidal androgen-like scaffolds such as 17β-OH/3-keto steroids, DHT-like patterns, and anti-androgen anilide/arylamide scaffolds, as well as environmental anti-androgens such as DDT-like chlorinated diphenylmethanes and polychlorinated biphenyls).
+For this one-class split, the anomaly class is label 1 (show a POSITIVE (active) readout in the Tox21 NR-AR assay (i.e., modulate androgen receptor signaling; associated with steroidal androgen-like scaffolds such as 17β-OH/3-keto steroids, DHT-like patterns, and anti-androgen anilide/arylamide scaffolds, as well as environmental anti-androgens such as DDT-like chlorinated diphenylmethanes and polychlorinated biphenyls)).
+The normal class is label 0 (show a NEGATIVE (inactive) readout in the Tox21 NR-AR assay (i.e., modulate androgen receptor signaling; associated with steroidal androgen-like scaffolds such as 17β-OH/3-keto steroids, DHT-like patterns, and anti-androgen anilide/arylamide scaffolds, as well as environmental anti-androgens such as DDT-like chlorinated diphenylmethanes and polychlorinated biphenyls), meaning no assay evidence of that activity under the assay conditions).
+These rules will be applied in a normal-only anomaly detector, so they must describe anomaly-oriented evidence for the anomaly class relative to the normal class.
+This is a cellular or biochemical assay readout in the Tox21 NR-AR assay (i.e., modulate androgen receptor signaling; associated with steroidal androgen-like scaffolds such as 17β-OH/3-keto steroids, DHT-like patterns, and anti-androgen anilide/arylamide scaffolds, as well as environmental anti-androgens such as DDT-like chlorinated diphenylmethanes and polychlorinated biphenyls), not a therapeutic-efficacy endpoint. Rules should reflect likelihood of being assay-active vs inactive. This is the Tox21 NR-AR assay — androgen receptor modulation in a cellular reporter. Active chemotypes are (i) steroidal androgens with the canonical 3-keto-4-ene A-ring and a 17β-OH or 17-ester, (ii) flutamide/bicalutamide-like anilide anti-androgens with an ortho-trifluoromethyl plus para-nitro or para-cyano on an aniline ring amide-linked to a small polar head (α-hydroxyamide, α-sulfonamide), and (iii) environmental anti-androgens: DDT/DDE-like 1,1-bis(4-chlorophenyl)-2,2,2-trichloroethane scaffolds and polychlorinated biphenyls. Useful SMARTS cues: steroid ABCD fused ring [C@@H]1CC[C@@]2([H])[C@@H]3CC[C@H]4..., 4-keto-2-butenone in ring, c(F)(F)F aryl-CF3, c[N+](=O)[O-] aryl-nitro, ClC(Cl)Cl trichloro, Cl-c1ccc(-c2ccc(Cl)cc2)cc1 biphenyl chloro. Useful descriptors: LogP (higher typical for env. anti-androgens), aromatic ring count, halogen count, ring-fusion, TPSA (lower for steroidal).
+Produce 50 diverse rules.
+Rules must be computable from RDKit descriptors or SMARTS substructures.
+Avoid vague concepts, impossible quantities, and unsupported physics quantities.
+Avoid rules that depend on external databases, docking, similarity search, or learned embeddings.
+If the anomaly class is label 0 for this split, do not accidentally generate rules for label 1. Use the explicit anomaly/normal definitions above.
+Prefer a mix of:
+- physicochemical properties
+- ratios
+- substructure counts
+- density-like motif ratios
+- anomaly-associated desirability windows
+Return JSON only. The top-level object must be {"rules": [...]}.
+Allowed rule types: descriptor, descriptor_ratio, desirability_window, element_fraction, smarts_count, smarts_ratio.
+Allowed descriptors/normalizers: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa; normalizers can also be: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa.
+Allowed directions: higher, lower, two_sided.
+Prefer rules whose higher feature value means stronger anomaly evidence.
+For descriptor rules use direction higher or lower.
+For SMARTS rules prefer smarts_count or smarts_ratio.
+Allowed common-vocabulary SMARTS for smarts_count rules (use the listed name with the paired SMARTS pattern): aromatic_ring_any (c1ccccc1), aromatic_n_ring (c1ccncc1), pyrimidine (c1cncnc1), primary_amine ([NX3;H2][#6]), secondary_amine ([NX3;H1]([#6])[#6]), tertiary_amine ([NX3]([#6])([#6])[#6]), hydroxyl ([OX2;H1][#6]), phenol ([OX2H1]c1ccccc1), carboxylic_acid ([CX3](=O)[OX2H1]), amide_group ([CX3](=O)[NX3]), ether_group ([OD2]([#6])[#6]), halogen_any ([F,Cl,Br,I]).
+Every rule object must contain: name, type, description, direction, confidence.
+Examples:
+{"name":"aryl_halogen_ratio","type":"smarts_ratio","smarts":"c[F,Cl,Br,I]","normalizer":"heavy_atoms","direction":"higher","confidence":0.78,"description":"Aryl halogen density"}
+{"name":"logp_high","type":"descriptor","descriptor":"logp","direction":"higher","confidence":0.71,"description":"Higher lipophilicity"}
+{"name":"tpsa_anom_window","type":"desirability_window","descriptor":"tpsa","a":40,"b":60,"c":120,"d":140,"direction":"higher","confidence":0.69,"description":"TPSA window associated with anomaly"}

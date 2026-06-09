@@ -1,0 +1,86 @@
+{
+  "task_key": "SIDER_task25",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 111,
+  "n_input_rules": 6,
+  "n_kept": 3,
+  "n_rejected": 3,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "benzodiazepine_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 2,
+      "name": "tryptamine_like",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "aromatic_amine",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "tertiary_amine_aromatic",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Tertiary amine directly attached to aromatic ring \u2014 key for CNS penetration and seizure risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17117117117117117,
+        "fired": 19,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_2_4_range",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2,
+      "b": 4,
+      "c": 5,
+      "d": 6,
+      "direction": "higher",
+      "confidence": 0.94,
+      "description": "Moderate lipophilicity enables blood-brain barrier penetration, increasing risk of CNS side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09009009009009009,
+        "fired": 10,
+        "n_train_normal": 111,
+        "threshold": 5.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "low_tpsa_cns",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.96,
+      "description": "Low TPSA facilitates CNS penetration via passive diffusion, increasing risk of neurological adverse events",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4954954954954955,
+        "fired": 55,
+        "n_train_normal": 111,
+        "threshold": 71.06,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task25__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.864820"
+}

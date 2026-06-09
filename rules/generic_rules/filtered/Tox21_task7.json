@@ -1,0 +1,690 @@
+{
+  "task_key": "Tox21_task7",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 4401,
+  "n_input_rules": 51,
+  "n_kept": 34,
+  "n_rejected": 17,
+  "rejects": [
+    {
+      "index": 7,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 9,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0077"
+    },
+    {
+      "index": 10,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0204"
+    },
+    {
+      "index": 11,
+      "name": "formal_charge_abs_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 15,
+      "name": "tpsa_window",
+      "reason": "direction_unrecoverable"
+    },
+    {
+      "index": 16,
+      "name": "logp_window",
+      "reason": "direction_unrecoverable"
+    },
+    {
+      "index": 17,
+      "name": "hbd_window",
+      "reason": "direction_unrecoverable"
+    },
+    {
+      "index": 18,
+      "name": "hba_window",
+      "reason": "direction_unrecoverable"
+    },
+    {
+      "index": 19,
+      "name": "atom_count_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 21,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 24,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0320"
+    },
+    {
+      "index": 45,
+      "name": "pyrimidine_ratio",
+      "reason": "fire_rate:0.0320"
+    },
+    {
+      "index": 47,
+      "name": "num_stereo_centers_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 48,
+      "name": "hbd_ratio_window",
+      "reason": "direction_unrecoverable"
+    },
+    {
+      "index": 49,
+      "name": "hba_ratio_window",
+      "reason": "direction_unrecoverable"
+    },
+    {
+      "index": 50,
+      "name": "logp_ratio_window",
+      "reason": "direction_unrecoverable"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_low",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "lower",
+      "confidence": 0.82,
+      "description": "Low lipophilicity to improve solubility",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4998863894569416,
+        "fired": 2200,
+        "n_train_normal": 4401,
+        "threshold": 2.0687999999999995,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Higher molecular weight for target binding affinity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4996591683708248,
+        "fired": 2199,
+        "n_train_normal": 4401,
+        "threshold": 204.26599999999996,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_low",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Reduced hydrogen bond donors to enhance membrane permeability",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4437627811860941,
+        "fired": 1953,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Increased hydrogen bond acceptors for target interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.332651670074983,
+        "fired": 1464,
+        "n_train_normal": 4401,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_low",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "lower",
+      "confidence": 0.78,
+      "description": "Fewer aromatic rings to reduce planarity and improve bioavailability",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.40286298568507156,
+        "fired": 1773,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased ring count for conformational rigidity and target fit",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3712792547148375,
+        "fired": 1634,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_low",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.83,
+      "description": "Fewer rotatable bonds to improve oral bioavailability",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4608043626448534,
+        "fired": 2028,
+        "n_train_normal": 4401,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Increased heterocyclic content for target interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34446716655305615,
+        "fired": 1516,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.84,
+      "description": "Low TPSA for better membrane permeability",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49693251533742333,
+        "fired": 2187,
+        "n_train_normal": 4401,
+        "threshold": 43.370000000000005,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_high",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "High TPSA for polar interactions with targets",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49306975687343785,
+        "fired": 2170,
+        "n_train_normal": 4401,
+        "threshold": 43.370000000000005,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Increased heavy atom count for molecular complexity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4583049306975687,
+        "fired": 2017,
+        "n_train_normal": 4401,
+        "threshold": 14.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of at least one benzene ring for aromatic stacking",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5146557600545331,
+        "fired": 2265,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Presence of an aromatic nitrogen-containing ring",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05339695523744604,
+        "fired": 235,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Presence of a primary amine for protonation and solubility",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12406271301976823,
+        "fired": 546,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of a secondary amine for basicity and interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1683708248125426,
+        "fired": 741,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of a tertiary amine for pKa modulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16178141331515564,
+        "fired": 712,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Presence of hydroxyl groups for hydrogen bonding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30856623494660307,
+        "fired": 1358,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of phenolic OH for antioxidant or binding activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06362190411270166,
+        "fired": 280,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Presence of carboxylic acid for ionic interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1058850261304249,
+        "fired": 466,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Presence of amide bond for stability and H-bonding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16359918200409,
+        "fired": 720,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Presence of ether linkage for polarity and stability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35151102022267666,
+        "fired": 1547,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Presence of halogen for lipophilic interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2117700522608498,
+        "fired": 932,
+        "n_train_normal": 4401,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Aromatic ring density relative to molecular size",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49920472619859124,
+        "fired": 2197,
+        "n_train_normal": 4401,
+        "threshold": 0.03333333333333333,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Primary amine density for basicity and solubility",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12406271301976823,
+        "fired": 546,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Secondary amine density for interaction potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1683708248125426,
+        "fired": 741,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Tertiary amine density for pKa and membrane permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16178141331515564,
+        "fired": 712,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Hydroxyl group density for hydrogen bonding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30856623494660307,
+        "fired": 1358,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenol density for aromatic and polar interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06362190411270166,
+        "fired": 280,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Carboxylic acid density for ionic binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1058850261304249,
+        "fired": 466,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Amide group density for stability and H-bonding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16359918200409,
+        "fired": 720,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Ether group density for polarity and lipophilicity balance",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35151102022267666,
+        "fired": 1547,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Halogen density for lipophilic and steric effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2117700522608498,
+        "fired": 932,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Aromatic nitrogen ring density for H-bonding and polarity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05339695523744604,
+        "fired": 235,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased amide bonds for structural stability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1663258350374915,
+        "fired": 732,
+        "n_train_normal": 4401,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2_generic/Tox21_task7__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-20T11:28:12.346828"
+}

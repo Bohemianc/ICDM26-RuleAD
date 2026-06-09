@@ -1,0 +1,77 @@
+{
+  "task_key": "SIDER_task3",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 496,
+  "n_input_rules": 5,
+  "n_kept": 3,
+  "n_rejected": 2,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "fluoroquinolone_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 2,
+      "name": "aromatic_polyhydroxyl",
+      "reason": "fire_rate:0.0282"
+    }
+  ],
+  "rules": [
+    {
+      "name": "tertiary_amine_aromatic",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Tertiary amine attached to aromatic ring \u2014 key to ocular penetration and retinal accumulation (e.g., chloroquine)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31048387096774194,
+        "fired": 154,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "high_logp_lipophilic",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "Lipophilic compounds accumulate in pigmented eye tissues (e.g., ciliary body, retina)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 248,
+        "n_train_normal": 496,
+        "threshold": 1.49835,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Aromatic ring count correlates with ocular penetration and retinal accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5524193548387096,
+        "fired": 274,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task3__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:10.235307"
+}

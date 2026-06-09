@@ -1,0 +1,333 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Higher lipophilicity associated with GI adverse effects"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Increased molecular weight correlates with GI toxicity"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Higher hydrogen bond donor count linked to GI irritation"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Increased hydrogen bond acceptor count associated with GI adverse events"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 100,
+      "c": 150,
+      "d": 200,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "TPSA in mid-to-high range peaks in GI adverse events"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Multiple aromatic rings increase GI irritation risk"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Increased ring count correlates with GI toxicity"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Higher heavy atom count linked to GI adverse effects"
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Low sp3 character suggests increased GI irritancy"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Heterocyclic systems increase GI toxicity risk"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Increased stereocenters may enhance GI side effects"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Greater rotatable bonds correlate with GI adverse events"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Phenolic groups contribute to GI irritation"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Primary amines may promote GI adverse effects"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Secondary amines linked to GI toxicity"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Tertiary amines associated with GI side effects"
+    },
+    {
+      "name": "aldehyde_on_aromatic",
+      "type": "smarts_count",
+      "smarts": "c1cc(=O)oc1",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Aromatic aldehydes are irritants and cause GI issues"
+    },
+    {
+      "name": "aryl_acetic_acid",
+      "type": "smarts_count",
+      "smarts": "O=C(O)Cc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "NSAID-like arylacetic acids cause GI bleeding and ulceration"
+    },
+    {
+      "name": "aryl_propionic_acid",
+      "type": "smarts_count",
+      "smarts": "O=C(O)C(C)c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Propionic acid derivatives linked to GI toxicity"
+    },
+    {
+      "name": "fused_aromatic_acid",
+      "type": "smarts_count",
+      "smarts": "O=C(O)c1ccccc1c2ccccc2",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Fused aromatic carboxylic acids increase GI risk"
+    },
+    {
+      "name": "bisphosphonate",
+      "type": "smarts_count",
+      "smarts": "OP(=O)(O)CP(=O)(O)O",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Bisphosphonates cause oesophagitis and GI irritation"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Ether linkages may contribute to GI adverse effects"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Halogen presence increases GI irritation potential"
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Aryl halogen density indicates GI toxicity"
+    },
+    {
+      "name": "phenol_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High phenol density correlates with GI irritation"
+    },
+    {
+      "name": "formal_charge_abs_high",
+      "type": "descriptor",
+      "descriptor": "formal_charge_abs",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of formal charges increases GI irritation potential"
+    },
+    {
+      "name": "logp_anom_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2.0,
+      "b": 5.0,
+      "c": 10.0,
+      "d": 15.0,
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "LogP in 2–5 range is strongly associated with GI adverse effects"
+    },
+    {
+      "name": "mol_wt_anom_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 700,
+      "d": 1000,
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Molecular weight above 300–500 linked to GI toxicity"
+    },
+    {
+      "name": "hbd_anom_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "HBD count in 2–8 range increases GI side effect risk"
+    },
+    {
+      "name": "hba_anom_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 10,
+      "c": 15,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "HBA count in 5–20 range correlates with GI adverse events"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Aromatic nitrogen-containing rings increase GI irritation"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Pyrimidine rings are associated with GI toxicity"
+    },
+    {
+      "name": "aldehyde_count",
+      "type": "smarts_count",
+      "smarts": "C=O",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Aldehyde groups are reactive and irritant to GI tract"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Amide groups may contribute to GI adverse effects"
+    },
+    {
+      "name": "ether_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High ether density in aromatic systems increases GI risk"
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High tertiary amine density in aromatic systems raises GI risk"
+    },
+    {
+      "name": "phenol_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "High phenol per HBD increases GI irritation"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 6,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\": \"logp_high\", \"type\": \"descriptor\", \"descriptor\": \"logp\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Higher lipophilicity associated with GI adverse effects\"},\n    {\"name\": \"mol_wt_high\", \"type\": \"descriptor\", \"descriptor\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Increased molecular weight correlates with GI toxicity\"},\n    {\"name\": \"hbd_high\", \"type\": \"descriptor\", \"descriptor\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"Higher hydrogen bond donor count linked to GI irritation\"},\n    {\"name\": \"hba_high\", \"type\": \"descriptor\", \"descriptor\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Increased hydrogen bond acceptor count associated with GI adverse events\"},\n    {\"name\": \"tpsa_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 50, \"b\": 100, \"c\": 150, \"d\": 200, \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"TPSA in mid-to-high range peaks in GI adverse events\"},\n    {\"name\": \"aromatic_rings_high\", \"type\": \"descriptor\", \"descriptor\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Multiple aromatic rings increase GI irritation risk\"},\n    {\"name\": \"ring_count_high\", \"type\": \"descriptor\", \"descriptor\": \"ring_count\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"Increased ring count correlates with GI toxicity\"},\n    {\"name\": \"heavy_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Higher heavy atom count linked to GI adverse effects\"},\n    {\"name\": \"fraction_csp3_low\", \"type\": \"descriptor\", \"descriptor\": \"fraction_csp3\", \"direction\": \"lower\", \"confidence\": 0.74, \"description\": \"Low sp3 character suggests increased GI irritancy\"},\n    {\"name\": \"num_heterocycles_high\", \"type\": \"descriptor\", \"descriptor\": \"num_heterocycles\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Heterocyclic systems increase GI toxicity risk\"},\n    {\"name\": \"num_stereo_centers_high\", \"type\": \"descriptor\", \"descriptor\": \"num_stereo_centers\", \"direction\": \"higher\", \"confidence\": 0.69, \"description\": \"Increased stereocenters may enhance GI side effects\"},\n    {\"name\": \"rot_bonds_high\", \"type\": \"descriptor\", \"descriptor\": \"rot_bonds\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Greater rotatable bonds correlate with GI adverse events\"},\n    {\"name\": \"carboxylic_acid_count\", \"type\": \"smarts_count\", \"smarts\": \"CX3)(=O)[OX2H1]\", \"direction\": \"higher\", \"confidence\": 0.91, \"description\": \"Presence of carboxylic acid groups is a strong GI adverse event cue\"},\n    {\"name\": \"phenol_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2H1]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Phenolic groups contribute to GI irritation\"},\n    {\"name\": \"primary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Primary amines may promote GI adverse effects\"},\n    {\"name\": \"secondary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Secondary amines linked to GI toxicity\"},\n    {\"name\": \"tertiary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.67, \"description\": \"Tertiary amines associated with GI side effects\"},\n    {\"name\": \"aldehyde_on_aromatic\", \"type\": \"smarts_count\", \"smarts\": \"c1cc(=O)oc1\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Aromatic aldehydes are irritants and cause GI issues\"},\n    {\"name\": \"aryl_acetic_acid\", \"type\": \"smarts_count\", \"smarts\": \"O=C(O)Cc1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"NSAID-like arylacetic acids cause GI bleeding and ulceration\"},\n    {\"name\": \"aryl_propionic_acid\", \"type\": \"smarts_count\", \"smarts\": \"O=C(O)C(C)c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"Propionic acid derivatives linked to GI toxicity\"},\n    {\"name\": \"fused_aromatic_acid\", \"type\": \"smarts_count\", \"smarts\": \"O=C(O)c1ccccc1c2ccccc2\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Fused aromatic carboxylic acids increase GI risk\"},\n    {\"name\": \"bisphosphonate\", \"type\": \"smarts_count\", \"smarts\": \"OP(=O)(O)CP(=O)(O)O\", \"direction\": \"higher\", \"confidence\": 0.89, \"description\": \"Bisphosphonates cause oesophagitis and GI irritation\"},\n    {\"name\": \"ether_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[OD2]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Ether linkages may contribute to GI adverse effects\"},\n    {\"name\": \"halogen_any_count\", \"type\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Halogen presence increases GI irritation potential\"},\n    {\"name\": \"aromatic_halogen_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c[F,Cl,Br,I]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Aryl halogen density indicates GI toxicity\"},\n    {\"name\": \"carboxylic_acid_to_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"CX3)(=O)[OX2H1]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"High carboxylic acid per aromatic ring increases GI risk\"},\n    {\"name\": \"phenol_to_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OX2H1]c1ccccc1\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"High phenol density correlates with GI irritation\"},\n    {\"name\": \"hbd_to_hba_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hbd\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"High HBD/HBA ratio suggests GI irritancy\"},\n    {\"name\": \"logp_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"logp\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"High logP per molecular weight indicates poor GI tolerability\"},\n    {\"name\": \"hba_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hba\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"High HBA per MW increases GI side effect risk\"},\n    {\"name\": \"aromatic_rings_to_heavy_atoms_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"aromatic_rings\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"High aromatic ring density increases GI toxicity\"},\n    {\"name\": \"ring_count_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"ring_count\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"High ring count per MW correlates with GI adverse events\"},\n    {\"name\": \"num_heterocycles_to_aromatic_rings_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"num_heterocycles\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Increased heterocycle density in aromatic systems raises GI risk\"},\n    {\"name\": \"formal_charge_abs_high\", \"type\": \"descriptor\", \"descriptor\": \"formal_charge_abs\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Presence of formal charges increases GI irritation potential\"},\n    {\"name\": \"tpsa_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"tpsa\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"High TPSA per MW indicates poor GI tolerability\"},\n    {\"name\": \"logp_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"logp\", \"a\": 2.0, \"b\": 5.0, \"c\": 10.0, \"d\": 15.0, \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"LogP in 2–5 range is strongly associated with GI adverse effects\"},\n    {\"name\": \"mol_wt_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"mol_wt\", \"a\": 300, \"b\": 500, \"c\": 700, \"d\": 1000, \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Molecular weight above 300–500 linked to GI toxicity\"},\n    {\"name\": \"hbd_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"hbd\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"HBD count in 2–8 range increases GI side effect risk\"},\n    {\"name\": \"hba_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"hba\", \"a\": 5, \"b\": 10, \"c\": 15, \"d\": 20, \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"HBA count in 5–20 range correlates with GI adverse events\"},\n    {\"name\": \"aromatic_n_ring_count\", \"type\": \"smarts_count\", \"smarts\": \"c1ccncc1\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Aromatic nitrogen-containing rings increase GI irritation\"},\n    {\"name\": \"pyrimidine_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cncnc1\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"Pyrimidine rings are associated with GI toxicity\"},\n    {\"name\": \"aldehyde_count\", \"type\": \"smarts_count\", \"smarts\": \"C=O\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Aldehyde groups are reactive and irritant to GI tract\"},\n    {\"name\": \"amide_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[NX3]\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"Amide groups may contribute to GI adverse effects\"},\n    {\"name\": \"ether_to_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OD2]([#6])[#6]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"High ether density in aromatic systems increases GI risk\"},\n    {\"name\": \"carboxylic_acid_to_hbd_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"CX3)(=O)[OX2H1]\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"High carboxylic acid per HBD increases GI toxicity\"},\n    {\"name\": \"tertiary_amine_to_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"High tertiary amine density in aromatic systems raises GI risk\"},\n    {\"name\": \"phenol_to_hbd_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OX2H1]c1ccccc1\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"High phenol per HBD increases GI irritation\"},\n    {\"name\": \"logp_to_hba_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"logp\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"High logP per HBA indicates GI toxicity\"},\n    {\"name\": \"ring_count_to_hba_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"ring_count\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"High ring count per HBA increases GI adverse effects\"},\n    {\"name\": \"heavy_atoms_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"heavy_atoms\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"High heavy atom density per MW correlates with GI toxicity\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

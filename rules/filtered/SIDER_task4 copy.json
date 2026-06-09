@@ -1,0 +1,117 @@
+{
+  "task_key": "SIDER_task4",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 249,
+  "n_input_rules": 6,
+  "n_kept": 6,
+  "n_rejected": 0,
+  "rejects": [],
+  "rules": [
+    {
+      "name": "aryl_halogen_count",
+      "type": "smarts_count",
+      "smarts": "c[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of aryl halogens enables metabolic activation to reactive intermediates that interfere with lab-based diagnostic assays",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18473895582329317,
+        "fired": 46,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Primary amines can act as haptens forming immune complexes that lead to false-positive or altered lab test results",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.19678714859437751,
+        "fired": 49,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Phenols can undergo oxidation to quinones, which are reactive and interfere with enzymatic assays in blood or urine tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08433734939759036,
+        "fired": 21,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Carboxylic acids may cause false elevations in serum markers due to direct interference with assay reagents or ionization",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14056224899598393,
+        "fired": 35,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "High lipophilicity promotes accumulation in blood plasma and cellular membranes, leading to interference with analyte binding in diagnostic tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4979919678714859,
+        "fired": 124,
+        "n_train_normal": 249,
+        "threshold": 2.2748600000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "High hydrogen bond donor count correlates with increased solubility and potential for non-specific binding to assay components",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.44176706827309237,
+        "fired": 110,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task4__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:10.305955"
+}

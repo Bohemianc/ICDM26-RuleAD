@@ -1,0 +1,416 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with ototoxicity risk"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased hydrogen bond donors linked to ototoxic adverse effects"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Elevated hydrogen bond acceptors correlate with otic adverse events"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Higher molecular weight associated with ototoxicity risk"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased ring count correlates with otic adverse effects"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High aromatic ring content linked to ototoxicity"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "TPSA in this range is associated with otic adverse effects"
+    },
+    {
+      "name": "logp_otic_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 7.0,
+      "d": 9.0,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "LogP between 3.0 and 9.0 shows peak ototoxicity risk"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of halogens, especially in aromatic systems, increases ototoxic risk"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High halogen density relative to molecular size"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Multiple carboxylic acid groups increase ototoxic potential"
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High carboxylic acid density relative to molecular weight"
+    },
+    {
+      "name": "sulfonamide_count",
+      "type": "smarts_count",
+      "smarts": "O=S(=O)(N)[#6]",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Sulfonamide motifs (e.g., loop diuretics) are strongly linked to ototoxicity"
+    },
+    {
+      "name": "sulfonamide_ratio",
+      "type": "smarts_ratio",
+      "smarts": "O=S(=O)(N)[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High sulfonamide density relative to molecular size"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Multiple primary amines increase ototoxic risk"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Secondary amines contribute to ototoxicity via charge and solubility"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Tertiary amines with high basicity may promote ototoxicity"
+    },
+    {
+      "name": "amine_total_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1-3][#6]",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Total amine count correlates with ototoxic adverse events"
+    },
+    {
+      "name": "amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1-3][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High amine density relative to molecular size"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Phenolic groups increase ototoxic potential"
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High phenol density relative to molecular size"
+    },
+    {
+      "name": "amino_sugar_conjugate",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Aminoglycoside-like motifs (amine-sugar conjugates) are strong ototoxic alerts"
+    },
+    {
+      "name": "sulfonamide_carboxylic_acid_co_occurrence",
+      "type": "smarts_ratio",
+      "smarts": "O=S(=O)(N)[#6] and [CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Co-occurrence of sulfonamide and carboxylic acid increases ototoxic risk"
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High halogen density on aromatic rings is a key ototoxic motif"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Amide groups may contribute to ototoxicity via metabolic stability"
+    },
+    {
+      "name": "amide_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High amide density relative to molecular size"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Pyrimidine rings are found in ototoxic compounds like some antivirals"
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High pyrimidine density increases ototoxic risk"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Aromatic nitrogen-containing rings (e.g., in aminoglycosides) are ototoxic motifs"
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High aromatic nitrogen ring density increases ototoxicity"
+    },
+    {
+      "name": "tertiary_amine_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Tertiary amines on aromatic systems are strongly ototoxic"
+    },
+    {
+      "name": "carboxylic_acid_amine_pair",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1] and [NX3;H1-3][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Co-occurrence of carboxylic acid and amine increases ototoxic risk"
+    },
+    {
+      "name": "high_charge_density",
+      "type": "descriptor",
+      "descriptor": "formal_charge_abs",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High net formal charge increases ototoxic potential"
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High sp3 character may correlate with metabolic instability and ototoxicity"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased heterocyclic content linked to ototoxicity"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Stereochemical complexity may increase ototoxic risk"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High rotatable bond count may increase metabolic burden and ototoxicity"
+    },
+    {
+      "name": "labute_asa_high",
+      "type": "descriptor",
+      "descriptor": "labute_asa",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High surface area correlates with poor solubility and ototoxicity"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High heavy atom count increases ototoxic potential"
+    },
+    {
+      "name": "hetero_atoms_high",
+      "type": "descriptor",
+      "descriptor": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High heteroatom content increases ototoxic risk"
+    },
+    {
+      "name": "amine_to_carboxylic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1-3][#6] and [CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High amine-to-carboxylic acid ratio increases ototoxic risk"
+    },
+    {
+      "name": "sulfonamide_to_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "O=S(=O)(N)[#6] and [NX3;H1-3][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Sulfonamide-amine co-occurrence is a strong ototoxic motif"
+    },
+    {
+      "name": "halogen_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High halogen density on aromatic rings is a known ototoxic pattern"
+    },
+    {
+      "name": "carboxylic_acid_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High carboxylic acid density on aromatic systems increases ototoxicity"
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Tertiary amines on aromatic rings are strongly ototoxic"
+    },
+    {
+      "name": "phenol_to_carboxylic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1 and [CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Co-occurrence of phenol and carboxylic acid increases ototoxic risk"
+    },
+    {
+      "name": "pyrimidine_to_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1 and [NX3;H1-3][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Pyrimidine-amine co-occurrence is linked to ototoxicity"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 23,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\":\"logp_high\", \"type\":\"descriptor\", \"descriptor\":\"logp\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Higher lipophilicity associated with ototoxicity risk\"},\n    {\"name\":\"hbd_high\", \"type\":\"descriptor\", \"descriptor\":\"hbd\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Increased hydrogen bond donors linked to ototoxic adverse effects\"},\n    {\"name\":\"hba_high\", \"type\":\"descriptor\", \"descriptor\":\"hba\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Elevated hydrogen bond acceptors correlate with otic adverse events\"},\n    {\"name\":\"mol_wt_high\", \"type\":\"descriptor\", \"descriptor\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"Higher molecular weight associated with ototoxicity risk\"},\n    {\"name\":\"ring_count_high\", \"type\":\"descriptor\", \"descriptor\":\"ring_count\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Increased ring count correlates with otic adverse effects\"},\n    {\"name\":\"aromatic_rings_high\", \"type\":\"descriptor\", \"descriptor\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"High aromatic ring content linked to ototoxicity\"},\n    {\"name\":\"tpsa_anom_window\", \"type\":\"desirability_window\", \"descriptor\":\"tpsa\", \"a\":80, \"b\":120, \"c\":140, \"d\":160, \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"TPSA in this range is associated with otic adverse effects\"},\n    {\"name\":\"logp_otic_window\", \"type\":\"desirability_window\", \"descriptor\":\"logp\", \"a\":3.0, \"b\":5.0, \"c\":7.0, \"d\":9.0, \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"LogP between 3.0 and 9.0 shows peak ototoxicity risk\"},\n    {\"name\":\"hbd_ratio_high\", \"type\":\"descriptor_ratio\", \"descriptor\":\"hbd\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"High hydrogen bond donor density relative to heavy atoms\"},\n    {\"name\":\"hba_ratio_high\", \"type\":\"descriptor_ratio\", \"descriptor\":\"hba\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"High hydrogen bond acceptor density relative to heavy atoms\"},\n    {\"name\":\"halogen_any_count\", \"type\":\"smarts_count\", \"smarts\":\"[F,Cl,Br,I]\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Presence of halogens, especially in aromatic systems, increases ototoxic risk\"},\n    {\"name\":\"halogen_any_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[F,Cl,Br,I]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"High halogen density relative to molecular size\"},\n    {\"name\":\"carboxylic_acid_count\", \"type\":\"smarts_count\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"Multiple carboxylic acid groups increase ototoxic potential\"},\n    {\"name\":\"carboxylic_acid_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"High carboxylic acid density relative to molecular weight\"},\n    {\"name\":\"sulfonamide_count\", \"type\":\"smarts_count\", \"smarts\":\"O=S(=O)(N)[#6]\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Sulfonamide motifs (e.g., loop diuretics) are strongly linked to ototoxicity\"},\n    {\"name\":\"sulfonamide_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"O=S(=O)(N)[#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"High sulfonamide density relative to molecular size\"},\n    {\"name\":\"primary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3;H2][#6]\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"Multiple primary amines increase ototoxic risk\"},\n    {\"name\":\"secondary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3;H1]([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Secondary amines contribute to ototoxicity via charge and solubility\"},\n    {\"name\":\"tertiary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Tertiary amines with high basicity may promote ototoxicity\"},\n    {\"name\":\"amine_total_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3;H1-3][#6]\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Total amine count correlates with ototoxic adverse events\"},\n    {\"name\":\"amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H1-3][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"High amine density relative to molecular size\"},\n    {\"name\":\"phenol_count\", \"type\":\"smarts_count\", \"smarts\":\"[OX2H1]c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Phenolic groups increase ototoxic potential\"},\n    {\"name\":\"phenol_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccccc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"High phenol density relative to molecular size\"},\n    {\"name\":\"amino_sugar_conjugate\", \"type\":\"smarts_ratio\", \"smarts\":\"c1ccccc1[NX3;H2][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.75, \"description\":\"Aminoglycoside-like motifs (amine-sugar conjugates) are strong ototoxic alerts\"},\n    {\"name\":\"sulfonamide_carboxylic_acid_co_occurrence\", \"type\":\"smarts_ratio\", \"smarts\":\"O=S(=O)(N)[#6] and [CX3](=O)[OX2H1]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.76, \"description\":\"Co-occurrence of sulfonamide and carboxylic acid increases ototoxic risk\"},\n    {\"name\":\"aromatic_halogen_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c[F,Cl,Br,I]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"High halogen density on aromatic rings is a key ototoxic motif\"},\n    {\"name\":\"halogenated_benzoic_acid\", \"type\":\"smarts_count\", \"smarts\":\"c1cc([F,Cl,Br,I])c(=O)[OX2H1]\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Halogenated benzoic acids are known ototoxic agents\"},\n    {\"name\":\"amide_group_count\", \"type\":\"smarts_count\", \"smarts\":\"[CX3](=O)[NX3]\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"Amide groups may contribute to ototoxicity via metabolic stability\"},\n    {\"name\":\"amide_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[NX3]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"High amide density relative to molecular size\"},\n    {\"name\":\"pyrimidine_count\", \"type\":\"smarts_count\", \"smarts\":\"c1cncnc1\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"Pyrimidine rings are found in ototoxic compounds like some antivirals\"},\n    {\"name\":\"pyrimidine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c1cncnc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"High pyrimidine density increases ototoxic risk\"},\n    {\"name\":\"aromatic_n_ring_count\", \"type\":\"smarts_count\", \"smarts\":\"c1ccncc1\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Aromatic nitrogen-containing rings (e.g., in aminoglycosides) are ototoxic motifs\"},\n    {\"name\":\"aromatic_n_ring_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c1ccncc1\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"High aromatic nitrogen ring density increases ototoxicity\"},\n    {\"name\":\"tertiary_amine_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Tertiary amines on aromatic systems are strongly ototoxic\"},\n    {\"name\":\"carboxylic_acid_amine_pair\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[OX2H1] and [NX3;H1-3][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"Co-occurrence of carboxylic acid and amine increases ototoxic risk\"},\n    {\"name\":\"high_charge_density\", \"type\":\"descriptor\", \"descriptor\":\"formal_charge_abs\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"High net formal charge increases ototoxic potential\"},\n    {\"name\":\"fraction_csp3_high\", \"type\":\"descriptor\", \"descriptor\":\"fraction_csp3\", \"direction\":\"higher\", \"confidence\":0.60, \"description\":\"High sp3 character may correlate with metabolic instability and ototoxicity\"},\n    {\"name\":\"num_heterocycles_high\", \"type\":\"descriptor\", \"descriptor\":\"num_heterocycles\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Increased heterocyclic content linked to ototoxicity\"},\n    {\"name\":\"num_stereo_centers_high\", \"type\":\"descriptor\", \"descriptor\":\"num_stereo_centers\", \"direction\":\"higher\", \"confidence\":0.61, \"description\":\"Stereochemical complexity may increase ototoxic risk\"},\n    {\"name\":\"rot_bonds_high\", \"type\":\"descriptor\", \"descriptor\":\"rot_bonds\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"High rotatable bond count may increase metabolic burden and ototoxicity\"},\n    {\"name\":\"labute_asa_high\", \"type\":\"descriptor\", \"descriptor\":\"labute_asa\", \"direction\":\"higher\", \"confidence\":0.60, \"description\":\"High surface area correlates with poor solubility and ototoxicity\"},\n    {\"name\":\"heavy_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"High heavy atom count increases ototoxic potential\"},\n    {\"name\":\"hetero_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"hetero_atoms\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"High heteroatom content increases ototoxic risk\"},\n    {\"name\":\"ring_count_to_atom_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"ring_count\", \"normalizer\":\"atom_count\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"High ring-to-atom ratio indicates compact, rigid structures with ototoxic potential\"},\n    {\"name\":\"hbd_to_hba_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"hbd\", \"normalizer\":\"hba\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"High HBD/HBA ratio may indicate polar, unstable molecules with ototoxicity\"},\n    {\"name\":\"logp_to_mol_wt_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"logp\", \"normalizer\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"High logP per molecular weight indicates lipophilic burden and ototoxicity\"},\n    {\"name\":\"tpsa_to_mol_wt_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"tpsa\", \"normalizer\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"High TPSA per molecular weight suggests poor membrane permeability and ototoxicity\"},\n    {\"name\":\"amine_to_carboxylic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3;H1-3][#6] and [CX3](=O)[OX2H1]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"High amine-to-carboxylic acid ratio increases ototoxic risk\"},\n    {\"name\":\"sulfonamide_to_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"O=S(=O)(N)[#6] and [NX3;H1-3][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Sulfonamide-amine co-occurrence is a strong ototoxic motif\"},\n    {\"name\":\"halogen_to_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[F,Cl,Br,I]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"High halogen density on aromatic rings is a known ototoxic pattern\"},\n    {\"name\":\"carboxylic_acid_to_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"High carboxylic acid density on aromatic systems increases ototoxicity\"},\n    {\"name\":\"tertiary_amine_to_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Tertiary amines on aromatic rings are strongly ototoxic\"},\n    {\"name\":\"phenol_to_carboxylic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccccc1 and [CX3](=O)[OX2H1]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"Co-occurrence of phenol and carboxylic acid increases ototoxic risk\"},\n    {\"name\":\"pyrimidine_to_amine_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c1cncnc1 and [NX3;H1-3][#6]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Pyrimidine-amine co-occurrence is linked to ototoxicity\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

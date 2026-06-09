@@ -1,0 +1,505 @@
+{
+  "task_key": "SIDER_task18",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 379,
+  "n_input_rules": 31,
+  "n_kept": 27,
+  "n_rejected": 4,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0422"
+    },
+    {
+      "index": 13,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0158"
+    },
+    {
+      "index": 14,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with infection risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49868073878627966,
+        "fired": 189,
+        "n_train_normal": 379,
+        "threshold": 1.9351,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA in high range linked to infection-related adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15567282321899736,
+        "fired": 59,
+        "n_train_normal": 379,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors correlate with infection risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.47757255936675463,
+        "fired": 181,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High hydrogen bond acceptor count linked to immunosuppressive effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36939313984168864,
+        "fired": 140,
+        "n_train_normal": 379,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High molecular weight compounds more likely to disrupt immune barriers",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49868073878627966,
+        "fired": 189,
+        "n_train_normal": 379,
+        "threshold": 303.14099999999996,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Increased ring count associated with structural complexity and immune disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.43799472295514513,
+        "fired": 166,
+        "n_train_normal": 379,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High aromatic ring content linked to membrane disruption and immunosuppression",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40369393139841686,
+        "fired": 153,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High heavy atom count correlates with cytotoxic potential and infection risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48548812664907653,
+        "fired": 184,
+        "n_train_normal": 379,
+        "threshold": 21.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Increased sp3 character suggests saturated, lipophilic scaffolds that may impair immune function",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49340369393139843,
+        "fired": 187,
+        "n_train_normal": 379,
+        "threshold": 0.4090909090909091,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Heterocyclic systems often act as immunomodulators or cytotoxic agents",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27440633245382584,
+        "fired": 104,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Greater rotational freedom may enhance bioavailability and tissue penetration, increasing infection risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42480211081794195,
+        "fired": 161,
+        "n_train_normal": 379,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of benzene ring motifs increases infection risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.633245382585752,
+        "fired": 240,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Pyrimidine scaffolds linked to immunosuppressive activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.052770448548812667,
+        "fired": 20,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Primary amines may disrupt immune signaling pathways",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22691292875989447,
+        "fired": 86,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Secondary amines associated with metabolic disruption and infection risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3113456464379947,
+        "fired": 118,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Tertiary amines may interfere with immune receptor binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32981530343007914,
+        "fired": 125,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Phenolic groups can act as pro-oxidants and disrupt mucosal barriers",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10554089709762533,
+        "fired": 40,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Carboxylic acids may impair immune cell function through pH disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1662269129287599,
+        "fired": 63,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Amide groups may interfere with protein-protein interactions in immune pathways",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.26649076517150394,
+        "fired": 101,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Ether linkages may increase lipophilicity and membrane penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37730870712401055,
+        "fired": 143,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Halogenated compounds may disrupt immune cell membranes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2717678100263852,
+        "fired": 103,
+        "n_train_normal": 379,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aryl halogen density indicates potential for metabolic activation and immune toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18997361477572558,
+        "fired": 72,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_hba_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amine to HBA ratio indicates polar, immunomodulatory character",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22691292875989447,
+        "fired": 86,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Secondary amine to HBD ratio suggests hydrogen bonding and immune interference",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3113456464379947,
+        "fired": 118,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_hba_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Tertiary amine to HBA ratio indicates high polarity and immune disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32981530343007914,
+        "fired": 125,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Phenol to HBD ratio suggests strong hydrogen bonding and immune modulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10554089709762533,
+        "fired": 40,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_hba_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Carboxylic acid to HBA ratio indicates high polarity and immune interaction potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1662269129287599,
+        "fired": 63,
+        "n_train_normal": 379,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task18__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:10.690987"
+}

@@ -1,0 +1,476 @@
+{
+  "task_key": "SIDER_task22",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1172,
+  "n_input_rules": 31,
+  "n_kept": 25,
+  "n_rejected": 6,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 22,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0247"
+    },
+    {
+      "index": 26,
+      "name": "retinoid_polyene_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 27,
+      "name": "valproate_like_ratio",
+      "reason": "fire_rate:0.0009"
+    },
+    {
+      "index": 28,
+      "name": "warfarin_like_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High lipophilicity associated with pregnancy-related adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 586,
+        "n_train_normal": 1172,
+        "threshold": 2.1251,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 80,
+      "c": 100,
+      "d": 120,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "TPSA range linked to perinatal toxicity in adverse event reports",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37372013651877134,
+        "fired": 438,
+        "n_train_normal": 1172,
+        "threshold": 100.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Increased hydrogen bond donors correlate with adverse effects on pregnancy",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34897610921501704,
+        "fired": 409,
+        "n_train_normal": 1172,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High hydrogen bond acceptor count linked to teratogenic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3984641638225256,
+        "fired": 467,
+        "n_train_normal": 1172,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Molecular weight above threshold associated with perinatal risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 586,
+        "n_train_normal": 1172,
+        "threshold": 357.64350000000013,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased ring count correlates with structural alerts for teratogenicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3447098976109215,
+        "fired": 404,
+        "n_train_normal": 1172,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "High aromaticity linked to known teratogenic motifs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4667235494880546,
+        "fired": 547,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Presence of multiple heterocyclic rings increases pregnancy risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3677474402730375,
+        "fired": 431,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "High sp3 character suggests structural rigidity and potential for developmental toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49573378839590443,
+        "fired": 581,
+        "n_train_normal": 1172,
+        "threshold": 0.4444444444444444,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Increased heavy atom count associated with adverse perinatal effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4684300341296928,
+        "fired": 549,
+        "n_train_normal": 1172,
+        "threshold": 25.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Flexible chains with high rotatable bonds linked to metabolic instability in pregnancy",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49573378839590443,
+        "fired": 581,
+        "n_train_normal": 1172,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of carboxylic acid groups is a known teratogenic motif",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2030716723549488,
+        "fired": 238,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Primary amines may form reactive metabolites affecting fetal development",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23464163822525597,
+        "fired": 275,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Secondary amines linked to metabolic activation in pregnancy",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.363481228668942,
+        "fired": 426,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Tertiary amines may cross placental barrier and disrupt fetal signaling",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35494880546075086,
+        "fired": 416,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Phenolic groups show known teratogenicity in perinatal exposure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11433447098976109,
+        "fired": 134,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Ether linkages may contribute to metabolic instability in pregnancy",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4232081911262799,
+        "fired": 496,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Halogenated compounds show increased risk in fetal development",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2832764505119454,
+        "fired": 332,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Aryl halogen density indicates structural alert for teratogenicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17918088737201365,
+        "fired": 210,
+        "n_train_normal": 1172,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Bridgehead atoms are associated with strained ring systems and teratogenicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06399317406143344,
+        "fired": 75,
+        "n_train_normal": 1172,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Pyrimidine rings are found in known teratogenic agents",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07423208191126279,
+        "fired": 87,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Aromatic nitrogen rings show structural similarity to known teratogens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08020477815699659,
+        "fired": 94,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of benzene rings is a common structural alert for adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6271331058020477,
+        "fired": 735,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Amide groups may form reactive intermediates in fetal metabolism",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3148464163822526,
+        "fired": 369,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Hydroxyl groups increase polarity and potential for metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5221843003412969,
+        "fired": 612,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task22__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:12.094566"
+}

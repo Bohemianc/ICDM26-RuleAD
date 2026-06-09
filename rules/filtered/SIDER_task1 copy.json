@@ -1,0 +1,65 @@
+{
+  "task_key": "SIDER_task1",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 388,
+  "n_input_rules": 5,
+  "n_kept": 2,
+  "n_rejected": 3,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "triazole_cyp_inhibitor",
+      "reason": "fire_rate:0.0387"
+    },
+    {
+      "index": 2,
+      "name": "polyaromatic_planar_ring",
+      "reason": "fire_rate:0.0232"
+    },
+    {
+      "index": 3,
+      "name": "phenolic_hydroxyl_pattern",
+      "reason": "fire_rate:0.0155"
+    }
+  ],
+  "rules": [
+    {
+      "name": "imidazole_cyp_inhibitor",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Imidazole ring acts as a potent CYP450 inhibitor, commonly linked to metabolic toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09020618556701031,
+        "fired": 35,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.94,
+      "description": "Multiple aromatic rings increase metabolic load and are associated with CYP-mediated toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38917525773195877,
+        "fired": 151,
+        "n_train_normal": 388,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task1__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:10.042776"
+}

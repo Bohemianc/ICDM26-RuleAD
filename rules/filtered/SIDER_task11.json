@@ -1,0 +1,881 @@
+{
+  "task_key": "SIDER_task11",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 122,
+  "n_input_rules": 56,
+  "n_kept": 45,
+  "n_rejected": 11,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 26,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 27,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 29,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0082"
+    },
+    {
+      "index": 31,
+      "name": "atom_richness_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 37,
+      "name": "aromatic_rings_desirability_window",
+      "reason": "fire_rate:0.0164"
+    },
+    {
+      "index": 38,
+      "name": "heavy_atoms_desirability_window",
+      "reason": "fire_rate:0.0246"
+    },
+    {
+      "index": 40,
+      "name": "num_heterocycles_desirability_window",
+      "reason": "fire_rate:0.0082"
+    },
+    {
+      "index": 41,
+      "name": "num_stereo_centers_desirability_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 43,
+      "name": "labute_asa_desirability_window",
+      "reason": "not_compilable"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with adverse effects in general disorders and administration site conditions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 61,
+        "n_train_normal": 122,
+        "threshold": 2.0504499999999997,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High molecular weight correlates with increased risk of general disorders and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 61,
+        "n_train_normal": 122,
+        "threshold": 357.22700000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA in the 40\u2013140 range shows peak adverse event reporting for general disorders and site conditions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2459016393442623,
+        "fired": 30,
+        "n_train_normal": 122,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased hydrogen bond donors linked to adverse effects involving administration site and general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4918032786885246,
+        "fired": 60,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High hydrogen bond acceptor count associated with adverse event profiles",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.45901639344262296,
+        "fired": 56,
+        "n_train_normal": 122,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased ring count correlates with higher incidence of general disorders and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 61,
+        "n_train_normal": 122,
+        "threshold": 2.5,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High aromatic ring content increases risk of adverse effects at administration sites and general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36885245901639346,
+        "fired": 45,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High heavy atom count indicates structural complexity linked to adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4918032786885246,
+        "fired": 60,
+        "n_train_normal": 122,
+        "threshold": 23.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High fraction of sp3 carbons associated with increased risk of general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4918032786885246,
+        "fired": 60,
+        "n_train_normal": 122,
+        "threshold": 0.4375,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Increased heterocyclic ring count correlates with adverse effects on general health and administration sites",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28688524590163933,
+        "fired": 35,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Increased rotatable bonds linked to poor pharmacokinetics and adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.47540983606557374,
+        "fired": 58,
+        "n_train_normal": 122,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of primary amines increases risk of general disorders and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2459016393442623,
+        "fired": 30,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Secondary amines are linked to adverse effects involving administration site and general health",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28688524590163933,
+        "fired": 35,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Tertiary amines are associated with increased risk of general disorders and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29508196721311475,
+        "fired": 36,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Phenolic groups are linked to site reactions and general adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16393442622950818,
+        "fired": 20,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Hydroxyl groups increase risk of local irritation and general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5081967213114754,
+        "fired": 62,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Carboxylic acids are associated with local irritation and general adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16393442622950818,
+        "fired": 20,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Amide groups may contribute to local tissue irritation and general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2540983606557377,
+        "fired": 31,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Ether linkages increase risk of site reactions and general adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4262295081967213,
+        "fired": 52,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Halogen atoms increase metabolic instability and site-specific toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30327868852459017,
+        "fired": 37,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aryl halogen density indicates potential for reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14754098360655737,
+        "fired": 18,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Pyrimidine rings are associated with adverse effects on general health and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07377049180327869,
+        "fired": 9,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Aromatic nitrogen-containing rings increase risk of general disorders and site irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08196721311475409,
+        "fired": 10,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Presence of benzene rings correlates with increased adverse event reporting",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5901639344262295,
+        "fired": 72,
+        "n_train_normal": 122,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.56,
+      "description": "Bridgehead atoms are associated with strained ring systems and adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06557377049180328,
+        "fired": 8,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "Multiple amide bonds increase risk of local tissue irritation and general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2540983606557377,
+        "fired": 31,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 7.0,
+      "d": 9.0,
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "LogP in 3\u20139 range shows peak adverse event reporting for general disorders and site conditions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06557377049180328,
+        "fired": 8,
+        "n_train_normal": 122,
+        "threshold": 7.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 100,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "TPSA in 80\u2013160 range is strongly associated with adverse effects on administration sites and general health",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21311475409836064,
+        "fired": 26,
+        "n_train_normal": 122,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "HBD count between 2\u20138 is linked to increased risk of general disorders and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10655737704918032,
+        "fired": 13,
+        "n_train_normal": 122,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 10,
+      "c": 15,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "HBA count in 5\u201320 range correlates with adverse event profiles",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08196721311475409,
+        "fired": 10,
+        "n_train_normal": 122,
+        "threshold": 15.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Ring count between 3\u20139 is associated with higher incidence of general disorders and site conditions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05737704918032787,
+        "fired": 7,
+        "n_train_normal": 122,
+        "threshold": 7.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Fraction of sp3 carbons in 0.2\u20130.8 range increases risk of general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29508196721311475,
+        "fired": 36,
+        "n_train_normal": 122,
+        "threshold": 0.6,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 5,
+      "b": 7,
+      "c": 9,
+      "d": 11,
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Rotatable bond count in 5\u201311 range correlates with poor bioavailability and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20491803278688525,
+        "fired": 25,
+        "n_train_normal": 122,
+        "threshold": 9.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High primary amine density increases risk of general disorders and site irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2459016393442623,
+        "fired": 30,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High secondary amine density correlates with adverse effects on administration sites",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28688524590163933,
+        "fired": 35,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High tertiary amine density increases risk of general disorders and local reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29508196721311475,
+        "fired": 36,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High phenol density increases risk of local irritation and general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16393442622950818,
+        "fired": 20,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High hydroxyl density linked to site reactions and general adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 61,
+        "n_train_normal": 122,
+        "threshold": 0.013423423423423425,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "High carboxylic acid density increases risk of local tissue damage",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16393442622950818,
+        "fired": 20,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High amide density associated with local irritation and general disorders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2540983606557377,
+        "fired": 31,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High ether density increases risk of site-specific adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4262295081967213,
+        "fired": 52,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High halogen density indicates potential for reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30327868852459017,
+        "fired": 37,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "High pyrimidine density increases risk of general disorders and site reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07377049180327869,
+        "fired": 9,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High aromatic nitrogen ring density correlates with adverse effects on general health",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08196721311475409,
+        "fired": 10,
+        "n_train_normal": 122,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "High benzene ring density increases risk of adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 61,
+        "n_train_normal": 122,
+        "threshold": 0.029211087420042643,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task11__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:07.815456"
+}

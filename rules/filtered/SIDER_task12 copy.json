@@ -1,0 +1,94 @@
+{
+  "task_key": "SIDER_task12",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 994,
+  "n_input_rules": 6,
+  "n_kept": 4,
+  "n_rejected": 2,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "steroid_four_ring_system",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 4,
+      "name": "halogenated_phenol",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "phenol_count_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Multiple phenolic hydroxyl groups (hba) indicate phytoestrogen-like activity via binding to estrogen receptors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3953722334004024,
+        "fired": 393,
+        "n_train_normal": 994,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "High aromatic ring count correlates with planar structures that mimic natural hormone ligands",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4517102615694165,
+        "fired": 449,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "imidazole_triazole_ring",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Imidazole or triazole rings are known inhibitors of aromatase (CYP19A1), a key enzyme in estrogen synthesis",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08249496981891348,
+        "fired": 82,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fused_ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Fused ring systems increase rigidity and mimic natural steroid hormone scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32796780684104626,
+        "fired": 326,
+        "n_train_normal": 994,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task12__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:11.340829"
+}

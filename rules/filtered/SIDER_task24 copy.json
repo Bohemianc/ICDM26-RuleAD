@@ -1,0 +1,83 @@
+{
+  "task_key": "SIDER_task24",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 396,
+  "n_input_rules": 6,
+  "n_kept": 3,
+  "n_rejected": 3,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "hetero_amine_aryl_distance",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 1,
+      "name": "phenylpiperazine_motif",
+      "reason": "fire_rate:0.0025"
+    },
+    {
+      "index": 5,
+      "name": "anthraquinone_fused_ring",
+      "reason": "fire_rate:0.0076"
+    }
+  ],
+  "rules": [
+    {
+      "name": "methoxybenzyl_group",
+      "type": "smarts_count",
+      "smarts": "COc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "Methoxybenzyl group associated with cardiac toxicity via lipophilic accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12121212121212122,
+        "fired": 48,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_aromatic_pair",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Tertiary amine to aromatic ring ratio indicating hERG binding potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2828282828282828,
+        "fired": 112,
+        "n_train_normal": 396,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "high_logp_cardiac_alert",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.94,
+      "description": "LogP > 4.5 promotes cardiac accumulation via passive diffusion in lipid membranes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 198,
+        "n_train_normal": 396,
+        "threshold": 1.8444500000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task24__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.835147"
+}

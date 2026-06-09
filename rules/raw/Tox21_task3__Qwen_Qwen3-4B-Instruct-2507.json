@@ -1,0 +1,303 @@
+{
+  "rules": [
+    {
+      "name": "azole_heterocycle_count",
+      "type": "smarts_count",
+      "smarts": "c1ncnn1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of 1,2,4-triazole ring, a key motif in active aromatase inhibitors"
+    },
+    {
+      "name": "imidazole_heterocycle_count",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Presence of imidazole ring, a common azole-based active scaffold"
+    },
+    {
+      "name": "nitrile_group_count",
+      "type": "smarts_count",
+      "smarts": "C#N",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Nitrile group often found in diaryl-methyl tail of active inhibitors"
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Increased aromatic ring count correlates with active inhibitor scaffolds"
+    },
+    {
+      "name": "heteroatom_fraction",
+      "type": "element_fraction",
+      "element": "N",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Higher nitrogen content suggests azole-based active structures"
+    },
+    {
+      "name": "heteroatom_count",
+      "type": "descriptor",
+      "descriptor": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Increased heteroatoms support heterocyclic active motifs"
+    },
+    {
+      "name": "num_heterocycles",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "More heterocycles indicate higher likelihood of azole-based activity"
+    },
+    {
+      "name": "logp_anom_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2.5,
+      "b": 4.5,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Moderate lipophilicity (2.5–4.5) is typical of active aromatase inhibitors"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Moderate TPSA (40–60) associated with active azole and steroidal inhibitors"
+    },
+    {
+      "name": "heavy_atom_count",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Larger molecules with multiple heavy atoms often show higher activity"
+    },
+    {
+      "name": "sp3_fraction",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Lower sp3 fraction indicates more planar, aromatic, and active inhibitor scaffolds"
+    },
+    {
+      "name": "ring_count",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Increased ring count supports steroidal or fused ring systems in active compounds"
+    },
+    {
+      "name": "steroid_like_rings",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1c2ccccc2",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Presence of fused aromatic ring systems resembling steroidal cores"
+    },
+    {
+      "name": "phenol_group_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Phenol groups may appear in steroidal analogs with activity"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.65,
+      "description": "Primary amines are rare in active aromatase inhibitors; their presence may indicate inactivity"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.63,
+      "description": "Secondary amines are uncommon in active inhibitors"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.61,
+      "description": "Tertiary amines are not typical in active aromatase inhibitors"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.67,
+      "description": "Ether linkages are not common in active scaffolds"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Carboxylic acids are not typical in active aromatase inhibitors"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.58,
+      "description": "Amide groups are rare in active inhibitors"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "lower",
+      "confidence": 0.55,
+      "description": "Halogenation is not a hallmark of active aromatase inhibitors"
+    },
+    {
+      "name": "num_stereo_centers",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "lower",
+      "confidence": 0.62,
+      "description": "Fewer stereocenters are typical of active, planar inhibitors"
+    },
+    {
+      "name": "rot_bonds",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.68,
+      "description": "Fewer rotatable bonds suggest more rigid, active inhibitor scaffolds"
+    },
+    {
+      "name": "hbd_count",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.66,
+      "description": "Low hydrogen bond donors favor active, lipophilic inhibitors"
+    },
+    {
+      "name": "hba_count",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Higher hydrogen bond acceptors support azole-based active motifs"
+    },
+    {
+      "name": "num_bridgehead_atoms",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "lower",
+      "confidence": 0.59,
+      "description": "Bridgehead atoms are rare in active aromatase inhibitors"
+    },
+    {
+      "name": "num_spiro_atoms",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "lower",
+      "confidence": 0.57,
+      "description": "Spiro systems are uncommon in active scaffolds"
+    },
+    {
+      "name": "atom_richness",
+      "type": "descriptor",
+      "descriptor": "atom_richness",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher atom richness suggests complex heterocyclic or fused ring systems"
+    },
+    {
+      "name": "labute_asa",
+      "type": "descriptor",
+      "descriptor": "labute_asa",
+      "direction": "lower",
+      "confidence": 0.64,
+      "description": "Lower surface area suggests more compact, active inhibitor structures"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Aromatic nitrogen-containing rings (e.g., pyridine) may support activity"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "lower",
+      "confidence": 0.54,
+      "description": "Pyrimidine is not a common motif in active aromatase inhibitors"
+    },
+    {
+      "name": "diaryl_methyl_pattern",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Diaryl-methyl tail pattern common in azole-based inhibitors"
+    },
+    {
+      "name": "triazole_nitrogen_count",
+      "type": "smarts_count",
+      "smarts": "c1ncnn1",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Direct count of triazole nitrogens in active scaffolds"
+    },
+    {
+      "name": "imidazole_nitrogen_count",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Nitrogen count in imidazole ring supports activity"
+    },
+    {
+      "name": "steroid_ring_system",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of steroidal ring system (e.g., ABCD rings) associated with activity"
+    }
+  ],
+  "metadata": {
+    "dataset": "Tox21",
+    "task_idx": 3,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\":\"azole_heterocycle_count\",\"type\":\"smarts_count\",\"smarts\":\"c1ncnn1\",\"direction\":\"higher\",\"confidence\":0.92,\"description\":\"Presence of 1,2,4-triazole ring, a key motif in active aromatase inhibitors\"},\n    {\"name\":\"imidazole_heterocycle_count\",\"type\":\"smarts_count\",\"smarts\":\"c1cncn1\",\"direction\":\"higher\",\"confidence\":0.89,\"description\":\"Presence of imidazole ring, a common azole-based active scaffold\"},\n    {\"name\":\"nitrile_group_count\",\"type\":\"smarts_count\",\"smarts\":\"C#N\",\"direction\":\"higher\",\"confidence\":0.85,\"description\":\"Nitrile group often found in diaryl-methyl tail of active inhibitors\"},\n    {\"name\":\"aromatic_ring_count\",\"type\":\"descriptor\",\"descriptor\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.88,\"description\":\"Increased aromatic ring count correlates with active inhibitor scaffolds\"},\n    {\"name\":\"heteroatom_fraction\",\"type\":\"element_fraction\",\"element\":\"N\",\"direction\":\"higher\",\"confidence\":0.82,\"description\":\"Higher nitrogen content suggests azole-based active structures\"},\n    {\"name\":\"heteroatom_count\",\"type\":\"descriptor\",\"descriptor\":\"hetero_atoms\",\"direction\":\"higher\",\"confidence\":0.87,\"description\":\"Increased heteroatoms support heterocyclic active motifs\"},\n    {\"name\":\"num_heterocycles\",\"type\":\"descriptor\",\"descriptor\":\"num_heterocycles\",\"direction\":\"higher\",\"confidence\":0.90,\"description\":\"More heterocycles indicate higher likelihood of azole-based activity\"},\n    {\"name\":\"logp_anom_window\",\"type\":\"desirability_window\",\"descriptor\":\"logp\",\"a\":2.5,\"b\":4.5,\"c\":120,\"d\":140,\"direction\":\"higher\",\"confidence\":0.81,\"description\":\"Moderate lipophilicity (2.5–4.5) is typical of active aromatase inhibitors\"},\n    {\"name\":\"tpsa_anom_window\",\"type\":\"desirability_window\",\"descriptor\":\"tpsa\",\"a\":40,\"b\":60,\"c\":120,\"d\":140,\"direction\":\"higher\",\"confidence\":0.79,\"description\":\"Moderate TPSA (40–60) associated with active azole and steroidal inhibitors\"},\n    {\"name\":\"heavy_atom_count\",\"type\":\"descriptor\",\"descriptor\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.83,\"description\":\"Larger molecules with multiple heavy atoms often show higher activity\"},\n    {\"name\":\"aromatic_ring_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"aromatic_rings\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.86,\"description\":\"Higher aromatic ring density suggests aromatic steroid or diaryl-methyl scaffold\"},\n    {\"name\":\"sp3_fraction\",\"type\":\"descriptor\",\"descriptor\":\"fraction_csp3\",\"direction\":\"lower\",\"confidence\":0.77,\"description\":\"Lower sp3 fraction indicates more planar, aromatic, and active inhibitor scaffolds\"},\n    {\"name\":\"ring_count\",\"type\":\"descriptor\",\"descriptor\":\"ring_count\",\"direction\":\"higher\",\"confidence\":0.80,\"description\":\"Increased ring count supports steroidal or fused ring systems in active compounds\"},\n    {\"name\":\"steroid_like_rings\",\"type\":\"smarts_ratio\",\"smarts\":\"c1ccccc1c2ccccc2\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.75,\"description\":\"Presence of fused aromatic ring systems resembling steroidal cores\"},\n    {\"name\":\"phenol_group_count\",\"type\":\"smarts_count\",\"smarts\":\"[OX2H1]c1ccccc1\",\"direction\":\"higher\",\"confidence\":0.70,\"description\":\"Phenol groups may appear in steroidal analogs with activity\"},\n    {\"name\":\"primary_amine_count\",\"type\":\"smarts_count\",\"smarts\":\"[NX3;H2][#6]\",\"direction\":\"lower\",\"confidence\":0.65,\"description\":\"Primary amines are rare in active aromatase inhibitors; their presence may indicate inactivity\"},\n    {\"name\":\"secondary_amine_count\",\"type\":\"smarts_count\",\"smarts\":\"[NX3;H1]([#6])[#6]\",\"direction\":\"lower\",\"confidence\":0.63,\"description\":\"Secondary amines are uncommon in active inhibitors\"},\n    {\"name\":\"tertiary_amine_count\",\"type\":\"smarts_count\",\"smarts\":\"[NX3]([#6])([#6])[#6]\",\"direction\":\"lower\",\"confidence\":0.61,\"description\":\"Tertiary amines are not typical in active aromatase inhibitors\"},\n    {\"name\":\"ether_group_count\",\"type\":\"smarts_count\",\"smarts\":\"[OD2]([#6])[#6]\",\"direction\":\"lower\",\"confidence\":0.67,\"description\":\"Ether linkages are not common in active scaffolds\"},\n    {\"name\":\"carboxylic_acid_count\",\"type\":\"smarts_count\",\"smarts\":\"[CX3](=O)[OX2H1]\",\"direction\":\"lower\",\"confidence\":0.60,\"description\":\"Carboxylic acids are not typical in active aromatase inhibitors\"},\n    {\"name\":\"amide_group_count\",\"type\":\"smarts_count\",\"smarts\":\"[CX3](=O)[NX3]\",\"direction\":\"lower\",\"confidence\":0.58,\"description\":\"Amide groups are rare in active inhibitors\"},\n    {\"name\":\"halogen_any_count\",\"type\":\"smarts_count\",\"smarts\":\"[F,Cl,Br,I]\",\"direction\":\"lower\",\"confidence\":0.55,\"description\":\"Halogenation is not a hallmark of active aromatase inhibitors\"},\n    {\"name\":\"num_stereo_centers\",\"type\":\"descriptor\",\"descriptor\":\"num_stereo_centers\",\"direction\":\"lower\",\"confidence\":0.62,\"description\":\"Fewer stereocenters are typical of active, planar inhibitors\"},\n    {\"name\":\"rot_bonds\",\"type\":\"descriptor\",\"descriptor\":\"rot_bonds\",\"direction\":\"lower\",\"confidence\":0.68,\"description\":\"Fewer rotatable bonds suggest more rigid, active inhibitor scaffolds\"},\n    {\"name\":\"mol_wt_anom_window\",\"type\":\"desirability_window\",\"descriptor\":\"mol_wt\",\"a\":250,\"b\":450,\"c\":120,\"d\":140,\"direction\":\"higher\",\"confidence\":0.73,\"description\":\"Molecular weight in 250–450 Da typical of active aromatase inhibitors\"},\n    {\"name\":\"hbd_count\",\"type\":\"descriptor\",\"descriptor\":\"hbd\",\"direction\":\"lower\",\"confidence\":0.66,\"description\":\"Low hydrogen bond donors favor active, lipophilic inhibitors\"},\n    {\"name\":\"hba_count\",\"type\":\"descriptor\",\"descriptor\":\"hba\",\"direction\":\"higher\",\"confidence\":0.74,\"description\":\"Higher hydrogen bond acceptors support azole-based active motifs\"},\n    {\"name\":\"num_bridgehead_atoms\",\"type\":\"descriptor\",\"descriptor\":\"num_bridgehead_atoms\",\"direction\":\"lower\",\"confidence\":0.59,\"description\":\"Bridgehead atoms are rare in active aromatase inhibitors\"},\n    {\"name\":\"num_spiro_atoms\",\"type\":\"descriptor\",\"descriptor\":\"num_spiro_atoms\",\"direction\":\"lower\",\"confidence\":0.57,\"description\":\"Spiro systems are uncommon in active scaffolds\"},\n    {\"name\":\"atom_richness\",\"type\":\"descriptor\",\"descriptor\":\"atom_richness\",\"direction\":\"higher\",\"confidence\":0.71,\"description\":\"Higher atom richness suggests complex heterocyclic or fused ring systems\"},\n    {\"name\":\"labute_asa\",\"type\":\"descriptor\",\"descriptor\":\"labute_asa\",\"direction\":\"lower\",\"confidence\":0.64,\"description\":\"Lower surface area suggests more compact, active inhibitor structures\"},\n    {\"name\":\"aromatic_n_ring_count\",\"type\":\"smarts_count\",\"smarts\":\"c1ccncc1\",\"direction\":\"higher\",\"confidence\":0.76,\"description\":\"Aromatic nitrogen-containing rings (e.g., pyridine) may support activity\"},\n    {\"name\":\"pyrimidine_count\",\"type\":\"smarts_count\",\"smarts\":\"c1cncnc1\",\"direction\":\"lower\",\"confidence\":0.54,\"description\":\"Pyrimidine is not a common motif in active aromatase inhibitors\"},\n    {\"name\":\"diaryl_methyl_pattern\",\"type\":\"smarts_ratio\",\"smarts\":\"c1ccccc1c2ccccc2c3ccccc3\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.84,\"description\":\"Diaryl-methyl tail pattern common in azole-based inhibitors\"},\n    {\"name\":\"triazole_nitrogen_count\",\"type\":\"smarts_count\",\"smarts\":\"c1ncnn1\",\"direction\":\"higher\",\"confidence\":0.91,\"description\":\"Direct count of triazole nitrogens in active scaffolds\"},\n    {\"name\":\"imidazole_nitrogen_count\",\"type\":\"smarts_count\",\"smarts\":\"c1cncn1\",\"direction\":\"higher\",\"confidence\":0.88,\"description\":\"Nitrogen count in imidazole ring supports activity\"},\n    {\"name\":\"aromatic_ring_heavy_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"aromatic_rings\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.83,\"description\":\"High aromatic ring density indicates active scaffold\"},\n    {\"name\":\"logp_to_tpsa_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"logp\",\"normalizer\":\"tpsa\",\"direction\":\"higher\",\"confidence\":0.72,\"description\":\"Higher logP/TPSA ratio suggests lipophilic, planar active compounds\"},\n    {\"name\":\"heteroatom_to_aromatic_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hetero_atoms\",\"normalizer\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.80,\"description\":\"Higher heteroatom-to-aromatic ratio indicates azole-based activity\"},\n    {\"name\":\"sp2_carbon_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"aromatic_rings\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.85,\"description\":\"High sp2 carbon density supports aromatic and active scaffolds\"},\n    {\"name\":\"num_aromatic_rings\",\"type\":\"descriptor\",\"descriptor\":\"num_aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.89,\"description\":\"More aromatic rings correlate with active inhibitor structures\"},\n    {\"name\":\"steroid_ring_system\",\"type\":\"smarts_ratio\",\"smarts\":\"c1ccccc1c2ccccc2c3ccccc3\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.78,\"description\":\"Presence of steroidal ring system (e.g., ABCD rings) associated with activity\"},\n    {\"name\":\"nitrile_to_aromatic_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"C#N\",\"normalizer\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.77,\"description\":\"Nitrile-to-aromatic ring ratio indicates diaryl-methyl tail presence\"},\n    {\"name\":\"triazole_to_imidazole_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"c1ncnn1\",\"normalizer\":\"c1cncn1\",\"direction\":\"higher\",\"confidence\":0.73,\"description\":\"Higher triazole-to-imidazole ratio suggests azole-based activity\"},\n    {\"name\":\"heterocycle_to_ring_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_heterocycles\",\"normalizer\":\"ring_count\",\"direction\":\"higher\",\"confidence\":0.81,\"description\":\"High heterocycle-to-ring ratio indicates active scaffold\"},\n    {\"name\":\"logp_to_mol_wt_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"logp\",\"normalizer\":\"mol_wt\",\"direction\":\"higher\",\"confidence\":0.75,\"description\":\"Higher logP per molecular weight suggests lipophilic activity\"},\n    {\"name\":\"tpsa_to_mol_wt_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"tpsa\",\"normalizer\":\"mol_wt\",\"direction\":\"lower\",\"confidence\":0.70,\"description\":\"Lower TPSA per molecular weight suggests compact, active molecules\"},\n    {\"name\":\"aromatic_ring_to_heteroatom_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"aromatic_rings\",\"normalizer\":\"hetero_atoms\",\"direction\":\"higher\",\"confidence\":0.82,\"description\":\"High aromatic ring-to-heteroatom ratio indicates planar, active scaffolds\"},\n    {\"name\":\"num_stereo_centers_to_aromatic_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_stereo_centers\",\"normalizer\":\"aromatic_rings\",\"direction\":\"lower\",\"confidence\":0.69,\"description\":\"Fewer stereocenters per aromatic ring supports active, rigid scaffolds\"},\n    {\"name\":\"heavy_atoms_to_aromatic_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"heavy_atoms\",\"normalizer\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.84,\"description\":\"High heavy atom density per aromatic ring indicates active scaffolds\"},\n    {\"name\":\"fraction_csp3_to_aromatic_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"fraction_csp3\",\"normalizer\":\"aromatic_rings\",\"direction\":\"lower\",\"confidence\":0.76,\"description\":\"Lower sp3 fraction per aromatic ring indicates more planar, active structures\"},\n    {\"name\":\"hbd_to_hba_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hbd\",\"normalizer\":\"hba\",\"direction\":\"lower\",\"confidence\":0.68,\"description\":\"Low HBD/HBA ratio supports active, lipophilic inhibitors\"},\n    {\"name\":\"num_bridgehead_atoms_to_ring_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_bridgehead_atoms\",\"normalizer\":\"ring_count\",\"direction\":\"lower\",\"confidence\":0.60,\"description\":\"Fewer bridgehead atoms per ring indicates simpler, active scaffolds\"},\n    {\"name\":\"num_spiro_atoms_to_ring_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_spiro_atoms\",\"normalizer\":\"ring_count\",\"direction\":\"lower\",\"confidence\":0.58,\"description\":\"Fewer spiro atoms per ring supports active, non-fused scaffolds\"},\n    {\"name\":\"rot_bonds_to_aromatic_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"rot_bonds\",\"normalizer\":\"aromatic_rings\",\"direction\":\"lower\",\"confidence\":0.71,\"description\":\"Fewer rotatable bonds per aromatic ring indicates rigidity and activity\"},\n    {\"name\":\"atom_count_to_aromatic_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"atom_count\",\"normalizer\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.79,\"description\":\"Higher atom count per aromatic ring suggests complex active scaffolds\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

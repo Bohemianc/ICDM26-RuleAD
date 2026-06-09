@@ -1,0 +1,265 @@
+{
+  "rules": [
+    {
+      "name": "tzd_head_present",
+      "type": "smarts_count",
+      "smarts": "O=C1NC(=O)SC1",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Presence of thiazolidinedione (TZD) head group, a hallmark of PPARγ agonists"
+    },
+    {
+      "name": "terminal_carboxylic_acid",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "Presence of terminal carboxylic acid, a key feature in fibrate-like PPARγ agonists"
+    },
+    {
+      "name": "long_alkyl_or_aromatic_tail",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of long lipophilic tail (≥6 heavy atoms) typical in PPARγ agonists"
+    },
+    {
+      "name": "aromatic_ring_count_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased aromatic ring count, common in biphenyl or phenoxy-alkyl tails of actives"
+    },
+    {
+      "name": "hbd_count_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High hydrogen bond donor count, often associated with carboxylic acid or hydroxyl groups in actives"
+    },
+    {
+      "name": "logp_high_range",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 6.0,
+      "c": 6.0,
+      "d": 7.0,
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Lipophilicity window typical of PPARγ agonists (3–6 logP, with higher values favoring activity)"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 500,
+      "d": 600,
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Molecular weight in typical range of PPARγ agonists (300–500 Da)"
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Lower fraction of sp3 carbons (more sp2 character) associated with planar, lipophilic actives"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Increased heterocyclic content, common in TZD and indole-based scaffolds"
+    },
+    {
+      "name": "num_stereo_centers_low",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Fewer stereocenters, typical of simpler, more bioavailable PPARγ agonists"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Higher ring count, especially fused or aromatic systems in active scaffolds"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Increased rotatable bonds, associated with flexible lipophilic tails in actives"
+    },
+    {
+      "name": "tpsa_low",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 0,
+      "b": 80,
+      "c": 80,
+      "d": 100,
+      "direction": "lower",
+      "confidence": 0.71,
+      "description": "Low TPSA typical of planar, lipophilic PPARγ agonists with polar head groups"
+    },
+    {
+      "name": "phenol_group_present",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Presence of phenol group, a common motif in some PPARγ agonists"
+    },
+    {
+      "name": "ether_bridge_present",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Presence of ether linkage in aryl-alkyl chains, common in fibrate-like scaffolds"
+    },
+    {
+      "name": "halogen_any_on_aryl",
+      "type": "smarts_count",
+      "smarts": "c[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Halogen substitution on aromatic ring, rare but observed in some PPARγ actives"
+    },
+    {
+      "name": "primary_amine_present",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.66,
+      "description": "Primary amines are generally inactive; their presence is anomalous in this context"
+    },
+    {
+      "name": "secondary_amine_present",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.65,
+      "description": "Secondary amines are less common in actives; their presence is anomalous"
+    },
+    {
+      "name": "tertiary_amine_present",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.64,
+      "description": "Tertiary amines are not typical of PPARγ agonists and are anomalous"
+    },
+    {
+      "name": "amide_group_present",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.63,
+      "description": "Amide groups are not common in PPARγ agonists and are anomalous"
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Bridgehead atoms are rare and may indicate strained or unusual scaffolds"
+    },
+    {
+      "name": "num_spiro_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Spiro centers are uncommon and may indicate non-standard scaffolds"
+    },
+    {
+      "name": "formal_charge_abs_high",
+      "type": "descriptor",
+      "descriptor": "formal_charge_abs",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Presence of formal charges (especially negative) may indicate ionized carboxylates, common in actives"
+    },
+    {
+      "name": "labute_asa_high",
+      "type": "descriptor",
+      "descriptor": "labute_asa",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "High surface area, indicating high lipophilicity and potential for membrane interaction"
+    },
+    {
+      "name": "hetero_atoms_high",
+      "type": "descriptor",
+      "descriptor": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Increased heteroatom count, especially N, O, S, common in TZD and indole scaffolds"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.56,
+      "description": "Presence of nitrogen-containing aromatic rings (e.g., pyrimidine), common in actives"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Number of terminal carboxylic acid groups, a key feature in fibrate-like agonists"
+    },
+    {
+      "name": "tzd_or_carboxylic_acid_presence",
+      "type": "smarts_ratio",
+      "smarts": "O=C1NC(=O)SC1 OR [CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "Ratio of TZD or carboxylic acid presence to molecular size, strong anomaly signal"
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.47,
+      "description": "Presence of benzene ring, common in PPARγ agonist scaffolds"
+    },
+    {
+      "name": "pyrimidine_present",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.46,
+      "description": "Presence of pyrimidine ring, a known heterocycle in some PPARγ agonists"
+    }
+  ],
+  "metadata": {
+    "dataset": "Tox21",
+    "task_idx": 6,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\"rules\": [\n  {\"name\":\"tzd_head_present\",\"type\":\"smarts_count\",\"smarts\":\"O=C1NC(=O)SC1\",\"direction\":\"higher\",\"confidence\":0.95,\"description\":\"Presence of thiazolidinedione (TZD) head group, a hallmark of PPARγ agonists\"},\n  {\"name\":\"terminal_carboxylic_acid\",\"type\":\"smarts_count\",\"smarts\":\"[CX3](=O)[OX2H1]\",\"direction\":\"higher\",\"confidence\":0.93,\"description\":\"Presence of terminal carboxylic acid, a key feature in fibrate-like PPARγ agonists\"},\n  {\"name\":\"carboxylic_acid_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hba\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.87,\"description\":\"High hydrogen bond acceptor density relative to molecular size, indicative of polar head groups in actives\"},\n  {\"name\":\"long_alkyl_or_aromatic_tail\",\"type\":\"descriptor\",\"descriptor\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.85,\"description\":\"Presence of long lipophilic tail (≥6 heavy atoms) typical in PPARγ agonists\"},\n  {\"name\":\"aromatic_ring_count_high\",\"type\":\"descriptor\",\"descriptor\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.82,\"description\":\"Increased aromatic ring count, common in biphenyl or phenoxy-alkyl tails of actives\"},\n  {\"name\":\"hbd_count_high\",\"type\":\"descriptor\",\"descriptor\":\"hbd\",\"direction\":\"higher\",\"confidence\":0.80,\"description\":\"High hydrogen bond donor count, often associated with carboxylic acid or hydroxyl groups in actives\"},\n  {\"name\":\"hba_to_hbd_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hba\",\"normalizer\":\"hbd\",\"direction\":\"higher\",\"confidence\":0.79,\"description\":\"High HBA/HBD ratio typical of polar, bioactive scaffolds in PPARγ agonists\"},\n  {\"name\":\"logp_high_range\",\"type\":\"desirability_window\",\"descriptor\":\"logp\",\"a\":3.0,\"b\":6.0,\"c\":6.0,\"d\":7.0,\"direction\":\"higher\",\"confidence\":0.88,\"description\":\"Lipophilicity window typical of PPARγ agonists (3–6 logP, with higher values favoring activity)\"},\n  {\"name\":\"mol_wt_high\",\"type\":\"desirability_window\",\"descriptor\":\"mol_wt\",\"a\":300,\"b\":500,\"c\":500,\"d\":600,\"direction\":\"higher\",\"confidence\":0.84,\"description\":\"Molecular weight in typical range of PPARγ agonists (300–500 Da)\"},\n  {\"name\":\"fraction_csp3_high\",\"type\":\"descriptor\",\"descriptor\":\"fraction_csp3\",\"direction\":\"lower\",\"confidence\":0.76,\"description\":\"Lower fraction of sp3 carbons (more sp2 character) associated with planar, lipophilic actives\"},\n  {\"name\":\"num_heterocycles_high\",\"type\":\"descriptor\",\"descriptor\":\"num_heterocycles\",\"direction\":\"higher\",\"confidence\":0.75,\"description\":\"Increased heterocyclic content, common in TZD and indole-based scaffolds\"},\n  {\"name\":\"num_stereo_centers_low\",\"type\":\"descriptor\",\"descriptor\":\"num_stereo_centers\",\"direction\":\"lower\",\"confidence\":0.74,\"description\":\"Fewer stereocenters, typical of simpler, more bioavailable PPARγ agonists\"},\n  {\"name\":\"ring_count_high\",\"type\":\"descriptor\",\"descriptor\":\"ring_count\",\"direction\":\"higher\",\"confidence\":0.73,\"description\":\"Higher ring count, especially fused or aromatic systems in active scaffolds\"},\n  {\"name\":\"rot_bonds_high\",\"type\":\"descriptor\",\"descriptor\":\"rot_bonds\",\"direction\":\"higher\",\"confidence\":0.72,\"description\":\"Increased rotatable bonds, associated with flexible lipophilic tails in actives\"},\n  {\"name\":\"tpsa_low\",\"type\":\"desirability_window\",\"descriptor\":\"tpsa\",\"a\":0,\"b\":80,\"c\":80,\"d\":100,\"direction\":\"lower\",\"confidence\":0.71,\"description\":\"Low TPSA typical of planar, lipophilic PPARγ agonists with polar head groups\"},\n  {\"name\":\"phenol_group_present\",\"type\":\"smarts_count\",\"smarts\":\"[OX2H1]c1ccccc1\",\"direction\":\"higher\",\"confidence\":0.69,\"description\":\"Presence of phenol group, a common motif in some PPARγ agonists\"},\n  {\"name\":\"ether_bridge_present\",\"type\":\"smarts_count\",\"smarts\":\"[OD2]([#6])[#6]\",\"direction\":\"higher\",\"confidence\":0.68,\"description\":\"Presence of ether linkage in aryl-alkyl chains, common in fibrate-like scaffolds\"},\n  {\"name\":\"halogen_any_on_aryl\",\"type\":\"smarts_count\",\"smarts\":\"c[F,Cl,Br,I]\",\"direction\":\"higher\",\"confidence\":0.67,\"description\":\"Halogen substitution on aromatic ring, rare but observed in some PPARγ actives\"},\n  {\"name\":\"primary_amine_present\",\"type\":\"smarts_count\",\"smarts\":\"[NX3;H2][#6]\",\"direction\":\"lower\",\"confidence\":0.66,\"description\":\"Primary amines are generally inactive; their presence is anomalous in this context\"},\n  {\"name\":\"secondary_amine_present\",\"type\":\"smarts_count\",\"smarts\":\"[NX3;H1]([#6])[#6]\",\"direction\":\"lower\",\"confidence\":0.65,\"description\":\"Secondary amines are less common in actives; their presence is anomalous\"},\n  {\"name\":\"tertiary_amine_present\",\"type\":\"smarts_count\",\"smarts\":\"[NX3]([#6])([#6])[#6]\",\"direction\":\"lower\",\"confidence\":0.64,\"description\":\"Tertiary amines are not typical of PPARγ agonists and are anomalous\"},\n  {\"name\":\"amide_group_present\",\"type\":\"smarts_count\",\"smarts\":\"[CX3](=O)[NX3]\",\"direction\":\"lower\",\"confidence\":0.63,\"description\":\"Amide groups are not common in PPARγ agonists and are anomalous\"},\n  {\"name\":\"num_bridgehead_atoms_high\",\"type\":\"descriptor\",\"descriptor\":\"num_bridgehead_atoms\",\"direction\":\"higher\",\"confidence\":0.62,\"description\":\"Bridgehead atoms are rare and may indicate strained or unusual scaffolds\"},\n  {\"name\":\"num_spiro_atoms_high\",\"type\":\"descriptor\",\"descriptor\":\"num_spiro_atoms\",\"direction\":\"higher\",\"confidence\":0.61,\"description\":\"Spiro centers are uncommon and may indicate non-standard scaffolds\"},\n  {\"name\":\"formal_charge_abs_high\",\"type\":\"descriptor\",\"descriptor\":\"formal_charge_abs\",\"direction\":\"higher\",\"confidence\":0.60,\"description\":\"Presence of formal charges (especially negative) may indicate ionized carboxylates, common in actives\"},\n  {\"name\":\"labute_asa_high\",\"type\":\"descriptor\",\"descriptor\":\"labute_asa\",\"direction\":\"higher\",\"confidence\":0.59,\"description\":\"High surface area, indicating high lipophilicity and potential for membrane interaction\"},\n  {\"name\":\"heavy_atoms_to_aromatic_rings_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"heavy_atoms\",\"normalizer\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.58,\"description\":\"High heavy atom density per aromatic ring, typical of long lipophilic tails\"},\n  {\"name\":\"hetero_atoms_high\",\"type\":\"descriptor\",\"descriptor\":\"hetero_atoms\",\"direction\":\"higher\",\"confidence\":0.57,\"description\":\"Increased heteroatom count, especially N, O, S, common in TZD and indole scaffolds\"},\n  {\"name\":\"aromatic_n_ring_count\",\"type\":\"descriptor\",\"descriptor\":\"num_heterocycles\",\"direction\":\"higher\",\"confidence\":0.56,\"description\":\"Presence of nitrogen-containing aromatic rings (e.g., pyrimidine), common in actives\"},\n  {\"name\":\"carboxylic_acid_count\",\"type\":\"smarts_count\",\"smarts\":\"[CX3](=O)[OX2H1]\",\"direction\":\"higher\",\"confidence\":0.55,\"description\":\"Number of terminal carboxylic acid groups, a key feature in fibrate-like agonists\"},\n  {\"name\":\"tzd_or_carboxylic_acid_presence\",\"type\":\"smarts_ratio\",\"smarts\":\"O=C1NC(=O)SC1 OR [CX3](=O)[OX2H1]\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.54,\"description\":\"Ratio of TZD or carboxylic acid presence to molecular size, strong anomaly signal\"},\n  {\"name\":\"logp_to_hba_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"logp\",\"normalizer\":\"hba\",\"direction\":\"higher\",\"confidence\":0.53,\"description\":\"High lipophilicity relative to HBA count, typical of PPARγ agonists\"},\n  {\"name\":\"tpsa_to_logp_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"tpsa\",\"normalizer\":\"logp\",\"direction\":\"lower\",\"confidence\":0.52,\"description\":\"Low TPSA per logP, indicating favorable balance between polarity and lipophilicity\"},\n  {\"name\":\"num_heterocycles_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_heterocycles\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.51,\"description\":\"High heterocycle density relative to molecular size, typical of active scaffolds\"},\n  {\"name\":\"fraction_csp3_to_aromatic_rings_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"fraction_csp3\",\"normalizer\":\"aromatic_rings\",\"direction\":\"lower\",\"confidence\":0.50,\"description\":\"Low sp3 fraction per aromatic ring, indicating planar, lipophilic character\"},\n  {\"name\":\"rot_bonds_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"rot_bonds\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.49,\"description\":\"High rotatable bond density, typical of flexible tails in actives\"},\n  {\"name\":\"hbd_to_hba_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hbd\",\"normalizer\":\"hba\",\"direction\":\"lower\",\"confidence\":0.48,\"description\":\"Low HBD/HBA ratio, typical of polar, non-ionic actives\"},\n  {\"name\":\"aromatic_ring_any_count\",\"type\":\"smarts_count\",\"smarts\":\"c1ccccc1\",\"direction\":\"higher\",\"confidence\":0.47,\"description\":\"Presence of benzene ring, common in PPARγ agonist scaffolds\"},\n  {\"name\":\"pyrimidine_present\",\"type\":\"smarts_count\",\"smarts\":\"c1cncnc1\",\"direction\":\"higher\",\"confidence\":0.46,\"description\":\"Presence of pyrimidine ring, a known heterocycle in some PPARγ agonists\"},\n  {\"name\":\"phenol_to_carboxylic_acid_ratio\",\"type\":\"smarts_ratio\",\"smarts\":\"[OX2H1]c1ccccc1\",\"normalizer\":\"[CX3](=O)[OX2H1]\",\"direction\":\"higher\",\"confidence\":0.45,\"description\":\"Ratio of phenol to carboxylic acid, indicating alternative polar head group\"},\n  {\"name\":\"heavy_atoms_to_ring_count_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"heavy_atoms\",\"normalizer\":\"ring_count\",\"direction\":\"higher\",\"confidence\":0.44,\"description\":\"High heavy atom density per ring, typical of lipophilic tails\"},\n  {\"name\":\"num_stereo_centers_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_stereo_centers\",\"normalizer\":\"heavy_atoms\",\"direction\":\"lower\",\"confidence\":0.43,\"description\":\"Low stereocenter density, typical of simpler, more bioavailable actives\"},\n  {\"name\":\"logp_to_mol_wt_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"logp\",\"normalizer\":\"mol_wt\",\"direction\":\"higher\",\"confidence\":0.42,\"description\":\"High logP per molecular weight, indicating lipophilicity relative to size\"},\n  {\"name\":\"hba_to_mol_wt_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hba\",\"normalizer\":\"mol_wt\",\"direction\":\"higher\",\"confidence\":0.41,\"description\":\"High HBA per molecular weight, indicating polar character in actives\"},\n  {\"name\":\"hbd_to_mol_wt_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"hbd\",\"normalizer\":\"mol_wt\",\"direction\":\"higher\",\"confidence\":0.40,\"description\":\"High HBD per molecular weight, indicating ionizable groups in actives\"},\n  {\"name\":\"aromatic_rings_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"aromatic_rings\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.39,\"description\":\"High aromatic ring density, typical of lipophilic scaffolds\"},\n  {\"name\":\"fraction_csp3_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"fraction_csp3\",\"normalizer\":\"heavy_atoms\",\"direction\":\"lower\",\"confidence\":0.38,\"description\":\"Low sp3 fraction per heavy atom, indicating more planar, lipophilic character\"},\n  {\"name\":\"tpsa_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"tpsa\",\"normalizer\":\"heavy_atoms\",\"direction\":\"lower\",\"confidence\":0.37,\"description\":\"Low TPSA per heavy atom, typical of polar, compact actives\"},\n  {\"name\":\"num_bridgehead_atoms_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_bridgehead_atoms\",\"normalizer\":\"heavy_atoms\",\"direction\":\"lower\",\"confidence\":0.36,\"description\":\"Low bridgehead atom density, indicating absence of strained systems\"},\n  {\"name\":\"num_spiro_atoms_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_spiro_atoms\",\"normalizer\":\"heavy_atoms\",\"direction\":\"lower\",\"confidence\":0.35,\"description\":\"Low spiro atom density, indicating absence of complex ring systems\"},\n  {\"name\":\"formal_charge_abs_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"formal_charge_abs\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.34,\"description\":\"High charge density per heavy atom, typical of ionized carboxylates in actives\"},\n  {\"name\":\"labute_asa_to_heavy_atoms_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"labute_asa\",\"normalizer\":\"heavy_atoms\",\"direction\":\"higher\",\"confidence\":0.33,\"description\":\"High surface area per heavy atom, indicating lipophilic character\"},\n  {\"name\":\"num_heterocycles_to_aromatic_rings_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"num_heterocycles\",\"normalizer\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.32,\"description\":\"High heterocycle density per aromatic ring, typical of complex actives\"},\n  {\"name\":\"rot_bonds_to_aromatic_rings_ratio\",\"type\":\"descriptor_ratio\",\"descriptor\":\"rot_bonds\",\"normalizer\":\"aromatic_rings\",\"direction\":\"higher\",\"confidence\":0.31,\"description\":\"High rotatable bond density per aromatic ring, typical of flexible tails\"}\n]}",
+    "num_attempts": 1
+  }
+}

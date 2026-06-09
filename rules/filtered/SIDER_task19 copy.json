@@ -1,0 +1,83 @@
+{
+  "task_key": "SIDER_task19",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 331,
+  "n_input_rules": 6,
+  "n_kept": 3,
+  "n_rejected": 3,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "aryloxy_aminopropanol",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 1,
+      "name": "isocyanate_group",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 5,
+      "name": "aldehyde_on_aromatic",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aldehyde_free",
+      "type": "smarts_count",
+      "smarts": "C=O",
+      "direction": "lower",
+      "confidence": 0.9,
+      "description": "Absence of aldehyde groups prevents aldehyde-mediated airway irritation and oxidative stress",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5921450151057401,
+        "fired": 196,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "bleomycin_like_lipophilic",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "High lipophilicity in aromatic systems correlates with accumulation in lung tissue via passive diffusion",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 0.030303030303030304,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_group",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Phenolic groups are metabolized to quinones that generate reactive oxygen species in lung epithelium",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08761329305135952,
+        "fired": 29,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task19__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.165697"
+}

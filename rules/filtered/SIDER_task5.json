@@ -1,0 +1,637 @@
+{
+  "task_key": "SIDER_task5",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 387,
+  "n_input_rules": 45,
+  "n_kept": 31,
+  "n_rejected": 14,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 13,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0491"
+    },
+    {
+      "index": 23,
+      "name": "hexahydronaphthalene_lactone",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 24,
+      "name": "quinolone_f_halogen",
+      "reason": "fire_rate:0.0026"
+    },
+    {
+      "index": 25,
+      "name": "bisphosphonate_core",
+      "reason": "fire_rate:0.0026"
+    },
+    {
+      "index": 26,
+      "name": "aromatic_steroid_core",
+      "reason": "fire_rate:0.0078"
+    },
+    {
+      "index": 27,
+      "name": "lactone_fused_ring_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 28,
+      "name": "phosphonate_group_count",
+      "reason": "fire_rate:0.0052"
+    },
+    {
+      "index": 38,
+      "name": "ring_count_desirability_window",
+      "reason": "fire_rate:0.0336"
+    },
+    {
+      "index": 39,
+      "name": "aromatic_rings_desirability_window",
+      "reason": "fire_rate:0.0103"
+    },
+    {
+      "index": 40,
+      "name": "num_heterocycles_desirability_window",
+      "reason": "fire_rate:0.0078"
+    },
+    {
+      "index": 41,
+      "name": "num_stereo_centers_desirability_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 43,
+      "name": "phosphonate_heavy_atoms_ratio",
+      "reason": "fire_rate:0.0052"
+    },
+    {
+      "index": 44,
+      "name": "lactone_heavy_atoms_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with musculoskeletal adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49870801033591733,
+        "fired": 193,
+        "n_train_normal": 387,
+        "threshold": 1.7906399999999998,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased molecular weight correlates with musculoskeletal side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49870801033591733,
+        "fired": 193,
+        "n_train_normal": 387,
+        "threshold": 305.16400000000004,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Higher hydrogen bond donor count linked to adverse musculoskeletal effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4883720930232558,
+        "fired": 189,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Increased hydrogen bond acceptor count associated with musculoskeletal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4082687338501292,
+        "fired": 158,
+        "n_train_normal": 387,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "TPSA range where musculoskeletal adverse effects are more prevalent",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17829457364341086,
+        "fired": 69,
+        "n_train_normal": 387,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased ring count correlates with musculoskeletal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4728682170542636,
+        "fired": 183,
+        "n_train_normal": 387,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High aromatic ring content linked to musculoskeletal side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3695090439276486,
+        "fired": 143,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Greater number of heavy atoms associated with adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49870801033591733,
+        "fired": 193,
+        "n_train_normal": 387,
+        "threshold": 21.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Increased sp3 character suggests structural rigidity and potential for musculoskeletal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49870801033591733,
+        "fired": 193,
+        "n_train_normal": 387,
+        "threshold": 0.45,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "More heterocyclic rings increase risk of musculoskeletal adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27648578811369506,
+        "fired": 107,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Greater rotational freedom correlates with musculoskeletal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4263565891472868,
+        "fired": 165,
+        "n_train_normal": 387,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of aromatic ring motifs increases risk of musculoskeletal side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5762273901808785,
+        "fired": 223,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amines increase risk of musculoskeletal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21963824289405684,
+        "fired": 85,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Secondary amines associated with musculoskeletal side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3023255813953488,
+        "fired": 117,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Tertiary amines correlate with musculoskeletal adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29198966408268734,
+        "fired": 113,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Phenolic groups increase risk of musculoskeletal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1111111111111111,
+        "fired": 43,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Carboxylic acid groups linked to musculoskeletal adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1937984496124031,
+        "fired": 75,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Amide groups associated with musculoskeletal side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23255813953488372,
+        "fired": 90,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.56,
+      "description": "Ether linkages increase risk of musculoskeletal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40568475452196384,
+        "fired": 157,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Halogen presence increases musculoskeletal adverse effect risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.26356589147286824,
+        "fired": 102,
+        "n_train_normal": 387,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aryl halogen density as a ratio of halogens to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13953488372093023,
+        "fired": 54,
+        "n_train_normal": 387,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Aromatic ring density relative to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4909560723514212,
+        "fired": 190,
+        "n_train_normal": 387,
+        "threshold": 0.03125,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amine density relative to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21963824289405684,
+        "fired": 85,
+        "n_train_normal": 387,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Tertiary amine density relative to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29198966408268734,
+        "fired": 113,
+        "n_train_normal": 387,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Phenol density relative to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1111111111111111,
+        "fired": 43,
+        "n_train_normal": 387,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Carboxylic acid density relative to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1937984496124031,
+        "fired": 75,
+        "n_train_normal": 387,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Ether group density relative to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40568475452196384,
+        "fired": 157,
+        "n_train_normal": 387,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogen density relative to heavy atoms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.26356589147286824,
+        "fired": 102,
+        "n_train_normal": 387,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_mol_wt_desirability",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 4.5,
+      "c": 5.5,
+      "d": 6.5,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "LogP window where musculoskeletal toxicity peaks",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06201550387596899,
+        "fired": 24,
+        "n_train_normal": 387,
+        "threshold": 5.5,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 100,
+      "b": 140,
+      "c": 160,
+      "d": 180,
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "TPSA range associated with increased musculoskeletal risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13953488372093023,
+        "fired": 54,
+        "n_train_normal": 387,
+        "threshold": 160.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 5,
+      "b": 8,
+      "c": 10,
+      "d": 12,
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Rotatable bond count window linked to musculoskeletal side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13695090439276486,
+        "fired": 53,
+        "n_train_normal": 387,
+        "threshold": 10.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task5__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:05.621138"
+}

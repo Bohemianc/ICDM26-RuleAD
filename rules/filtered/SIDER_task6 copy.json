@@ -1,0 +1,70 @@
+{
+  "task_key": "SIDER_task6",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 117,
+  "n_input_rules": 6,
+  "n_kept": 2,
+  "n_rejected": 4,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "aryl_acetic_acid_fused",
+      "reason": "fire_rate:0.0085"
+    },
+    {
+      "index": 2,
+      "name": "propionic_acid_fused",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "bisphosphonate_group",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 5,
+      "name": "free_aldehyde_on_aromatic",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "carboxylic_acid_present",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of carboxylic acid group, a known irritant and mediator of GI mucosal damage",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1111111111111111,
+        "fired": 13,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.94,
+      "description": "Aromatic rings promote GI irritation through membrane disruption and local accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4188034188034188,
+        "fired": 49,
+        "n_train_normal": 117,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task6__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:10.387472"
+}

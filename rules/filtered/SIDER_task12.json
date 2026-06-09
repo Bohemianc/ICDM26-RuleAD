@@ -1,0 +1,587 @@
+{
+  "task_key": "SIDER_task12",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 994,
+  "n_input_rules": 43,
+  "n_kept": 28,
+  "n_rejected": 15,
+  "rejects": [
+    {
+      "index": 3,
+      "name": "steroid_like_scaffold",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 4,
+      "name": "aromatic_polyhydroxyl_pattern",
+      "reason": "fire_rate:0.0121"
+    },
+    {
+      "index": 5,
+      "name": "aromatic_polyhydroxyl_pattern_2",
+      "reason": "fire_rate:0.0010"
+    },
+    {
+      "index": 8,
+      "name": "halogenated_phenol",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 10,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0060"
+    },
+    {
+      "index": 17,
+      "name": "num_stereo_centers",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 29,
+      "name": "steroid_like_ring_system",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 32,
+      "name": "num_spiro_atoms",
+      "reason": "fire_rate:0.0231"
+    },
+    {
+      "index": 33,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 36,
+      "name": "logp_anom_window_2",
+      "reason": "fire_rate:0.0181"
+    },
+    {
+      "index": 37,
+      "name": "aromatic_ring_count_anom_window",
+      "reason": "fire_rate:0.0191"
+    },
+    {
+      "index": 38,
+      "name": "hba_to_hbd_ratio_anom",
+      "reason": "fire_rate:0.0282"
+    },
+    {
+      "index": 40,
+      "name": "aromatic_polyhydroxyl_ratio",
+      "reason": "fire_rate:0.0121"
+    },
+    {
+      "index": 41,
+      "name": "steroid_like_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 42,
+      "name": "halogenated_phenol_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of phenolic hydroxyl groups, common in endocrine-active compounds like phytoestrogens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12173038229376258,
+        "fired": 121,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased aromatic ring count correlates with endocrine-disrupting scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4517102615694165,
+        "fired": 449,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fused_ring_count",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Fused ring systems (e.g., steroids) are strongly associated with endocrine activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32796780684104626,
+        "fired": 326,
+        "n_train_normal": 994,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "imidazole_count",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Imidazole rings are known in aromatase inhibitors and endocrine disruptors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08249496981891348,
+        "fired": 82,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "triazole_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Triazole rings found in CYP19 inhibitors and thyroid modulators",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08148893360160966,
+        "fired": 81,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Presence of halogens, especially in aromatic systems, increases endocrine activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.26961770623742454,
+        "fired": 268,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 60,
+      "b": 100,
+      "c": 140,
+      "d": 180,
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "TPSA range linked to endocrine-active molecules with moderate polarity and membrane permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22736418511066397,
+        "fired": 226,
+        "n_train_normal": 994,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Higher molecular weight correlates with complex endocrine-disrupting scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 497,
+        "n_train_normal": 994,
+        "threshold": 353.4005000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High hydrogen bond acceptor count supports endocrine receptor binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3953722334004024,
+        "fired": 393,
+        "n_train_normal": 994,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Hydrogen bond donor count increases in phenolic and hydroxyl-rich endocrine disruptors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3611670020120724,
+        "fired": 359,
+        "n_train_normal": 994,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.7,
+      "description": "Lower sp3 character indicates more planar, aromatic endocrine-active scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 497,
+        "n_train_normal": 994,
+        "threshold": 0.44562647754137114,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Increased heterocyclic content (e.g., imidazole, triazole) in endocrine modulators",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3762575452716298,
+        "fired": 374,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Aromatic nitrogen-containing rings associated with endocrine modulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08350100603621731,
+        "fired": 83,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amines may act as endocrine disruptors via receptor interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24949698189134809,
+        "fired": 248,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Secondary amines in nitrogen-rich endocrine-active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3732394366197183,
+        "fired": 371,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Tertiary amines in endocrine modulators, especially in halogenated systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35714285714285715,
+        "fired": 355,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Low carboxylic acid count reduces endocrine activity; high count is less common in endocrine disruptors",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.22535211267605634,
+        "fired": 224,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.59,
+      "description": "Amide groups are less common in endocrine-active compounds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3158953722334004,
+        "fired": 314,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Ether linkages in polyether scaffolds may support endocrine activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4255533199195171,
+        "fired": 423,
+        "n_train_normal": 994,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Halogen density on aromatic rings is a key endocrine-disrupting motif",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.26961770623742454,
+        "fired": 268,
+        "n_train_normal": 994,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Hydroxyl group density on aromatic rings indicates phytoestrogen-like activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4949698189134809,
+        "fired": 492,
+        "n_train_normal": 994,
+        "threshold": 0.03225806451612903,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "imidazole_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncn1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Imidazole ring density in aromatic systems linked to aromatase inhibition",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08249496981891348,
+        "fired": 82,
+        "n_train_normal": 994,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "triazole_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Triazole ring density in aromatic systems associated with thyroid modulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08148893360160966,
+        "fired": 81,
+        "n_train_normal": 994,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased rotatable bonds may support conformational flexibility in receptor binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4959758551307847,
+        "fired": 493,
+        "n_train_normal": 994,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Bridgehead atoms in fused ring systems are common in steroid-like endocrine disruptors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0744466800804829,
+        "fired": 74,
+        "n_train_normal": 994,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count_anom_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 1,
+      "b": 3,
+      "c": 5,
+      "d": 7,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Phenolic hydroxyl count in range associated with endocrine activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15694164989939638,
+        "fired": 156,
+        "n_train_normal": 994,
+        "threshold": 5.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fused_ring_anom_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Fused ring count in 3\u20139 range is strongly linked to endocrine disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.056338028169014086,
+        "fired": 56,
+        "n_train_normal": 994,
+        "threshold": 7.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_count_anom_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Halogen count in 1\u20134 range linked to thyroid-active phenols",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3611670020120724,
+        "fired": 359,
+        "n_train_normal": 994,
+        "threshold": 3.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task12__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:08.492443"
+}

@@ -1,0 +1,83 @@
+{
+  "task_key": "SIDER_task22",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1172,
+  "n_input_rules": 6,
+  "n_kept": 3,
+  "n_rejected": 3,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "coumarin_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 2,
+      "name": "thalidomide_like_phthalimide",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "polyene_chain",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "carboxylic_acid_present",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of carboxylic acid group, linked to valproate-like teratogenicity via placental transfer and fetal metabolism",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2030716723549488,
+        "fired": 238,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_high_density",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "High density of primary amines promotes placental uptake via organic cation transporters (OCTs) in fetal tissues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23464163822525597,
+        "fired": 275,
+        "n_train_normal": 1172,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_group",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Phenolic groups undergo glucuronidation in maternal liver and remain unmetabolized in fetal circulation, causing toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11433447098976109,
+        "fired": 134,
+        "n_train_normal": 1172,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task22__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.584942"
+}

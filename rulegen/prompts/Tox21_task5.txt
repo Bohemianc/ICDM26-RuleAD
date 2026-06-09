@@ -1,0 +1,33 @@
+You are an expert medicinal chemist and cheminformatics researcher.
+Generate task-conditioned anomaly rules for molecular graph anomaly detection.
+Dataset/task: Tox21 task 5.
+Label 0 semantics: show a NEGATIVE (inactive) readout in the Tox21 NR-ER-LBD assay (i.e., bind the estrogen receptor ligand-binding domain; same chemotypes as NR-ER — phenolic hydroxyl mimicking estradiol A-ring, bisphenol diaryls, estradiol-like steroidal cores, tamoxifen-like triaryl ethylenes, and lipophilic resorcylic or phenolic macrolactones), meaning no assay evidence of that activity under the assay conditions.
+Label 1 semantics: show a POSITIVE (active) readout in the Tox21 NR-ER-LBD assay (i.e., bind the estrogen receptor ligand-binding domain; same chemotypes as NR-ER — phenolic hydroxyl mimicking estradiol A-ring, bisphenol diaryls, estradiol-like steroidal cores, tamoxifen-like triaryl ethylenes, and lipophilic resorcylic or phenolic macrolactones).
+For this one-class split, the anomaly class is label 1 (show a POSITIVE (active) readout in the Tox21 NR-ER-LBD assay (i.e., bind the estrogen receptor ligand-binding domain; same chemotypes as NR-ER — phenolic hydroxyl mimicking estradiol A-ring, bisphenol diaryls, estradiol-like steroidal cores, tamoxifen-like triaryl ethylenes, and lipophilic resorcylic or phenolic macrolactones)).
+The normal class is label 0 (show a NEGATIVE (inactive) readout in the Tox21 NR-ER-LBD assay (i.e., bind the estrogen receptor ligand-binding domain; same chemotypes as NR-ER — phenolic hydroxyl mimicking estradiol A-ring, bisphenol diaryls, estradiol-like steroidal cores, tamoxifen-like triaryl ethylenes, and lipophilic resorcylic or phenolic macrolactones), meaning no assay evidence of that activity under the assay conditions).
+These rules will be applied in a normal-only anomaly detector, so they must describe anomaly-oriented evidence for the anomaly class relative to the normal class.
+This is a cellular or biochemical assay readout in the Tox21 NR-ER-LBD assay (i.e., bind the estrogen receptor ligand-binding domain; same chemotypes as NR-ER — phenolic hydroxyl mimicking estradiol A-ring, bisphenol diaryls, estradiol-like steroidal cores, tamoxifen-like triaryl ethylenes, and lipophilic resorcylic or phenolic macrolactones), not a therapeutic-efficacy endpoint. Rules should reflect likelihood of being assay-active vs inactive. This is the Tox21 NR-ER-LBD assay — direct binding to the estrogen receptor ligand-binding domain. Chemotypes are identical to NR-ER (task 4): phenolic estradiol mimics with a para-OH aryl A-ring, bisphenol diaryl scaffolds, estradiol-like steroids, tamoxifen-like triaryl ethylenes, and lipophilic resorcylic phenols. Because the assay reports direct LBD binding, SMARTS rules for aromatic para-hydroxyl (Oc1ccc(*)cc1), bisphenol (Oc1ccc(C(*)(*)c2ccc(O)cc2)cc1), and the estradiol ABC-aromatic-D ring system are the most informative, along with descriptors for phenolic OH count, aromatic ring count ≥2, and moderate LogP.
+Produce 50 diverse rules.
+Rules must be computable from RDKit descriptors or SMARTS substructures.
+Avoid vague concepts, impossible quantities, and unsupported physics quantities.
+Avoid rules that depend on external databases, docking, similarity search, or learned embeddings.
+If the anomaly class is label 0 for this split, do not accidentally generate rules for label 1. Use the explicit anomaly/normal definitions above.
+Prefer a mix of:
+- physicochemical properties
+- ratios
+- substructure counts
+- density-like motif ratios
+- anomaly-associated desirability windows
+Return JSON only. The top-level object must be {"rules": [...]}.
+Allowed rule types: descriptor, descriptor_ratio, desirability_window, element_fraction, smarts_count, smarts_ratio.
+Allowed descriptors/normalizers: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa; normalizers can also be: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa.
+Allowed directions: higher, lower, two_sided.
+Prefer rules whose higher feature value means stronger anomaly evidence.
+For descriptor rules use direction higher or lower.
+For SMARTS rules prefer smarts_count or smarts_ratio.
+Allowed common-vocabulary SMARTS for smarts_count rules (use the listed name with the paired SMARTS pattern): aromatic_ring_any (c1ccccc1), aromatic_n_ring (c1ccncc1), pyrimidine (c1cncnc1), primary_amine ([NX3;H2][#6]), secondary_amine ([NX3;H1]([#6])[#6]), tertiary_amine ([NX3]([#6])([#6])[#6]), hydroxyl ([OX2;H1][#6]), phenol ([OX2H1]c1ccccc1), carboxylic_acid ([CX3](=O)[OX2H1]), amide_group ([CX3](=O)[NX3]), ether_group ([OD2]([#6])[#6]), halogen_any ([F,Cl,Br,I]).
+Every rule object must contain: name, type, description, direction, confidence.
+Examples:
+{"name":"aryl_halogen_ratio","type":"smarts_ratio","smarts":"c[F,Cl,Br,I]","normalizer":"heavy_atoms","direction":"higher","confidence":0.78,"description":"Aryl halogen density"}
+{"name":"logp_high","type":"descriptor","descriptor":"logp","direction":"higher","confidence":0.71,"description":"Higher lipophilicity"}
+{"name":"tpsa_anom_window","type":"desirability_window","descriptor":"tpsa","a":40,"b":60,"c":120,"d":140,"direction":"higher","confidence":0.69,"description":"TPSA window associated with anomaly"}

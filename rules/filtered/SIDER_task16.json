@@ -1,0 +1,663 @@
+{
+  "task_key": "SIDER_task16",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 99,
+  "n_input_rules": 47,
+  "n_kept": 33,
+  "n_rejected": 14,
+  "rejects": [
+    {
+      "index": 8,
+      "name": "sulfonamide_present",
+      "reason": "fire_rate:0.0101"
+    },
+    {
+      "index": 9,
+      "name": "furocoumarin_like",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 10,
+      "name": "tetracycline_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 11,
+      "name": "quinolone_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 12,
+      "name": "extended_halogen_conjugation",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 24,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 28,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 29,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 32,
+      "name": "sulfonamide_ratio",
+      "reason": "fire_rate:0.0101"
+    },
+    {
+      "index": 33,
+      "name": "furocoumarin_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 43,
+      "name": "conjugated_fused_aromatics",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 44,
+      "name": "extended_conjugation_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 45,
+      "name": "halogenated_aryl_conjugation",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 46,
+      "name": "photoactive_fused_systems",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with skin adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.494949494949495,
+        "fired": 49,
+        "n_train_normal": 99,
+        "threshold": 0.5757199999999999,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA range linked to dermatologic hypersensitivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1717171717171717,
+        "fired": 17,
+        "n_train_normal": 99,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors correlate with skin irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.43434343434343436,
+        "fired": 43,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High hydrogen bond acceptor count linked to photoallergic reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35353535353535354,
+        "fired": 35,
+        "n_train_normal": 99,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Increased aromatic ring count associated with photo-sensitivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3434343434343434,
+        "fired": 34,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Greater ring count correlates with skin toxicity via planar stacking",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48484848484848486,
+        "fired": 48,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of halogens, especially on aromatic systems, increases risk of skin reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2222222222222222,
+        "fired": 22,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_aryl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Aryl halogen density indicates photoactive or electrophilic risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2222222222222222,
+        "fired": 22,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Phenolic groups are common in photoallergic and irritant compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10101010101010101,
+        "fired": 10,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Primary amines may form reactive metabolites causing skin reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21212121212121213,
+        "fired": 21,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Secondary amines linked to skin irritation and hypersensitivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1919191919191919,
+        "fired": 19,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Tertiary amines may act as photosensitizers or form reactive intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2222222222222222,
+        "fired": 22,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Carboxylic acids may contribute to skin irritation via pH or solubility effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20202020202020202,
+        "fired": 20,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "Amide groups can be metabolized to reactive species in skin",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16161616161616163,
+        "fired": 16,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.53,
+      "description": "Ether linkages in aromatic systems may increase skin permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29292929292929293,
+        "fired": 29,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Aromatic nitrogen rings (e.g., pyridine) increase skin exposure and reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0707070707070707,
+        "fired": 7,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Pyrimidine rings are common in skin-reactive heterocycles",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0707070707070707,
+        "fired": 7,
+        "n_train_normal": 99,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Higher molecular weight correlates with poor skin clearance and accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.494949494949495,
+        "fired": 49,
+        "n_train_normal": 99,
+        "threshold": 271.404,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Increased heavy atom count increases potential for metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48484848484848486,
+        "fired": 48,
+        "n_train_normal": 99,
+        "threshold": 18.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.56,
+      "description": "Lower sp3 character indicates more planar, conjugated systems prone to photoactivation",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.48484848484848486,
+        "fired": 48,
+        "n_train_normal": 99,
+        "threshold": 0.3684210526315789,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Increased rotatable bonds may enhance skin penetration and bioavailability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40404040404040403,
+        "fired": 40,
+        "n_train_normal": 99,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "More heterocycles increase potential for metabolic activation and skin reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4444444444444444,
+        "fired": 44,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Aromatic ring density increases photo-reactivity and skin exposure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4444444444444444,
+        "fired": 44,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Halogen-to-heavy-atom ratio indicates potential for electrophilic or photochemical reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2222222222222222,
+        "fired": 22,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Phenol density correlates with photoallergic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10101010101010101,
+        "fired": 10,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Primary amine density increases risk of metabolic activation in skin",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21212121212121213,
+        "fired": 21,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Secondary amine density linked to skin irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1919191919191919,
+        "fired": 19,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Tertiary amine density may promote skin penetration and reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2222222222222222,
+        "fired": 22,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Carboxylic acid density may contribute to skin irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20202020202020202,
+        "fired": 20,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "Amide density may lead to reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16161616161616163,
+        "fired": 16,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.53,
+      "description": "Ether density may enhance skin permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29292929292929293,
+        "fired": 29,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Pyrimidine density increases risk of skin hypersensitivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0707070707070707,
+        "fired": 7,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Aromatic nitrogen ring density increases photo-reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0707070707070707,
+        "fired": 7,
+        "n_train_normal": 99,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task16__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:09.775614"
+}

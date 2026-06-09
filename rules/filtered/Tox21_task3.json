@@ -1,0 +1,411 @@
+{
+  "task_key": "Tox21_task3",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 4969,
+  "n_input_rules": 35,
+  "n_kept": 18,
+  "n_rejected": 17,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "azole_heterocycle_count",
+      "reason": "fire_rate:0.0062"
+    },
+    {
+      "index": 1,
+      "name": "imidazole_heterocycle_count",
+      "reason": "fire_rate:0.0296"
+    },
+    {
+      "index": 2,
+      "name": "nitrile_group_count",
+      "reason": "fire_rate:0.0231"
+    },
+    {
+      "index": 4,
+      "name": "heteroatom_fraction",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 5,
+      "name": "heteroatom_count",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 7,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 12,
+      "name": "steroid_like_rings",
+      "reason": "fire_rate:0.0135"
+    },
+    {
+      "index": 21,
+      "name": "num_stereo_centers",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 25,
+      "name": "num_bridgehead_atoms",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 26,
+      "name": "num_spiro_atoms",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 27,
+      "name": "atom_richness",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 28,
+      "name": "labute_asa",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 30,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0336"
+    },
+    {
+      "index": 31,
+      "name": "diaryl_methyl_pattern",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 32,
+      "name": "triazole_nitrogen_count",
+      "reason": "fire_rate:0.0062"
+    },
+    {
+      "index": 33,
+      "name": "imidazole_nitrogen_count",
+      "reason": "fire_rate:0.0296"
+    },
+    {
+      "index": 34,
+      "name": "steroid_ring_system",
+      "reason": "fire_rate:0.0002"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Increased aromatic ring count correlates with active inhibitor scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2614208090158986,
+        "fired": 1299,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "More heterocycles indicate higher likelihood of azole-based activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3658683839806802,
+        "fired": 1818,
+        "n_train_normal": 4969,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Moderate TPSA (40\u201360) associated with active azole and steroidal inhibitors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08553028778426243,
+        "fired": 425,
+        "n_train_normal": 4969,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atom_count",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Larger molecules with multiple heavy atoms often show higher activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4872207687663514,
+        "fired": 2421,
+        "n_train_normal": 4969,
+        "threshold": 14.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "sp3_fraction",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Lower sp3 fraction indicates more planar, aromatic, and active inhibitor scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4920507144294627,
+        "fired": 2445,
+        "n_train_normal": 4969,
+        "threshold": 0.45454545454545453,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Increased ring count supports steroidal or fused ring systems in active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3972630307909036,
+        "fired": 1974,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_group_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Phenol groups may appear in steroidal analogs with activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07184544173878044,
+        "fired": 357,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.65,
+      "description": "Primary amines are rare in active aromatase inhibitors; their presence may indicate inactivity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.12759106460052325,
+        "fired": 634,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.63,
+      "description": "Secondary amines are uncommon in active inhibitors",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.18273294425437714,
+        "fired": 908,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.61,
+      "description": "Tertiary amines are not typical in active aromatase inhibitors",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.17790299859126585,
+        "fired": 884,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.67,
+      "description": "Ether linkages are not common in active scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.34916482189575365,
+        "fired": 1735,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Carboxylic acids are not typical in active aromatase inhibitors",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.11189374119541155,
+        "fired": 556,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.58,
+      "description": "Amide groups are rare in active inhibitors",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.176695512175488,
+        "fired": 878,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "lower",
+      "confidence": 0.55,
+      "description": "Halogenation is not a hallmark of active aromatase inhibitors",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.2151338297444154,
+        "fired": 1069,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.68,
+      "description": "Fewer rotatable bonds suggest more rigid, active inhibitor scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.44033004628697925,
+        "fired": 2188,
+        "n_train_normal": 4969,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_count",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.66,
+      "description": "Low hydrogen bond donors favor active, lipophilic inhibitors",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.42745019118534916,
+        "fired": 2124,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_count",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Higher hydrogen bond acceptors support azole-based active motifs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36083719058160596,
+        "fired": 1793,
+        "n_train_normal": 4969,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Aromatic nitrogen-containing rings (e.g., pyridine) may support activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05393439323807607,
+        "fired": 268,
+        "n_train_normal": 4969,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task3__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:23.106671"
+}

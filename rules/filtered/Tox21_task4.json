@@ -1,0 +1,734 @@
+{
+  "task_key": "Tox21_task4",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 4860,
+  "n_input_rules": 56,
+  "n_kept": 34,
+  "n_rejected": 22,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "bisphenol_smarts_ratio",
+      "reason": "fire_rate:0.0023"
+    },
+    {
+      "index": 2,
+      "name": "estradiol_core_smarts_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "triaryl_ethylene_smarts_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 4,
+      "name": "phenolic_mycoestrogen_smarts_ratio",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 12,
+      "name": "num_stereo_centers_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 27,
+      "name": "pyrimidine_smarts_count",
+      "reason": "fire_rate:0.0356"
+    },
+    {
+      "index": 28,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0288"
+    },
+    {
+      "index": 29,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0128"
+    },
+    {
+      "index": 30,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 31,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0029"
+    },
+    {
+      "index": 33,
+      "name": "hbd_desirability_window",
+      "reason": "fire_rate:0.0354"
+    },
+    {
+      "index": 34,
+      "name": "hba_desirability_window",
+      "reason": "fire_rate:0.0239"
+    },
+    {
+      "index": 36,
+      "name": "num_heterocycles_desirability_window",
+      "reason": "fire_rate:0.0204"
+    },
+    {
+      "index": 37,
+      "name": "ring_count_desirability_window",
+      "reason": "fire_rate:0.0173"
+    },
+    {
+      "index": 40,
+      "name": "heavy_atoms_desirability_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 42,
+      "name": "bisphenol_smarts_ratio_2",
+      "reason": "fire_rate:0.0023"
+    },
+    {
+      "index": 43,
+      "name": "estradiol_core_smarts_ratio_2",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 44,
+      "name": "triaryl_ethylene_smarts_ratio_2",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 45,
+      "name": "phenolic_mycoestrogen_smarts_ratio_2",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 53,
+      "name": "pyrimidine_smarts_count_2",
+      "reason": "fire_rate:0.0356"
+    },
+    {
+      "index": 54,
+      "name": "num_bridgehead_atoms_desirability_window",
+      "reason": "fire_rate:0.0027"
+    },
+    {
+      "index": 55,
+      "name": "num_spiro_atoms_desirability_window",
+      "reason": "fire_rate:0.0010"
+    }
+  ],
+  "rules": [
+    {
+      "name": "para_phenol_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Presence of para-hydroxyphenyl group, a key pharmacophore for ER activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06707818930041153,
+        "fired": 326,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Increased aromatic ring count correlates with ER-active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.26625514403292183,
+        "fired": 1294,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Higher lipophilicity enhances membrane permeability and ER binding affinity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 2430,
+        "n_train_normal": 4860,
+        "threshold": 2.10151,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Molecular weight above 250 is common in active ER modulators",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 2430,
+        "n_train_normal": 4860,
+        "threshold": 218.30749999999998,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Hydrogen bond donors (especially phenolic OH) are critical for ER binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2814814814814815,
+        "fired": 1368,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High hydrogen bond acceptor count supports ER interaction via phenolic or ether groups",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37386831275720167,
+        "fired": 1817,
+        "n_train_normal": 4860,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.79,
+      "description": "Lower sp3 fraction suggests more planar, aromatic ER-active scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49135802469135803,
+        "fired": 2388,
+        "n_train_normal": 4860,
+        "threshold": 0.45454545454545453,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of heterocyclic rings (e.g., pyridine, pyrimidine) in ER-active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38209876543209875,
+        "fired": 1857,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Multiple fused or bridged rings common in estradiol-like and mycoestrogen scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4088477366255144,
+        "fired": 1987,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_low",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Fewer rotatable bonds suggest rigid, pre-organized ER-binding conformations",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.43621399176954734,
+        "fired": 2120,
+        "n_train_normal": 4860,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Low TPSA supports planar, lipophilic ER-active molecules",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 2430,
+        "n_train_normal": 4860,
+        "threshold": 45.11,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Increased heavy atom count correlates with ER-active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.457201646090535,
+        "fired": 2222,
+        "n_train_normal": 4860,
+        "threshold": 15.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Ratio of phenolic OH to aromatic ring count, indicating phenol-based ER mimicry",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06707818930041153,
+        "fired": 326,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Presence of primary amine, common in tamoxifen-like triaryl ethylene derivatives",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12901234567901235,
+        "fired": 627,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Secondary amine presence in side chains of ER modulators",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18333333333333332,
+        "fired": 891,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Tertiary amine in side chains enhances ER binding via charge interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1860082304526749,
+        "fired": 904,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Ether linkage ratio in phenolic scaffolds, common in bisphenols and mycoestrogens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35843621399176956,
+        "fired": 1742,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Carboxylic acid groups are rare in ER actives; their presence suggests inactivity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.11049382716049383,
+        "fired": 537,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_smarts_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Amide groups are not typical in ER-active scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.17736625514403292,
+        "fired": 862,
+        "n_train_normal": 4860,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Halogen substitution in aromatic rings may enhance ER binding via hydrophobic interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2286008230452675,
+        "fired": 1111,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Aromatic ring density relative to total rings, indicating ER-active scaffold complexity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49753086419753084,
+        "fired": 2418,
+        "n_train_normal": 4860,
+        "threshold": 0.03125,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Presence of nitrogen-containing aromatic rings in ER-active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05534979423868313,
+        "fired": 269,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 200,
+      "b": 400,
+      "c": 500,
+      "d": 600,
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Molecular weight between 200\u2013400 is typical for ER-active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.056584362139917695,
+        "fired": 275,
+        "n_train_normal": 4860,
+        "threshold": 500.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "lower",
+      "confidence": 0.8,
+      "description": "Low sp3 fraction (0.2\u20130.4) favors planar, aromatic ER-active scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3611111111111111,
+        "fired": 1755,
+        "n_train_normal": 4860,
+        "threshold": 0.6,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 0,
+      "b": 3,
+      "c": 5,
+      "d": 7,
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Fewer rotatable bonds (0\u20133) support rigid, bioactive conformations",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.347119341563786,
+        "fired": 1687,
+        "n_train_normal": 4860,
+        "threshold": 5.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 0,
+      "b": 50,
+      "c": 100,
+      "d": 150,
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Low TPSA (<50) supports planar, lipophilic ER-binding molecules",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.13415637860082305,
+        "fired": 652,
+        "n_train_normal": 4860,
+        "threshold": 100.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_smarts_ratio_2",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "High phenol-to-aromatic ring ratio indicates strong ER mimicry",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06707818930041153,
+        "fired": 326,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Primary amine density in side chains of ER modulators",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12901234567901235,
+        "fired": 627,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Secondary amine density in ER-active side chains",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18333333333333332,
+        "fired": 891,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_smarts_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Tertiary amine density in ER-binding side chains",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1860082304526749,
+        "fired": 904,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_smarts_ratio_2",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Ether group density in phenolic ER scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35843621399176956,
+        "fired": 1742,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_smarts_ratio_2",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Halogen substitution density in aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2286008230452675,
+        "fired": 1111,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio_2",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Aromatic ring density relative to total rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49753086419753084,
+        "fired": 2418,
+        "n_train_normal": 4860,
+        "threshold": 0.03125,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio_2",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Nitrogen-containing aromatic ring density",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05534979423868313,
+        "fired": 269,
+        "n_train_normal": 4860,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task4__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:25.982772"
+}

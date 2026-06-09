@@ -1,0 +1,83 @@
+{
+  "task_key": "SIDER_task17",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1057,
+  "n_input_rules": 6,
+  "n_kept": 3,
+  "n_rejected": 3,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "retinoid_polyene_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 1,
+      "name": "thalidomide_phthalimide",
+      "reason": "fire_rate:0.0009"
+    },
+    {
+      "index": 2,
+      "name": "valproic_acid_like_carboxylic_acid",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aromatic_ring_count_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "Increased aromatic ring count promotes planar molecular shape that interferes with gene regulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4824976348155156,
+        "fired": 510,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_presence",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.94,
+      "description": "Carboxylic acid group enables metabolic disruption in early embryonic development",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20624408703878902,
+        "fired": 218,
+        "n_train_normal": 1057,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "antiepileptic_aromatic_scaffold",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "High aromatic ring density in antiepileptic scaffolds disrupts neural gene expression",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49763481551561023,
+        "fired": 526,
+        "n_train_normal": 1057,
+        "threshold": 0.037037037037037035,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task17__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:11.996194"
+}

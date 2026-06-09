@@ -1,0 +1,523 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Higher lipophilicity associated with clinical toxicity"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Increased hydrogen bond donors linked to toxicity"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "High hydrogen bond acceptor count correlates with toxicity"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "High aromatic ring count increases toxicity risk"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Increased heavy atom count indicates structural complexity and toxicity potential"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "More heterocyclic rings are associated with toxicity"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Increased stereocenters correlate with metabolic instability and toxicity"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "High ring count increases structural rigidity and toxicity risk"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Greater rotational freedom increases metabolic lability and toxicity"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High molecular weight linked to poor pharmacokinetics and toxicity"
+    },
+    {
+      "name": "formal_charge_abs_high",
+      "type": "descriptor",
+      "descriptor": "formal_charge_abs",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "High formal charge magnitude increases reactivity and toxicity"
+    },
+    {
+      "name": "labute_asa_high",
+      "type": "descriptor",
+      "descriptor": "labute_asa",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "High surface area suggests poor solubility and toxicity"
+    },
+    {
+      "name": "tpsa_high",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High topological polar surface area correlates with toxicity"
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Amide bonds can lead to metabolic instability and toxicity"
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Bridgehead atoms increase strain and reactivity, leading to toxicity"
+    },
+    {
+      "name": "num_spiro_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Spiro centers introduce strain and instability, increasing toxicity risk"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Presence of primary amines increases metabolic activation and toxicity"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Secondary amines are prone to oxidation and toxic metabolite formation"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Tertiary amines can form reactive metabolites and cause toxicity"
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Hydroxyl groups increase polarity but can lead to reactive metabolites"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Phenolic groups are prone to oxidation and quinone formation, increasing toxicity"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Carboxylic acids can lead to reactive intermediates and toxicity"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Amide groups may undergo hydrolysis and generate toxic byproducts"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Ether linkages can be metabolized to toxic alcohols or epoxides"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Halogen atoms increase lipophilicity and metabolic activation risk"
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Aryl halogen density indicates potential for metabolic activation"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Aromatic nitrogen rings increase basicity and toxicity risk"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Pyrimidine rings are associated with mutagenic potential"
+    },
+    {
+      "name": "hetero_atoms_high",
+      "type": "descriptor",
+      "descriptor": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "High heteroatom content increases polarity and metabolic instability"
+    },
+    {
+      "name": "atom_richness_high",
+      "type": "descriptor",
+      "descriptor": "atom_richness",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High atom richness indicates complex, potentially toxic scaffolds"
+    },
+    {
+      "name": "logp_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 7.0,
+      "d": 9.0,
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "LogP above 5.0 is strongly associated with toxicity"
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 100,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "TPSA in 80–140 range correlates with poor membrane permeability and toxicity"
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "HBD count above 4 increases toxicity risk"
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 7,
+      "c": 9,
+      "d": 11,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "HBA count above 7 is linked to toxicity"
+    },
+    {
+      "name": "aromatic_rings_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "aromatic_rings",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Aromatic ring count above 4 increases toxicity risk"
+    },
+    {
+      "name": "num_stereo_centers_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "num_stereo_centers",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "More than 4 stereocenters increases metabolic instability"
+    },
+    {
+      "name": "fraction_csp3_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.3,
+      "b": 0.4,
+      "c": 0.5,
+      "d": 0.6,
+      "direction": "lower",
+      "confidence": 0.81,
+      "description": "Low sp3 fraction (<0.4) indicates high toxicity risk"
+    },
+    {
+      "name": "formal_charge_abs_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "formal_charge_abs",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Formal charge >2 increases reactivity and toxicity"
+    },
+    {
+      "name": "heavy_atoms_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "heavy_atoms",
+      "a": 100,
+      "b": 150,
+      "c": 200,
+      "d": 250,
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Heavy atom count >150 increases toxicity risk"
+    },
+    {
+      "name": "ring_count_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Ring count >5 increases structural strain and toxicity"
+    },
+    {
+      "name": "rot_bonds_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 5,
+      "b": 7,
+      "c": 9,
+      "d": 11,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Rotational freedom >7 increases metabolic lability"
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 500,
+      "b": 600,
+      "c": 700,
+      "d": 800,
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Molecular weight >600 increases toxicity risk"
+    },
+    {
+      "name": "num_heterocycles_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "num_heterocycles",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "More than 5 heterocycles increases toxicity"
+    },
+    {
+      "name": "num_bridgehead_atoms_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "num_bridgehead_atoms",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Bridgehead atoms >2 increase ring strain and toxicity"
+    },
+    {
+      "name": "num_spiro_atoms_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "num_spiro_atoms",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Spiro centers >2 increase strain and toxicity"
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "High primary amine density increases metabolic activation"
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High secondary amine density increases toxicity risk"
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "High tertiary amine density increases basicity and toxicity"
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High phenol density increases oxidative stress and toxicity"
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "High carboxylic acid density increases metabolic instability"
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High ether density increases risk of epoxide formation"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "High halogen density increases metabolic activation risk"
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "High pyrimidine density increases mutagenic potential"
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "High aromatic nitrogen ring density increases toxicity"
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "High hydroxyl density increases reactive metabolite formation"
+    }
+  ],
+  "metadata": {
+    "dataset": "ClinTox",
+    "task_idx": 1,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\": \"logp_high\", \"type\": \"descriptor\", \"descriptor\": \"logp\", \"direction\": \"higher\", \"confidence\": 0.92, \"description\": \"Higher lipophilicity associated with clinical toxicity\"},\n    {\"name\": \"hbd_high\", \"type\": \"descriptor\", \"descriptor\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Increased hydrogen bond donors linked to toxicity\"},\n    {\"name\": \"hba_high\", \"type\": \"descriptor\", \"descriptor\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"High hydrogen bond acceptor count correlates with toxicity\"},\n    {\"name\": \"aromatic_rings_high\", \"type\": \"descriptor\", \"descriptor\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"High aromatic ring count increases toxicity risk\"},\n    {\"name\": \"heavy_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Increased heavy atom count indicates structural complexity and toxicity potential\"},\n    {\"name\": \"num_heterocycles_high\", \"type\": \"descriptor\", \"descriptor\": \"num_heterocycles\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"More heterocyclic rings are associated with toxicity\"},\n    {\"name\": \"num_stereo_centers_high\", \"type\": \"descriptor\", \"descriptor\": \"num_stereo_centers\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Increased stereocenters correlate with metabolic instability and toxicity\"},\n    {\"name\": \"ring_count_high\", \"type\": \"descriptor\", \"descriptor\": \"ring_count\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"High ring count increases structural rigidity and toxicity risk\"},\n    {\"name\": \"rot_bonds_high\", \"type\": \"descriptor\", \"descriptor\": \"rot_bonds\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Greater rotational freedom increases metabolic lability and toxicity\"},\n    {\"name\": \"mol_wt_high\", \"type\": \"descriptor\", \"descriptor\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"High molecular weight linked to poor pharmacokinetics and toxicity\"},\n    {\"name\": \"fraction_csp3_low\", \"type\": \"descriptor_ratio\", \"descriptor\": \"fraction_csp3\", \"normalizer\": \"atom_count\", \"direction\": \"lower\", \"confidence\": 0.80, \"description\": \"Low sp3 character indicates high saturation and toxicity risk\"},\n    {\"name\": \"formal_charge_abs_high\", \"type\": \"descriptor\", \"descriptor\": \"formal_charge_abs\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"High formal charge magnitude increases reactivity and toxicity\"},\n    {\"name\": \"labute_asa_high\", \"type\": \"descriptor\", \"descriptor\": \"labute_asa\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"High surface area suggests poor solubility and toxicity\"},\n    {\"name\": \"tpsa_high\", \"type\": \"descriptor\", \"descriptor\": \"tpsa\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"High topological polar surface area correlates with toxicity\"},\n    {\"name\": \"num_amide_bonds_high\", \"type\": \"descriptor\", \"descriptor\": \"num_amide_bonds\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Amide bonds can lead to metabolic instability and toxicity\"},\n    {\"name\": \"num_bridgehead_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"num_bridgehead_atoms\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"Bridgehead atoms increase strain and reactivity, leading to toxicity\"},\n    {\"name\": \"num_spiro_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"num_spiro_atoms\", \"direction\": \"higher\", \"confidence\": 0.63, \"description\": \"Spiro centers introduce strain and instability, increasing toxicity risk\"},\n    {\"name\": \"primary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"direction\": \"higher\", \"confidence\": 0.89, \"description\": \"Presence of primary amines increases metabolic activation and toxicity\"},\n    {\"name\": \"secondary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"Secondary amines are prone to oxidation and toxic metabolite formation\"},\n    {\"name\": \"tertiary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Tertiary amines can form reactive metabolites and cause toxicity\"},\n    {\"name\": \"hydroxyl_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2;H1][#6]\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"Hydroxyl groups increase polarity but can lead to reactive metabolites\"},\n    {\"name\": \"phenol_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2H1]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Phenolic groups are prone to oxidation and quinone formation, increasing toxicity\"},\n    {\"name\": \"carboxylic_acid_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Carboxylic acids can lead to reactive intermediates and toxicity\"},\n    {\"name\": \"amide_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[NX3]\", \"direction\": \"higher\", \"confidence\": 0.69, \"description\": \"Amide groups may undergo hydrolysis and generate toxic byproducts\"},\n    {\"name\": \"ether_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[OD2]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Ether linkages can be metabolized to toxic alcohols or epoxides\"},\n    {\"name\": \"halogen_any_count\", \"type\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Halogen atoms increase lipophilicity and metabolic activation risk\"},\n    {\"name\": \"aryl_halogen_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c[F,Cl,Br,I]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"Aryl halogen density indicates potential for metabolic activation\"},\n    {\"name\": \"aromatic_n_ring_count\", \"type\": \"smarts_count\", \"smarts\": \"c1ccncc1\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Aromatic nitrogen rings increase basicity and toxicity risk\"},\n    {\"name\": \"pyrimidine_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cncnc1\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Pyrimidine rings are associated with mutagenic potential\"},\n    {\"name\": \"hetero_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"hetero_atoms\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"High heteroatom content increases polarity and metabolic instability\"},\n    {\"name\": \"atom_richness_high\", \"type\": \"descriptor\", \"descriptor\": \"atom_richness\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"High atom richness indicates complex, potentially toxic scaffolds\"},\n    {\"name\": \"logp_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"logp\", \"a\": 3.0, \"b\": 5.0, \"c\": 7.0, \"d\": 9.0, \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"LogP above 5.0 is strongly associated with toxicity\"},\n    {\"name\": \"tpsa_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 80, \"b\": 100, \"c\": 120, \"d\": 140, \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"TPSA in 80–140 range correlates with poor membrane permeability and toxicity\"},\n    {\"name\": \"hbd_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"hbd\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"HBD count above 4 increases toxicity risk\"},\n    {\"name\": \"hba_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"hba\", \"a\": 5, \"b\": 7, \"c\": 9, \"d\": 11, \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"HBA count above 7 is linked to toxicity\"},\n    {\"name\": \"aromatic_rings_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"aromatic_rings\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Aromatic ring count above 4 increases toxicity risk\"},\n    {\"name\": \"num_stereo_centers_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"num_stereo_centers\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"More than 4 stereocenters increases metabolic instability\"},\n    {\"name\": \"fraction_csp3_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"fraction_csp3\", \"a\": 0.3, \"b\": 0.4, \"c\": 0.5, \"d\": 0.6, \"direction\": \"lower\", \"confidence\": 0.81, \"description\": \"Low sp3 fraction (<0.4) indicates high toxicity risk\"},\n    {\"name\": \"formal_charge_abs_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"formal_charge_abs\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 4, \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"Formal charge >2 increases reactivity and toxicity\"},\n    {\"name\": \"heavy_atoms_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"heavy_atoms\", \"a\": 100, \"b\": 150, \"c\": 200, \"d\": 250, \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"Heavy atom count >150 increases toxicity risk\"},\n    {\"name\": \"ring_count_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"ring_count\", \"a\": 3, \"b\": 5, \"c\": 7, \"d\": 9, \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Ring count >5 increases structural strain and toxicity\"},\n    {\"name\": \"rot_bonds_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"rot_bonds\", \"a\": 5, \"b\": 7, \"c\": 9, \"d\": 11, \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Rotational freedom >7 increases metabolic lability\"},\n    {\"name\": \"mol_wt_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"mol_wt\", \"a\": 500, \"b\": 600, \"c\": 700, \"d\": 800, \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Molecular weight >600 increases toxicity risk\"},\n    {\"name\": \"num_heterocycles_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"num_heterocycles\", \"a\": 3, \"b\": 5, \"c\": 7, \"d\": 9, \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"More than 5 heterocycles increases toxicity\"},\n    {\"name\": \"num_bridgehead_atoms_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"num_bridgehead_atoms\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 4, \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Bridgehead atoms >2 increase ring strain and toxicity\"},\n    {\"name\": \"num_spiro_atoms_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"num_spiro_atoms\", \"a\": 1, \"b\": 2, \"c\": 3, \"d\": 4, \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Spiro centers >2 increase strain and toxicity\"},\n    {\"name\": \"primary_amine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3;H2][#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"High primary amine density increases metabolic activation\"},\n    {\"name\": \"secondary_amine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"High secondary amine density increases toxicity risk\"},\n    {\"name\": \"tertiary_amine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"High tertiary amine density increases basicity and toxicity\"},\n    {\"name\": \"phenol_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OX2H1]c1ccccc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"High phenol density increases oxidative stress and toxicity\"},\n    {\"name\": \"carboxylic_acid_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"High carboxylic acid density increases metabolic instability\"},\n    {\"name\": \"ether_group_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OD2]([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"High ether density increases risk of epoxide formation\"},\n    {\"name\": \"halogen_any_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[F,Cl,Br,I]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"High halogen density increases metabolic activation risk\"},\n    {\"name\": \"pyrimidine_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1cncnc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"High pyrimidine density increases mutagenic potential\"},\n    {\"name\": \"aromatic_n_ring_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccncc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"High aromatic nitrogen ring density increases toxicity\"},\n    {\"name\": \"hydroxyl_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OX2;H1][#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"High hydroxyl density increases reactive metabolite formation\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

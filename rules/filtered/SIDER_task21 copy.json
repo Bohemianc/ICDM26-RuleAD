@@ -1,0 +1,58 @@
+{
+  "task_key": "SIDER_task21",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 465,
+  "n_input_rules": 6,
+  "n_kept": 1,
+  "n_rejected": 5,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "aminoglycoside_charge_pattern",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 1,
+      "name": "nsaid_carboxylic_acid",
+      "reason": "fire_rate:0.0151"
+    },
+    {
+      "index": 2,
+      "name": "nitrophenanthrene_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "charged_sulfonate_group",
+      "reason": "fire_rate:0.0258"
+    },
+    {
+      "index": 4,
+      "name": "phosphonate_group",
+      "reason": "fire_rate:0.0237"
+    }
+  ],
+  "rules": [
+    {
+      "name": "carboxylic_acid_count",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Increased hydrogen bond acceptors from carboxylic acids promote renal tubular reabsorption and retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.44516129032258067,
+        "fired": 207,
+        "n_train_normal": 465,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task21__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.378923"
+}

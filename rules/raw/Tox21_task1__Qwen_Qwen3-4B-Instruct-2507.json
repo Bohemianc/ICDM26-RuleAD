@@ -1,0 +1,423 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Higher lipophilicity correlates with increased binding affinity to the androgen receptor ligand-binding domain"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Increased aromatic ring count supports binding to the hydrophobic AR LBD cavity"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Presence of halogens (especially Cl, Br) enhances lipophilicity and van der Waals interactions in AR binding"
+    },
+    {
+      "name": "aryl_cf3_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "High aryl-halogen density, particularly CF3, is a hallmark of active anilide anti-androgens"
+    },
+    {
+      "name": "nitro_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[N]=O",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Nitro group on aromatic ring increases electron deficiency and binding affinity to AR LBD"
+    },
+    {
+      "name": "cyano_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[C]=N",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Cyano group on aromatic ring contributes to dipole and hydrophobic interactions in AR binding"
+    },
+    {
+      "name": "cf3_nitro_co_occurrence",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I][N]=O",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Co-occurrence of CF3 and nitro on aromatic ring is a strong indicator of active anti-androgenic ligands"
+    },
+    {
+      "name": "cf3_cyano_co_occurrence",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I][C]=N",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "CF3 and cyano group co-occurrence enhances binding through combined lipophilic and dipolar effects"
+    },
+    {
+      "name": "steroid_core_fingerprint",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Presence of steroidal 3-keto-4-ene core with 17β-OH is a key structural motif for AR binding"
+    },
+    {
+      "name": "phenol_group_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Phenolic OH groups may participate in H-bonding with AR LBD residues"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Amide bond in flutamide-like anilides is critical for binding to AR LBD"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Primary amines are rare in active AR ligands; their presence may disrupt binding"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.73,
+      "description": "Secondary amines are less common in active AR ligands and may reduce binding affinity"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.72,
+      "description": "Tertiary amines are generally inactive in AR binding due to poor fit and polarity"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Higher hydrogen bond acceptor count supports interaction with AR LBD polar residues"
+    },
+    {
+      "name": "hbd_low",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Low hydrogen bond donor count avoids disruptive H-bonding in hydrophobic cavity"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased ring count supports rigidity and shape complementarity with AR LBD"
+    },
+    {
+      "name": "rot_bonds_low",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Low rotatable bonds indicate conformational rigidity, favorable for AR binding"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Higher molecular weight correlates with larger, more lipophilic AR binders"
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.83,
+      "description": "Low TPSA supports high lipophilicity and hydrophobic binding in AR LBD"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Stereochemistry can enhance binding fit in AR LBD cavity"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Heterocyclic rings (e.g., pyrimidine) improve binding via dipole and H-bonding"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Pyrimidine ring is a common motif in AR-binding anilides"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Aromatic nitrogen-containing rings enhance dipole and H-bonding potential"
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "High halogen density on aromatic rings increases lipophilicity and binding"
+    },
+    {
+      "name": "logp_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 10.0,
+      "d": 12.0,
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "LogP in 3.0–5.0 is optimal for AR binding; values above 5.0 may reduce solubility but increase binding"
+    },
+    {
+      "name": "fraction_csp3_desirability",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "lower",
+      "confidence": 0.87,
+      "description": "Low sp3 fraction (0.2–0.4) is preferred for rigid, planar AR binders"
+    },
+    {
+      "name": "aromatic_ring_count_desirability",
+      "type": "desirability_window",
+      "descriptor": "aromatic_rings",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "2–4 aromatic rings are optimal for AR binding due to hydrophobic surface coverage"
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "2–4 H-bond acceptors support key interactions with AR LBD residues"
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 0,
+      "b": 1,
+      "c": 2,
+      "d": 3,
+      "direction": "lower",
+      "confidence": 0.8,
+      "description": "Low H-bond donor count (0–1) avoids disruption of hydrophobic binding pocket"
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Bridgehead atoms in fused rings enhance rigidity and shape complementarity"
+    },
+    {
+      "name": "num_spiro_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Spiro centers introduce 3D complexity and rigidity favorable for AR binding"
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Amide bonds are key in flutamide-like anilide scaffolds for AR binding"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Higher heavy atom count correlates with larger, more lipophilic AR binders"
+    },
+    {
+      "name": "labute_asa_low",
+      "type": "descriptor",
+      "descriptor": "labute_asa",
+      "direction": "lower",
+      "confidence": 0.81,
+      "description": "Low surface area indicates compact, hydrophobic molecules that fit AR LBD cavity"
+    },
+    {
+      "name": "steroid_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "High ratio of steroid core to total atoms indicates presence of active steroidal AR ligands"
+    },
+    {
+      "name": "anilide_core_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1-C(=O)N",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Anilide core with aromatic ring and amide bond is a key pharmacophore for AR binding"
+    },
+    {
+      "name": "cf3_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High CF3 density on aromatic rings enhances lipophilicity and binding"
+    },
+    {
+      "name": "nitro_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[N]=O",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Nitro group on aromatic ring increases electron deficiency and binding affinity"
+    },
+    {
+      "name": "cyano_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[C]=N",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Cyano group on aromatic ring contributes to dipole and hydrophobic interactions"
+    },
+    {
+      "name": "biphenyl_core_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1-c2ccccc2",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Biphenyl core with halogenation is a known environmental ligand for AR binding"
+    },
+    {
+      "name": "diphenylmethyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1-Cc2ccccc2",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Diphenylmethyl scaffold is a lipophilic ligand with known AR activity"
+    },
+    {
+      "name": "halogenated_biphenyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1-c2ccccc2[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Halogenated biphenyls are known environmental AR ligands"
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Presence of multiple aromatic rings supports hydrophobic binding to AR LBD"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Ether groups are generally inactive in AR binding due to polarity and poor fit"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.71,
+      "description": "Carboxylic acids are polar and disrupt hydrophobic binding in AR LBD"
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "lower",
+      "confidence": 0.7,
+      "description": "Hydroxyl groups are polar and may reduce binding affinity in hydrophobic cavity"
+    }
+  ],
+  "metadata": {
+    "dataset": "Tox21",
+    "task_idx": 1,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\": \"logp_high\", \"type\": \"descriptor\", \"descriptor\": \"logp\", \"direction\": \"higher\", \"confidence\": 0.92, \"description\": \"Higher lipophilicity correlates with increased binding affinity to the androgen receptor ligand-binding domain\"},\n    {\"name\": \"fraction_csp3_low\", \"type\": \"descriptor_ratio\", \"descriptor\": \"fraction_csp3\", \"normalizer\": \"heavy_atoms\", \"direction\": \"lower\", \"confidence\": 0.89, \"description\": \"Lower sp3 fraction indicates more rigid, planar, lipophilic scaffolds typical of active AR binders\"},\n    {\"name\": \"aromatic_rings_high\", \"type\": \"descriptor\", \"descriptor\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.91, \"description\": \"Increased aromatic ring count supports binding to the hydrophobic AR LBD cavity\"},\n    {\"name\": \"halogen_any_count\", \"type\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"Presence of halogens (especially Cl, Br) enhances lipophilicity and van der Waals interactions in AR binding\"},\n    {\"name\": \"aryl_cf3_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c[F,Cl,Br,I]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"High aryl-halogen density, particularly CF3, is a hallmark of active anilide anti-androgens\"},\n    {\"name\": \"nitro_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[N]=O\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Nitro group on aromatic ring increases electron deficiency and binding affinity to AR LBD\"},\n    {\"name\": \"cyano_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[C]=N\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Cyano group on aromatic ring contributes to dipole and hydrophobic interactions in AR binding\"},\n    {\"name\": \"cf3_nitro_co_occurrence\", \"type\": \"smarts_ratio\", \"smarts\": \"c[F,Cl,Br,I][N]=O\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.90, \"description\": \"Co-occurrence of CF3 and nitro on aromatic ring is a strong indicator of active anti-androgenic ligands\"},\n    {\"name\": \"cf3_cyano_co_occurrence\", \"type\": \"smarts_ratio\", \"smarts\": \"c[F,Cl,Br,I][C]=N\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"CF3 and cyano group co-occurrence enhances binding through combined lipophilic and dipolar effects\"},\n    {\"name\": \"steroid_core_fingerprint\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1c2ccccc2c3ccccc3\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"Presence of steroidal 3-keto-4-ene core with 17β-OH is a key structural motif for AR binding\"},\n    {\"name\": \"phenol_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2H1]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Phenolic OH groups may participate in H-bonding with AR LBD residues\"},\n    {\"name\": \"amide_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[NX3]\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Amide bond in flutamide-like anilides is critical for binding to AR LBD\"},\n    {\"name\": \"primary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"direction\": \"lower\", \"confidence\": 0.75, \"description\": \"Primary amines are rare in active AR ligands; their presence may disrupt binding\"},\n    {\"name\": \"secondary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"direction\": \"lower\", \"confidence\": 0.73, \"description\": \"Secondary amines are less common in active AR ligands and may reduce binding affinity\"},\n    {\"name\": \"tertiary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"direction\": \"lower\", \"confidence\": 0.72, \"description\": \"Tertiary amines are generally inactive in AR binding due to poor fit and polarity\"},\n    {\"name\": \"hetero_atoms_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hetero_atoms\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Increased heteroatom content (e.g., N, O) in aromatic systems supports binding via H-bonding\"},\n    {\"name\": \"hba_high\", \"type\": \"descriptor\", \"descriptor\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"Higher hydrogen bond acceptor count supports interaction with AR LBD polar residues\"},\n    {\"name\": \"hbd_low\", \"type\": \"descriptor\", \"descriptor\": \"hbd\", \"direction\": \"lower\", \"confidence\": 0.76, \"description\": \"Low hydrogen bond donor count avoids disruptive H-bonding in hydrophobic cavity\"},\n    {\"name\": \"ring_count_high\", \"type\": \"descriptor\", \"descriptor\": \"ring_count\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Increased ring count supports rigidity and shape complementarity with AR LBD\"},\n    {\"name\": \"rot_bonds_low\", \"type\": \"descriptor\", \"descriptor\": \"rot_bonds\", \"direction\": \"lower\", \"confidence\": 0.85, \"description\": \"Low rotatable bonds indicate conformational rigidity, favorable for AR binding\"},\n    {\"name\": \"mol_wt_high\", \"type\": \"descriptor\", \"descriptor\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Higher molecular weight correlates with larger, more lipophilic AR binders\"},\n    {\"name\": \"tpsa_low\", \"type\": \"descriptor\", \"descriptor\": \"tpsa\", \"direction\": \"lower\", \"confidence\": 0.83, \"description\": \"Low TPSA supports high lipophilicity and hydrophobic binding in AR LBD\"},\n    {\"name\": \"num_stereo_centers_high\", \"type\": \"descriptor\", \"descriptor\": \"num_stereo_centers\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"Stereochemistry can enhance binding fit in AR LBD cavity\"},\n    {\"name\": \"num_heterocycles_high\", \"type\": \"descriptor\", \"descriptor\": \"num_heterocycles\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Heterocyclic rings (e.g., pyrimidine) improve binding via dipole and H-bonding\"},\n    {\"name\": \"pyrimidine_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cncnc1\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Pyrimidine ring is a common motif in AR-binding anilides\"},\n    {\"name\": \"aromatic_n_ring_count\", \"type\": \"smarts_count\", \"smarts\": \"c1ccncc1\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Aromatic nitrogen-containing rings enhance dipole and H-bonding potential\"},\n    {\"name\": \"halogen_any_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[F,Cl,Br,I]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"High halogen density on aromatic rings increases lipophilicity and binding\"},\n    {\"name\": \"logp_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"logp\", \"a\": 3.0, \"b\": 5.0, \"c\": 10.0, \"d\": 12.0, \"direction\": \"higher\", \"confidence\": 0.90, \"description\": \"LogP in 3.0–5.0 is optimal for AR binding; values above 5.0 may reduce solubility but increase binding\"},\n    {\"name\": \"fraction_csp3_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"fraction_csp3\", \"a\": 0.2, \"b\": 0.4, \"c\": 0.6, \"d\": 0.8, \"direction\": \"lower\", \"confidence\": 0.87, \"description\": \"Low sp3 fraction (0.2–0.4) is preferred for rigid, planar AR binders\"},\n    {\"name\": \"aromatic_ring_count_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"aromatic_rings\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.88, \"description\": \"2–4 aromatic rings are optimal for AR binding due to hydrophobic surface coverage\"},\n    {\"name\": \"hba_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"hba\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"2–4 H-bond acceptors support key interactions with AR LBD residues\"},\n    {\"name\": \"hbd_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"hbd\", \"a\": 0, \"b\": 1, \"c\": 2, \"d\": 3, \"direction\": \"lower\", \"confidence\": 0.80, \"description\": \"Low H-bond donor count (0–1) avoids disruption of hydrophobic binding pocket\"},\n    {\"name\": \"num_bridgehead_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"num_bridgehead_atoms\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Bridgehead atoms in fused rings enhance rigidity and shape complementarity\"},\n    {\"name\": \"num_spiro_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"num_spiro_atoms\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Spiro centers introduce 3D complexity and rigidity favorable for AR binding\"},\n    {\"name\": \"num_amide_bonds_high\", \"type\": \"descriptor\", \"descriptor\": \"num_amide_bonds\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Amide bonds are key in flutamide-like anilide scaffolds for AR binding\"},\n    {\"name\": \"heavy_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Higher heavy atom count correlates with larger, more lipophilic AR binders\"},\n    {\"name\": \"labute_asa_low\", \"type\": \"descriptor\", \"descriptor\": \"labute_asa\", \"direction\": \"lower\", \"confidence\": 0.81, \"description\": \"Low surface area indicates compact, hydrophobic molecules that fit AR LBD cavity\"},\n    {\"name\": \"steroid_ring_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1c2ccccc2c3ccccc3\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.86, \"description\": \"High ratio of steroid core to total atoms indicates presence of active steroidal AR ligands\"},\n    {\"name\": \"anilide_core_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1-C(=O)N\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Anilide core with aromatic ring and amide bond is a key pharmacophore for AR binding\"},\n    {\"name\": \"cf3_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c[F,Cl,Br,I]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"High CF3 density on aromatic rings enhances lipophilicity and binding\"},\n    {\"name\": \"nitro_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[N]=O\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Nitro group on aromatic ring increases electron deficiency and binding affinity\"},\n    {\"name\": \"cyano_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[C]=N\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Cyano group on aromatic ring contributes to dipole and hydrophobic interactions\"},\n    {\"name\": \"biphenyl_core_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1-c2ccccc2\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Biphenyl core with halogenation is a known environmental ligand for AR binding\"},\n    {\"name\": \"diphenylmethyl_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1-Cc2ccccc2\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Diphenylmethyl scaffold is a lipophilic ligand with known AR activity\"},\n    {\"name\": \"halogenated_biphenyl_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1-c2ccccc2[F,Cl,Br,I]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"Halogenated biphenyls are known environmental AR ligands\"},\n    {\"name\": \"aromatic_ring_any_count\", \"type\": \"smarts_count\", \"smarts\": \"c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.87, \"description\": \"Presence of multiple aromatic rings supports hydrophobic binding to AR LBD\"},\n    {\"name\": \"ether_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[OD2]([#6])[#6]\", \"direction\": \"lower\", \"confidence\": 0.74, \"description\": \"Ether groups are generally inactive in AR binding due to polarity and poor fit\"},\n    {\"name\": \"carboxylic_acid_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"direction\": \"lower\", \"confidence\": 0.71, \"description\": \"Carboxylic acids are polar and disrupt hydrophobic binding in AR LBD\"},\n    {\"name\": \"hydroxyl_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2;H1][#6]\", \"direction\": \"lower\", \"confidence\": 0.70, \"description\": \"Hydroxyl groups are polar and may reduce binding affinity in hydrophobic cavity\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

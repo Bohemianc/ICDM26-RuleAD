@@ -1,0 +1,71 @@
+{
+  "task_key": "SIDER_task9",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 630,
+  "n_input_rules": 6,
+  "n_kept": 2,
+  "n_rejected": 4,
+  "rejects": [
+    {
+      "index": 2,
+      "name": "triaryl_ethylene",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "aromatic_polyhydroxyl",
+      "reason": "fire_rate:0.0143"
+    },
+    {
+      "index": 4,
+      "name": "steroid_17beta_hydroxyl",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 5,
+      "name": "aromatic_amine_reproductive",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of phenolic hydroxyl groups, known to mimic estrogenic activity in reproductive tissues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09365079365079365,
+        "fired": 59,
+        "n_train_normal": 630,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "bisphenol_like",
+      "type": "smarts_ratio",
+      "smarts": "c1ccc(O)cc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Ratio of para-hydroxy-phenyl motifs to aromatic rings, indicative of estrogen-mimicking bisphenol-like structures",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21904761904761905,
+        "fired": 138,
+        "n_train_normal": 630,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task9__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:10.981417"
+}

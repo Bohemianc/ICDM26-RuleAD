@@ -1,0 +1,474 @@
+{
+  "task_key": "Tox21_task2",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 5203,
+  "n_input_rules": 39,
+  "n_kept": 21,
+  "n_rejected": 18,
+  "rejects": [
+    {
+      "index": 5,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0317"
+    },
+    {
+      "index": 6,
+      "name": "dibenzofuran_like_ratio",
+      "reason": "fire_rate:0.0008"
+    },
+    {
+      "index": 12,
+      "name": "num_aromatic_rings_desirability",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 14,
+      "name": "logp_desirability",
+      "reason": "fire_rate:0.0198"
+    },
+    {
+      "index": 16,
+      "name": "tricyclic_aromatic_ratio",
+      "reason": "fire_rate:0.0006"
+    },
+    {
+      "index": 17,
+      "name": "dioxin_like_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 18,
+      "name": "anthracene_like_ratio",
+      "reason": "fire_rate:0.0008"
+    },
+    {
+      "index": 19,
+      "name": "indole_carbazole_ratio",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 24,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 25,
+      "name": "num_stereo_centers_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 26,
+      "name": "num_bridgehead_atoms_low",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 27,
+      "name": "num_spiro_atoms_low",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 28,
+      "name": "aromatic_n_ring_count",
+      "reason": "fire_rate:0.0486"
+    },
+    {
+      "index": 32,
+      "name": "num_amide_bonds_low",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 33,
+      "name": "labute_asa_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 36,
+      "name": "aromatic_n_ring_ratio",
+      "reason": "fire_rate:0.0486"
+    },
+    {
+      "index": 37,
+      "name": "indole_like_ratio",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 38,
+      "name": "dibenzofuran_ratio",
+      "reason": "fire_rate:0.0002"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "High number of aromatic rings indicates planar polyaromatic structures associated with AhR activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2521622141072458,
+        "fired": 1312,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.91,
+      "description": "Low sp3 character suggests reduced 3D bulk and increased planarity, a hallmark of AhR-active chemotypes",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4889486834518547,
+        "fired": 2544,
+        "n_train_normal": 5203,
+        "threshold": 0.5,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "High lipophilicity correlates with membrane permeability and binding to hydrophobic AhR pockets",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4999039015952335,
+        "fired": 2601,
+        "n_train_normal": 5203,
+        "threshold": 2.2137000000000002,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.87,
+      "description": "Low topological polar surface area supports planar, non-polar, and lipophilic AhR ligands",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.48990966749951953,
+        "fired": 2549,
+        "n_train_normal": 5203,
+        "threshold": 43.370000000000005,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Presence of benzene ring substructure indicates aromaticity and potential for planar binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4914472419757832,
+        "fired": 2557,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Halogen density on aromatic systems is a strong indicator of AhR agonist activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22717662886796078,
+        "fired": 1182,
+        "n_train_normal": 5203,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenolic groups in planar systems may contribute to hydrogen bonding and AhR binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0768787238131847,
+        "fired": 400,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.7,
+      "description": "Primary amines disrupt planarity and reduce AhR activity; their absence supports anomaly",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.10609263886219489,
+        "fired": 552,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.68,
+      "description": "Secondary amines introduce steric and electronic disruption; low count favors anomaly",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.17163175091293484,
+        "fired": 893,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.67,
+      "description": "Tertiary amines increase 3D character and reduce planarity, reducing AhR activity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.18201037862771477,
+        "fired": 947,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.1,
+      "b": 0.2,
+      "c": 0.3,
+      "d": 0.4,
+      "direction": "lower",
+      "confidence": 0.9,
+      "description": "Low sp3 fraction (\u22640.3) is strongly associated with planar, active ligands",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.6944070728425908,
+        "fired": 3613,
+        "n_train_normal": 5203,
+        "threshold": 0.3,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 0,
+      "b": 40,
+      "c": 60,
+      "d": 80,
+      "direction": "lower",
+      "confidence": 0.84,
+      "description": "Low TPSA (<60) supports planar, non-polar, and lipophilic ligands",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.34691524120699596,
+        "fired": 1805,
+        "n_train_normal": 5203,
+        "threshold": 60.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased heterocyclic rings enhance planarity and electron delocalization in AhR ligands",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36498174130309435,
+        "fired": 1899,
+        "n_train_normal": 5203,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Multiple fused rings increase planarity and surface area for AhR binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4139919277339996,
+        "fired": 2154,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_low",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.79,
+      "description": "Low rotatable bonds suggest rigid, planar structures favorable for AhR binding",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.42533153949644437,
+        "fired": 2213,
+        "n_train_normal": 5203,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Increased heavy atom count supports larger, more lipophilic, planar ligands",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48260618873726696,
+        "fired": 2511,
+        "n_train_normal": 5203,
+        "threshold": 15.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.72,
+      "description": "Carboxylic acids introduce polarity and disrupt planarity; their absence supports anomaly",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.10897559100518932,
+        "fired": 567,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.71,
+      "description": "Amide groups are polar and bulky; their presence reduces planarity and AhR activity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.17201614453200076,
+        "fired": 895,
+        "n_train_normal": 5203,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.7,
+      "description": "Ether linkages introduce polarity and reduce planarity; low ratio supports anomaly",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3603690178743033,
+        "fired": 1875,
+        "n_train_normal": 5203,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Higher molecular weight correlates with larger planar aromatic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49971170478570054,
+        "fired": 2600,
+        "n_train_normal": 5203,
+        "threshold": 226.231,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Aromatic ring density per heavy atom indicates planar, lipophilic character",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4914472419757832,
+        "fired": 2557,
+        "n_train_normal": 5203,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task2__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:21.230822"
+}

@@ -1,0 +1,312 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with metabolic disruption"
+    },
+    {
+      "name": "logp_anom_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2,
+      "b": 6,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "LogP in 2-6 range peaks in adverse metabolic events"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased aromatic ring count correlates with CYP induction and metabolic stress"
+    },
+    {
+      "name": "hetero_atoms_high",
+      "type": "descriptor",
+      "descriptor": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Elevated heteroatom content increases potential for metabolic interference"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors linked to endocrine disruption and metabolic effects"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High hydrogen bond acceptor count associated with phenolic and metabolic disruption motifs"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA in 40–60 range shows peak metabolic side effect activity"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Higher molecular weight correlates with poor metabolic clearance and accumulation"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Multiple fused rings increase metabolic burden and CYP induction risk"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of multiple heterocycles increases metabolic instability and enzyme inhibition"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Stereochemical complexity may lead to off-target metabolic interactions"
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.62,
+      "description": "Low sp3 character indicates high planarity and metabolic instability"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High heavy atom count increases metabolic load and potential for CYP inhibition"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Increased rotatable bonds suggest flexibility and metabolic vulnerability"
+    },
+    {
+      "name": "imidazole_count",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Imidazole rings are known CYP inhibitors and metabolic disruptors"
+    },
+    {
+      "name": "triazole_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Triazole heterocycles linked to azole antifungal activity and CYP inhibition"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenolic motifs show endocrine-like activity and metabolic disruption"
+    },
+    {
+      "name": "polyhydroxyl_phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccc(O)cc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Aromatic polyhydroxyl phenols exhibit endocrine-disrupting metabolic effects"
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aromatic nitrogen-containing rings linked to metabolic enzyme interactions"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amines may participate in metabolic conjugation and toxicity"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Secondary amines associated with metabolic instability and CYP interactions"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Tertiary amines can act as CYP inhibitors or metabolic substrates"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogenated aromatics increase metabolic burden and CYP inhibition risk"
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Aryl halogen density indicates metabolic disruption potential"
+    },
+    {
+      "name": "steroid_like_scaffold",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1c2ccccc2c3ccccc3",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Steroidal scaffolds with fused rings show glucocorticoid-like metabolic effects"
+    },
+    {
+      "name": "fused_benzene_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1c2ccccc2",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Fused benzene rings are linked to CYP1A/2B induction and metabolic stress"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Pyrimidine rings are common in metabolic inhibitors and antifungals"
+    },
+    {
+      "name": "phenol_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High phenol-to-aromatic ratio indicates endocrine-disrupting potential"
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Bridgehead atoms in complex ring systems may lead to metabolic instability"
+    },
+    {
+      "name": "num_spiro_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_spiro_atoms",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Spiro centers increase 3D complexity and metabolic vulnerability"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Amide groups can be metabolized to reactive intermediates"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Carboxylic acids are prone to metabolic conjugation and toxicity"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Ether linkages may be metabolized to reactive alcohols"
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Hydroxyl groups are sites of phase I metabolism and toxicity"
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Presence of simple aromatic rings increases metabolic exposure"
+    },
+    {
+      "name": "hetero_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1cncn1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of heterocyclic rings increases metabolic enzyme interaction"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 1,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\":\"logp_high\", \"type\":\"descriptor\", \"descriptor\":\"logp\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Higher lipophilicity associated with metabolic disruption\"},\n    {\"name\":\"logp_anom_window\", \"type\":\"desirability_window\", \"descriptor\":\"logp\", \"a\":2, \"b\":6, \"c\":120, \"d\":140, \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"LogP in 2-6 range peaks in adverse metabolic events\"},\n    {\"name\":\"aromatic_rings_high\", \"type\":\"descriptor\", \"descriptor\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Increased aromatic ring count correlates with CYP induction and metabolic stress\"},\n    {\"name\":\"aromatic_ring_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"aromatic_rings\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"High aromatic ring density indicates planar, polyaromatic motifs linked to CYP1A/2B induction\"},\n    {\"name\":\"hetero_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"hetero_atoms\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"Elevated heteroatom content increases potential for metabolic interference\"},\n    {\"name\":\"hbd_high\", \"type\":\"descriptor\", \"descriptor\":\"hbd\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Increased hydrogen bond donors linked to endocrine disruption and metabolic effects\"},\n    {\"name\":\"hba_high\", \"type\":\"descriptor\", \"descriptor\":\"hba\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"High hydrogen bond acceptor count associated with phenolic and metabolic disruption motifs\"},\n    {\"name\":\"tpsa_anom_window\", \"type\":\"desirability_window\", \"descriptor\":\"tpsa\", \"a\":40, \"b\":60, \"c\":120, \"d\":140, \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"TPSA in 40–60 range shows peak metabolic side effect activity\"},\n    {\"name\":\"mol_wt_high\", \"type\":\"descriptor\", \"descriptor\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"Higher molecular weight correlates with poor metabolic clearance and accumulation\"},\n    {\"name\":\"ring_count_high\", \"type\":\"descriptor\", \"descriptor\":\"ring_count\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"Multiple fused rings increase metabolic burden and CYP induction risk\"},\n    {\"name\":\"num_heterocycles_high\", \"type\":\"descriptor\", \"descriptor\":\"num_heterocycles\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Presence of multiple heterocycles increases metabolic instability and enzyme inhibition\"},\n    {\"name\":\"num_stereo_centers_high\", \"type\":\"descriptor\", \"descriptor\":\"num_stereo_centers\", \"direction\":\"higher\", \"confidence\":0.61, \"description\":\"Stereochemical complexity may lead to off-target metabolic interactions\"},\n    {\"name\":\"fraction_csp3_low\", \"type\":\"descriptor\", \"descriptor\":\"fraction_csp3\", \"direction\":\"lower\", \"confidence\":0.62, \"description\":\"Low sp3 character indicates high planarity and metabolic instability\"},\n    {\"name\":\"heavy_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.60, \"description\":\"High heavy atom count increases metabolic load and potential for CYP inhibition\"},\n    {\"name\":\"rot_bonds_high\", \"type\":\"descriptor\", \"descriptor\":\"rot_bonds\", \"direction\":\"higher\", \"confidence\":0.59, \"description\":\"Increased rotatable bonds suggest flexibility and metabolic vulnerability\"},\n    {\"name\":\"imidazole_count\", \"type\":\"smarts_count\", \"smarts\":\"c1cncn1\", \"direction\":\"higher\", \"confidence\":0.81, \"description\":\"Imidazole rings are known CYP inhibitors and metabolic disruptors\"},\n    {\"name\":\"triazole_count\", \"type\":\"smarts_count\", \"smarts\":\"c1cncnc1\", \"direction\":\"higher\", \"confidence\":0.78, \"description\":\"Triazole heterocycles linked to azole antifungal activity and CYP inhibition\"},\n    {\"name\":\"phenol_count\", \"type\":\"smarts_count\", \"smarts\":\"[OX2H1]c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.75, \"description\":\"Phenolic motifs show endocrine-like activity and metabolic disruption\"},\n    {\"name\":\"polyhydroxyl_phenol_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccc(O)cc1\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Aromatic polyhydroxyl phenols exhibit endocrine-disrupting metabolic effects\"},\n    {\"name\":\"aromatic_n_ring_count\", \"type\":\"smarts_count\", \"smarts\":\"c1ccncc1\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Aromatic nitrogen-containing rings linked to metabolic enzyme interactions\"},\n    {\"name\":\"primary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3;H2][#6]\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"Primary amines may participate in metabolic conjugation and toxicity\"},\n    {\"name\":\"secondary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3;H1]([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"Secondary amines associated with metabolic instability and CYP interactions\"},\n    {\"name\":\"tertiary_amine_count\", \"type\":\"smarts_count\", \"smarts\":\"[NX3]([#6])([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"Tertiary amines can act as CYP inhibitors or metabolic substrates\"},\n    {\"name\":\"halogen_any_count\", \"type\":\"smarts_count\", \"smarts\":\"[F,Cl,Br,I]\", \"direction\":\"higher\", \"confidence\":0.60, \"description\":\"Halogenated aromatics increase metabolic burden and CYP inhibition risk\"},\n    {\"name\":\"aryl_halogen_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"c[F,Cl,Br,I]\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"Aryl halogen density indicates metabolic disruption potential\"},\n    {\"name\":\"steroid_like_scaffold\", \"type\":\"smarts_ratio\", \"smarts\":\"c1ccccc1c2ccccc2c3ccccc3\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.76, \"description\":\"Steroidal scaffolds with fused rings show glucocorticoid-like metabolic effects\"},\n    {\"name\":\"fused_benzene_ring_count\", \"type\":\"smarts_count\", \"smarts\":\"c1ccccc1c2ccccc2\", \"direction\":\"higher\", \"confidence\":0.72, \"description\":\"Fused benzene rings are linked to CYP1A/2B induction and metabolic stress\"},\n    {\"name\":\"pyrimidine_count\", \"type\":\"smarts_count\", \"smarts\":\"c1cncnc1\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"Pyrimidine rings are common in metabolic inhibitors and antifungals\"},\n    {\"name\":\"phenol_to_aromatic_ratio\", \"type\":\"smarts_ratio\", \"smarts\":\"[OX2H1]c1ccccc1\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.73, \"description\":\"High phenol-to-aromatic ratio indicates endocrine-disrupting potential\"},\n    {\"name\":\"hetero_ring_density\", \"type\":\"descriptor_ratio\", \"descriptor\":\"hetero_atoms\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.69, \"description\":\"High heteroatom density in heavy atoms suggests metabolic interference\"},\n    {\"name\":\"logp_to_hbd_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"logp\", \"normalizer\":\"hbd\", \"direction\":\"higher\", \"confidence\":0.67, \"description\":\"High logP relative to HBD indicates lipophilic, metabolically unstable compounds\"},\n    {\"name\":\"tpsa_to_hba_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"tpsa\", \"normalizer\":\"hba\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"High TPSA relative to HBA suggests polar but metabolically active motifs\"},\n    {\"name\":\"aromatic_ring_to_hetero_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"aromatic_rings\", \"normalizer\":\"hetero_atoms\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"High aromatic ring-to-heteroatom ratio indicates planar, CYP-inducing structures\"},\n    {\"name\":\"num_bridgehead_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"num_bridgehead_atoms\", \"direction\":\"higher\", \"confidence\":0.58, \"description\":\"Bridgehead atoms in complex ring systems may lead to metabolic instability\"},\n    {\"name\":\"num_spiro_atoms_high\", \"type\":\"descriptor\", \"descriptor\":\"num_spiro_atoms\", \"direction\":\"higher\", \"confidence\":0.57, \"description\":\"Spiro centers increase 3D complexity and metabolic vulnerability\"},\n    {\"name\":\"amide_group_count\", \"type\":\"smarts_count\", \"smarts\":\"[CX3](=O)[NX3]\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"Amide groups can be metabolized to reactive intermediates\"},\n    {\"name\":\"carboxylic_acid_count\", \"type\":\"smarts_count\", \"smarts\":\"[CX3](=O)[OX2H1]\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"Carboxylic acids are prone to metabolic conjugation and toxicity\"},\n    {\"name\":\"ether_group_count\", \"type\":\"smarts_count\", \"smarts\":\"[OD2]([#6])[#6]\", \"direction\":\"higher\", \"confidence\":0.60, \"description\":\"Ether linkages may be metabolized to reactive alcohols\"},\n    {\"name\":\"hydroxyl_count\", \"type\":\"smarts_count\", \"smarts\":\"[OX2;H1][#6]\", \"direction\":\"higher\", \"confidence\":0.59, \"description\":\"Hydroxyl groups are sites of phase I metabolism and toxicity\"},\n    {\"name\":\"aromatic_ring_any_count\", \"type\":\"smarts_count\", \"smarts\":\"c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.74, \"description\":\"Presence of simple aromatic rings increases metabolic exposure\"},\n    {\"name\":\"fused_ring_density\", \"type\":\"descriptor_ratio\", \"descriptor\":\"ring_count\", \"normalizer\":\"aromatic_rings\", \"direction\":\"higher\", \"confidence\":0.71, \"description\":\"High ring fusion density indicates planar, CYP-inducing structures\"},\n    {\"name\":\"hetero_ring_count\", \"type\":\"smarts_count\", \"smarts\":\"c1cncn1\", \"direction\":\"higher\", \"confidence\":0.70, \"description\":\"Presence of heterocyclic rings increases metabolic enzyme interaction\"},\n    {\"name\":\"phenol_to_hbd_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"hbd\", \"normalizer\":\"[OX2H1]c1ccccc1\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"High phenol-to-HBD ratio suggests endocrine-like activity\"},\n    {\"name\":\"logp_to_mol_wt_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"logp\", \"normalizer\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.63, \"description\":\"High logP per molecular weight indicates lipophilic burden\"},\n    {\"name\":\"tpsa_to_mol_wt_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"tpsa\", \"normalizer\":\"mol_wt\", \"direction\":\"higher\", \"confidence\":0.62, \"description\":\"High TPSA per molecular weight suggests polar but metabolically active compounds\"},\n    {\"name\":\"hba_to_hbd_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"hba\", \"normalizer\":\"hbd\", \"direction\":\"higher\", \"confidence\":0.61, \"description\":\"High HBA/HBD ratio indicates polar, metabolically labile motifs\"},\n    {\"name\":\"aromatic_rings_to_heavy_atoms_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"aromatic_rings\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.68, \"description\":\"High aromatic ring density in heavy atoms indicates metabolic risk\"},\n    {\"name\":\"num_stereo_centers_to_heavy_atoms_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"num_stereo_centers\", \"normalizer\":\"heavy_atoms\", \"direction\":\"higher\", \"confidence\":0.59, \"description\":\"High stereochemical complexity per heavy atom suggests metabolic vulnerability\"},\n    {\"name\":\"fraction_csp3_to_aromatic_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"fraction_csp3\", \"normalizer\":\"aromatic_rings\", \"direction\":\"lower\", \"confidence\":0.60, \"description\":\"Low sp3 character relative to aromatic rings indicates metabolic instability\"},\n    {\"name\":\"hetero_atoms_to_hbd_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"hetero_atoms\", \"normalizer\":\"hbd\", \"direction\":\"higher\", \"confidence\":0.64, \"description\":\"High heteroatom-to-HBD ratio suggests metabolic enzyme interaction\"},\n    {\"name\":\"logp_to_tpsa_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"logp\", \"normalizer\":\"tpsa\", \"direction\":\"higher\", \"confidence\":0.65, \"description\":\"High logP relative to TPSA indicates lipophilic, poorly soluble, metabolically active compounds\"},\n    {\"name\":\"ring_count_to_hetero_atoms_ratio\", \"type\":\"descriptor_ratio\", \"descriptor\":\"ring_count\", \"normalizer\":\"hetero_atoms\", \"direction\":\"higher\", \"confidence\":0.66, \"description\":\"High ring count relative to heteroatoms suggests planar, CYP-inducing scaffolds\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

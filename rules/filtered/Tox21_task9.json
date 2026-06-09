@@ -1,0 +1,604 @@
+{
+  "task_key": "Tox21_task9",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 5486,
+  "n_input_rules": 46,
+  "n_kept": 28,
+  "n_rejected": 18,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "maleimide_count",
+      "reason": "fire_rate:0.0005"
+    },
+    {
+      "index": 2,
+      "name": "isothiocyanate_count",
+      "reason": "fire_rate:0.0004"
+    },
+    {
+      "index": 3,
+      "name": "dithiocarbamate_count",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 4,
+      "name": "quinone_count",
+      "reason": "fire_rate:0.0009"
+    },
+    {
+      "index": 6,
+      "name": "sulfur_electrophile_ratio",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 8,
+      "name": "heavy_metal_presence",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 9,
+      "name": "heavy_metal_presence_hg",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 10,
+      "name": "cysteine_reactive_sulfur_ratio",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 20,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 22,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 33,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0352"
+    },
+    {
+      "index": 34,
+      "name": "logp_desirability",
+      "reason": "fire_rate:0.0283"
+    },
+    {
+      "index": 38,
+      "name": "hba_desirability",
+      "reason": "fire_rate:0.0363"
+    },
+    {
+      "index": 40,
+      "name": "ring_count_desirability",
+      "reason": "fire_rate:0.0135"
+    },
+    {
+      "index": 41,
+      "name": "num_stereo_centers_desirability",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 42,
+      "name": "num_heterocycles_desirability",
+      "reason": "fire_rate:0.0033"
+    },
+    {
+      "index": 43,
+      "name": "formal_charge_abs_desirability",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 45,
+      "name": "aromatic_ratio_desirability",
+      "reason": "fire_rate:0.0018"
+    }
+  ],
+  "rules": [
+    {
+      "name": "michael_acceptor_count",
+      "type": "smarts_count",
+      "smarts": "C=CC(=O)",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Presence of \u03b1,\u03b2-unsaturated carbonyl (Michael acceptor) substructure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06780896828290194,
+        "fired": 372,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halo_heteroaromatic_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of halogenated aromatic ring, capable of SNAr reaction with cysteine",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13106088224571638,
+        "fired": 719,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "michael_acceptor_ratio",
+      "type": "smarts_ratio",
+      "smarts": "C=CC(=O)",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Density of Michael acceptors relative to aromatic rings, indicating electrophilic stress potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06780896828290194,
+        "fired": 372,
+        "n_train_normal": 5486,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Higher lipophilicity correlates with better cell membrane penetration and access to intracellular cysteines",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 2743,
+        "n_train_normal": 5486,
+        "threshold": 2.2072,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.79,
+      "description": "Low TPSA suggests better membrane permeability, enabling access to intracellular targets like cysteine residues",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.494531534815895,
+        "fired": 2713,
+        "n_train_normal": 5486,
+        "threshold": 44.760000000000005,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "molecular_weight_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Higher molecular weight may correlate with increased complexity and potential for covalent binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 2743,
+        "n_train_normal": 5486,
+        "threshold": 218.08649999999997,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "sp3_fraction_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Low fraction of sp3 carbons suggests more planar, electrophilic, and reactive structures",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4947138169886985,
+        "fired": 2714,
+        "n_train_normal": 5486,
+        "threshold": 0.4166666666666667,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "High aromatic ring count supports conjugation and stability of electrophilic moieties",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2905577834487787,
+        "fired": 1594,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_low",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Low hydrogen bond donor count reduces solubility and may favor passive diffusion to target sites",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4327378782355086,
+        "fired": 2374,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High hydrogen bond acceptor count may support interaction with cysteine thiolate",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36274152387896463,
+        "fired": 1990,
+        "n_train_normal": 5486,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Increased rotatable bonds may allow conformational flexibility to reach cysteine residues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42781625956981406,
+        "fired": 2347,
+        "n_train_normal": 5486,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Higher ring count may stabilize reactive intermediates or enhance electrophilicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4205249726576741,
+        "fired": 2307,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Heterocycles often contain sulfur or nitrogen, key for thiol coordination",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36948596427269415,
+        "fired": 2027,
+        "n_train_normal": 5486,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High heavy atom count supports coordination to soft metals or sulfur",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.45953335763762304,
+        "fired": 2521,
+        "n_train_normal": 5486,
+        "threshold": 15.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amine_count_high",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Primary amine count may influence reactivity or solubility in cysteine environments",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12814436748086036,
+        "fired": 703,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Secondary amine presence may contribute to basicity and interaction with thiols",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17444403937294933,
+        "fired": 957,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Tertiary amines may act as proton shuttles or influence local pH near cysteine",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17389719285453883,
+        "fired": 954,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Phenol groups may participate in redox cycling or hydrogen bonding with cysteine",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07637623040466643,
+        "fired": 419,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Carboxylic acids may influence solubility or act as competing nucleophiles",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10481224936201239,
+        "fired": 575,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Amide groups may stabilize conformations or act as hydrogen bond donors",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17079839591687934,
+        "fired": 937,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Ether groups may influence polarity and solubility",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34888807874589867,
+        "fired": 1914,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogen presence may enable SNAr reactions with cysteine thiols",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23988333940940576,
+        "fired": 1316,
+        "n_train_normal": 5486,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Aromatic ring density relative to total atoms, indicating conjugated electrophilic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4961720743711265,
+        "fired": 2722,
+        "n_train_normal": 5486,
+        "threshold": 0.04,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 20,
+      "b": 50,
+      "c": 80,
+      "d": 120,
+      "direction": "lower",
+      "confidence": 0.51,
+      "description": "TPSA in a range favoring permeability and access to intracellular cysteines",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.2125410134888808,
+        "fired": 1166,
+        "n_train_normal": 5486,
+        "threshold": 80.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "sp3_fraction_desirability",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "lower",
+      "confidence": 0.5,
+      "description": "sp3 fraction in a range associated with planar, electrophilic structures",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.34177907400656216,
+        "fired": 1875,
+        "n_train_normal": 5486,
+        "threshold": 0.6,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 0,
+      "b": 1,
+      "c": 2,
+      "d": 3,
+      "direction": "lower",
+      "confidence": 0.49,
+      "description": "Low hydrogen bond donor count favors passive diffusion",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.2666788188115202,
+        "fired": 1463,
+        "n_train_normal": 5486,
+        "threshold": 2.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_desirability",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 3,
+      "b": 6,
+      "c": 9,
+      "d": 12,
+      "direction": "higher",
+      "confidence": 0.47,
+      "description": "Rotatable bonds in a range supporting conformational flexibility",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1024425811155669,
+        "fired": 562,
+        "n_train_normal": 5486,
+        "threshold": 9.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_desirability",
+      "type": "desirability_window",
+      "descriptor": "heavy_atoms",
+      "a": 5,
+      "b": 10,
+      "c": 15,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.42,
+      "description": "Heavy atom count in a range supporting metal or sulfur coordination",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.50364564345607,
+        "fired": 2763,
+        "n_train_normal": 5486,
+        "threshold": 15.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task9__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:35.702426"
+}

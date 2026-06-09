@@ -1,0 +1,117 @@
+{
+  "task_key": "SIDER_task13",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1093,
+  "n_input_rules": 6,
+  "n_kept": 6,
+  "n_rejected": 0,
+  "rejects": [],
+  "rules": [
+    {
+      "name": "cyp3a4_inhibitor_smarts",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of a CYP3A4-inhibiting aromatic scaffold (common in surgical procedure toxicity via metabolic disruption)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6148215919487648,
+        "fired": 672,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "cyp2c19_inhibitor_smarts",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Presence of a CYP2C19-inhibiting aromatic scaffold (linked to surgical procedure toxicity via altered drug metabolism)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6148215919487648,
+        "fired": 672,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "cyp2d6_inhibitor_smarts",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Presence of a CYP2D6-inhibiting aromatic scaffold (associated with surgical procedure toxicity via metabolic interference)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6148215919487648,
+        "fired": 672,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "cyp1a2_inhibitor_smarts",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Presence of a CYP1A2-inhibiting aromatic scaffold (linked to surgical procedure toxicity via induction of metabolic stress)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6148215919487648,
+        "fired": 672,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "cyp2c9_inhibitor_smarts",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Presence of a CYP2C9-inhibiting aromatic scaffold (associated with surgical procedure toxicity via altered metabolism)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6148215919487648,
+        "fired": 672,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "cyp3a4_inducer_smarts",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Presence of a CYP3A4-inducing aromatic scaffold (linked to surgical procedure toxicity via enzyme induction and drug-drug interactions)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6148215919487648,
+        "fired": 672,
+        "n_train_normal": 1093,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task13__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:11.572794"
+}

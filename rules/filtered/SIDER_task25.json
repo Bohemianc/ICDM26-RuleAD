@@ -1,0 +1,656 @@
+{
+  "task_key": "SIDER_task25",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 111,
+  "n_input_rules": 48,
+  "n_kept": 32,
+  "n_rejected": 16,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "phenol_count",
+      "reason": "fire_rate:0.0360"
+    },
+    {
+      "index": 13,
+      "name": "aromatic_n_ring_count",
+      "reason": "fire_rate:0.0270"
+    },
+    {
+      "index": 15,
+      "name": "benzodiazepine_scaffold",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 16,
+      "name": "tryptamine_like_scaffold",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 22,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 25,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0090"
+    },
+    {
+      "index": 26,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 28,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 30,
+      "name": "hbd_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 31,
+      "name": "hba_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 32,
+      "name": "ring_count_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 33,
+      "name": "aromatic_rings_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 37,
+      "name": "phenol_ratio",
+      "reason": "fire_rate:0.0360"
+    },
+    {
+      "index": 39,
+      "name": "aromatic_n_ring_ratio",
+      "reason": "fire_rate:0.0270"
+    },
+    {
+      "index": 41,
+      "name": "benzodiazepine_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 42,
+      "name": "tryptamine_like_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with CNS penetration and neurological adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4954954954954955,
+        "fired": 55,
+        "n_train_normal": 111,
+        "threshold": 0.6361,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.68,
+      "description": "Low TPSA favors CNS penetration and neurological side effects",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4954954954954955,
+        "fired": 55,
+        "n_train_normal": 111,
+        "threshold": 71.06,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors may disrupt CNS homeostasis and promote adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.45045045045045046,
+        "fired": 50,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High hydrogen bond acceptor count correlates with neurotoxicity in CNS-active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36936936936936937,
+        "fired": 41,
+        "n_train_normal": 111,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Increased molecular weight linked to poor clearance and neurotoxic accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4954954954954955,
+        "fired": 55,
+        "n_train_normal": 111,
+        "threshold": 274.40399999999994,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Higher ring count increases structural complexity and potential for neurotoxic interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34234234234234234,
+        "fired": 38,
+        "n_train_normal": 111,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased aromaticity enhances CNS penetration and neurotoxic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3963963963963964,
+        "fired": 44,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Presence of tertiary amines with aromatic N(C)(C) attached promotes CNS penetration and seizure risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17117117117117117,
+        "fired": 19,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Secondary amines contribute to CNS activity and may lead to neurological side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15315315315315314,
+        "fired": 17,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Primary amines may form neurotoxic metabolites or interact with neurotransmitter systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21621621621621623,
+        "fired": 24,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Halogenated compounds may exhibit neurotoxicity via metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2882882882882883,
+        "fired": 32,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_aryl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aryl halogen density increases neurotoxic potential through metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2882882882882883,
+        "fired": 32,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Pyrimidine scaffolds are linked to GABAergic and serotonergic activity with neurological side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0990990990990991,
+        "fired": 11,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[N;H0][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Aromatic amine density increases risk of neurotoxicity via oxidative stress",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22522522522522523,
+        "fired": 25,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Amide groups may contribute to protein binding and neurotoxicity in CNS compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12612612612612611,
+        "fired": 14,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Ether linkages may increase CNS penetration and metabolic instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3333333333333333,
+        "fired": 37,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Carboxylic acids may form reactive metabolites or disrupt neuronal ion balance",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1891891891891892,
+        "fired": 21,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Hydroxyl groups can be metabolized to reactive quinones or aldehydes with neurotoxic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4774774774774775,
+        "fired": 53,
+        "n_train_normal": 111,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "High fraction of sp3 carbons may indicate reduced metabolic stability and neurotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4954954954954955,
+        "fired": 55,
+        "n_train_normal": 111,
+        "threshold": 0.4375,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Multiple heterocycles increase CNS activity and neurotoxic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.43243243243243246,
+        "fired": 48,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Increased rotatable bonds correlate with poor bioavailability and neurotoxic accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4864864864864865,
+        "fired": 54,
+        "n_train_normal": 111,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 90,
+      "c": 120,
+      "d": 140,
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Low TPSA (<90) enables CNS penetration and increases risk of neurological side effects",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.15315315315315314,
+        "fired": 17,
+        "n_train_normal": 111,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "High density of tertiary amines with aromatic N(C)(C) promotes CNS activity and seizure risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17117117117117117,
+        "fired": 19,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Increased secondary amine density correlates with serotonergic and neurotoxic effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15315315315315314,
+        "fired": 17,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Primary amine density may lead to neurotoxic metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.21621621621621623,
+        "fired": 24,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_aryl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aryl halogen density increases neurotoxic potential via metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2882882882882883,
+        "fired": 32,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Pyrimidine ring density linked to GABAergic and serotonergic side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0990990990990991,
+        "fired": 11,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[N;H0][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Aromatic amine density increases neurotoxicity via oxidative stress",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22522522522522523,
+        "fired": 25,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Amide group density may promote protein binding and neurotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12612612612612611,
+        "fired": 14,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Ether group density increases CNS penetration and metabolic instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3333333333333333,
+        "fired": 37,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Carboxylic acid density may lead to reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1891891891891892,
+        "fired": 21,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Hydroxyl group density increases risk of reactive metabolite formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4774774774774775,
+        "fired": 53,
+        "n_train_normal": 111,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task25__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:12.865552"
+}

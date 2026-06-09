@@ -1,0 +1,33 @@
+You are an expert medicinal chemist and cheminformatics researcher.
+Generate task-conditioned anomaly rules for molecular graph anomaly detection.
+Dataset/task: SIDER task 16.
+Label 0 semantics: show no reported side effects involving Skin and subcutaneous tissue disorders.
+Label 1 semantics: have reported side effects involving Skin and subcutaneous tissue disorders.
+For this one-class split, the anomaly class is label 1 (have reported side effects involving Skin and subcutaneous tissue disorders).
+The normal class is label 0 (show no reported side effects involving Skin and subcutaneous tissue disorders).
+These rules will be applied in a normal-only anomaly detector, so they must describe anomaly-oriented evidence for the anomaly class relative to the normal class.
+This is an adverse-effect association task for Skin and subcutaneous tissue disorders. Produce a diverse rule set spanning multiple rule types: physicochemical descriptors (logp, tpsa, hba/hbd, mol_wt, ring counts), desirability windows over those descriptors (where the adverse-event range peaks), substructure counts, and substructure ratios. Use the per-task structural alerts below as guidance but do NOT limit yourself to common functional groups alone — task-specific motifs are encouraged. Dermatologic adverse events (rash, photosensitivity, SJS/TEN). Alerts: furocoumarins (c1cc2cc3occc3cc2oc1=O psoralen-like), tetracycline/quinolone cores, strong electrophiles, halogenated aromatics (Clc1ccccc1 with extended conjugation), sulfonamides (c1ccc(S(=O)(=O)N)cc1 hypersensitivity), and photoactive fused polyaromatic systems. Cues: aromatic ring count (higher), halogen count (higher), sulfonamide presence, and conjugated fused ring systems.
+Produce 50 diverse rules.
+Rules must be computable from RDKit descriptors or SMARTS substructures.
+Avoid vague concepts, impossible quantities, and unsupported physics quantities.
+Avoid rules that depend on external databases, docking, similarity search, or learned embeddings.
+If the anomaly class is label 0 for this split, do not accidentally generate rules for label 1. Use the explicit anomaly/normal definitions above.
+Prefer a mix of:
+- physicochemical properties
+- ratios
+- substructure counts
+- density-like motif ratios
+- anomaly-associated desirability windows
+Return JSON only. The top-level object must be {"rules": [...]}.
+Allowed rule types: descriptor, descriptor_ratio, desirability_window, element_fraction, smarts_count, smarts_ratio.
+Allowed descriptors/normalizers: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa; normalizers can also be: aromatic_rings, atom_count, atom_richness, formal_charge_abs, fraction_csp3, hba, hbd, heavy_atoms, hetero_atoms, labute_asa, logp, mol_wt, num_amide_bonds, num_bridgehead_atoms, num_heterocycles, num_spiro_atoms, num_stereo_centers, ring_count, rot_bonds, tpsa.
+Allowed directions: higher, lower, two_sided.
+Prefer rules whose higher feature value means stronger anomaly evidence.
+For descriptor rules use direction higher or lower.
+For SMARTS rules prefer smarts_count or smarts_ratio.
+Allowed common-vocabulary SMARTS for smarts_count rules (use the listed name with the paired SMARTS pattern): aromatic_ring_any (c1ccccc1), aromatic_n_ring (c1ccncc1), pyrimidine (c1cncnc1), primary_amine ([NX3;H2][#6]), secondary_amine ([NX3;H1]([#6])[#6]), tertiary_amine ([NX3]([#6])([#6])[#6]), hydroxyl ([OX2;H1][#6]), phenol ([OX2H1]c1ccccc1), carboxylic_acid ([CX3](=O)[OX2H1]), amide_group ([CX3](=O)[NX3]), ether_group ([OD2]([#6])[#6]), halogen_any ([F,Cl,Br,I]).
+Every rule object must contain: name, type, description, direction, confidence.
+Examples:
+{"name":"aryl_halogen_ratio","type":"smarts_ratio","smarts":"c[F,Cl,Br,I]","normalizer":"heavy_atoms","direction":"higher","confidence":0.78,"description":"Aryl halogen density"}
+{"name":"logp_high","type":"descriptor","descriptor":"logp","direction":"higher","confidence":0.71,"description":"Higher lipophilicity"}
+{"name":"tpsa_anom_window","type":"desirability_window","descriptor":"tpsa","a":40,"b":60,"c":120,"d":140,"direction":"higher","confidence":0.69,"description":"TPSA window associated with anomaly"}

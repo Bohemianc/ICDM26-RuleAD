@@ -1,0 +1,627 @@
+{
+  "task_key": "SIDER_task4",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 249,
+  "n_input_rules": 40,
+  "n_kept": 33,
+  "n_rejected": 7,
+  "rejects": [
+    {
+      "index": 8,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 14,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0161"
+    },
+    {
+      "index": 15,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 16,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 26,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0402"
+    },
+    {
+      "index": 37,
+      "name": "pyrimidine_to_hba_ratio_high",
+      "reason": "fire_rate:0.0402"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with investigation-related adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4979919678714859,
+        "fired": 124,
+        "n_train_normal": 249,
+        "threshold": 2.2748600000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA range where abnormal test findings are more likely to occur",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1606425702811245,
+        "fired": 40,
+        "n_train_normal": 249,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors linked to investigation-related side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.44176706827309237,
+        "fired": 110,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Elevated hydrogen bond acceptors correlate with abnormal lab investigation outcomes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3534136546184739,
+        "fired": 88,
+        "n_train_normal": 249,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High molecular weight compounds more likely to disrupt physiological investigation parameters",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4979919678714859,
+        "fired": 124,
+        "n_train_normal": 249,
+        "threshold": 309.413,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Increased ring count associated with complex metabolic disruption affecting lab tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4457831325301205,
+        "fired": 111,
+        "n_train_normal": 249,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High aromaticity linked to interference with biochemical assays and diagnostic tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3815261044176707,
+        "fired": 95,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High heavy atom content correlates with increased metabolic instability and lab perturbation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4819277108433735,
+        "fired": 120,
+        "n_train_normal": 249,
+        "threshold": 21.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Increased sp3 character suggests structural rigidity and potential for accumulation in biological matrices affecting lab tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4979919678714859,
+        "fired": 124,
+        "n_train_normal": 249,
+        "threshold": 0.45,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Greater conformational flexibility may lead to off-target interactions affecting lab parameters",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46586345381526106,
+        "fired": 116,
+        "n_train_normal": 249,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Presence of multiple heterocyclic systems increases risk of interference with diagnostic assays",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4738955823293173,
+        "fired": 118,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Bridgehead atoms indicate strained systems that may perturb metabolic pathways and lab results",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06827309236947791,
+        "fired": 17,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Aryl halogen density as a marker of metabolic instability and lab interference",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18473895582329317,
+        "fired": 46,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Presence of primary amines increases risk of protein binding and false positives in lab tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.19678714859437751,
+        "fired": 49,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Secondary amines may form reactive intermediates affecting lab-based diagnostics",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20481927710843373,
+        "fired": 51,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Tertiary amines can disrupt ion transport and interfere with electrolyte-based lab tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2891566265060241,
+        "fired": 72,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Phenolic groups may cause oxidative stress and alter enzyme activity in lab investigations",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08433734939759036,
+        "fired": 21,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Hydroxyl groups increase polarity and potential for metabolic conjugation affecting lab results",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46184738955823296,
+        "fired": 115,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Carboxylic acids may interfere with pH-sensitive lab assays and enzyme function",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14056224899598393,
+        "fired": 35,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Amide groups can alter protein-ligand interactions and affect diagnostic test accuracy",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17670682730923695,
+        "fired": 44,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Ether linkages may increase metabolic stability but also contribute to membrane disruption in lab settings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.39357429718875503,
+        "fired": 98,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Aromatic nitrogen-containing rings may disrupt redox balance and affect lab test outcomes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0642570281124498,
+        "fired": 16,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of aromatic rings increases potential for off-target binding and assay interference",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5662650602409639,
+        "fired": 141,
+        "n_train_normal": 249,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High primary amine density relative to HBA suggests strong protein interaction and lab disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.19678714859437751,
+        "fired": 49,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Elevated secondary amine density relative to HBA may lead to false positives in lab diagnostics",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20481927710843373,
+        "fired": 51,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High tertiary amine density relative to HBA increases risk of membrane disruption and lab interference",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2891566265060241,
+        "fired": 72,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High phenol density relative to HBA may cause oxidative stress and affect redox-based lab tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08433734939759036,
+        "fired": 21,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Elevated hydroxyl group density relative to HBA may lead to metabolic instability and lab perturbation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46184738955823296,
+        "fired": 115,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "High carboxylic acid density relative to HBA may interfere with pH-sensitive lab assays",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14056224899598393,
+        "fired": 35,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "High amide group density relative to HBA may disrupt protein-ligand binding in diagnostic tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17670682730923695,
+        "fired": 44,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "High ether group density relative to HBA may increase solubility and off-target binding in lab settings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.39357429718875503,
+        "fired": 98,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "High aromatic nitrogen ring density relative to HBA may disrupt redox and enzyme activity in lab tests",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0642570281124498,
+        "fired": 16,
+        "n_train_normal": 249,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_to_hba_ratio_high",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High aromatic ring density relative to HBA indicates strong intermolecular interactions and lab interference",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4979919678714859,
+        "fired": 124,
+        "n_train_normal": 249,
+        "threshold": 0.031578947368421054,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task4__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:05.373138"
+}

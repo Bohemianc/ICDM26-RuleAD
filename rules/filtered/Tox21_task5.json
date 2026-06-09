@@ -1,0 +1,501 @@
+{
+  "task_key": "Tox21_task5",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 5945,
+  "n_input_rules": 36,
+  "n_kept": 24,
+  "n_rejected": 12,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "bisphenol_like_count",
+      "reason": "fire_rate:0.0034"
+    },
+    {
+      "index": 7,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0429"
+    },
+    {
+      "index": 13,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 21,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0352"
+    },
+    {
+      "index": 22,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0306"
+    },
+    {
+      "index": 23,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0148"
+    },
+    {
+      "index": 27,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0276"
+    },
+    {
+      "index": 28,
+      "name": "aromatic_rings_anom_window",
+      "reason": "fire_rate:0.0030"
+    },
+    {
+      "index": 29,
+      "name": "phenol_count_anom_window",
+      "reason": "fire_rate:0.0355"
+    },
+    {
+      "index": 32,
+      "name": "num_stereo_centers_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 34,
+      "name": "num_bridgehead_atoms_anom_window",
+      "reason": "fire_rate:0.0306"
+    },
+    {
+      "index": 35,
+      "name": "num_spiro_atoms_anom_window",
+      "reason": "fire_rate:0.0015"
+    }
+  ],
+  "rules": [
+    {
+      "name": "phenol_count_high",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of phenolic hydroxyl groups mimicking estradiol A-ring",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07485281749369217,
+        "fired": 445,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Increased aromatic ring count associated with estrogen receptor binding chemotypes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2992430613961312,
+        "fired": 1779,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Higher lipophilicity correlates with increased binding to estrogen receptor ligand-binding domain",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49991589571068124,
+        "fired": 2972,
+        "n_train_normal": 5945,
+        "threshold": 2.2348,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Increased hydrogen bond donors, especially phenolic OH, enhance receptor interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27956265769554245,
+        "fired": 1662,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "High hydrogen bond acceptor count supports phenolic or ether-based binding motifs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38620689655172413,
+        "fired": 2296,
+        "n_train_normal": 5945,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Increased heavy atom count typical of estrogenic scaffolds like triaryl ethylenes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48713204373423047,
+        "fired": 2896,
+        "n_train_normal": 5945,
+        "threshold": 15.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.8,
+      "description": "Low TPSA supports planar, lipophilic estrogenic ligands",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49857022708158116,
+        "fired": 2964,
+        "n_train_normal": 5945,
+        "threshold": 46.17,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Presence of heterocyclic rings in estrogenic scaffolds like triaryl ethylenes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38973927670311187,
+        "fired": 2317,
+        "n_train_normal": 5945,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.79,
+      "description": "Low sp3 character indicates more planar, aromatic estrogenic chemotypes",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49335576114381835,
+        "fired": 2933,
+        "n_train_normal": 5945,
+        "threshold": 0.42857142857142855,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Multiple fused or bridged rings common in estradiol-like and steroid cores",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.44070647603027757,
+        "fired": 2620,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_low",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.77,
+      "description": "Low rotatable bonds suggest rigid, pre-organized estrogenic scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.42489486963835155,
+        "fired": 2526,
+        "n_train_normal": 5945,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amines may act as hydrogen bond donors in estrogenic binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12262405382674517,
+        "fired": 729,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Secondary amines may contribute to binding via H-bonding or dipole interactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18957106812447436,
+        "fired": 1127,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Tertiary amines may enhance lipophilicity and receptor interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1885618166526493,
+        "fired": 1121,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Ether linkages in phenolic or resorcylic systems support ligand binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35744322960470987,
+        "fired": 2125,
+        "n_train_normal": 5945,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Carboxylic acids may mimic phenolic OH but are less common in active NR-ER binders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10311185870479395,
+        "fired": 613,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Amide groups may contribute to H-bonding in estrogenic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.184188393608074,
+        "fired": 1095,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Azaindole or pyridine rings in estrogenic analogs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0592094196804037,
+        "fired": 352,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher molecular weight typical of estradiol-like or steroid-based ligands",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49991589571068124,
+        "fired": 2972,
+        "n_train_normal": 5945,
+        "threshold": 226.323,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 20,
+      "b": 50,
+      "c": 80,
+      "d": 100,
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Low TPSA supports planar, aromatic estrogenic ligands",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.2270815811606392,
+        "fired": 1350,
+        "n_train_normal": 5945,
+        "threshold": 80.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_anom_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "lower",
+      "confidence": 0.82,
+      "description": "Low sp3 fraction indicates rigid, aromatic estrogenic chemotypes",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3485281749369218,
+        "fired": 2072,
+        "n_train_normal": 5945,
+        "threshold": 0.6,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_anom_window",
+      "type": "desirability_window",
+      "descriptor": "num_heterocycles",
+      "a": 0,
+      "b": 1,
+      "c": 2,
+      "d": 3,
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "One or more heterocycles in estrogenic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14920100925147184,
+        "fired": 887,
+        "n_train_normal": 5945,
+        "threshold": 2.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_anom_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 0,
+      "b": 2,
+      "c": 4,
+      "d": 6,
+      "direction": "lower",
+      "confidence": 0.78,
+      "description": "Low rotatable bonds suggest pre-organized, rigid ligands",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4570227081581161,
+        "fired": 2717,
+        "n_train_normal": 5945,
+        "threshold": 4.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogen substitution may enhance lipophilicity and binding in aromatic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.240201850294365,
+        "fired": 1428,
+        "n_train_normal": 5945,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task5__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:28.155804"
+}

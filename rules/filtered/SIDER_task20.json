@@ -1,0 +1,732 @@
+{
+  "task_key": "SIDER_task20",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 370,
+  "n_input_rules": 46,
+  "n_kept": 36,
+  "n_rejected": 10,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "aromatic_piperazine_count",
+      "reason": "fire_rate:0.0027"
+    },
+    {
+      "index": 2,
+      "name": "hydrazine_group_count",
+      "reason": "fire_rate:0.0054"
+    },
+    {
+      "index": 3,
+      "name": "phenethylamine_scaffold_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 4,
+      "name": "tricyclic_ring_system_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 14,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 16,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 34,
+      "name": "num_stereo_centers_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 39,
+      "name": "phenethylamine_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 40,
+      "name": "tricyclic_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 41,
+      "name": "hydrazine_to_aromatic_ratio",
+      "reason": "fire_rate:0.0054"
+    }
+  ],
+  "rules": [
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of tertiary amines, associated with CNS penetration and psychiatric side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28378378378378377,
+        "fired": 105,
+        "n_train_normal": 370,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "High lipophilicity promotes CNS penetration and psychiatric side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 185,
+        "n_train_normal": 370,
+        "threshold": 1.8417,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.88,
+      "description": "Low TPSA enables blood-brain barrier penetration, increasing risk of psychiatric effects",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 185,
+        "n_train_normal": 370,
+        "threshold": 83.83000000000001,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Increased hydrogen bond donors may disrupt CNS receptor balance",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35135135135135137,
+        "fired": 130,
+        "n_train_normal": 370,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High hydrogen bond acceptors correlate with CNS interaction and psychiatric risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4810810810810811,
+        "fired": 178,
+        "n_train_normal": 370,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Multiple aromatic rings enhance CNS activity and psychiatric side effect potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3972972972972973,
+        "fired": 147,
+        "n_train_normal": 370,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Increased ring count correlates with complex CNS interactions and adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3567567567567568,
+        "fired": 132,
+        "n_train_normal": 370,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Higher molecular weight may impair metabolism and increase off-target CNS effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 185,
+        "n_train_normal": 370,
+        "threshold": 374.79250000000013,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Increased heavy atom count suggests structural complexity and CNS activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4837837837837838,
+        "fired": 179,
+        "n_train_normal": 370,
+        "threshold": 25.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Low sp3 character indicates more planar, aromatic, CNS-active structures",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 185,
+        "n_train_normal": 370,
+        "threshold": 0.46862745098039216,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Heterocyclic rings are common in CNS-active compounds with psychiatric risks",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34324324324324323,
+        "fired": 127,
+        "n_train_normal": 370,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Flexible chains increase conformational diversity and CNS interaction potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.41621621621621624,
+        "fired": 154,
+        "n_train_normal": 370,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Aryl halogen density increases CNS activity and metabolic instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16486486486486487,
+        "fired": 61,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "High primary amine density may contribute to receptor overstimulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.25675675675675674,
+        "fired": 95,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Secondary amines are common in CNS-active compounds with psychiatric risks",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2891891891891892,
+        "fired": 107,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Phenol groups in aromatic systems may modulate CNS receptor activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12162162162162163,
+        "fired": 45,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Carboxylic acids may alter ion balance and CNS effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23783783783783785,
+        "fired": 88,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Amide groups in CNS-active scaffolds may contribute to psychiatric side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2648648648648649,
+        "fired": 98,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Ether linkages in aromatic systems may enhance CNS penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4189189189189189,
+        "fired": 155,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_anom_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 6.0,
+      "d": 8.0,
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "LogP in 3\u20135 range is optimal for CNS penetration and psychiatric side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07027027027027027,
+        "fired": 26,
+        "n_train_normal": 370,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "TPSA between 40\u201360 and 120\u2013140 associated with CNS activity and psychiatric risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2864864864864865,
+        "fired": 106,
+        "n_train_normal": 370,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_anom_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "HBD count in 2\u20134 range correlates with CNS receptor interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12972972972972974,
+        "fired": 48,
+        "n_train_normal": 370,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_anom_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 8,
+      "c": 12,
+      "d": 15,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "HBA count in 5\u20138 and 12\u201315 linked to psychiatric adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13513513513513514,
+        "fired": 50,
+        "n_train_normal": 370,
+        "threshold": 12.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count_anom_window",
+      "type": "desirability_window",
+      "descriptor": "aromatic_rings",
+      "a": 2,
+      "b": 3,
+      "c": 4,
+      "d": 5,
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "2\u20133 aromatic rings are optimal for CNS activity and psychiatric side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08378378378378379,
+        "fired": 31,
+        "n_train_normal": 370,
+        "threshold": 4.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_anom_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 2,
+      "b": 4,
+      "c": 5,
+      "d": 6,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Ring count between 2\u20134 and 5\u20136 associated with psychiatric risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15675675675675677,
+        "fired": 58,
+        "n_train_normal": 370,
+        "threshold": 5.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_anom_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 450,
+      "c": 500,
+      "d": 600,
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Molecular weight in 300\u2013450 and 500\u2013600 linked to CNS penetration and adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.25405405405405407,
+        "fired": 94,
+        "n_train_normal": 370,
+        "threshold": 500.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_anom_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.3,
+      "c": 0.4,
+      "d": 0.5,
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Low sp3 fraction (0.2\u20130.4) indicates planar, CNS-active structures",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5918918918918918,
+        "fired": 219,
+        "n_train_normal": 370,
+        "threshold": 0.4,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_anom_window",
+      "type": "desirability_window",
+      "descriptor": "num_heterocycles",
+      "a": 1,
+      "b": 3,
+      "c": 4,
+      "d": 6,
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Heterocycle count in 1\u20133 and 4\u20136 associated with psychiatric side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06756756756756757,
+        "fired": 25,
+        "n_train_normal": 370,
+        "threshold": 4.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_anom_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 3,
+      "b": 6,
+      "c": 8,
+      "d": 10,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Rotatable bonds in 3\u20136 and 8\u201310 enhance conformational flexibility and CNS interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28378378378378377,
+        "fired": 105,
+        "n_train_normal": 370,
+        "threshold": 8.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Aromatic nitrogen-containing rings enhance CNS activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0891891891891892,
+        "fired": 33,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Pyrimidine rings are common in CNS-active compounds with psychiatric risks",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05405405405405406,
+        "fired": 20,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Ratio of tertiary amines to aromatic rings indicates CNS-targeting design",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28378378378378377,
+        "fired": 105,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Ether group density in aromatic systems enhances CNS penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4189189189189189,
+        "fired": 155,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Carboxylic acid density in aromatic systems may disrupt CNS ion balance",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23783783783783785,
+        "fired": 88,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Amide group density in aromatic systems may contribute to psychiatric side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2648648648648649,
+        "fired": 98,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Phenol group density in aromatic systems may modulate CNS receptor activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12162162162162163,
+        "fired": 45,
+        "n_train_normal": 370,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task20__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:11.178560"
+}

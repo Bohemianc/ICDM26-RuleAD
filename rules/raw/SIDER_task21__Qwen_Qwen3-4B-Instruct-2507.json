@@ -1,0 +1,345 @@
+{
+  "rules": [
+    {
+      "name": "charged_group_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H0][#6]",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Count of tertiary amines, associated with polycharged motifs in nephrotoxic compounds"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Presence of primary amines, common in aminoglycoside-like nephrotoxic scaffolds"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Secondary amines contributing to basic charge density in renal toxicants"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Tertiary amines increasing basicity and renal accumulation"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Carboxylic acids, especially in NSAID-like structures, linked to renal toxicity"
+    },
+    {
+      "name": "aromatic_nitro_group",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Nitro-substituted aromatic rings, as in aristolochic acid analogs"
+    },
+    {
+      "name": "nitro_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Nitro-phenanthrene or nitro-aromatic density in nephrotoxic scaffolds"
+    },
+    {
+      "name": "sulfonate_count",
+      "type": "smarts_count",
+      "smarts": "S(=O)(=O)O",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Charged sulfonate groups, known to cause renal tubular damage"
+    },
+    {
+      "name": "phosphonate_count",
+      "type": "smarts_count",
+      "smarts": "P(=O)(O)O",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Phosphonate motifs linked to phosphate analogs with renal toxicity"
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity increases renal accumulation and toxicity"
+    },
+    {
+      "name": "logp_anom_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.0,
+      "c": 10.0,
+      "d": 12.0,
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "LogP in high range correlates with renal toxicity due to poor excretion"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 60,
+      "b": 100,
+      "c": 140,
+      "d": 180,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High TPSA values suggest polar, poorly excreted molecules with renal retention"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High hydrogen bond donor count increases renal solubility and retention"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High hydrogen bond acceptor count linked to renal accumulation via protein binding"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High molecular weight compounds have reduced renal clearance"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Increased ring count correlates with complex scaffolds prone to renal toxicity"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Aromatic systems increase lipophilicity and renal exposure"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High heavy atom count increases molecular complexity and renal burden"
+    },
+    {
+      "name": "formal_charge_abs_high",
+      "type": "descriptor",
+      "descriptor": "formal_charge_abs",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "High net charge increases ionic interactions with renal tubules"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Heterocyclic rings (e.g., pyrimidine, pyridine) increase metabolic burden and renal exposure"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Stereochemical complexity may lead to off-target renal binding"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Flexible chains increase conformational diversity and renal retention"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Phenolic groups contribute to oxidative stress in renal cells"
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Hydroxyl groups increase polarity but may form toxic metabolites in kidneys"
+    },
+    {
+      "name": "carboxylic_acid_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Carboxylic acid density on aromatic systems in NSAID-like nephrotoxins"
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Tertiary amine density on aromatic cores in aminoglycoside-like nephrotoxins"
+    },
+    {
+      "name": "sulfonate_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "S(=O)(=O)O",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Sulfonate group density on aromatic systems increases renal toxicity"
+    },
+    {
+      "name": "nitro_aromatic_to_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Nitro-aromatic substitution ratio in aristolochic acid analogs"
+    },
+    {
+      "name": "phosphonate_to_hetero_ratio",
+      "type": "smarts_ratio",
+      "smarts": "P(=O)(O)O",
+      "normalizer": "hetero_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Phosphonate group density relative to heteroatoms in renal toxicants"
+    },
+    {
+      "name": "primary_amine_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Primary amine density relative to HBDs in basic nephrotoxic scaffolds"
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of benzene rings increases lipophilicity and renal exposure"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Pyrimidine rings in heterocyclic scaffolds linked to renal toxicity"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Halogen atoms increase lipophilicity and metabolic activation in kidneys"
+    },
+    {
+      "name": "carboxylic_acid_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Carboxylic acid density relative to HBDs in NSAID-like nephrotoxins"
+    },
+    {
+      "name": "tertiary_amine_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Tertiary amine density relative to HBDs in basic nephrotoxins"
+    },
+    {
+      "name": "sulfonate_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "S(=O)(=O)O",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Sulfonate group density relative to HBDs in renal toxicants"
+    },
+    {
+      "name": "nitro_aromatic_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Nitro-aromatic density relative to HBDs in aristolochic acid analogs"
+    },
+    {
+      "name": "phosphonate_to_hba_ratio",
+      "type": "smarts_ratio",
+      "smarts": "P(=O)(O)O",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Phosphonate group density relative to HBA in renal toxicants"
+    },
+    {
+      "name": "primary_amine_to_hba_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Primary amine density relative to HBA in nephrotoxic scaffolds"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 21,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\": \"charged_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H0][#6]\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Count of tertiary amines, associated with polycharged motifs in nephrotoxic compounds\"},\n    {\"name\": \"primary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Presence of primary amines, common in aminoglycoside-like nephrotoxic scaffolds\"},\n    {\"name\": \"secondary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Secondary amines contributing to basic charge density in renal toxicants\"},\n    {\"name\": \"tertiary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.81, \"description\": \"Tertiary amines increasing basicity and renal accumulation\"},\n    {\"name\": \"carboxylic_acid_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"direction\": \"higher\", \"confidence\": 0.84, \"description\": \"Carboxylic acids, especially in NSAID-like structures, linked to renal toxicity\"},\n    {\"name\": \"aromatic_nitro_group\", \"type\": \"smarts_count\", \"smarts\": \"c1ccncc1\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"Nitro-substituted aromatic rings, as in aristolochic acid analogs\"},\n    {\"name\": \"nitro_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccncc1\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Nitro-phenanthrene or nitro-aromatic density in nephrotoxic scaffolds\"},\n    {\"name\": \"sulfonate_count\", \"type\": \"smarts_count\", \"smarts\": \"S(=O)(=O)O\", \"direction\": \"higher\", \"confidence\": 0.83, \"description\": \"Charged sulfonate groups, known to cause renal tubular damage\"},\n    {\"name\": \"phosphonate_count\", \"type\": \"smarts_count\", \"smarts\": \"P(=O)(O)O\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Phosphonate motifs linked to phosphate analogs with renal toxicity\"},\n    {\"name\": \"logp_high\", \"type\": \"descriptor\", \"descriptor\": \"logp\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Higher lipophilicity increases renal accumulation and toxicity\"},\n    {\"name\": \"logp_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"logp\", \"a\": 3.0, \"b\": 5.0, \"c\": 10.0, \"d\": 12.0, \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"LogP in high range correlates with renal toxicity due to poor excretion\"},\n    {\"name\": \"tpsa_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 60, \"b\": 100, \"c\": 140, \"d\": 180, \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"High TPSA values suggest polar, poorly excreted molecules with renal retention\"},\n    {\"name\": \"hbd_high\", \"type\": \"descriptor\", \"descriptor\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"High hydrogen bond donor count increases renal solubility and retention\"},\n    {\"name\": \"hba_high\", \"type\": \"descriptor\", \"descriptor\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"High hydrogen bond acceptor count linked to renal accumulation via protein binding\"},\n    {\"name\": \"mol_wt_high\", \"type\": \"descriptor\", \"descriptor\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"High molecular weight compounds have reduced renal clearance\"},\n    {\"name\": \"ring_count_high\", \"type\": \"descriptor\", \"descriptor\": \"ring_count\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Increased ring count correlates with complex scaffolds prone to renal toxicity\"},\n    {\"name\": \"aromatic_rings_high\", \"type\": \"descriptor\", \"descriptor\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Aromatic systems increase lipophilicity and renal exposure\"},\n    {\"name\": \"heavy_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"High heavy atom count increases molecular complexity and renal burden\"},\n    {\"name\": \"formal_charge_abs_high\", \"type\": \"descriptor\", \"descriptor\": \"formal_charge_abs\", \"direction\": \"higher\", \"confidence\": 0.85, \"description\": \"High net charge increases ionic interactions with renal tubules\"},\n    {\"name\": \"fraction_csp3_high\", \"type\": \"descriptor_ratio\", \"descriptor\": \"fraction_csp3\", \"normalizer\": \"atom_count\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"High sp3 fraction suggests saturated, lipophilic structures with poor renal excretion\"},\n    {\"name\": \"num_heterocycles_high\", \"type\": \"descriptor\", \"descriptor\": \"num_heterocycles\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Heterocyclic rings (e.g., pyrimidine, pyridine) increase metabolic burden and renal exposure\"},\n    {\"name\": \"num_stereo_centers_high\", \"type\": \"descriptor\", \"descriptor\": \"num_stereo_centers\", \"direction\": \"higher\", \"confidence\": 0.67, \"description\": \"Stereochemical complexity may lead to off-target renal binding\"},\n    {\"name\": \"rot_bonds_high\", \"type\": \"descriptor\", \"descriptor\": \"rot_bonds\", \"direction\": \"higher\", \"confidence\": 0.69, \"description\": \"Flexible chains increase conformational diversity and renal retention\"},\n    {\"name\": \"phenol_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2H1]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Phenolic groups contribute to oxidative stress in renal cells\"},\n    {\"name\": \"hydroxyl_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2;H1][#6]\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Hydroxyl groups increase polarity but may form toxic metabolites in kidneys\"},\n    {\"name\": \"amine_to_carbonyl_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hbd\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.66, \"description\": \"High HBD/HBA ratio indicates more polar, less excretable molecules\"},\n    {\"name\": \"carboxylic_acid_to_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"Carboxylic acid density on aromatic systems in NSAID-like nephrotoxins\"},\n    {\"name\": \"tertiary_amine_to_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.79, \"description\": \"Tertiary amine density on aromatic cores in aminoglycoside-like nephrotoxins\"},\n    {\"name\": \"sulfonate_to_aromatic_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"S(=O)(=O)O\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Sulfonate group density on aromatic systems increases renal toxicity\"},\n    {\"name\": \"nitro_aromatic_to_ring_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccncc1\", \"normalizer\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"Nitro-aromatic substitution ratio in aristolochic acid analogs\"},\n    {\"name\": \"phosphonate_to_hetero_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"P(=O)(O)O\", \"normalizer\": \"hetero_atoms\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Phosphonate group density relative to heteroatoms in renal toxicants\"},\n    {\"name\": \"primary_amine_to_hbd_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3;H2][#6]\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Primary amine density relative to HBDs in basic nephrotoxic scaffolds\"},\n    {\"name\": \"logp_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"logp\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"High logP per molecular weight indicates poor renal clearance\"},\n    {\"name\": \"hba_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hba\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.67, \"description\": \"High HBA per molecular weight suggests strong renal protein binding\"},\n    {\"name\": \"charged_group_to_heavy_atoms_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"formal_charge_abs\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"High charge density per heavy atom increases ionic renal interactions\"},\n    {\"name\": \"ring_count_to_atom_count_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"ring_count\", \"normalizer\": \"atom_count\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"High ring density indicates complex, poorly excreted scaffolds\"},\n    {\"name\": \"aromatic_ring_any_count\", \"type\": \"smarts_count\", \"smarts\": \"c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.78, \"description\": \"Presence of benzene rings increases lipophilicity and renal exposure\"},\n    {\"name\": \"pyrimidine_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cncnc1\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"Pyrimidine rings in heterocyclic scaffolds linked to renal toxicity\"},\n    {\"name\": \"halogen_any_count\", \"type\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]\", \"direction\": \"higher\", \"confidence\": 0.69, \"description\": \"Halogen atoms increase lipophilicity and metabolic activation in kidneys\"},\n    {\"name\": \"carboxylic_acid_to_hbd_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.76, \"description\": \"Carboxylic acid density relative to HBDs in NSAID-like nephrotoxins\"},\n    {\"name\": \"tertiary_amine_to_hbd_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Tertiary amine density relative to HBDs in basic nephrotoxins\"},\n    {\"name\": \"sulfonate_to_hbd_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"S(=O)(=O)O\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.77, \"description\": \"Sulfonate group density relative to HBDs in renal toxicants\"},\n    {\"name\": \"nitro_aromatic_to_hbd_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccncc1\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Nitro-aromatic density relative to HBDs in aristolochic acid analogs\"},\n    {\"name\": \"phosphonate_to_hba_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"P(=O)(O)O\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Phosphonate group density relative to HBA in renal toxicants\"},\n    {\"name\": \"primary_amine_to_hba_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3;H2][#6]\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Primary amine density relative to HBA in nephrotoxic scaffolds\"},\n    {\"name\": \"logp_to_hbd_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"logp\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.66, \"description\": \"High logP per HBD indicates lipophilic, poorly excreted molecules\"},\n    {\"name\": \"hba_to_hbd_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hba\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"High HBA/HBD ratio suggests strong polar interactions in renal tubules\"},\n    {\"name\": \"ring_count_to_hbd_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"ring_count\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"High ring count per HBD indicates complex, retained molecules\"},\n    {\"name\": \"heavy_atoms_to_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"heavy_atoms\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"High heavy atom density per molecular weight increases renal burden\"},\n    {\"name\": \"formal_charge_abs_to_hba_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"formal_charge_abs\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.74, \"description\": \"High charge per HBA indicates ionic interactions in renal environment\"},\n    {\"name\": \"fraction_csp3_to_hbd_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"fraction_csp3\", \"normalizer\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.64, \"description\": \"High sp3 fraction per HBD suggests saturated, retained structures\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

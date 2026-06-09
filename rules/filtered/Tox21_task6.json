@@ -1,0 +1,414 @@
+{
+  "task_key": "Tox21_task6",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 5638,
+  "n_input_rules": 30,
+  "n_kept": 20,
+  "n_rejected": 10,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "tzd_head_present",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 5,
+      "name": "logp_high_range",
+      "reason": "fire_rate:0.0378"
+    },
+    {
+      "index": 9,
+      "name": "num_stereo_centers_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 20,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0275"
+    },
+    {
+      "index": 21,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0106"
+    },
+    {
+      "index": 22,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 23,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 24,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 27,
+      "name": "tzd_or_carboxylic_acid_presence",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 29,
+      "name": "pyrimidine_present",
+      "reason": "fire_rate:0.0325"
+    }
+  ],
+  "rules": [
+    {
+      "name": "terminal_carboxylic_acid",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "Presence of terminal carboxylic acid, a key feature in fibrate-like PPAR\u03b3 agonists",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09772969137992196,
+        "fired": 551,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "long_alkyl_or_aromatic_tail",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Presence of long lipophilic tail (\u22656 heavy atoms) typical in PPAR\u03b3 agonists",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4684285207520397,
+        "fired": 2641,
+        "n_train_normal": 5638,
+        "threshold": 15.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_count_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased aromatic ring count, common in biphenyl or phenoxy-alkyl tails of actives",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27740333451578575,
+        "fired": 1564,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_count_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High hydrogen bond donor count, often associated with carboxylic acid or hydroxyl groups in actives",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2795317488471089,
+        "fired": 1576,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 500,
+      "d": 600,
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Molecular weight in typical range of PPAR\u03b3 agonists (300\u2013500 Da)",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05321035828307911,
+        "fired": 300,
+        "n_train_normal": 5638,
+        "threshold": 500.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Lower fraction of sp3 carbons (more sp2 character) associated with planar, lipophilic actives",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49840368925150763,
+        "fired": 2810,
+        "n_train_normal": 5638,
+        "threshold": 0.45,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Increased heterocyclic content, common in TZD and indole-based scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37194040439872295,
+        "fired": 2097,
+        "n_train_normal": 5638,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Higher ring count, especially fused or aromatic systems in active scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42586023412557644,
+        "fired": 2401,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Increased rotatable bonds, associated with flexible lipophilic tails in actives",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4354380986165307,
+        "fired": 2455,
+        "n_train_normal": 5638,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 0,
+      "b": 80,
+      "c": 80,
+      "d": 100,
+      "direction": "lower",
+      "confidence": 0.71,
+      "description": "Low TPSA typical of planar, lipophilic PPAR\u03b3 agonists with polar head groups",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.21833983682156793,
+        "fired": 1231,
+        "n_train_normal": 5638,
+        "threshold": 80.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_group_present",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Presence of phenol group, a common motif in some PPAR\u03b3 agonists",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07626818020574672,
+        "fired": 430,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_bridge_present",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Presence of ether linkage in aryl-alkyl chains, common in fibrate-like scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3522525718339837,
+        "fired": 1986,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_on_aryl",
+      "type": "smarts_count",
+      "smarts": "c[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Halogen substitution on aromatic ring, rare but observed in some PPAR\u03b3 actives",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13178432068109258,
+        "fired": 743,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_present",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.66,
+      "description": "Primary amines are generally inactive; their presence is anomalous in this context",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1253990776871231,
+        "fired": 707,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_present",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.65,
+      "description": "Secondary amines are less common in actives; their presence is anomalous",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1786094359702022,
+        "fired": 1007,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_present",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.64,
+      "description": "Tertiary amines are not typical of PPAR\u03b3 agonists and are anomalous",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1725789286981199,
+        "fired": 973,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_present",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.63,
+      "description": "Amide groups are not common in PPAR\u03b3 agonists and are anomalous",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1727562965590635,
+        "fired": 974,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.56,
+      "description": "Presence of nitrogen-containing aromatic rings (e.g., pyrimidine), common in actives",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37194040439872295,
+        "fired": 2097,
+        "n_train_normal": 5638,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Number of terminal carboxylic acid groups, a key feature in fibrate-like agonists",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09772969137992196,
+        "fired": 551,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.47,
+      "description": "Presence of benzene ring, common in PPAR\u03b3 agonist scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5264278112805959,
+        "fired": 2968,
+        "n_train_normal": 5638,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task6__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:29.895510"
+}

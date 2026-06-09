@@ -1,0 +1,85 @@
+{
+  "task_key": "SIDER_task26",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 433,
+  "n_input_rules": 4,
+  "n_kept": 4,
+  "n_rejected": 0,
+  "rejects": [],
+  "rules": [
+    {
+      "name": "michael_acceptor",
+      "type": "smarts_count",
+      "smarts": "C=CC(=O)",
+      "direction": "higher",
+      "confidence": 0.93,
+      "description": "Michael acceptors undergo nucleophilic addition with cellular thiols, leading to oxidative stress and organ injury",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12009237875288684,
+        "fired": 52,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogenated_aryl",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "High halogen density on aromatic rings increases metabolic activation via CYP450 and promotes accumulation in hepatocytes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16859122401847576,
+        "fired": 73,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_high",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Primary amines can form reactive metabolites via CYP2D6 and CYP3A4, leading to haptens and immune-mediated injury",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.20323325635103925,
+        "fired": 88,
+        "n_train_normal": 433,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ortho",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Ortho-substituted carboxylic acids are prone to metabolic dehydroxylation and form reactive quinones, causing oxidative injury",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.16397228637413394,
+        "fired": 71,
+        "n_train_normal": 433,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task26__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.916101"
+}

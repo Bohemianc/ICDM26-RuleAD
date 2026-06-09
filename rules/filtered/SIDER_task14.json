@@ -1,0 +1,734 @@
+{
+  "task_key": "SIDER_task14",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 288,
+  "n_input_rules": 50,
+  "n_kept": 35,
+  "n_rejected": 15,
+  "rejects": [
+    {
+      "index": 8,
+      "name": "catecholamine_like",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 9,
+      "name": "phenethylamine_pattern",
+      "reason": "fire_rate:0.0035"
+    },
+    {
+      "index": 10,
+      "name": "sympathomimetic_amine",
+      "reason": "fire_rate:0.0035"
+    },
+    {
+      "index": 20,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0382"
+    },
+    {
+      "index": 24,
+      "name": "aromatic_rings_desirability_window",
+      "reason": "fire_rate:0.0069"
+    },
+    {
+      "index": 25,
+      "name": "ring_count_desirability_window",
+      "reason": "fire_rate:0.0417"
+    },
+    {
+      "index": 28,
+      "name": "dihydroxyphenethylamine",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 29,
+      "name": "ace_inhibitor_like",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 37,
+      "name": "phenyl_amine_ratio",
+      "reason": "fire_rate:0.0035"
+    },
+    {
+      "index": 38,
+      "name": "dihydroxyphenyl_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 39,
+      "name": "logp_moderate_high",
+      "reason": "fire_rate:0.0382"
+    },
+    {
+      "index": 43,
+      "name": "aromatic_rings_moderate_high",
+      "reason": "fire_rate:0.0069"
+    },
+    {
+      "index": 44,
+      "name": "ring_count_moderate_high",
+      "reason": "fire_rate:0.0417"
+    },
+    {
+      "index": 47,
+      "name": "dihydroxyphenethylamine_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 48,
+      "name": "ace_inhibitor_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with vascular adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 144,
+        "n_train_normal": 288,
+        "threshold": 2.1518099999999993,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.68,
+      "description": "Low polarity may facilitate vascular permeability and adverse effects",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 144,
+        "n_train_normal": 288,
+        "threshold": 79.13000000000001,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased hydrogen bond donors linked to vascular side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2916666666666667,
+        "fired": 84,
+        "n_train_normal": 288,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High hydrogen bond acceptor count correlates with vascular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4618055555555556,
+        "fired": 133,
+        "n_train_normal": 288,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Multiple aromatic rings increase planarity and membrane penetration, linked to vascular effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3958333333333333,
+        "fired": 114,
+        "n_train_normal": 288,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Higher ring count associated with structural rigidity and vascular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3020833333333333,
+        "fired": 87,
+        "n_train_normal": 288,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased molecular weight correlates with poor clearance and vascular accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 144,
+        "n_train_normal": 288,
+        "threshold": 346.4460000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Presence of phenolic hydroxyl groups in aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08680555555555555,
+        "fired": 25,
+        "n_train_normal": 288,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_density",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High density of primary amines in molecular framework",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2326388888888889,
+        "fired": 67,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Elevated secondary amine content in aromatic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2604166666666667,
+        "fired": 75,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Tertiary amines promote membrane penetration and vasoactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28125,
+        "fired": 81,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Presence of carboxylic acid groups, common in ACE inhibitors linked to vascular effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1840277777777778,
+        "fired": 53,
+        "n_train_normal": 288,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Amide group density may contribute to protein binding and vascular effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22569444444444445,
+        "fired": 65,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Ether linkages in aromatic systems may enhance vascular permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4270833333333333,
+        "fired": 123,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Halogen substitution increases lipophilicity and metabolic instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3333333333333333,
+        "fired": 96,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Pyrimidine ring presence in vasoactive scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09722222222222222,
+        "fired": 28,
+        "n_train_normal": 288,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Aromatic nitrogen-containing rings with vasoactive potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08333333333333333,
+        "fired": 24,
+        "n_train_normal": 288,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA in 40\u2013140 range associated with vascular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22916666666666666,
+        "fired": 66,
+        "n_train_normal": 288,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "HBD count between 2\u20138 linked to vascular side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09375,
+        "fired": 27,
+        "n_train_normal": 288,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 10,
+      "c": 15,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "HBA count in 5\u201320 range correlates with vascular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0763888888888889,
+        "fired": 22,
+        "n_train_normal": 288,
+        "threshold": 15.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 700,
+      "d": 900,
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Molecular weight above 300 linked to vascular side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09375,
+        "fired": 27,
+        "n_train_normal": 288,
+        "threshold": 700.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High phenol density in aromatic systems",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08680555555555555,
+        "fired": 25,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_aromatic",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Primary amine on aromatic ring increases vasoactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2326388888888889,
+        "fired": 67,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_aromatic",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Tertiary amine on aromatic ring enhances membrane penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28125,
+        "fired": 81,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Hydroxyl group per aromatic ring increases vascular risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08680555555555555,
+        "fired": 25,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Carboxylic acid per aromatic ring increases vascular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1840277777777778,
+        "fired": 53,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Amide group per aromatic ring linked to protein binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22569444444444445,
+        "fired": 65,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Halogen substitution per aromatic ring increases lipophilicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3333333333333333,
+        "fired": 96,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "nitrogen_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Nitrogen per aromatic ring enhances vasoactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2326388888888889,
+        "fired": 67,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 80,
+      "c": 110,
+      "d": 130,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Moderate to high TPSA range linked to vascular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2673611111111111,
+        "fired": 77,
+        "n_train_normal": 288,
+        "threshold": 110.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Moderate to high HBD count increases vascular risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07291666666666667,
+        "fired": 21,
+        "n_train_normal": 288,
+        "threshold": 7.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 6,
+      "b": 10,
+      "c": 14,
+      "d": 18,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Moderate to high HBA count correlates with vascular side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09375,
+        "fired": 27,
+        "n_train_normal": 288,
+        "threshold": 14.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_moderate_high",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 350,
+      "b": 550,
+      "c": 750,
+      "d": 950,
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Moderate to high molecular weight increases vascular risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0763888888888889,
+        "fired": 22,
+        "n_train_normal": 288,
+        "threshold": 750.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_moderate_high",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Moderate to high phenol per ring ratio increases vascular risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08680555555555555,
+        "fired": 25,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_moderate_high",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Primary amine per heavy atom in moderate-high range increases vascular risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2326388888888889,
+        "fired": 67,
+        "n_train_normal": 288,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task14__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:09.364853"
+}

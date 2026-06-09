@@ -1,0 +1,634 @@
+{
+  "task_key": "Tox21_task11",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 5716,
+  "n_input_rules": 47,
+  "n_kept": 29,
+  "n_rejected": 18,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "epoxide_smarts",
+      "reason": "fire_rate:0.0101"
+    },
+    {
+      "index": 2,
+      "name": "nitroaromatic_smarts",
+      "reason": "fire_rate:0.0040"
+    },
+    {
+      "index": 3,
+      "name": "quinone_smarts",
+      "reason": "fire_rate:0.0033"
+    },
+    {
+      "index": 4,
+      "name": "halogenated_alkyl_chain_smarts",
+      "reason": "fire_rate:0.0119"
+    },
+    {
+      "index": 5,
+      "name": "acridine_smarts",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 6,
+      "name": "anthraquinone_smarts",
+      "reason": "fire_rate:0.0033"
+    },
+    {
+      "index": 7,
+      "name": "fused_tricyclic_aromatic_smarts",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 8,
+      "name": "fused_tetracyclic_aromatic_smarts",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 26,
+      "name": "num_aromatic_rings_desirability",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 28,
+      "name": "logp_desirability",
+      "reason": "fire_rate:0.0380"
+    },
+    {
+      "index": 31,
+      "name": "hba_desirability",
+      "reason": "fire_rate:0.0236"
+    },
+    {
+      "index": 32,
+      "name": "ring_count_desirability",
+      "reason": "fire_rate:0.0171"
+    },
+    {
+      "index": 34,
+      "name": "num_heterocycles_desirability",
+      "reason": "fire_rate:0.0056"
+    },
+    {
+      "index": 35,
+      "name": "num_stereo_centers_desirability",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 36,
+      "name": "acridine_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 37,
+      "name": "anthraquinone_ratio",
+      "reason": "fire_rate:0.0033"
+    },
+    {
+      "index": 38,
+      "name": "fused_tricyclic_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 39,
+      "name": "fused_tetracyclic_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "alkylating_electrophile_smarts",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1C(=O)O",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of alkylating electrophile motif (e.g., acyl halides or sulfonates) indicating genotoxic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.056857942617214836,
+        "fired": 325,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "protonatable_amine_sidechain_smarts",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Presence of a protonatable tertiary amine linked to aromatic core, enhancing DNA binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12578726382085376,
+        "fired": 719,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_sidechain_smarts",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Secondary amine side chain, common in intercalator analogs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17827151854443668,
+        "fired": 1019,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_sidechain_smarts",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Tertiary amine side chain, enhances solubility and DNA interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1758222533240028,
+        "fired": 1005,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.94,
+      "description": "High aromatic ring count (>3) associated with planar DNA intercalation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2827151854443667,
+        "fired": 1616,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Higher lipophilicity correlates with membrane permeability and DNA access",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 2858,
+        "n_train_normal": 5716,
+        "threshold": 2.2211700000000003,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Higher molecular weight often seen in intercalators and bulky electrophiles",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 2858,
+        "n_train_normal": 5716,
+        "threshold": 222.286,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.88,
+      "description": "Low TPSA suggests planar, lipophilic molecules that intercalate DNA",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49947515745276416,
+        "fired": 2855,
+        "n_train_normal": 5716,
+        "threshold": 46.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Increased ring count correlates with planarity and intercalation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4329951014695591,
+        "fired": 2475,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Heterocyclic rings enhance DNA binding and redox activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3733379986004199,
+        "fired": 2134,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_smarts",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Primary amine group, often linked to aromatic core in active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12578726382085376,
+        "fired": 719,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_smarts",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Secondary amine group, common in DNA-binding amines",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17827151854443668,
+        "fired": 1019,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_smarts",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Tertiary amine group, enhances solubility and DNA interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1758222533240028,
+        "fired": 1005,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_smarts",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Phenol group may contribute to redox cycling and DNA damage",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.072778166550035,
+        "fired": 416,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_smarts",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Carboxylic acid reduces lipophilicity and may decrease DNA binding",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1068929321203639,
+        "fired": 611,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_smarts",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Amide groups reduce planarity and genotoxic potential",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1719734079776067,
+        "fired": 983,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_smarts",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.73,
+      "description": "Ether groups may reduce DNA intercalation potential",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3584674597620714,
+        "fired": 2049,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_smarts",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Halogen presence, especially on aromatic rings, increases electrophilicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22113365990202938,
+        "fired": 1264,
+        "n_train_normal": 5716,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.3,
+      "c": 0.4,
+      "d": 0.5,
+      "direction": "lower",
+      "confidence": 0.88,
+      "description": "Low sp3 fraction (0.2\u20130.5) indicates genotoxic scaffold",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5559832050384884,
+        "fired": 3178,
+        "n_train_normal": 5716,
+        "threshold": 0.4,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 0,
+      "b": 50,
+      "c": 100,
+      "d": 150,
+      "direction": "lower",
+      "confidence": 0.86,
+      "description": "Low TPSA (<50) favors planar, intercalating molecules",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1313855843247026,
+        "fired": 751,
+        "n_train_normal": 5716,
+        "threshold": 100.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 0,
+      "b": 1,
+      "c": 2,
+      "d": 3,
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Low HBD count (<2) supports DNA intercalation",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.27641707487753675,
+        "fired": 1580,
+        "n_train_normal": 5716,
+        "threshold": 2.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_desirability",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 0,
+      "b": 2,
+      "c": 4,
+      "d": 6,
+      "direction": "lower",
+      "confidence": 0.87,
+      "description": "Low rotatable bonds (<4) suggest rigid, intercalating scaffolds",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.44331700489853043,
+        "fired": 2534,
+        "n_train_normal": 5716,
+        "threshold": 4.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amine_sidechain_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Protonatable amine sidechain density indicates DNA binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12578726382085376,
+        "fired": 719,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Secondary amine sidechain density enhances DNA interaction",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17827151854443668,
+        "fired": 1019,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Tertiary amine sidechain density supports intercalation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1758222533240028,
+        "fired": 1005,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Phenol group density may contribute to redox activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.072778166550035,
+        "fired": 416,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Carboxylic acid density reduces genotoxic potential",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1068929321203639,
+        "fired": 611,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Ether group density reduces intercalation potential",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3584674597620714,
+        "fired": 2049,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Halogen density increases electrophilicity and genotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22113365990202938,
+        "fired": 1264,
+        "n_train_normal": 5716,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task11__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:40.538224"
+}

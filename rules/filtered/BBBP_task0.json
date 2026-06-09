@@ -1,0 +1,714 @@
+{
+  "task_key": "BBBP_task0",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1351,
+  "n_input_rules": 52,
+  "n_kept": 33,
+  "n_rejected": 19,
+  "rejects": [
+    {
+      "index": 6,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0466"
+    },
+    {
+      "index": 7,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 11,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 12,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 21,
+      "name": "carboxylic_acid_count",
+      "reason": "fire_rate:0.0363"
+    },
+    {
+      "index": 27,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0496"
+    },
+    {
+      "index": 28,
+      "name": "hba_desirability_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 29,
+      "name": "hbd_desirability_window",
+      "reason": "fire_rate:0.0007"
+    },
+    {
+      "index": 31,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0459"
+    },
+    {
+      "index": 33,
+      "name": "heavy_atoms_desirability_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 34,
+      "name": "num_heterocycles_desirability_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 35,
+      "name": "num_stereo_centers_desirability_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 36,
+      "name": "ring_count_desirability_window",
+      "reason": "fire_rate:0.0104"
+    },
+    {
+      "index": 37,
+      "name": "aromatic_rings_desirability_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 38,
+      "name": "rot_bonds_desirability_window",
+      "reason": "fire_rate:0.0422"
+    },
+    {
+      "index": 39,
+      "name": "num_bridgehead_atoms_desirability_window",
+      "reason": "fire_rate:0.0096"
+    },
+    {
+      "index": 40,
+      "name": "num_amide_bonds_desirability_window",
+      "reason": "fire_rate:0.0259"
+    },
+    {
+      "index": 48,
+      "name": "ether_group_desirability_window",
+      "reason": "fire_rate:0.7113"
+    },
+    {
+      "index": 51,
+      "name": "pyrimidine_ratio",
+      "reason": "fire_rate:0.0496"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "High lipophilicity reduces BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4996299037749815,
+        "fired": 675,
+        "n_train_normal": 1351,
+        "threshold": 2.791500000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Increased hydrogen bond donors hinder BBB crossing",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2686898593634345,
+        "fired": 363,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "High hydrogen bond acceptor count reduces CNS permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.48704663212435234,
+        "fired": 658,
+        "n_train_normal": 1351,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_high",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "High topological polar surface area limits BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4996299037749815,
+        "fired": 675,
+        "n_train_normal": 1351,
+        "threshold": 48.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Large molecular weight hinders passive diffusion across BBB",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4996299037749815,
+        "fired": 675,
+        "n_train_normal": 1351,
+        "threshold": 309.406,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Multiple heterocycles increase polarity and reduce BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3545521835677276,
+        "fired": 479,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Increased ring count correlates with reduced BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3767579570688379,
+        "fired": 509,
+        "n_train_normal": 1351,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "High aromatic ring content increases lipophilicity and reduces permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1080680977054034,
+        "fired": 146,
+        "n_train_normal": 1351,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "High heavy atom count increases molecular weight and lipophilicity, reducing BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46484085862324204,
+        "fired": 628,
+        "n_train_normal": 1351,
+        "threshold": 22.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High rotatable bond count increases conformational flexibility and reduces permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49592894152479644,
+        "fired": 670,
+        "n_train_normal": 1351,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Bridgehead atoms increase structural rigidity and reduce permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07105847520355292,
+        "fired": 96,
+        "n_train_normal": 1351,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Amide bonds increase polarity and hydrogen bonding, reducing BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3286454478164323,
+        "fired": 444,
+        "n_train_normal": 1351,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Primary amines increase hydrogen bonding and polarity, reducing BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12435233160621761,
+        "fired": 168,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Secondary amines contribute to polarity and H-bonding, reducing BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27387120651369357,
+        "fired": 370,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Tertiary amines increase lipophilicity and can form charged species, reducing permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.536639526276832,
+        "fired": 725,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Hydroxyl groups increase polarity and H-bonding, reducing BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32272390821613617,
+        "fired": 436,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Phenolic OH groups increase polarity and H-bonding, reducing BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05699481865284974,
+        "fired": 77,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Amide groups are polar and H-bonding, reducing BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3234641006661732,
+        "fired": 437,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Ether groups increase polarity and H-bonding, reducing BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3923019985196151,
+        "fired": 530,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Halogen atoms increase lipophilicity and may form halogen bonds, reducing permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3760177646188009,
+        "fired": 508,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Aryl halogen density indicates high lipophilicity and reduced permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23612139156180606,
+        "fired": 319,
+        "n_train_normal": 1351,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Aromatic nitrogen rings increase polarity and reduce BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07253886010362694,
+        "fired": 98,
+        "n_train_normal": 1351,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 60,
+      "b": 80,
+      "c": 100,
+      "d": 120,
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "TPSA above 60 \u00c5\u00b2 indicates poor BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10140636565507032,
+        "fired": 137,
+        "n_train_normal": 1351,
+        "threshold": 100.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.3,
+      "c": 0.4,
+      "d": 0.5,
+      "direction": "lower",
+      "confidence": 0.82,
+      "description": "Low sp3 fraction indicates high unsaturation and poor permeability",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5529237601776462,
+        "fired": 747,
+        "n_train_normal": 1351,
+        "threshold": 0.4,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "High primary amine count increases H-bonding and reduces permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07327905255366396,
+        "fired": 99,
+        "n_train_normal": 1351,
+        "threshold": 3.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High secondary amine count increases H-bonding and reduces BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17912657290895634,
+        "fired": 242,
+        "n_train_normal": 1351,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2.5,
+      "b": 3.5,
+      "c": 4.5,
+      "d": 5.5,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "High tertiary amine logP indicates poor BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11398963730569948,
+        "fired": 154,
+        "n_train_normal": 1351,
+        "threshold": 4.5,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High hydroxyl count increases H-bonding and reduces permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07327905255366396,
+        "fired": 99,
+        "n_train_normal": 1351,
+        "threshold": 3.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "High phenol count increases H-bonding and reduces BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17912657290895634,
+        "fired": 242,
+        "n_train_normal": 1351,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "d": 4,
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "High carboxylic acid count increases polarity and reduces permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07327905255366396,
+        "fired": 99,
+        "n_train_normal": 1351,
+        "threshold": 3.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "High amide group count increases H-bonding and reduces BBB penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17912657290895634,
+        "fired": 242,
+        "n_train_normal": 1351,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 2.0,
+      "b": 3.0,
+      "c": 4.0,
+      "d": 5.0,
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "High halogen content increases logP and reduces BBB permeability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22057735011102886,
+        "fired": 298,
+        "n_train_normal": 1351,
+        "threshold": 4.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Aromatic nitrogen ring density indicates increased polarity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07253886010362694,
+        "fired": 98,
+        "n_train_normal": 1351,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/BBBP__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:39:45.898652"
+}

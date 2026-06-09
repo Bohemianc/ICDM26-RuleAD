@@ -1,0 +1,572 @@
+{
+  "task_key": "SIDER_task21",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 465,
+  "n_input_rules": 39,
+  "n_kept": 29,
+  "n_rejected": 10,
+  "rejects": [
+    {
+      "index": 7,
+      "name": "sulfonate_count",
+      "reason": "fire_rate:0.0258"
+    },
+    {
+      "index": 8,
+      "name": "phosphonate_count",
+      "reason": "fire_rate:0.0237"
+    },
+    {
+      "index": 10,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0086"
+    },
+    {
+      "index": 18,
+      "name": "formal_charge_abs_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 20,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 26,
+      "name": "sulfonate_to_aromatic_ratio",
+      "reason": "fire_rate:0.0258"
+    },
+    {
+      "index": 28,
+      "name": "phosphonate_to_hetero_ratio",
+      "reason": "fire_rate:0.0237"
+    },
+    {
+      "index": 31,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0495"
+    },
+    {
+      "index": 35,
+      "name": "sulfonate_to_hbd_ratio",
+      "reason": "fire_rate:0.0258"
+    },
+    {
+      "index": 37,
+      "name": "phosphonate_to_hba_ratio",
+      "reason": "fire_rate:0.0237"
+    }
+  ],
+  "rules": [
+    {
+      "name": "charged_group_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H0][#6]",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Count of tertiary amines, associated with polycharged motifs in nephrotoxic compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3118279569892473,
+        "fired": 145,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Presence of primary amines, common in aminoglycoside-like nephrotoxic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2086021505376344,
+        "fired": 97,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Secondary amines contributing to basic charge density in renal toxicants",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2731182795698925,
+        "fired": 127,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Tertiary amines increasing basicity and renal accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2903225806451613,
+        "fired": 135,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Carboxylic acids, especially in NSAID-like structures, linked to renal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15913978494623657,
+        "fired": 74,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_nitro_group",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Nitro-substituted aromatic rings, as in aristolochic acid analogs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07956989247311828,
+        "fired": 37,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "nitro_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Nitro-phenanthrene or nitro-aromatic density in nephrotoxic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07956989247311828,
+        "fired": 37,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity increases renal accumulation and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4989247311827957,
+        "fired": 232,
+        "n_train_normal": 465,
+        "threshold": 2.326700000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 60,
+      "b": 100,
+      "c": 140,
+      "d": 180,
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High TPSA values suggest polar, poorly excreted molecules with renal retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15913978494623657,
+        "fired": 74,
+        "n_train_normal": 465,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High hydrogen bond donor count increases renal solubility and retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2946236559139785,
+        "fired": 137,
+        "n_train_normal": 465,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High hydrogen bond acceptor count linked to renal accumulation via protein binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.44516129032258067,
+        "fired": 207,
+        "n_train_normal": 465,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High molecular weight compounds have reduced renal clearance",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4989247311827957,
+        "fired": 232,
+        "n_train_normal": 465,
+        "threshold": 332.31300000000005,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Increased ring count correlates with complex scaffolds prone to renal toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4881720430107527,
+        "fired": 227,
+        "n_train_normal": 465,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Aromatic systems increase lipophilicity and renal exposure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.36989247311827955,
+        "fired": 172,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High heavy atom count increases molecular complexity and renal burden",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4731182795698925,
+        "fired": 220,
+        "n_train_normal": 465,
+        "threshold": 23.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Heterocyclic rings (e.g., pyrimidine, pyridine) increase metabolic burden and renal exposure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.26666666666666666,
+        "fired": 124,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Flexible chains increase conformational diversity and renal retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.443010752688172,
+        "fired": 206,
+        "n_train_normal": 465,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Phenolic groups contribute to oxidative stress in renal cells",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12903225806451613,
+        "fired": 60,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Hydroxyl groups increase polarity but may form toxic metabolites in kidneys",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5010752688172043,
+        "fired": 233,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Carboxylic acid density on aromatic systems in NSAID-like nephrotoxins",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15913978494623657,
+        "fired": 74,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Tertiary amine density on aromatic cores in aminoglycoside-like nephrotoxins",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2903225806451613,
+        "fired": 135,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "nitro_aromatic_to_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Nitro-aromatic substitution ratio in aristolochic acid analogs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07956989247311828,
+        "fired": 37,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Primary amine density relative to HBDs in basic nephrotoxic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2086021505376344,
+        "fired": 97,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Presence of benzene rings increases lipophilicity and renal exposure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5634408602150538,
+        "fired": 262,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Halogen atoms increase lipophilicity and metabolic activation in kidneys",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2924731182795699,
+        "fired": 136,
+        "n_train_normal": 465,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Carboxylic acid density relative to HBDs in NSAID-like nephrotoxins",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15913978494623657,
+        "fired": 74,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Tertiary amine density relative to HBDs in basic nephrotoxins",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2903225806451613,
+        "fired": 135,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "nitro_aromatic_to_hbd_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "hbd",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Nitro-aromatic density relative to HBDs in aristolochic acid analogs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07956989247311828,
+        "fired": 37,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_to_hba_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "hba",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Primary amine density relative to HBA in nephrotoxic scaffolds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2086021505376344,
+        "fired": 97,
+        "n_train_normal": 465,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task21__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:11.439704"
+}

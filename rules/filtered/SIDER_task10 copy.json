@@ -1,0 +1,75 @@
+{
+  "task_key": "SIDER_task10",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 946,
+  "n_input_rules": 7,
+  "n_kept": 2,
+  "n_rejected": 5,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "nitroaromatic_core",
+      "reason": "fire_rate:0.0137"
+    },
+    {
+      "index": 1,
+      "name": "alkyl_sulfonate",
+      "reason": "fire_rate:0.0063"
+    },
+    {
+      "index": 2,
+      "name": "nitrosamine",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 3,
+      "name": "aziridine",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 4,
+      "name": "epoxide",
+      "reason": "fire_rate:0.0180"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aromatic_amine",
+      "type": "smarts_count",
+      "smarts": "Nc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Aromatic amines are metabolized to N-hydroxy derivatives that form DNA adducts",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18710359408033828,
+        "fired": 177,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "polycyclic_aromatic_rings",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.96,
+      "description": "Three or more fused aromatic rings enable DNA intercalation and chromosomal instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4397463002114165,
+        "fired": 416,
+        "n_train_normal": 946,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task10__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:11.117961"
+}

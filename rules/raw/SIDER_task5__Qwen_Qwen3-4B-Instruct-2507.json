@@ -1,0 +1,414 @@
+{
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with musculoskeletal adverse effects"
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased molecular weight correlates with musculoskeletal side effects"
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Higher hydrogen bond donor count linked to adverse musculoskeletal effects"
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Increased hydrogen bond acceptor count associated with musculoskeletal toxicity"
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "TPSA range where musculoskeletal adverse effects are more prevalent"
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Increased ring count correlates with musculoskeletal toxicity"
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High aromatic ring content linked to musculoskeletal side effects"
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Greater number of heavy atoms associated with adverse effects"
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Increased sp3 character suggests structural rigidity and potential for musculoskeletal toxicity"
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "More heterocyclic rings increase risk of musculoskeletal adverse events"
+    },
+    {
+      "name": "num_stereo_centers_high",
+      "type": "descriptor",
+      "descriptor": "num_stereo_centers",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Increased stereocenters may lead to off-target musculoskeletal effects"
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Greater rotational freedom correlates with musculoskeletal toxicity"
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Presence of aromatic ring motifs increases risk of musculoskeletal side effects"
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Pyrimidine ring presence linked to musculoskeletal adverse events"
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amines increase risk of musculoskeletal toxicity"
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Secondary amines associated with musculoskeletal side effects"
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Tertiary amines correlate with musculoskeletal adverse effects"
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Phenolic groups increase risk of musculoskeletal toxicity"
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Carboxylic acid groups linked to musculoskeletal adverse events"
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Amide groups associated with musculoskeletal side effects"
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.56,
+      "description": "Ether linkages increase risk of musculoskeletal toxicity"
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "Halogen presence increases musculoskeletal adverse effect risk"
+    },
+    {
+      "name": "aromatic_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aryl halogen density as a ratio of halogens to heavy atoms"
+    },
+    {
+      "name": "hexahydronaphthalene_lactone",
+      "type": "smarts_count",
+      "smarts": "OC1CC(=O)OC(C)C1",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Statins' lactone core strongly associated with myopathy"
+    },
+    {
+      "name": "quinolone_f_halogen",
+      "type": "smarts_count",
+      "smarts": "c1cc2c(cc1F)c(=O)c(C(=O)O)cn2",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Fluoroquinolone core with fluorine linked to tendinopathy"
+    },
+    {
+      "name": "bisphosphonate_core",
+      "type": "smarts_count",
+      "smarts": "OP(=O)(O)C(O)P(=O)(O)O",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Bisphosphonate motif strongly linked to musculoskeletal side effects"
+    },
+    {
+      "name": "aromatic_steroid_core",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1c2ccccc2",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Aromatic steroid frameworks associated with arthralgia"
+    },
+    {
+      "name": "lactone_fused_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1cc(=O)oc1",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Fused-ring lactones increase risk of musculoskeletal toxicity"
+    },
+    {
+      "name": "phosphonate_group_count",
+      "type": "smarts_count",
+      "smarts": "OP(=O)(O)[#6]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Phosphonate groups linked to musculoskeletal adverse events"
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Aromatic ring density relative to heavy atoms"
+    },
+    {
+      "name": "primary_amine_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Primary amine density relative to heavy atoms"
+    },
+    {
+      "name": "tertiary_amine_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Tertiary amine density relative to heavy atoms"
+    },
+    {
+      "name": "phenol_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Phenol density relative to heavy atoms"
+    },
+    {
+      "name": "carboxylic_acid_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Carboxylic acid density relative to heavy atoms"
+    },
+    {
+      "name": "ether_group_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Ether group density relative to heavy atoms"
+    },
+    {
+      "name": "halogen_any_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Halogen density relative to heavy atoms"
+    },
+    {
+      "name": "logp_mol_wt_desirability",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 4.5,
+      "c": 5.5,
+      "d": 6.5,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "LogP window where musculoskeletal toxicity peaks"
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 100,
+      "b": 140,
+      "c": 160,
+      "d": 180,
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "TPSA range associated with increased musculoskeletal risk"
+    },
+    {
+      "name": "ring_count_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 3,
+      "b": 5,
+      "c": 7,
+      "d": 9,
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Ring count range where musculoskeletal toxicity is elevated"
+    },
+    {
+      "name": "aromatic_rings_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "aromatic_rings",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Aromatic ring count window linked to adverse effects"
+    },
+    {
+      "name": "num_heterocycles_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "num_heterocycles",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Heterocycle count window associated with musculoskeletal toxicity"
+    },
+    {
+      "name": "num_stereo_centers_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "num_stereo_centers",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Stereo center count window where toxicity increases"
+    },
+    {
+      "name": "rot_bonds_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "rot_bonds",
+      "a": 5,
+      "b": 8,
+      "c": 10,
+      "d": 12,
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Rotatable bond count window linked to musculoskeletal side effects"
+    },
+    {
+      "name": "phosphonate_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "OP(=O)(O)[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Phosphonate group density relative to heavy atoms"
+    },
+    {
+      "name": "lactone_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cc(=O)oc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Lactone group density relative to heavy atoms"
+    }
+  ],
+  "metadata": {
+    "dataset": "SIDER",
+    "task_idx": 5,
+    "anomaly_class": 1,
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "raw_generation": "{\n  \"rules\": [\n    {\"name\": \"logp_high\", \"type\": \"descriptor\", \"descriptor\": \"logp\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Higher lipophilicity associated with musculoskeletal adverse effects\"},\n    {\"name\": \"mol_wt_high\", \"type\": \"descriptor\", \"descriptor\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Increased molecular weight correlates with musculoskeletal side effects\"},\n    {\"name\": \"hbd_high\", \"type\": \"descriptor\", \"descriptor\": \"hbd\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"Higher hydrogen bond donor count linked to adverse musculoskeletal effects\"},\n    {\"name\": \"hba_high\", \"type\": \"descriptor\", \"descriptor\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.63, \"description\": \"Increased hydrogen bond acceptor count associated with musculoskeletal toxicity\"},\n    {\"name\": \"tpsa_anom_window\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 80, \"b\": 120, \"c\": 140, \"d\": 160, \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"TPSA range where musculoskeletal adverse effects are more prevalent\"},\n    {\"name\": \"ring_count_high\", \"type\": \"descriptor\", \"descriptor\": \"ring_count\", \"direction\": \"higher\", \"confidence\": 0.67, \"description\": \"Increased ring count correlates with musculoskeletal toxicity\"},\n    {\"name\": \"aromatic_rings_high\", \"type\": \"descriptor\", \"descriptor\": \"aromatic_rings\", \"direction\": \"higher\", \"confidence\": 0.66, \"description\": \"High aromatic ring content linked to musculoskeletal side effects\"},\n    {\"name\": \"heavy_atoms_high\", \"type\": \"descriptor\", \"descriptor\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.64, \"description\": \"Greater number of heavy atoms associated with adverse effects\"},\n    {\"name\": \"fraction_csp3_high\", \"type\": \"descriptor\", \"descriptor\": \"fraction_csp3\", \"direction\": \"higher\", \"confidence\": 0.62, \"description\": \"Increased sp3 character suggests structural rigidity and potential for musculoskeletal toxicity\"},\n    {\"name\": \"num_heterocycles_high\", \"type\": \"descriptor\", \"descriptor\": \"num_heterocycles\", \"direction\": \"higher\", \"confidence\": 0.61, \"description\": \"More heterocyclic rings increase risk of musculoskeletal adverse events\"},\n    {\"name\": \"num_stereo_centers_high\", \"type\": \"descriptor\", \"descriptor\": \"num_stereo_centers\", \"direction\": \"higher\", \"confidence\": 0.59, \"description\": \"Increased stereocenters may lead to off-target musculoskeletal effects\"},\n    {\"name\": \"rot_bonds_high\", \"type\": \"descriptor\", \"descriptor\": \"rot_bonds\", \"direction\": \"higher\", \"confidence\": 0.58, \"description\": \"Greater rotational freedom correlates with musculoskeletal toxicity\"},\n    {\"name\": \"aromatic_ring_any_count\", \"type\": \"smarts_count\", \"smarts\": \"c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.72, \"description\": \"Presence of aromatic ring motifs increases risk of musculoskeletal side effects\"},\n    {\"name\": \"pyrimidine_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cncnc1\", \"direction\": \"higher\", \"confidence\": 0.69, \"description\": \"Pyrimidine ring presence linked to musculoskeletal adverse events\"},\n    {\"name\": \"primary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H2][#6]\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"Primary amines increase risk of musculoskeletal toxicity\"},\n    {\"name\": \"secondary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3;H1]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.63, \"description\": \"Secondary amines associated with musculoskeletal side effects\"},\n    {\"name\": \"tertiary_amine_count\", \"type\": \"smarts_count\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.62, \"description\": \"Tertiary amines correlate with musculoskeletal adverse effects\"},\n    {\"name\": \"phenol_count\", \"type\": \"smarts_count\", \"smarts\": \"[OX2H1]c1ccccc1\", \"direction\": \"higher\", \"confidence\": 0.60, \"description\": \"Phenolic groups increase risk of musculoskeletal toxicity\"},\n    {\"name\": \"carboxylic_acid_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"direction\": \"higher\", \"confidence\": 0.58, \"description\": \"Carboxylic acid groups linked to musculoskeletal adverse events\"},\n    {\"name\": \"amide_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[CX3](=O)[NX3]\", \"direction\": \"higher\", \"confidence\": 0.57, \"description\": \"Amide groups associated with musculoskeletal side effects\"},\n    {\"name\": \"ether_group_count\", \"type\": \"smarts_count\", \"smarts\": \"[OD2]([#6])[#6]\", \"direction\": \"higher\", \"confidence\": 0.56, \"description\": \"Ether linkages increase risk of musculoskeletal toxicity\"},\n    {\"name\": \"halogen_any_count\", \"type\": \"smarts_count\", \"smarts\": \"[F,Cl,Br,I]\", \"direction\": \"higher\", \"confidence\": 0.55, \"description\": \"Halogen presence increases musculoskeletal adverse effect risk\"},\n    {\"name\": \"aromatic_halogen_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c[F,Cl,Br,I]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Aryl halogen density as a ratio of halogens to heavy atoms\"},\n    {\"name\": \"hbd_hba_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hbd\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.64, \"description\": \"High hydrogen bond donor-to-acceptor ratio linked to musculoskeletal toxicity\"},\n    {\"name\": \"logp_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"logp\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.63, \"description\": \"High logP per molecular weight ratio indicates lipophilic burden\"},\n    {\"name\": \"tpsa_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"tpsa\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.62, \"description\": \"High surface area per molecular weight suggests poor solubility and musculoskeletal risk\"},\n    {\"name\": \"ring_count_heavy_atoms_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"ring_count\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.61, \"description\": \"High ring count relative to heavy atoms indicates structural complexity and toxicity\"},\n    {\"name\": \"aromatic_rings_heavy_atoms_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"aromatic_rings\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.60, \"description\": \"High aromatic ring density increases musculoskeletal risk\"},\n    {\"name\": \"hetero_atoms_heavy_atoms_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hetero_atoms\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.59, \"description\": \"High heteroatom content relative to heavy atoms correlates with adverse effects\"},\n    {\"name\": \"fraction_csp3_hba_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"fraction_csp3\", \"normalizer\": \"hba\", \"direction\": \"higher\", \"confidence\": 0.58, \"description\": \"High sp3 fraction relative to HBA suggests structural rigidity and toxicity\"},\n    {\"name\": \"num_stereo_centers_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"num_stereo_centers\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.57, \"description\": \"High stereocenter density per molecular weight increases musculoskeletal risk\"},\n    {\"name\": \"rot_bonds_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"rot_bonds\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.56, \"description\": \"High rotatable bond density per molecular weight indicates flexibility and toxicity\"},\n    {\"name\": \"hexahydronaphthalene_lactone\", \"type\": \"smarts_count\", \"smarts\": \"OC1CC(=O)OC(C)C1\", \"direction\": \"higher\", \"confidence\": 0.80, \"description\": \"Statins' lactone core strongly associated with myopathy\"},\n    {\"name\": \"quinolone_f_halogen\", \"type\": \"smarts_count\", \"smarts\": \"c1cc2c(cc1F)c(=O)c(C(=O)O)cn2\", \"direction\": \"higher\", \"confidence\": 0.75, \"description\": \"Fluoroquinolone core with fluorine linked to tendinopathy\"},\n    {\"name\": \"bisphosphonate_core\", \"type\": \"smarts_count\", \"smarts\": \"OP(=O)(O)C(O)P(=O)(O)O\", \"direction\": \"higher\", \"confidence\": 0.82, \"description\": \"Bisphosphonate motif strongly linked to musculoskeletal side effects\"},\n    {\"name\": \"aromatic_steroid_core\", \"type\": \"smarts_count\", \"smarts\": \"c1ccccc1c2ccccc2\", \"direction\": \"higher\", \"confidence\": 0.70, \"description\": \"Aromatic steroid frameworks associated with arthralgia\"},\n    {\"name\": \"lactone_fused_ring_count\", \"type\": \"smarts_count\", \"smarts\": \"c1cc(=O)oc1\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Fused-ring lactones increase risk of musculoskeletal toxicity\"},\n    {\"name\": \"phosphonate_group_count\", \"type\": \"smarts_count\", \"smarts\": \"OP(=O)(O)[#6]\", \"direction\": \"higher\", \"confidence\": 0.73, \"description\": \"Phosphonate groups linked to musculoskeletal adverse events\"},\n    {\"name\": \"aromatic_ring_any_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1ccccc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.69, \"description\": \"Aromatic ring density relative to heavy atoms\"},\n    {\"name\": \"primary_amine_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3;H2][#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"Primary amine density relative to heavy atoms\"},\n    {\"name\": \"tertiary_amine_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[NX3]([#6])([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.64, \"description\": \"Tertiary amine density relative to heavy atoms\"},\n    {\"name\": \"phenol_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OX2H1]c1ccccc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.63, \"description\": \"Phenol density relative to heavy atoms\"},\n    {\"name\": \"carboxylic_acid_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[CX3](=O)[OX2H1]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.62, \"description\": \"Carboxylic acid density relative to heavy atoms\"},\n    {\"name\": \"ether_group_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[OD2]([#6])[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.61, \"description\": \"Ether group density relative to heavy atoms\"},\n    {\"name\": \"halogen_any_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"[F,Cl,Br,I]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.60, \"description\": \"Halogen density relative to heavy atoms\"},\n    {\"name\": \"hbd_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hbd\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.59, \"description\": \"High hydrogen bond donor per molecular weight\"},\n    {\"name\": \"hba_mol_wt_ratio\", \"type\": \"descriptor_ratio\", \"descriptor\": \"hba\", \"normalizer\": \"mol_wt\", \"direction\": \"higher\", \"confidence\": 0.58, \"description\": \"High hydrogen bond acceptor per molecular weight\"},\n    {\"name\": \"logp_mol_wt_desirability\", \"type\": \"desirability_window\", \"descriptor\": \"logp\", \"a\": 3.0, \"b\": 4.5, \"c\": 5.5, \"d\": 6.5, \"direction\": \"higher\", \"confidence\": 0.67, \"description\": \"LogP window where musculoskeletal toxicity peaks\"},\n    {\"name\": \"tpsa_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"tpsa\", \"a\": 100, \"b\": 140, \"c\": 160, \"d\": 180, \"direction\": \"higher\", \"confidence\": 0.66, \"description\": \"TPSA range associated with increased musculoskeletal risk\"},\n    {\"name\": \"ring_count_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"ring_count\", \"a\": 3, \"b\": 5, \"c\": 7, \"d\": 9, \"direction\": \"higher\", \"confidence\": 0.65, \"description\": \"Ring count range where musculoskeletal toxicity is elevated\"},\n    {\"name\": \"aromatic_rings_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"aromatic_rings\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.64, \"description\": \"Aromatic ring count window linked to adverse effects\"},\n    {\"name\": \"num_heterocycles_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"num_heterocycles\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.63, \"description\": \"Heterocycle count window associated with musculoskeletal toxicity\"},\n    {\"name\": \"num_stereo_centers_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"num_stereo_centers\", \"a\": 2, \"b\": 4, \"c\": 6, \"d\": 8, \"direction\": \"higher\", \"confidence\": 0.62, \"description\": \"Stereo center count window where toxicity increases\"},\n    {\"name\": \"rot_bonds_desirability_window\", \"type\": \"desirability_window\", \"descriptor\": \"rot_bonds\", \"a\": 5, \"b\": 8, \"c\": 10, \"d\": 12, \"direction\": \"higher\", \"confidence\": 0.61, \"description\": \"Rotatable bond count window linked to musculoskeletal side effects\"},\n    {\"name\": \"phosphonate_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"OP(=O)(O)[#6]\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.71, \"description\": \"Phosphonate group density relative to heavy atoms\"},\n    {\"name\": \"lactone_heavy_atoms_ratio\", \"type\": \"smarts_ratio\", \"smarts\": \"c1cc(=O)oc1\", \"normalizer\": \"heavy_atoms\", \"direction\": \"higher\", \"confidence\": 0.68, \"description\": \"Lactone group density relative to heavy atoms\"}\n  ]\n}",
+    "num_attempts": 1
+  }
+}

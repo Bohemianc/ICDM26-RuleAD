@@ -1,0 +1,661 @@
+{
+  "task_key": "SIDER_task24",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 396,
+  "n_input_rules": 47,
+  "n_kept": 33,
+  "n_rejected": 14,
+  "rejects": [
+    {
+      "index": 9,
+      "name": "phenylpiperazine_ratio",
+      "reason": "fire_rate:0.0025"
+    },
+    {
+      "index": 24,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 30,
+      "name": "anhydride_count",
+      "reason": "fire_rate:0.0051"
+    },
+    {
+      "index": 31,
+      "name": "alcohol_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 32,
+      "name": "nitro_group_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 33,
+      "name": "sulfur_count",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 34,
+      "name": "nitrogen_fraction_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 35,
+      "name": "oxygen_fraction_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 36,
+      "name": "anthracycline_like_ratio",
+      "reason": "fire_rate:0.0126"
+    },
+    {
+      "index": 37,
+      "name": "fused_ring_system_ratio",
+      "reason": "fire_rate:0.0126"
+    },
+    {
+      "index": 40,
+      "name": "phenylpiperazine_count",
+      "reason": "fire_rate:0.0025"
+    },
+    {
+      "index": 43,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 45,
+      "name": "num_amide_bonds_high",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 46,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "High lipophilicity associated with hERG blockade and QT prolongation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 198,
+        "n_train_normal": 396,
+        "threshold": 1.8444500000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Increased hydrogen bond donors linked to cardiac toxicity via membrane disruption",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3005050505050505,
+        "fired": 119,
+        "n_train_normal": 396,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "High hydrogen bond acceptor count correlates with cardiac adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4797979797979798,
+        "fired": 190,
+        "n_train_normal": 396,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.88,
+      "description": "Multiple aromatic rings increase risk of hERG binding and arrhythmia",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3686868686868687,
+        "fired": 146,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Increased ring count associated with fused systems like anthracyclines, known for cardiotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.34595959595959597,
+        "fired": 137,
+        "n_train_normal": 396,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "High molecular weight compounds show increased off-target cardiac effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 198,
+        "n_train_normal": 396,
+        "threshold": 344.6700000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.83,
+      "description": "Low TPSA favors membrane penetration and hERG channel interaction",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49747474747474746,
+        "fired": 197,
+        "n_train_normal": 396,
+        "threshold": 80.26,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "Presence of tertiary amines is a key hERG pharmacophore element",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2828282828282828,
+        "fired": 112,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "piperazine_n_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Piperazine nitrogen in a secondary amine configuration enhances cardiac risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3005050505050505,
+        "fired": 119,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_methoxy_count",
+      "type": "smarts_count",
+      "smarts": "COc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "Aromatic methoxy groups increase lipophilicity and hERG affinity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12121212121212122,
+        "fired": 48,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "methoxybenzyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "COc1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Methoxybenzyl motif increases cardiac risk due to lipophilic aromatic system",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12121212121212122,
+        "fired": 48,
+        "n_train_normal": 396,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "basic_nitrogen_distance",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "High logP supports the presence of a basic nitrogen within 5\u20137 \u00c5 of two aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 198,
+        "n_train_normal": 396,
+        "threshold": 1.8444500000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_pair_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High aromatic ring density increases risk of hERG binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 198,
+        "n_train_normal": 396,
+        "threshold": 0.012826797385620915,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Pyrimidine rings contribute to planarity and hERG binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0707070707070707,
+        "fired": 28,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Primary amines may contribute to ionization and membrane penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24242424242424243,
+        "fired": 96,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Secondary amines are common in hERG-active compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3005050505050505,
+        "fired": 119,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Ether linkages increase lipophilicity and may support cardiac toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38636363636363635,
+        "fired": 153,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Halogen substitution increases lipophilicity and may promote off-target binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3207070707070707,
+        "fired": 127,
+        "n_train_normal": 396,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Phenolic groups can contribute to redox cycling and cardiac stress",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09090909090909091,
+        "fired": 36,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.55,
+      "description": "Carboxylic acids reduce lipophilicity and are less likely to cause cardiac effects",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.20202020202020202,
+        "fired": 80,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "lower",
+      "confidence": 0.58,
+      "description": "Amide groups reduce overall lipophilicity and are protective against cardiac toxicity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.27525252525252525,
+        "fired": 109,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Increased heterocyclic content correlates with hERG activity and cardiac risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3055555555555556,
+        "fired": 121,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Bridgehead atoms in fused systems are associated with structural rigidity and cardiotoxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05555555555555555,
+        "fired": 22,
+        "n_train_normal": 396,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Flexible chains increase conformational freedom and hERG binding potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4166666666666667,
+        "fired": 165,
+        "n_train_normal": 396,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "logp",
+      "a": 3.0,
+      "b": 5.5,
+      "c": 5.5,
+      "d": 6.5,
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "LogP between 3.0 and 6.5 is strongly associated with cardiac adverse events",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07828282828282829,
+        "fired": 31,
+        "n_train_normal": 396,
+        "threshold": 5.5,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 20,
+      "b": 60,
+      "c": 80,
+      "d": 100,
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Low TPSA (20\u201360) favors membrane permeability and hERG interaction",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5075757575757576,
+        "fired": 201,
+        "n_train_normal": 396,
+        "threshold": 80.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccncc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Aromatic nitrogen rings increase polarity and hERG risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07323232323232323,
+        "fired": 29,
+        "n_train_normal": 396,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_aromatic_pair",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.86,
+      "description": "Tertiary amine adjacent to aromatic rings is a key torsadogenic motif",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2828282828282828,
+        "fired": 112,
+        "n_train_normal": 396,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "basic_nitrogen_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H0][#6]",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Basic nitrogen atoms are key to hERG pharmacophore",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31565656565656564,
+        "fired": 125,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.9,
+      "description": "Tertiary amine per aromatic ring is a strong indicator of torsadogenic potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2828282828282828,
+        "fired": 112,
+        "n_train_normal": 396,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "methoxybenzyl_count",
+      "type": "smarts_count",
+      "smarts": "COc1ccccc1",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Methoxybenzyl group increases lipophilicity and cardiac risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12121212121212122,
+        "fired": 48,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyridine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Pyridine rings contribute to basicity and hERG binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0707070707070707,
+        "fired": 28,
+        "n_train_normal": 396,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "High heavy atom count correlates with lipophilicity and off-target binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.494949494949495,
+        "fired": 196,
+        "n_train_normal": 396,
+        "threshold": 23.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task24__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:12.805973"
+}

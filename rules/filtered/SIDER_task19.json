@@ -1,0 +1,841 @@
+{
+  "task_key": "SIDER_task19",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 331,
+  "n_input_rules": 54,
+  "n_kept": 43,
+  "n_rejected": 11,
+  "rejects": [
+    {
+      "index": 7,
+      "name": "aryloxy_aminopropanol_count",
+      "reason": "fire_rate:0.0030"
+    },
+    {
+      "index": 8,
+      "name": "isocyanate_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 9,
+      "name": "aldehyde_on_aliphatic_count",
+      "reason": "fire_rate:0.0091"
+    },
+    {
+      "index": 21,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0030"
+    },
+    {
+      "index": 26,
+      "name": "aromatic_rings_desirability_window",
+      "reason": "fire_rate:0.0242"
+    },
+    {
+      "index": 29,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 31,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0453"
+    },
+    {
+      "index": 32,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0211"
+    },
+    {
+      "index": 34,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 35,
+      "name": "aryloxy_aminopropanol_ratio",
+      "reason": "fire_rate:0.0030"
+    },
+    {
+      "index": 36,
+      "name": "isocyanate_ratio",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with respiratory irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 1.8492000000000002,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 40,
+      "b": 60,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "TPSA range linked to respiratory adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23867069486404835,
+        "fired": 79,
+        "n_train_normal": 331,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors correlate with airway irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30513595166163143,
+        "fired": 101,
+        "n_train_normal": 331,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High hydrogen bond acceptor count linked to pulmonary toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4561933534743202,
+        "fired": 151,
+        "n_train_normal": 331,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Higher molecular weight associated with accumulation in lung tissue",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 332.353,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Increased ring count correlates with structural complexity and respiratory risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3202416918429003,
+        "fired": 106,
+        "n_train_normal": 331,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High aromaticity increases airway irritation potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40181268882175225,
+        "fired": 133,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Phenolic groups contribute to oxidative stress in lungs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08761329305135952,
+        "fired": 29,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Primary amines may trigger bronchospasm in sensitive individuals",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22054380664652568,
+        "fired": 73,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Secondary amines linked to respiratory side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27794561933534745,
+        "fired": 92,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Tertiary amines may cause airway hyperreactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28700906344410876,
+        "fired": 95,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High ether density in molecules increases lung irritation risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.39274924471299094,
+        "fired": 130,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "High halogen content correlates with respiratory toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31722054380664655,
+        "fired": 105,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "High aromatic ring density increases airway exposure risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 0.030303030303030304,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Pyrimidine rings may contribute to pulmonary toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0513595166163142,
+        "fired": 17,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Carboxylic acids can cause local irritation in respiratory tract",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.19637462235649547,
+        "fired": 65,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Amide groups may contribute to lung inflammation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24773413897280966,
+        "fired": 82,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Hydroxyl groups on carbon increase polarity and potential for irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5075528700906344,
+        "fired": 168,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 50,
+      "b": 100,
+      "c": 150,
+      "d": 200,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "TPSA in mid-to-high range associated with lung penetration and irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1691842900302115,
+        "fired": 56,
+        "n_train_normal": 331,
+        "threshold": 150.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 2,
+      "b": 5,
+      "c": 10,
+      "d": 15,
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "HBD count in moderate range increases respiratory side effect risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0634441087613293,
+        "fired": 21,
+        "n_train_normal": 331,
+        "threshold": 10.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 5,
+      "b": 10,
+      "c": 15,
+      "d": 20,
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "HBA count in moderate range linked to pulmonary toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06948640483383686,
+        "fired": 23,
+        "n_train_normal": 331,
+        "threshold": 15.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "ring_count",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Ring count in 2\u20138 range associated with respiratory adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06646525679758308,
+        "fired": 22,
+        "n_train_normal": 331,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 500,
+      "c": 700,
+      "d": 900,
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Molecular weight above 300 linked to lung accumulation and toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08157099697885196,
+        "fired": 27,
+        "n_train_normal": 331,
+        "threshold": 700.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.55,
+      "description": "High fraction of sp3 carbons correlates with lipophilic accumulation in lungs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4954682779456193,
+        "fired": 164,
+        "n_train_normal": 331,
+        "threshold": 0.4166666666666667,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Heterocyclic rings increase metabolic instability and respiratory toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.283987915407855,
+        "fired": 94,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.54,
+      "description": "High rotatable bond count increases conformational flexibility and lung penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4078549848942598,
+        "fired": 135,
+        "n_train_normal": 331,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aldehyde_ratio",
+      "type": "smarts_ratio",
+      "smarts": "C=O",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "High aldehyde density increases respiratory irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 0.041666666666666664,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "High phenol density increases oxidative stress in lungs",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08761329305135952,
+        "fired": 29,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High primary amine density increases bronchospasm risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22054380664652568,
+        "fired": 73,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "High secondary amine density linked to respiratory side effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.27794561933534745,
+        "fired": 92,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "High tertiary amine density may trigger airway hyperreactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28700906344410876,
+        "fired": 95,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High ether density increases lung irritation potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.39274924471299094,
+        "fired": 130,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "High halogen density correlates with respiratory toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31722054380664655,
+        "fired": 105,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "High aromatic ring density increases airway exposure",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 0.030303030303030304,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1cncnc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High pyrimidine density may contribute to pulmonary toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.0513595166163142,
+        "fired": 17,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "High carboxylic acid density increases local irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.19637462235649547,
+        "fired": 65,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "High amide density may promote lung inflammation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24773413897280966,
+        "fired": 82,
+        "n_train_normal": 331,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High hydroxyl density increases polarity and irritation potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 0.02,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "logp_high_anom",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Lipophilicity above 3.0 is strongly associated with respiratory adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4984894259818731,
+        "fired": 165,
+        "n_train_normal": 331,
+        "threshold": 1.8492000000000002,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high_anom",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Hydrogen bond donor count above 3 increases respiratory risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30513595166163143,
+        "fired": 101,
+        "n_train_normal": 331,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high_anom",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Hydrogen bond acceptor count above 6 increases pulmonary toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4561933534743202,
+        "fired": 151,
+        "n_train_normal": 331,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_anom",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Ring count above 3 increases respiratory side effect likelihood",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3202416918429003,
+        "fired": 106,
+        "n_train_normal": 331,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_anom",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "Aromatic ring count above 2 increases airway irritation risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40181268882175225,
+        "fired": 133,
+        "n_train_normal": 331,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task19__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:10.913964"
+}

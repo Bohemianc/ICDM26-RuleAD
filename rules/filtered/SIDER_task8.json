@@ -1,0 +1,521 @@
+{
+  "task_key": "SIDER_task8",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 363,
+  "n_input_rules": 51,
+  "n_kept": 20,
+  "n_rejected": 31,
+  "rejects": [
+    {
+      "index": 0,
+      "name": "sulfonamide_count",
+      "reason": "fire_rate:0.0468"
+    },
+    {
+      "index": 4,
+      "name": "beta_lactam_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 5,
+      "name": "aromatic_nitro_group",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 8,
+      "name": "thiazole_ring_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 9,
+      "name": "thiadiazole_ring_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 10,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 12,
+      "name": "hba_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 13,
+      "name": "hbd_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 14,
+      "name": "ring_count_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 15,
+      "name": "heavy_atoms_anom_window",
+      "reason": "fire_rate:0.0138"
+    },
+    {
+      "index": 16,
+      "name": "mol_wt_anom_window",
+      "reason": "fire_rate:0.0386"
+    },
+    {
+      "index": 17,
+      "name": "num_heterocycles_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 18,
+      "name": "fraction_csp3_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 26,
+      "name": "sulfonamide_aromatic_ratio",
+      "reason": "fire_rate:0.0468"
+    },
+    {
+      "index": 28,
+      "name": "beta_lactam_aromatic_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 29,
+      "name": "nitro_aromatic_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 30,
+      "name": "thiazole_aromatic_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 31,
+      "name": "hetero_atoms_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 32,
+      "name": "rot_bonds_anom_window",
+      "reason": "fire_rate:0.0138"
+    },
+    {
+      "index": 33,
+      "name": "num_stereo_centers_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 34,
+      "name": "num_bridgehead_atoms_anom_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 35,
+      "name": "labute_asa_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 36,
+      "name": "atom_richness_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 37,
+      "name": "formal_charge_abs_anom_window",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 39,
+      "name": "sulfonamide_aromatic_count",
+      "reason": "fire_rate:0.0468"
+    },
+    {
+      "index": 41,
+      "name": "nitro_aromatic_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 42,
+      "name": "thiadiazole_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 47,
+      "name": "beta_lactam_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 48,
+      "name": "logp_2_4_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 49,
+      "name": "hba_8_15_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 50,
+      "name": "hbd_3_6_window",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "aromatic_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Primary aromatic amine, a known hapten and immunogenic group",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3333333333333333,
+        "fired": 121,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Secondary amine on aromatic ring, associated with hypersensitivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29476584022038566,
+        "fired": 107,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Tertiary amine, often linked to immune activation via metabolic intermediates",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3085399449035813,
+        "fired": 112,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Aromatic halogen density, indicating potential for metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15151515151515152,
+        "fired": 55,
+        "n_train_normal": 363,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Presence of halogens, especially on aromatic systems, linked to immune reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2865013774104683,
+        "fired": 104,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 60,
+      "b": 100,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "TPSA in mid-to-high range linked to immune system reactivity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1652892561983471,
+        "fired": 60,
+        "n_train_normal": 363,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.89,
+      "description": "Presence of benzene rings, common in immunogenic compounds",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6143250688705234,
+        "fired": 223,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Pyrimidine ring, known to be immunogenic in certain drug classes",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.06887052341597796,
+        "fired": 25,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Phenolic groups, metabolized to reactive quinones, linked to immune reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09641873278236915,
+        "fired": 35,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Carboxylic acids can form reactive metabolites triggering immune responses",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1349862258953168,
+        "fired": 49,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Amide bonds, especially in aromatic contexts, may form immunogenic metabolites",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2699724517906336,
+        "fired": 98,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Ether linkages on aromatic rings may contribute to metabolic activation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40771349862258954,
+        "fired": 148,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_halo_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Ratio of halogenated aromatic rings to total aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15151515151515152,
+        "fired": 55,
+        "n_train_normal": 363,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Primary amine on aromatic ring density",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18732782369146006,
+        "fired": 68,
+        "n_train_normal": 363,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.83,
+      "description": "Aromatic amine-like structures, known to be immunogenic",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07162534435261708,
+        "fired": 26,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Presence of halogens, especially on aromatic systems, linked to immune reactions",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2865013774104683,
+        "fired": 104,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.76,
+      "description": "Phenol group density on aromatic rings",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09641873278236915,
+        "fired": 35,
+        "n_train_normal": 363,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.75,
+      "description": "Primary amine, a known immunogenic group",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18732782369146006,
+        "fired": 68,
+        "n_train_normal": 363,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Secondary amine on aromatic ring density",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.29476584022038566,
+        "fired": 107,
+        "n_train_normal": 363,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Tertiary amine on aromatic ring density",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3085399449035813,
+        "fired": 112,
+        "n_train_normal": 363,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task8__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:06.642487"
+}

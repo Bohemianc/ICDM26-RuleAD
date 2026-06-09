@@ -1,0 +1,783 @@
+{
+  "task_key": "SIDER_task3",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 496,
+  "n_input_rules": 51,
+  "n_kept": 40,
+  "n_rejected": 11,
+  "rejects": [
+    {
+      "index": 10,
+      "name": "fluoroquinolone_core",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 11,
+      "name": "aromatic_polyhydroxyl_ratio",
+      "reason": "fire_rate:0.0282"
+    },
+    {
+      "index": 18,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 27,
+      "name": "fluoroquinolone_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 28,
+      "name": "polyhydroxyl_aromatic_ratio",
+      "reason": "fire_rate:0.0282"
+    },
+    {
+      "index": 36,
+      "name": "hetero_atoms_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 40,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0222"
+    },
+    {
+      "index": 41,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 42,
+      "name": "labute_asa_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 45,
+      "name": "fluoroquinolone_to_heavy_atoms_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 46,
+      "name": "polyhydroxyl_to_aromatic_ratio",
+      "reason": "fire_rate:0.0282"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with ocular accumulation and penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 248,
+        "n_train_normal": 496,
+        "threshold": 1.49835,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Increased molecular weight correlates with reduced ocular clearance and potential for retinal accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 248,
+        "n_train_normal": 496,
+        "threshold": 355.9045000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.67,
+      "description": "Low TPSA favors passive diffusion through ocular barriers, increasing risk of retinal exposure",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.5,
+        "fired": 248,
+        "n_train_normal": 496,
+        "threshold": 88.445,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "High hydrogen bond donor count may impair ocular solubility and promote local accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38911290322580644,
+        "fired": 193,
+        "n_train_normal": 496,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High hydrogen bond acceptor count supports ocular penetration and potential for retinal binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 248,
+        "n_train_normal": 496,
+        "threshold": 4.5,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "Multiple aromatic rings increase lipophilicity and promote accumulation in pigmented eye tissues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4153225806451613,
+        "fired": 206,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Increased ring count enhances lipophilicity and structural rigidity, linked to ocular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.32661290322580644,
+        "fired": 162,
+        "n_train_normal": 496,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High heavy atom count increases lipophilicity and potential for retinal binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 248,
+        "n_train_normal": 496,
+        "threshold": 24.5,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Tertiary amines with aromatic attachment (e.g., chloroquine-like motifs) are strongly associated with ocular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31048387096774194,
+        "fired": 154,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Phenolic groups enhance ocular penetration and may act as pro-oxidants in retinal tissue",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13306451612903225,
+        "fired": 66,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.72,
+      "description": "Halogen substitution increases lipophilicity and may promote ocular accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24596774193548387,
+        "fired": 122,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Primary amines may contribute to ocular penetration and local irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2842741935483871,
+        "fired": 141,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Secondary amines enhance lipophilicity and may promote ocular retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38306451612903225,
+        "fired": 190,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Ether linkages increase lipophilicity and may support ocular penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4032258064516129,
+        "fired": 200,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Carboxylic acids may reduce ocular solubility and promote local accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24596774193548387,
+        "fired": 122,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Amide groups may enhance stability and penetration, with potential for retinal binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3407258064516129,
+        "fired": 169,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 30,
+      "b": 80,
+      "c": 120,
+      "d": 140,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "TPSA in 30\u201380 range supports good membrane permeability and ocular penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31048387096774194,
+        "fired": 154,
+        "n_train_normal": 496,
+        "threshold": 120.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "mol_wt",
+      "a": 300,
+      "b": 450,
+      "c": 1000,
+      "d": 1500,
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "Molecular weight below 450 favors ocular bioavailability and penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.09475806451612903,
+        "fired": 47,
+        "n_train_normal": 496,
+        "threshold": 1000.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 1,
+      "b": 3,
+      "c": 10,
+      "d": 15,
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Moderate HBD count supports solubility and ocular diffusion",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.10080645161290322,
+        "fired": 50,
+        "n_train_normal": 496,
+        "threshold": 10.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 4,
+      "b": 8,
+      "c": 20,
+      "d": 30,
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Moderate HBA count supports ocular penetration and binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.05443548387096774,
+        "fired": 27,
+        "n_train_normal": 496,
+        "threshold": 20.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c1ccccc1",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "High aromatic ring density increases lipophilicity and ocular retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49798387096774194,
+        "fired": 247,
+        "n_train_normal": 496,
+        "threshold": 0.023529411764705882,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.69,
+      "description": "Pyrimidine rings are common in ocular toxicants due to planarity and electron distribution",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08669354838709678,
+        "fired": 43,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Tertiary amines attached to aromatic systems (e.g., chloroquine) are strongly linked to ocular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31048387096774194,
+        "fired": 154,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Phenol-containing aromatic systems increase ocular penetration and oxidative stress",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13306451612903225,
+        "fired": 66,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Halogenated aromatics increase lipophilicity and ocular accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12903225806451613,
+        "fired": 64,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count_high",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Presence of multiple tertiary amines with aromatic attachment increases ocular toxicity risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31048387096774194,
+        "fired": 154,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Primary amines may enhance ocular penetration and local irritation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2842741935483871,
+        "fired": 141,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Secondary amines contribute to lipophilicity and ocular retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38306451612903225,
+        "fired": 190,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Ether linkages increase lipophilicity and may support ocular diffusion",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4032258064516129,
+        "fired": 200,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Carboxylic acids may reduce solubility and promote local accumulation in eye tissues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.24596774193548387,
+        "fired": 122,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Amide groups may enhance stability and penetration, with potential for retinal binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3407258064516129,
+        "fired": 169,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_high",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Higher fraction of sp3 carbons may reduce lipophilicity and lower ocular penetration risk",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 248,
+        "n_train_normal": 496,
+        "threshold": 0.44093023255813957,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Increased rotatable bonds may enhance conformational flexibility and ocular diffusion",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4959677419354839,
+        "fired": 246,
+        "n_train_normal": 496,
+        "threshold": 4.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Multiple heterocycles increase lipophilicity and potential for retinal binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3588709677419355,
+        "fired": 178,
+        "n_train_normal": 496,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Tertiary amines attached to aromatic rings are a key structural alert for ocular toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.31048387096774194,
+        "fired": 154,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.74,
+      "description": "Phenolic groups on aromatic rings increase oxidative stress in ocular tissue",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.13306451612903225,
+        "fired": 66,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_to_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]c1ccccc1",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.73,
+      "description": "Halogenated aromatic systems increase lipophilicity and ocular accumulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.12903225806451613,
+        "fired": 64,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_to_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Primary amines relative to heavy atoms may enhance ocular penetration",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2842741935483871,
+        "fired": 141,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_to_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Secondary amines relative to heavy atoms support ocular diffusion",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38306451612903225,
+        "fired": 190,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_to_heavy_atoms_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Ether groups relative to heavy atoms increase lipophilicity and ocular retention",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4032258064516129,
+        "fired": 200,
+        "n_train_normal": 496,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task3__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:05.240686"
+}

@@ -1,0 +1,602 @@
+{
+  "task_key": "Tox21_task1",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 5869,
+  "n_input_rules": 47,
+  "n_kept": 28,
+  "n_rejected": 19,
+  "rejects": [
+    {
+      "index": 4,
+      "name": "nitro_aromatic_ratio",
+      "reason": "fire_rate:0.0474"
+    },
+    {
+      "index": 5,
+      "name": "cyano_aromatic_ratio",
+      "reason": "fire_rate:0.0455"
+    },
+    {
+      "index": 6,
+      "name": "cf3_nitro_co_occurrence",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 7,
+      "name": "cf3_cyano_co_occurrence",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 8,
+      "name": "steroid_core_fingerprint",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 20,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 22,
+      "name": "pyrimidine_count",
+      "reason": "fire_rate:0.0329"
+    },
+    {
+      "index": 25,
+      "name": "logp_desirability_window",
+      "reason": "fire_rate:0.0032"
+    },
+    {
+      "index": 27,
+      "name": "aromatic_ring_count_desirability",
+      "reason": "fire_rate:0.0027"
+    },
+    {
+      "index": 30,
+      "name": "num_bridgehead_atoms_high",
+      "reason": "fire_rate:0.0302"
+    },
+    {
+      "index": 31,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0143"
+    },
+    {
+      "index": 34,
+      "name": "labute_asa_low",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 35,
+      "name": "steroid_ring_ratio",
+      "reason": "fire_rate:0.0002"
+    },
+    {
+      "index": 36,
+      "name": "anilide_core_ratio",
+      "reason": "fire_rate:0.0325"
+    },
+    {
+      "index": 38,
+      "name": "nitro_aromatic_ratio",
+      "reason": "fire_rate:0.0474"
+    },
+    {
+      "index": 39,
+      "name": "cyano_aromatic_ratio",
+      "reason": "fire_rate:0.0455"
+    },
+    {
+      "index": 40,
+      "name": "biphenyl_core_ratio",
+      "reason": "fire_rate:0.0128"
+    },
+    {
+      "index": 41,
+      "name": "diphenylmethyl_ratio",
+      "reason": "fire_rate:0.0486"
+    },
+    {
+      "index": 42,
+      "name": "halogenated_biphenyl_ratio",
+      "reason": "fire_rate:0.0014"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Higher lipophilicity correlates with increased binding affinity to the androgen receptor ligand-binding domain",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.499744419833021,
+        "fired": 2933,
+        "n_train_normal": 5869,
+        "threshold": 2.2518000000000002,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.91,
+      "description": "Increased aromatic ring count supports binding to the hydrophobic AR LBD cavity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.30584426648492075,
+        "fired": 1795,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Presence of halogens (especially Cl, Br) enhances lipophilicity and van der Waals interactions in AR binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22968137672516611,
+        "fired": 1348,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_cf3_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "High aryl-halogen density, particularly CF3, is a hallmark of active anilide anti-androgens",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14176179928437554,
+        "fired": 832,
+        "n_train_normal": 5869,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_group_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "Phenolic OH groups may participate in H-bonding with AR LBD residues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08365990799113988,
+        "fired": 491,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.81,
+      "description": "Amide bond in flutamide-like anilides is critical for binding to AR LBD",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.1819730788890782,
+        "fired": 1068,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "lower",
+      "confidence": 0.75,
+      "description": "Primary amines are rare in active AR ligands; their presence may disrupt binding",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1271085363775771,
+        "fired": 746,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.73,
+      "description": "Secondary amines are less common in active AR ligands and may reduce binding affinity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.1874254557846311,
+        "fired": 1100,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.72,
+      "description": "Tertiary amines are generally inactive in AR binding due to poor fit and polarity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.18708468222865907,
+        "fired": 1098,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.77,
+      "description": "Higher hydrogen bond acceptor count supports interaction with AR LBD polar residues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3717839495655137,
+        "fired": 2182,
+        "n_train_normal": 5869,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_low",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "lower",
+      "confidence": 0.76,
+      "description": "Low hydrogen bond donor count avoids disruptive H-bonding in hydrophobic cavity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.43227125575055375,
+        "fired": 2537,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Increased ring count supports rigidity and shape complementarity with AR LBD",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4414721417617993,
+        "fired": 2591,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_low",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "lower",
+      "confidence": 0.85,
+      "description": "Low rotatable bonds indicate conformational rigidity, favorable for AR binding",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.4315897086386096,
+        "fired": 2533,
+        "n_train_normal": 5869,
+        "threshold": 3.0,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Higher molecular weight correlates with larger, more lipophilic AR binders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.499914806611007,
+        "fired": 2934,
+        "n_train_normal": 5869,
+        "threshold": 224.21599999999998,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_low",
+      "type": "descriptor",
+      "descriptor": "tpsa",
+      "direction": "lower",
+      "confidence": 0.83,
+      "description": "Low TPSA supports high lipophilicity and hydrophobic binding in AR LBD",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49906287272107686,
+        "fired": 2929,
+        "n_train_normal": 5869,
+        "threshold": 44.760000000000005,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.8,
+      "description": "Heterocyclic rings (e.g., pyrimidine) improve binding via dipole and H-bonding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38166638268870334,
+        "fired": 2240,
+        "n_train_normal": 5869,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.78,
+      "description": "Aromatic nitrogen-containing rings enhance dipole and H-bonding potential",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.055375702845459195,
+        "fired": 325,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.84,
+      "description": "High halogen density on aromatic rings increases lipophilicity and binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.22968137672516611,
+        "fired": 1348,
+        "n_train_normal": 5869,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_desirability",
+      "type": "desirability_window",
+      "descriptor": "fraction_csp3",
+      "a": 0.2,
+      "b": 0.4,
+      "c": 0.6,
+      "d": 0.8,
+      "direction": "lower",
+      "confidence": 0.87,
+      "description": "Low sp3 fraction (0.2\u20130.4) is preferred for rigid, planar AR binders",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3416254898619867,
+        "fired": 2005,
+        "n_train_normal": 5869,
+        "threshold": 0.6,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hba",
+      "a": 2,
+      "b": 4,
+      "c": 6,
+      "d": 8,
+      "direction": "higher",
+      "confidence": 0.79,
+      "description": "2\u20134 H-bond acceptors support key interactions with AR LBD residues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.15505196796728574,
+        "fired": 910,
+        "n_train_normal": 5869,
+        "threshold": 6.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_desirability_window",
+      "type": "desirability_window",
+      "descriptor": "hbd",
+      "a": 0,
+      "b": 1,
+      "c": 2,
+      "d": 3,
+      "direction": "lower",
+      "confidence": 0.8,
+      "description": "Low H-bond donor count (0\u20131) avoids disruption of hydrophobic binding pocket",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.2809677968989606,
+        "fired": 1649,
+        "n_train_normal": 5869,
+        "threshold": 2.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_amide_bonds_high",
+      "type": "descriptor",
+      "descriptor": "num_amide_bonds",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "Amide bonds are key in flutamide-like anilide scaffolds for AR binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.18452888055886862,
+        "fired": 1083,
+        "n_train_normal": 5869,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.85,
+      "description": "Higher heavy atom count correlates with larger, more lipophilic AR binders",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4854319304821946,
+        "fired": 2849,
+        "n_train_normal": 5869,
+        "threshold": 15.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "cf3_aromatic_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.82,
+      "description": "High CF3 density on aromatic rings enhances lipophilicity and binding",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.14176179928437554,
+        "fired": 832,
+        "n_train_normal": 5869,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.87,
+      "description": "Presence of multiple aromatic rings supports hydrophobic binding to AR LBD",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5527347077866758,
+        "fired": 3244,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "lower",
+      "confidence": 0.74,
+      "description": "Ether groups are generally inactive in AR binding due to polarity and poor fit",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3571306866587153,
+        "fired": 2096,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "lower",
+      "confidence": 0.71,
+      "description": "Carboxylic acids are polar and disrupt hydrophobic binding in AR LBD",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.0988243312318964,
+        "fired": 580,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "lower",
+      "confidence": 0.7,
+      "description": "Hydroxyl groups are polar and may reduce binding affinity in hydrophobic cavity",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.3213494632816493,
+        "fired": 1886,
+        "n_train_normal": 5869,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/Tox21_task1__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:18.926405"
+}

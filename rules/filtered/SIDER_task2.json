@@ -1,0 +1,653 @@
+{
+  "task_key": "SIDER_task2",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 1265,
+  "n_input_rules": 43,
+  "n_kept": 34,
+  "n_rejected": 9,
+  "rejects": [
+    {
+      "index": 8,
+      "name": "logp_anom_window",
+      "reason": "fire_rate:0.0079"
+    },
+    {
+      "index": 12,
+      "name": "num_stereo_centers_high",
+      "reason": "not_compilable"
+    },
+    {
+      "index": 14,
+      "name": "num_spiro_atoms_high",
+      "reason": "fire_rate:0.0253"
+    },
+    {
+      "index": 27,
+      "name": "michael_acceptor_count",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 28,
+      "name": "epoxide_count",
+      "reason": "fire_rate:0.0126"
+    },
+    {
+      "index": 29,
+      "name": "aziridine_count",
+      "reason": "fire_rate:0.0016"
+    },
+    {
+      "index": 40,
+      "name": "michael_acceptor_ratio",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 41,
+      "name": "epoxide_ratio",
+      "reason": "fire_rate:0.0126"
+    },
+    {
+      "index": 42,
+      "name": "aziridine_ratio",
+      "reason": "fire_rate:0.0016"
+    }
+  ],
+  "rules": [
+    {
+      "name": "logp_high",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.71,
+      "description": "Higher lipophilicity associated with product-related adverse effects",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49960474308300395,
+        "fired": 632,
+        "n_train_normal": 1265,
+        "threshold": 2.1769,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "mol_wt_high",
+      "type": "descriptor",
+      "descriptor": "mol_wt",
+      "direction": "higher",
+      "confidence": 0.68,
+      "description": "High molecular weight linked to formulation instability and product issues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49960474308300395,
+        "fired": 632,
+        "n_train_normal": 1265,
+        "threshold": 357.3220000000001,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hbd_high",
+      "type": "descriptor",
+      "descriptor": "hbd",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Increased hydrogen bond donors correlate with poor solubility and product quality issues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3375494071146245,
+        "fired": 427,
+        "n_train_normal": 1265,
+        "threshold": 2.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hba_high",
+      "type": "descriptor",
+      "descriptor": "hba",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High hydrogen bond acceptor count associated with formulation instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.38893280632411065,
+        "fired": 492,
+        "n_train_normal": 1265,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "rot_bonds_high",
+      "type": "descriptor",
+      "descriptor": "rot_bonds",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "High rotatable bond count indicates poor conformational stability and product degradation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.40711462450592883,
+        "fired": 515,
+        "n_train_normal": 1265,
+        "threshold": 5.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ring_count_high",
+      "type": "descriptor",
+      "descriptor": "ring_count",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Increased ring count may lead to crystallization or stability issues in product form",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.35098814229249015,
+        "fired": 444,
+        "n_train_normal": 1265,
+        "threshold": 3.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_rings_high",
+      "type": "descriptor",
+      "descriptor": "aromatic_rings",
+      "direction": "higher",
+      "confidence": 0.66,
+      "description": "High aromatic ring content linked to poor solubility and formulation challenges",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.46482213438735176,
+        "fired": 588,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tpsa_anom_window",
+      "type": "desirability_window",
+      "descriptor": "tpsa",
+      "a": 80,
+      "b": 120,
+      "c": 140,
+      "d": 160,
+      "direction": "higher",
+      "confidence": 0.7,
+      "description": "TPSA in high range associated with poor membrane permeability and product instability",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2189723320158103,
+        "fired": 277,
+        "n_train_normal": 1265,
+        "threshold": 140.0,
+        "threshold_kind": "desc>=c",
+        "seed": 42
+      }
+    },
+    {
+      "name": "heavy_atoms_high",
+      "type": "descriptor",
+      "descriptor": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High heavy atom count may impair manufacturing and product consistency",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.4679841897233202,
+        "fired": 592,
+        "n_train_normal": 1265,
+        "threshold": 25.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "fraction_csp3_low",
+      "type": "descriptor",
+      "descriptor": "fraction_csp3",
+      "direction": "lower",
+      "confidence": 0.6,
+      "description": "Low fraction of sp3 carbons indicates high flexibility and poor stability in product form",
+      "_filter": {
+        "direction_resolved": "lower",
+        "fire_rate_train_normal": 0.49960474308300395,
+        "fired": 632,
+        "n_train_normal": 1265,
+        "threshold": 0.45,
+        "threshold_kind": "desc<median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_heterocycles_high",
+      "type": "descriptor",
+      "descriptor": "num_heterocycles",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "High heterocycle count may lead to impurity formation or degradation in product",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.37470355731225297,
+        "fired": 474,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "num_bridgehead_atoms_high",
+      "type": "descriptor",
+      "descriptor": "num_bridgehead_atoms",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Bridgehead atoms may introduce strain and instability in solid formulations",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07035573122529644,
+        "fired": 89,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H2][#6]",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "Primary amines may lead to degradation or impurity formation in product",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23478260869565218,
+        "fired": 297,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "Secondary amines can undergo hydrolysis or oxidation in product storage",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3652173913043478,
+        "fired": 462,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_count",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "Tertiary amines may promote degradation or form reactive intermediates in formulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3683794466403162,
+        "fired": 466,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_count",
+      "type": "smarts_count",
+      "smarts": "[OX2H1]c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "Phenolic groups prone to oxidation and degradation in product form",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11541501976284585,
+        "fired": 146,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_count",
+      "type": "smarts_count",
+      "smarts": "[OX2;H1][#6]",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Hydroxyl groups increase hydrophilicity and may lead to poor stability in solid dosage forms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5201581027667984,
+        "fired": 658,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Carboxylic acids may cause pH instability and degradation in product",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2,
+        "fired": 253,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_count",
+      "type": "smarts_count",
+      "smarts": "[CX3](=O)[NX3]",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "Amide groups can hydrolyze under certain storage conditions, affecting product integrity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3264822134387352,
+        "fired": 413,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_count",
+      "type": "smarts_count",
+      "smarts": "[OD2]([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "Ether linkages may be susceptible to cleavage in product environments",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42371541501976284,
+        "fired": 536,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_count",
+      "type": "smarts_count",
+      "smarts": "[F,Cl,Br,I]",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Halogen atoms may lead to instability or impurity formation in formulations",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2774703557312253,
+        "fired": 351,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aryl_halogen_ratio",
+      "type": "smarts_ratio",
+      "smarts": "c[F,Cl,Br,I]",
+      "normalizer": "heavy_atoms",
+      "direction": "higher",
+      "confidence": 0.67,
+      "description": "Aryl halogen density indicates potential for degradation or impurity formation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.17549407114624507,
+        "fired": 222,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_n_ring_count",
+      "type": "smarts_count",
+      "smarts": "c1ccncc1",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "Aromatic nitrogen rings may contribute to metabolic instability and formulation issues",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.08458498023715415,
+        "fired": 107,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "pyrimidine_count",
+      "type": "smarts_count",
+      "smarts": "c1cncnc1",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "Pyrimidine rings may promote instability in solid forms due to tautomerism",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.07114624505928854,
+        "fired": 90,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "aromatic_ring_any_count",
+      "type": "smarts_count",
+      "smarts": "c1ccccc1",
+      "direction": "higher",
+      "confidence": 0.65,
+      "description": "Presence of benzene rings increases risk of crystallization and poor dissolution",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.6316205533596838,
+        "fired": 799,
+        "n_train_normal": 1265,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "primary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H2][#6]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.62,
+      "description": "High primary amine density may lead to degradation in product",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.23478260869565218,
+        "fired": 297,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "secondary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3;H1]([#6])[#6]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.61,
+      "description": "High secondary amine density may promote hydrolysis in formulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3652173913043478,
+        "fired": 462,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "tertiary_amine_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High tertiary amine ratio may lead to instability in solid dosage forms",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3683794466403162,
+        "fired": 466,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "phenol_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2H1]c1ccccc1",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.63,
+      "description": "High phenol density increases oxidation risk in product",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.11541501976284585,
+        "fired": 146,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "hydroxyl_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OX2;H1][#6]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.6,
+      "description": "High hydroxyl density may reduce stability in formulation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.49960474308300395,
+        "fired": 632,
+        "n_train_normal": 1265,
+        "threshold": 0.021505376344086023,
+        "threshold_kind": "ratio>median",
+        "seed": 42
+      }
+    },
+    {
+      "name": "carboxylic_acid_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[OX2H1]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.59,
+      "description": "High carboxylic acid density may cause pH instability in product",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2,
+        "fired": 253,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "amide_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[CX3](=O)[NX3]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.58,
+      "description": "High amide ratio may lead to hydrolysis in storage",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.3264822134387352,
+        "fired": 413,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "ether_group_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[OD2]([#6])[#6]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.57,
+      "description": "High ether ratio may lead to cleavage in product environment",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.42371541501976284,
+        "fired": 536,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    },
+    {
+      "name": "halogen_any_ratio",
+      "type": "smarts_ratio",
+      "smarts": "[F,Cl,Br,I]",
+      "normalizer": "atom_count",
+      "direction": "higher",
+      "confidence": 0.64,
+      "description": "High halogen density may lead to impurity formation or degradation",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.2774703557312253,
+        "fired": 351,
+        "n_train_normal": 1265,
+        "threshold": 0.0,
+        "threshold_kind": "ratio>0",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p3_sider/SIDER_task2__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-19T23:03:04.835225"
+}

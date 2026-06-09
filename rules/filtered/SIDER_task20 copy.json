@@ -1,0 +1,70 @@
+{
+  "task_key": "SIDER_task20",
+  "split_seed": 42,
+  "firing_lo": 0.05,
+  "firing_hi": 0.7,
+  "n_train_normal": 370,
+  "n_input_rules": 6,
+  "n_kept": 2,
+  "n_rejected": 4,
+  "rejects": [
+    {
+      "index": 1,
+      "name": "aromatic_piperazine",
+      "reason": "fire_rate:0.0027"
+    },
+    {
+      "index": 2,
+      "name": "hydrazine_group",
+      "reason": "fire_rate:0.0054"
+    },
+    {
+      "index": 3,
+      "name": "phenethylamine_scaffold",
+      "reason": "fire_rate:0.0000"
+    },
+    {
+      "index": 4,
+      "name": "tricyclic_fused_ring",
+      "reason": "fire_rate:0.0000"
+    }
+  ],
+  "rules": [
+    {
+      "name": "tertiary_amine_aromatic",
+      "type": "smarts_count",
+      "smarts": "[NX3]([#6])([#6])[#6]",
+      "direction": "higher",
+      "confidence": 0.92,
+      "description": "Presence of tertiary amine directly attached to aromatic ring, linked to CNS penetration and psychotropic activity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.28378378378378377,
+        "fired": 105,
+        "n_train_normal": 370,
+        "threshold": 1.0,
+        "threshold_kind": "count>=1",
+        "seed": 42
+      }
+    },
+    {
+      "name": "high_logp_cns_penetration",
+      "type": "descriptor",
+      "descriptor": "logp",
+      "direction": "higher",
+      "confidence": 0.95,
+      "description": "LogP > 3.5 enables blood-brain barrier penetration, a key mechanism for psychiatric toxicity",
+      "_filter": {
+        "direction_resolved": "higher",
+        "fire_rate_train_normal": 0.5,
+        "fired": 185,
+        "n_train_normal": 370,
+        "threshold": 1.8417,
+        "threshold_kind": "desc>median",
+        "seed": 42
+      }
+    }
+  ],
+  "source_rule_cache": "/home/suxue/sibyl_system/mol-rule-anomaly/shared/rule_cache_v2p2max50/SIDER_task20__Qwen_Qwen3-4B-Instruct-2507.json",
+  "generated_at": "2026-05-18T22:40:12.298819"
+}
