@@ -1,8 +1,8 @@
-# ChemRuleAD
+# RuleAD
 
-![ChemRuleAD architecture](figures/chemrulead.png)
+![RuleAD architecture](figures/chemrulead.png)
 
-*ChemRuleAD architecture. A frozen LLM authors task-specific chemistry rules, and a graph-attention autoencoder over an inter-molecule graph (graph channel) plus a tail scorer over raw rule values (rule channel) are fused by rank sum.*
+*RuleAD architecture. A frozen LLM authors task-specific chemistry rules, and a graph-attention autoencoder over an inter-molecule graph (graph channel) plus a tail scorer over raw rule values (rule channel) are fused by rank sum.*
 
 ## File Structure
 
@@ -98,11 +98,11 @@ Optional:
 python main.py --data-dir ./data --datasets BBBP ClinTox --seeds 42 123
 ```
 
-For each task the command prints the graph-only, rule-only, and fused ChemRuleAD AUROC results, then reports per-dataset mean AUROCs.
+For each task the command prints the graph-only, rule-only, and fused RuleAD AUROC results, then reports per-dataset mean AUROCs.
 
 ## Reproducing the main results
 
-The command reproduces the ChemRuleAD numbers in the paper's main table (**Table I**) and the channel breakdown (**Table II**).
+The command reproduces the RuleAD numbers in the paper's main table (**Table I**) and the channel breakdown (**Table II**).
 
 ```
 python main.py --data-dir ./data --out results.json
@@ -112,9 +112,9 @@ Expected mean AUROC over the five seeds:
 
 | Variant | BBBP | ClinTox | HIV | Tox21 | SIDER | Avg. |
 | --- | --- | --- | --- | --- | --- | --- |
-| ChemRuleAD-rule  | 0.8053 | 0.6867 | 0.6575 | 0.6543 | 0.5536 | 0.6715 |
-| ChemRuleAD-graph | 0.8071 | 0.6985 | 0.6169 | 0.6496 | 0.5420 | 0.6628 |
-| ChemRuleAD | 0.8411 | 0.7116 | 0.6442 | 0.6745 | 0.5509 | 0.6845 |
+| RuleAD-rule  | 0.8053 | 0.6867 | 0.6575 | 0.6543 | 0.5536 | 0.6715 |
+| RuleAD-graph | 0.8071 | 0.6985 | 0.6169 | 0.6496 | 0.5420 | 0.6628 |
+| RuleAD | 0.8411 | 0.7116 | 0.6442 | 0.6745 | 0.5509 | 0.6845 |
 
 The paper also reports a generic-rules ablation (**Table IV**), where the task description is removed from the prompt, and the rulebook is matched to each task's rule count.
 
@@ -126,6 +126,6 @@ Expected generic-rules AUROC (seed 42):
 
 | Variant | BBBP | ClinTox | HIV | Tox21 | SIDER | Avg. |
 | --- | --- | --- | --- | --- | --- | --- |
-| ChemRuleAD-rule | 0.7742 | 0.6452 | 0.6125 | 0.5728 | 0.5394 | 0.6288 |
-| ChemRuleAD-graph | 0.7991 | 0.6958 | 0.6234 | 0.6330 | 0.5362 | 0.6575 |
-| ChemRuleAD | 0.8166 | 0.6851 | 0.6235 | 0.6146 | 0.5391 | 0.6558 |
+| RuleAD-rule | 0.7742 | 0.6452 | 0.6125 | 0.5728 | 0.5394 | 0.6288 |
+| RuleAD-graph | 0.7991 | 0.6958 | 0.6234 | 0.6330 | 0.5362 | 0.6575 |
+| RuleAD | 0.8166 | 0.6851 | 0.6235 | 0.6146 | 0.5391 | 0.6558 |
