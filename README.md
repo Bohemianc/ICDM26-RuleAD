@@ -2,7 +2,7 @@
 
 ![RuleAD architecture](figures/chemrulead.png)
 
-*RuleAD architecture. A frozen LLM authors task-specific chemistry rules, and a graph-attention autoencoder over an inter-molecule graph (graph channel) plus a tail scorer over raw rule values (rule channel) are fused by rank sum.*
+*RuleAD architecture. A frozen LLM authors task-specific rules, and a graph-attention autoencoder over an inter-sample graph (graph channel) plus a tail scorer over raw rule values (rule channel) are fused by rank sum.*
 
 ## File Structure
 
